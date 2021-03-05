@@ -1,0 +1,40 @@
+version: 2.1
+jobs:
+  deploy_appstore:
+    macos:
+      xcode: 12.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - checkout
+      - deploy:
+          name: Deploy AppStore
+          command: fastlane prod
+      - store_artifacts:
+          path: output
+  deploy_staging:
+    macos:
+      xcode: 12.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+    steps:
+      - checkout
+      - deploy:
+          name: Deploy Staging
+          command: fastlane staging
+      - store_artifacts:
+          path: output
+
+workflows:
+  deploy_release:
+    jobs:
+      - deploy_appstore:
+          filters:
+            branches:
+              only: master
+  deploy_staging:
+    jobs:
+      - deploy_staging:
+          filters:
+            branches:
+              only: develop

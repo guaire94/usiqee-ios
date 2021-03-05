@@ -1,0 +1,54 @@
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    setup_circle_ci
+    increment_build_number({
+        build_number: latest_testflight_build_number + 1
+    })
+    match(git_url: "git@github.com:guaire94/Usiqee-certificates.git",
+        type: "appstore",
+        app_identifier: "com.usiqee.app.Usiqee",
+        verbose: false,
+        readonly: true
+    )
+  end
+
+  desc "Regenerate Fastlane Session"
+  lane :regenerate_fastlane_session do
+    spaceauth_output = `fastlane spaceauth -u quentin.gallois.epitech@gmail.com`
+    fastlane_session_regex = %r{Pass the following via the FASTLANE_SESSION environment variable:\n(?<session>.+)\n\n\nExample:\n.+}
+    new_session = nil
+    if match = spaceauth_output.match(fastlane_session_regex)
+      new_session = match[:session].gsub("\e[4m\e[36m", "").gsub("\e[0m\e[0m", "")
+    end
+
+    if new_session.nil?
+      puts "Unable to obtain new session via fastlane spaceauth"
+      exit 1
+    else
+      puts new_session
+    end
+  end
+
+  desc "Push a new prod build to TestFlight"
+  lane :prod do
+       build_app(workspace: "Usiqee.xcworkspace", configuration: "Release", scheme: "Usiqee", silent: true)
+  end
+
+  desc "Push a new staging build to TestFlight"
+  lane :staging do
+       build_app(workspace: "Usiqee.xcworkspace", configuration: "Debug", scheme: "Usiqee", silent: true)
+  end
+
+  after_all do
+    upload_symbols_to_crashlytics(dsym_paths: lane_context[SharedValues::DSYM_OUTPUT_PATH])
+    upload_to_testflight(
+      username: "amadou_g@hotmail.fr",
+      app_identifier: "com.usiqee.app.Usiqee",
+      apple_id: "1537330103",
+      skip_waiting_for_build_processing: true
+    )
+  end
+  
+end

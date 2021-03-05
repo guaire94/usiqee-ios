@@ -1,0 +1,89 @@
+/* 
+  Localizable.strings
+  Usiqee
+
+  Created by Quentin Gallois on 20/10/2020.
+  
+*/
+
+"GLOBAL_ACTIONS_CONFIRM"="Confirmer";
+"GLOBAL_ACTIONS_OK"="Ok";
+"GLOBAL_ACTIONS_CANCEL"="Annuler";
+"GLOBAL_ACTIONS_MAYBE_LATER"="Plus tard";
+"GLOBAL_ACTIONS_DELETE"="Supprimer";
+
+"GLOBAL_DATE_TIMEAGO" = "Il y a %@";
+
+"USER_FORM_MAIL"="Email";
+"USER_FORM_PASSWORD"="Mot de passe";
+"USER_FORM_FIRSTNAME"="Prénom";
+"USER_FORM_LASTNAME"="Nom";
+
+"USER_FORM_ERROR_MAIL"="Probléme avec l'email";
+"USER_FORM_ERROR_PASSWORD"="Probléme avec le mot de passe";
+
+"SIGNIN_TITLE"="Se connecter";
+"SIGNIN_NOACCOUNT"="Pas encore sur Usiqee ?";
+"SIGNIN_FORM_VALID"="Se connecter";
+
+"SIGNUP_TITLE"="S'inscrire";
+"SIGNUP_FORM_VALID"="S'inscrire";
+
+"AFFILIATE_TO_CLUB_TITLE"="Vous n'êtes pas encore affilié à un club";
+"AFFILIATE_TO_CLUB_SUBTITLE"="Entrez le code d'affiliation de votre club";
+"AFFILIATE_TO_CLUB_FORM_AFFILIATION_CODE"="Code d'affiliation";
+"AFFILIATE_TO_CLUB_FORM_SPORT"="Sport";
+"AFFILIATE_TO_CLUB_FORM_CATEGORY"="Catégorie";
+"AFFILIATE_TO_CLUB_FORM_SUBCATEGORY"="Sous-catégorie";
+"AFFILIATE_TO_CLUB_FORM_ERROR_AFFILIATION_CODE"="Le code d'affiliation ne correspond à aucun club";
+
+"AFFILIATE_TO_CLUB_SUCCESS_TITLE"="Demande d'affiliation réussi";
+"AFFILIATE_TO_CLUB_SUCCESS_SUBTITLE"="Le club a reçu votre demande d'affiliation et te répondra rapidement";
+"AFFILIATE_TO_CLUB_SUCCESS_ACTIVE_NOTIFICATIONS"="Activer les notifcations";
+
+"ACCOUNT_SPORT_DESCRIPTION"="Entraineur de %@";
+"ACCOUNT_MY_INFORMATIONS"="Mes informations";
+"ACCOUNT_MY_EVENTS"="Mes évènements";
+
+"MAP_FILTER_TITLE"="Filtres";
+"MAP_FILTER_START_DATE"="Du";
+"MAP_FILTER_END_DATE"="Au";
+
+"EVENT_TYPE_FRIENDLY"="Amical";
+"EVENT_TYPE_TOURNAMENT"="Tournoi";
+"EVENT_TYPE_PLATEAU"="Plateau";
+
+"EVENT_INFORMATIONS_NB_TEAMS"="%d Equipes";
+
+"EVENT_PARTICIPANT_OWNER"="Organisateur - %@";
+"EVENT_PARTICIPANT_PARTICIPANT"="Participant - %@";
+"EVENT_PARTICIPANT_ACTION_REFUSED"="Refuser";
+"EVENT_PARTICIPANT_ACTION_VALIDATE"="Accepter";
+"EVENT_PARTICIPANT_ACTION_CANCEL"="Ne plus participer à cet évènement";
+"EVENT_PARTICIPANT_ACTION_PARTICIPATION"="%@ veux participer à l'évènement";
+
+"EVENT_PARTICIPATE"="Participer";
+
+"EVENT_CREATE_TITLE"="Nouvel évènement";
+"EVENT_CREATE_FORM_NAME"="Titre";
+"EVENT_CREATE_FORM_DESC"="Description";
+"EVENT_CREATE_FORM_TYPE"="Type";
+"EVENT_CREATE_FORM_NBTEAMS"="Nombre d'équipes";
+"EVENT_CREATE_FORM_DATE_AND_HOUR"="Date et Heure";
+"EVENT_CREATE_FORM_ADDRESS"="Adresse";
+"EVENT_CREATE_FORM_VALID"="Organiser";
+
+"EVENT_MODIFY_TITLE"="Modification";
+"EVENT_MODIFY_FORM_VALID"="Modifier";
+"EVENT_MODIFY_FORM_CANCEL"="Annuler l'évènement";
+
+"CHAT_TITLE"="Discussions";
+"CHAT_PLACEHOLDER"="Participer à des évènements via l'agenda ou la carte si vous souhaitez discuter avec d'autres coachs";
+"CHAT_PICTURE"="Photo";
+
+"ADDRESSSEARCH_SEARCHPLACEHOLDER"="Recherche...";
+
+"VERSION_NEW" = "Nouvelle version";
+"VERSION_AVAILABLE" = "Une nouvelle version de l'application est disponible";
+"VERSION_REDIRECT_APPSTORE" = "Aller sur l'Appstore";
+"VERSION_UPDATE_LATER" = "Mettre à jour plus tard";

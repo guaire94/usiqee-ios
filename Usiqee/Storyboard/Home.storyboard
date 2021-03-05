@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JZr-Hz-fRq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TabsVC-->
+        <scene sceneID="cJK-Q9-hZ4">
+            <objects>
+                <tabBarController id="JZr-Hz-fRq" customClass="TabsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="lia-Ho-qlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="cYH-EV-31w" kind="presentation" identifier="SignInVC" id="VwM-Ed-Ikr"/>
+                        <segue destination="gUE-DA-Asu" kind="relationship" relationship="viewControllers" id="wTz-cl-RCj"/>
+                        <segue destination="ayI-CW-emR" kind="relationship" relationship="viewControllers" id="QeH-lS-t8o"/>
+                        <segue destination="xBo-SK-PVM" kind="relationship" relationship="viewControllers" id="R5r-HP-9zP"/>
+                        <segue destination="9vW-Gt-a26" kind="relationship" relationship="viewControllers" id="5PE-Kv-Z2T"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwG-ch-55a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2047" y="436"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ysd-ek-yKp">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="9vW-Gt-a26" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="account" id="BMm-Ph-DSi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zIl-jW-yqD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zDE-L6-4Pe" kind="relationship" relationship="rootViewController" id="VIz-H9-JPN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQc-qg-6RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862" y="1355"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="rQZ-0q-8L9">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="ayI-CW-emR" userLabel="Map" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="agenda" id="J4V-5G-psZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="42f-7f-hj6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0Sh-gM-E9Q" kind="relationship" relationship="rootViewController" id="huW-yu-G79"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6x-n5-hci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2754" y="1367"/>
+        </scene>
+        <!--Agenda-->
+        <scene sceneID="kS0-V0-sIg">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="gUE-DA-Asu" userLabel="Agenda" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="news" id="cLg-ic-vkO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dtt-p0-b7R">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rbG-mw-IYu" kind="relationship" relationship="rootViewController" id="5oG-bF-r0T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yY3-MU-Gae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3675" y="1368"/>
+        </scene>
+        <!--Agenda-->
+        <scene sceneID="pXc-80-moC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Agenda" id="0Sh-gM-E9Q" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xmd-MT-BMX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYH-8M-h8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2755" y="1794"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="Bkz-q2-coT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="cYH-EV-31w" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wsR-z1-S8v"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tQD-cO-w2v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1501" y="436"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="Bsy-ms-bl7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" id="rbG-mw-IYu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="iPd-v7-lun"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKu-1W-6ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3675" y="1794"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="AbZ-zN-l6W">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Account" id="zDE-L6-4Pe" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7kv-xa-JR9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OrY-rX-K85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862" y="1794"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LXh-wL-IJX">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="xBo-SK-PVM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="artist" id="TRI-zW-nqB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X7O-RW-1Gn">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FLV-77-vdP" kind="relationship" relationship="rootViewController" id="5gc-yM-03c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7k-2W-bCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1730" y="1355"/>
+        </scene>
+        <!--Artist-->
+        <scene sceneID="IVX-uQ-aoe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Artist" id="FLV-77-vdP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fBm-8J-UGy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNC-BY-qs3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1730" y="1794"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="account" width="25" height="25"/>
+        <image name="agenda" width="25" height="25"/>
+        <image name="artist" width="33" height="40"/>
+        <image name="news" width="30" height="30"/>
+    </resources>
+</document>
