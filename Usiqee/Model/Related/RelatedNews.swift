@@ -10,6 +10,7 @@ import Firebase
 struct RelatedNews: Codable {
     var newsId: String
     var cover: String
+    var author: String
     var title: String
     var createdAt: Timestamp
 }

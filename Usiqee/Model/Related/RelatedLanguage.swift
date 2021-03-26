@@ -7,5 +7,5 @@
 
 struct RelatedLanguage: Codable {
     var languageId: String
-    var icon: String
+    var name: String
 }

@@ -78,6 +78,7 @@
 		EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05725ED24E500D7A965 /* NewsVC.swift */; };
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
+		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
 		EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAD11825ED66DA0062F901 /* Account.storyboard */; };
 		EEEAD11D25ED67E50062F901 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAD11C25ED67E50062F901 /* AccountVC.swift */; };
 /* End PBXBuildFile section */
@@ -158,6 +159,7 @@
 		EE96B05725ED24E500D7A965 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
 		EEEAD11825ED66DA0062F901 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		EEEAD11C25ED67E50062F901 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		F912F9E23943BDE362DFF196 /* Pods-Usiqee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Usiqee.debug.xcconfig"; path = "Target Support Files/Pods-Usiqee/Pods-Usiqee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				B84ECBB625403235007F8E9E /* ServiceAuth.swift */,
 				B87B26502542338D007D4A4D /* ServiceVersion.swift */,
+				EECAF244260DE63E00233ACB /* ServiceArtist.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
+				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
 				B836B6212548E45B00AAF48A /* UIButton+M.swift in Sources */,
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
@@ -943,6 +947,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Q6J6G98354;
 				INFOPLIST_FILE = Usiqee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -966,6 +971,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Q6J6G98354;
 				INFOPLIST_FILE = Usiqee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

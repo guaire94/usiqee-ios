@@ -262,16 +262,6 @@
             </objects>
             <point key="canvasLocation" x="920" y="82"/>
         </scene>
-        <!--EventDetailsVC-->
-        <scene sceneID="D2v-dA-Tzz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Event" referencedIdentifier="EventDetailsVC" id="jLF-U8-GRZ" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="AaB-43-Iyi"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yFV-st-7tk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="141" y="1178"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Button" width="320" height="52"/>

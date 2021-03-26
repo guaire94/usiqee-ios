@@ -75,7 +75,7 @@ extension AnimateLaunchScreenVC {
                 L10N.version.available, preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: L10N.version.redirectAppStore, style: .default, handler: { (_) in
                 if let url = URL(string: Config.AppStoreLink), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
+                    UIApplication.shared.open(url, options: [:]) { (_) in }
                 }
             }))
             alertController.addAction(UIAlertAction(title: L10N.version.updateLater, style: .cancel, handler: { (_) in
@@ -91,7 +91,7 @@ extension AnimateLaunchScreenVC {
                 L10N.version.available, preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: L10N.version.redirectAppStore, style: .default, handler: { (_) in
                 if let url = URL(string: Config.AppStoreLink), UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
+                    UIApplication.shared.open(url, options: [:]) { (_) in }
                 }
             }))
             self.present(alertController, animated: true, completion: nil)
