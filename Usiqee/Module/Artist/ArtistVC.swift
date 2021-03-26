@@ -16,6 +16,9 @@ class ArtistVC: UIViewController {
     }
 
     // MARK: - IBOutlet
+    @IBOutlet private weak var searchTextField: UITextField!
+    @IBOutlet private weak var artistsLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     //MARK: - Properties
 
@@ -27,5 +30,12 @@ class ArtistVC: UIViewController {
 
     // MARK: - Privates
     private func setUpView() {
+    }
+}
+
+// MARK: - IBAction
+extension ArtistVC {
+    
+    @IBAction func searchButtonToggle(_ sender: Any) {
     }
 }
