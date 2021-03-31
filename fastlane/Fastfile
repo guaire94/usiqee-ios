@@ -6,7 +6,7 @@ platform :ios do
     increment_build_number({
         build_number: latest_testflight_build_number + 1
     })
-    match(git_url: "git@github.com:guaire94/Usiqee-certificates.git",
+    match(git_url: "git@github.com:guaire94/usiqee-certificates.git",
         type: "appstore",
         app_identifier: "com.usiqee.app.Usiqee",
         verbose: false,

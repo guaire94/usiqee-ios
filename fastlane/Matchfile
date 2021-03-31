@@ -1,4 +1,4 @@
 storage_mode("git")
-git_url("git@github.com:guaire94/Usiqee-certificates.git")
+git_url("git@github.com:guaire94/usiqee-certificates.git")
 app_identifier("com.usiqee.app.Usiqee")
-username("amadou_g@hotmail.fr")
+username("usiqee.app@gmail.com")
