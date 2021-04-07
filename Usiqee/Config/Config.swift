@@ -7,7 +7,7 @@
 
 
 enum Config {
-    static var AppStoreLink = "itms-apps://itunes.apple.com/app/id1105748988"
+    static var AppStoreLink = "itms-apps://itunes.apple.com/app/id1561023361"
     
     #if DEBUG
         static var WormholyIsEnabled = true
