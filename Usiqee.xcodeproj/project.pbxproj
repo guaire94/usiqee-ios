@@ -16,6 +16,9 @@
 		65CF699C25681A7400CB9AF7 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF699A25681A7400CB9AF7 /* EventCell.swift */; };
 		65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CF699B25681A7400CB9AF7 /* EventCell.xib */; };
 		65CF69A325681BBA00CB9AF7 /* MEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF69A225681BBA00CB9AF7 /* MEventType.swift */; };
+		670C4DF6261E337E005A72E2 /* ServiceBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C4DF5261E337E005A72E2 /* ServiceBand.swift */; };
+		670C4DFA261E4175005A72E2 /* ArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C4DF8261E4175005A72E2 /* ArtistListCell.swift */; };
+		670C4DFB261E4175005A72E2 /* ArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670C4DF9261E4175005A72E2 /* ArtistListCell.xib */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -94,6 +97,9 @@
 		65CF699A25681A7400CB9AF7 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		65CF699B25681A7400CB9AF7 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		65CF69A225681BBA00CB9AF7 /* MEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEventType.swift; sourceTree = "<group>"; };
+		670C4DF5261E337E005A72E2 /* ServiceBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceBand.swift; sourceTree = "<group>"; };
+		670C4DF8261E4175005A72E2 /* ArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListCell.swift; sourceTree = "<group>"; };
+		670C4DF9261E4175005A72E2 /* ArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListCell.xib; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -203,6 +209,15 @@
 				652B32522572C6ED008FFA60 /* NewsSection.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		670C4DF3261E303B005A72E2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				670C4DF8261E4175005A72E2 /* ArtistListCell.swift */,
+				670C4DF9261E4175005A72E2 /* ArtistListCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		831C7A2813CE126EF0B332FB /* Pods */ = {
@@ -432,6 +447,7 @@
 				B84ECBB625403235007F8E9E /* ServiceAuth.swift */,
 				B87B26502542338D007D4A4D /* ServiceVersion.swift */,
 				EECAF244260DE63E00233ACB /* ServiceArtist.swift */,
+				670C4DF5261E337E005A72E2 /* ServiceBand.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -511,6 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				EE0921DD25F15A77002C0174 /* ArtistVC.swift */,
+				670C4DF3261E303B005A72E2 /* Cells */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -656,6 +673,7 @@
 				B8632C8B255AFCED00B196E5 /* Agenda.storyboard in Resources */,
 				B8CE1AAD253F6FC9002AC5A5 /* Auth.storyboard in Resources */,
 				B8FDE3AC253F780F00BD29B2 /* Localizable.strings in Resources */,
+				670C4DFB261E4175005A72E2 /* ArtistListCell.xib in Resources */,
 				B8CE19CA253DBAE7002AC5A5 /* Assets.xcassets in Resources */,
 				B8CE19C8253DBAE5002AC5A5 /* News.storyboard in Resources */,
 				B8FDE3A7253F761100BD29B2 /* GoogleService-Info.plist in Resources */,
@@ -737,6 +755,7 @@
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
 				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
 				B836B6212548E45B00AAF48A /* UIButton+M.swift in Sources */,
+				670C4DFA261E4175005A72E2 /* ArtistListCell.swift in Sources */,
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
 				EE0921F325F15EBD002C0174 /* RelatedAuthor.swift in Sources */,
@@ -748,6 +767,7 @@
 				B84ECBC5254064AD007F8E9E /* User.swift in Sources */,
 				EE09221925F16518002C0174 /* MItemType.swift in Sources */,
 				B87BDA0C253F8E0A00252B96 /* UIViewController+M.swift in Sources */,
+				670C4DF6261E337E005A72E2 /* ServiceBand.swift in Sources */,
 				B87BDA06253F7D1000252B96 /* MTextField.swift in Sources */,
 				EE0921ED25F15E1F002C0174 /* RelatedBand.swift in Sources */,
 				EE0921F025F15E36002C0174 /* RelatedNews.swift in Sources */,
