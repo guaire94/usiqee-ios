@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "agenda.pdf",
-      "idiom" : "universal"
+      "filename" : "Calendar.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Calendar@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Calendar@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
