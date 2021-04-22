@@ -19,6 +19,17 @@
 		670C4DF6261E337E005A72E2 /* ServiceBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C4DF5261E337E005A72E2 /* ServiceBand.swift */; };
 		670C4DFA261E4175005A72E2 /* ArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C4DF8261E4175005A72E2 /* ArtistListCell.swift */; };
 		670C4DFB261E4175005A72E2 /* ArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670C4DF9261E4175005A72E2 /* ArtistListCell.xib */; };
+		6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */; };
+		6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */; };
+		6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */; };
+		676EAF162630AAEE00656B91 /* ArtistBandBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF152630AAEE00656B91 /* ArtistBandBase.swift */; };
+		676EAF192630C86700656B91 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF182630C86700656B91 /* Fonts.swift */; };
+		676EAF1D2630CB7C00656B91 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF1C2630CB7C00656B91 /* CircularImageView.swift */; };
+		676EAF212630D54800656B91 /* SofiaProBoldAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 676EAF202630D54800656B91 /* SofiaProBoldAz.otf */; };
+		67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */; };
+		67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */; };
+		67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */; };
+		67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -100,6 +111,17 @@
 		670C4DF5261E337E005A72E2 /* ServiceBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceBand.swift; sourceTree = "<group>"; };
 		670C4DF8261E4175005A72E2 /* ArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListCell.swift; sourceTree = "<group>"; };
 		670C4DF9261E4175005A72E2 /* ArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListCell.xib; sourceTree = "<group>"; };
+		6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MSegmentedMenu.xib; sourceTree = "<group>"; };
+		6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSegmentedMenu.swift; sourceTree = "<group>"; };
+		6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularAz.otf; sourceTree = "<group>"; };
+		676EAF152630AAEE00656B91 /* ArtistBandBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBandBase.swift; sourceTree = "<group>"; };
+		676EAF182630C86700656B91 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		676EAF1C2630CB7C00656B91 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		676EAF202630D54800656B91 /* SofiaProBoldAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProBoldAz.otf; sourceTree = "<group>"; };
+		67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtistVC.swift; sourceTree = "<group>"; };
+		67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllArtistVC.xib; sourceTree = "<group>"; };
+		67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVCDataSource.swift; sourceTree = "<group>"; };
+		67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsVC.swift; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -220,6 +242,41 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		6751E06A262CBC0B00AC6509 /* MSegmentedMenu */ = {
+			isa = PBXGroup;
+			children = (
+				6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */,
+				6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */,
+			);
+			path = MSegmentedMenu;
+			sourceTree = "<group>";
+		};
+		676EAF1B2630CB7000656B91 /* CircularImageView */ = {
+			isa = PBXGroup;
+			children = (
+				676EAF1C2630CB7C00656B91 /* CircularImageView.swift */,
+			);
+			path = CircularImageView;
+			sourceTree = "<group>";
+		};
+		67F720A8262C183000C9C84E /* AllArtist */ = {
+			isa = PBXGroup;
+			children = (
+				670C4DF3261E303B005A72E2 /* Cells */,
+				67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */,
+				67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */,
+			);
+			path = AllArtist;
+			sourceTree = "<group>";
+		};
+		67F720D6262C312A00C9C84E /* ArtistDetails */ = {
+			isa = PBXGroup;
+			children = (
+				67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */,
+			);
+			path = ArtistDetails;
+			sourceTree = "<group>";
+		};
 		831C7A2813CE126EF0B332FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +289,8 @@
 		B82FE3A2255DF0D000B52099 /* Fields */ = {
 			isa = PBXGroup;
 			children = (
+				676EAF1B2630CB7000656B91 /* CircularImageView */,
+				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
 				B82FE3A4255DF0D700B52099 /* MDatePickerField */,
 				B84ECBD825407417007F8E9E /* MPickerField */,
 				B87BDA03253F7CC300252B96 /* MTextField */,
@@ -430,13 +489,13 @@
 		B8CE1A9C253F3389002AC5A5 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				B87B264E254232CC007D4A4D /* AnimatedLaunchScreen */,
 				B87BDA02253F7CBB00252B96 /* Global */,
-				B8CE1AAF253F6FF2002AC5A5 /* Auth */,
-				B8CE1AA1253F3417002AC5A5 /* News */,
+				B87B264E254232CC007D4A4D /* AnimatedLaunchScreen */,
+				EEEAD11B25ED67C30062F901 /* Account */,
 				B8632C80255AF8FA00B196E5 /* Agenda */,
 				EE0921DC25F15A5C002C0174 /* Artist */,
-				EEEAD11B25ED67C30062F901 /* Account */,
+				B8CE1AAF253F6FF2002AC5A5 /* Auth */,
+				B8CE1AA1253F3417002AC5A5 /* News */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -519,6 +578,9 @@
 		B8FDE3B1253F799900BD29B2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				676EAF202630D54800656B91 /* SofiaProBoldAz.otf */,
+				6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */,
+				676EAF182630C86700656B91 /* Fonts.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -527,7 +589,9 @@
 			isa = PBXGroup;
 			children = (
 				EE0921DD25F15A77002C0174 /* ArtistVC.swift */,
-				670C4DF3261E303B005A72E2 /* Cells */,
+				67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */,
+				67F720A8262C183000C9C84E /* AllArtist */,
+				67F720D6262C312A00C9C84E /* ArtistDetails */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -560,6 +624,7 @@
 				B87B2637254225C2007D4A4D /* Follower.swift */,
 				EE0921E225F15DA5002C0174 /* Like.swift */,
 				EE0921E525F15DD4002C0174 /* Comment.swift */,
+				676EAF152630AAEE00656B91 /* ArtistBandBase.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -666,6 +731,7 @@
 				65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */,
 				B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */,
 				EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */,
+				67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */,
 				EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
 				EE0921D925F15A47002C0174 /* Artist.storyboard in Resources */,
@@ -675,6 +741,9 @@
 				B8FDE3AC253F780F00BD29B2 /* Localizable.strings in Resources */,
 				670C4DFB261E4175005A72E2 /* ArtistListCell.xib in Resources */,
 				B8CE19CA253DBAE7002AC5A5 /* Assets.xcassets in Resources */,
+				6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */,
+				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
+				676EAF212630D54800656B91 /* SofiaProBoldAz.otf in Resources */,
 				B8CE19C8253DBAE5002AC5A5 /* News.storyboard in Resources */,
 				B8FDE3A7253F761100BD29B2 /* GoogleService-Info.plist in Resources */,
 			);
@@ -749,6 +818,7 @@
 			files = (
 				B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
+				67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
@@ -763,6 +833,7 @@
 				B87B26512542338D007D4A4D /* ServiceVersion.swift in Sources */,
 				EE09220825F16308002C0174 /* MReleaseType.swift in Sources */,
 				B84ECBB725403235007F8E9E /* ServiceAuth.swift in Sources */,
+				6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */,
 				EE0921DE25F15A77002C0174 /* ArtistVC.swift in Sources */,
 				B84ECBC5254064AD007F8E9E /* User.swift in Sources */,
 				EE09221925F16518002C0174 /* MItemType.swift in Sources */,
@@ -772,6 +843,7 @@
 				EE0921ED25F15E1F002C0174 /* RelatedBand.swift in Sources */,
 				EE0921F025F15E36002C0174 /* RelatedNews.swift in Sources */,
 				EE09221D25F16583002C0174 /* Language.swift in Sources */,
+				67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */,
 				B84ECBF52541AFD8007F8E9E /* Band.swift in Sources */,
 				B84ECBC025403840007F8E9E /* Config.swift in Sources */,
 				EE0921EA25F15DF8002C0174 /* RelatedArtist.swift in Sources */,
@@ -789,9 +861,12 @@
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,
 				EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */,
 				B87B2638254225C2007D4A4D /* Follower.swift in Sources */,
+				676EAF162630AAEE00656B91 /* ArtistBandBase.swift in Sources */,
 				B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */,
 				EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */,
+				676EAF192630C86700656B91 /* Fonts.swift in Sources */,
 				B8CE19C3253DBAE5002AC5A5 /* SceneDelegate.swift in Sources */,
+				676EAF1D2630CB7C00656B91 /* CircularImageView.swift in Sources */,
 				B84ECBDC25407436007F8E9E /* MPickerField.swift in Sources */,
 				EE0921E625F15DD4002C0174 /* Comment.swift in Sources */,
 				B87BDA10253F8E7300252B96 /* MEvent.swift in Sources */,
@@ -805,6 +880,7 @@
 				EE09220225F1616F002C0174 /* RelatedLanguage.swift in Sources */,
 				B8FDE37D253F730F00BD29B2 /* L10N.swift in Sources */,
 				65CF699C25681A7400CB9AF7 /* EventCell.swift in Sources */,
+				67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +1048,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
@@ -996,7 +1072,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";

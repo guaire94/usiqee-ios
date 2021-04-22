@@ -8,11 +8,6 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Artist: Identifiable, Codable {
-    @DocumentID var id: String?
-    var avatar: String
-    var name: String
-    var labelName: String?
-    var majorName: String?
-    var startActivityDate: Timestamp
+class Artist: ArtistBandBase {
+   
 }

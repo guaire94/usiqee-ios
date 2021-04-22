@@ -20,6 +20,10 @@ extension Timestamp {
     var hour: String {
         dateValue().hour
     }
+    
+    var year: String {
+        dateValue().year
+    }
 }
 
 extension Date {
@@ -44,7 +48,6 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
-    
     var hour: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
@@ -64,5 +67,12 @@ extension Date {
 
     func isBetween(_ date1: Date, and date2: Date) -> Bool {
         (min(date1, date2) ... max(date1, date2)).contains(self)
+    }
+    
+    var year: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: self)
     }
 }

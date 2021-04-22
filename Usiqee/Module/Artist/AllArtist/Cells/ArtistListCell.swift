@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+import FirebaseUI
 
 class ArtistListCell: UICollectionViewCell {
 
@@ -20,21 +20,15 @@ class ArtistListCell: UICollectionViewCell {
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var artistImage: CircularImageView!
     
-    func configure(item: ArtistListItem) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        artistNameLabel.font = Fonts.AllArtist.Cell.title
+    }
+    
+    func configure(item: ArtistBandBase) {
         artistNameLabel.text = item.name
         
-        guard let url = URL(string: item.avatar) else {
-            return
-        }
-        
-        artistImage.kf.setImage(with: url)
-    }
-}
-
-class CircularImageView: UIImageView {
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.layer.cornerRadius = self.frame.size.height / 2
-        self.clipsToBounds = true
+        let storage = Storage.storage().reference(forURL: item.avatar)
+        artistImage.sd_setImage(with: storage)
     }
 }

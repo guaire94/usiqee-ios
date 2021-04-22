@@ -8,120 +8,99 @@
 import UIKit
 import Firebase
 
-struct ArtistListItem {
-    var avatar: String
-    var name: String
-    var isBand: Bool
-}
-
 class ArtistVC: UIViewController {
     
     //MARK: - Constant
     enum Constants {
         static let identifier = "ArtistVC"
+        fileprivate static let searchPlaceholderColor = UIColor.white.withAlphaComponent(0.2)
+        fileprivate static let searchPlaceholderCornerRadius: CGFloat = 15
     }
 
     // MARK: - IBOutlet
     @IBOutlet private weak var searchTextField: UITextField!
-    @IBOutlet private weak var artistsLabel: UILabel!
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchContainer: UIView!
+    @IBOutlet weak var contentStackView: UIStackView!
+    @IBOutlet weak var loadingView: UIView!
     
     //MARK: - Properties
-    private var allItems: [ArtistListItem] = []
-    private var items: [ArtistListItem] = []
+    weak var allArtistView: AllArtistVC?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadItems()
-        searchTextField.autocorrectionType = .no
-        searchTextField.inputAssistantItem.accessibilityHint = "amine"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ArtistDetailsVC.Constants.identifer {
+            guard let vc = segue.destination as? ArtistDetailsVC,
+                  let item = sender as? ArtistBandBase else { return }
+            vc.item = item
+        }
     }
 
     // MARK: - Privates
     private func setupView() {
-        collectionView.register(ArtistListCell.Constants.nib, forCellWithReuseIdentifier: ArtistListCell.Constants.identifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        setupSearchTextField()
+        loadAllArtistView()
+    }
+    
+    private func loadAllArtistView() {
+        let allArtistView = AllArtistVC(dataSource: self, delegate: self)
+        contentStackView.addArrangedSubview(allArtistView.view)
+        addChild(allArtistView)
+        allArtistView.didMove(toParent: self)
+        self.allArtistView = allArtistView
+    }
+
+    private func setupSearchTextField() {
+        searchTextField.delegate = self
+        searchContainer.clipsToBounds = true
+        searchContainer.layer.cornerRadius = Constants.searchPlaceholderCornerRadius
         searchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Search",attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.2)])
-    }
-    @objc
-    private func textFieldDidChange() {
-        guard let text = searchTextField.text?.uppercased(), !text.isEmpty else {
-            items = allItems
-            collectionView.reloadData()
-            return
-        }
-        
-        items = allItems.filter({ item -> Bool in
-            item.name.uppercased().contains(text)
-        })
-        collectionView.reloadData()
+        searchTextField.attributedPlaceholder = NSAttributedString(
+            string: L10N.Artist.searchPlaceholder,
+            attributes: [
+                NSAttributedString.Key.foregroundColor: Constants.searchPlaceholderColor
+            ]
+        )
     }
     
-    private func loadItems() {
-        let group = DispatchGroup()
-        
-        allItems.removeAll()
-        group.enter()
-        ServiceArtist.getArtists { artists in
-            self.allItems.append(contentsOf: artists.map({
-                ArtistListItem(avatar: $0.avatar, name: $0.name, isBand: false)
-            }))
-            group.leave()
-        }
-        
-        group.enter()
-        ServiceBand.getBands { bands in
-            self.allItems.append(contentsOf: bands.map({
-                ArtistListItem(avatar: $0.avatar, name: $0.name, isBand: true)
-            }))
-            group.leave()
-        }
-        
-        group.wait()
-        group.notify(queue: .main) {
-            self.allItems.sort { lItem, rItem -> Bool in
-                lItem.name < rItem.name
-            }
-            self.items = self.allItems
-            self.collectionView.reloadData()
-        }
+    private func refreshView() {
+        allArtistView?.refresh()
     }
 }
 
-// MARK: - IBAction
+// MARK: - Selectors
 extension ArtistVC {
-    
-    @IBAction func searchButtonToggle(_ sender: Any) {
+    @objc private func textFieldDidChange() {
+        refreshView()
     }
 }
 
-// MARK: - UICollectionViewDataSource
-extension ArtistVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistListCell.Constants.identifier, for: indexPath) as? ArtistListCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.configure(item: items[indexPath.row])
-        return cell
+// MARK: - ArtistVCDataSource
+extension ArtistVC: ArtistVCDataSource {
+    func filterBy() -> String? {
+        searchTextField.text
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
-extension ArtistVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let nbCell = 3
-        let nbSpacing = 10
-        let widthCell = (collectionView.frame.width / CGFloat(nbCell)) - CGFloat(nbSpacing)
-        let heightCell = widthCell * 1.28
-        return CGSize(width: widthCell, height: heightCell)
+// MARK: - AllArtistVCDelegate
+extension ArtistVC: AllArtistVCDelegate {
+    func didSelect(artist: ArtistBandBase) {
+        performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
+    }
+    
+    func didFinishLoadingArtists() {
+        loadingView.isHidden = true
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension ArtistVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
 }
