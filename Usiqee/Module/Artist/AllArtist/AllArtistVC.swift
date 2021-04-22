@@ -64,10 +64,6 @@ class AllArtistVC: UIViewController {
 
     // MARK: - Privates
     private func setupView() {
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
         setupArtistsCollectionView()
         artistsLabel.text = L10N.Artist.allArtist.title
         artistsLabel.font = Fonts.AllArtist.title

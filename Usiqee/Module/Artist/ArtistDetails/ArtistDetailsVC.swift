@@ -67,7 +67,9 @@ class ArtistDetailsVC: UIViewController {
         majorContent.text = item.majorName
         follewersLabel.text = L10N.ArtistDetails.followed(number: "1000")
         groupContainer.isHidden = true
-        if let groupName = item.groupName {
+        if item is Artist,
+           let arist = item as? Artist,
+           let groupName = arist.groupName {
             groupContent.text = groupName
             groupContainer.isHidden = false
         }

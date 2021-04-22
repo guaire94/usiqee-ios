@@ -14,6 +14,5 @@ class ArtistBandBase: Identifiable, Codable {
     var name: String
     var labelName: String?
     var majorName: String?
-    var groupName: String?
     var startActivityDate: Timestamp
 }
