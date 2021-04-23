@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ArtistVCDataSource: AnyObject {
-    func filterBy() -> String?
+    var filterBy: String? { get }
 }

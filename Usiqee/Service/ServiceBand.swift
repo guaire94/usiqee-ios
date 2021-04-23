@@ -5,8 +5,6 @@
 //  Created by Amine on 07/04/2021.
 //
 
-import Foundation
-
 class ServiceBand {
     
     static func getBands(completion: @escaping ([Band]) -> Void) {

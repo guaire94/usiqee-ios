@@ -20,11 +20,11 @@ class SignUpVC: UIViewController {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var email: MTextField!
-    @IBOutlet weak var password: MTextField!
-    @IBOutlet weak var username: MTextField!
-    @IBOutlet weak var validButton: UIButton!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var email: MTextField!
+    @IBOutlet weak private var password: MTextField!
+    @IBOutlet weak private var username: MTextField!
+    @IBOutlet weak private var validButton: UIButton!
 
     // MARK: - Variables
     weak var delegate: SignUpVCDelegate?

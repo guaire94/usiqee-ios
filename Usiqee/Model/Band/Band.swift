@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-class Band: ArtistBandBase {
+class Band: MusicalEntity {
    
 }
 

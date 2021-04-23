@@ -14,13 +14,13 @@ protocol MSegmentedMenuDelegate: AnyObject {
 class MSegmentedMenu: UIView {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var newsIsSelectedView: UIView!
-    @IBOutlet weak var calendarIsSelectedView: UIView!
-    @IBOutlet weak var discographyIsSelectedView: UIView!
-    @IBOutlet weak var newsLabel: UILabel!
-    @IBOutlet weak var calendarLabel: UILabel!
-    @IBOutlet weak var discographyLabel: UILabel!
+    @IBOutlet weak private var contentView: UIView!
+    @IBOutlet weak private var newsIsSelectedView: UIView!
+    @IBOutlet weak private var calendarIsSelectedView: UIView!
+    @IBOutlet weak private var discographyIsSelectedView: UIView!
+    @IBOutlet weak private var newsLabel: UILabel!
+    @IBOutlet weak private var calendarLabel: UILabel!
+    @IBOutlet weak private var discographyLabel: UILabel!
     
     private var currentSelectedItem: Int = 1
     weak var delegate: MSegmentedMenuDelegate?
@@ -34,30 +34,6 @@ class MSegmentedMenu: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-    }
-    
-    // MARK: - IBACtions
-    
-    @IBAction func onButtonTapped(_ sender: UIButton) {
-        guard sender.tag != currentSelectedItem else { return }
-        
-        currentSelectedItem = sender.tag
-        delegate?.didSelectItem(at: currentSelectedItem)
-        
-        newsIsSelectedView.isHidden = true
-        calendarIsSelectedView.isHidden = true
-        discographyIsSelectedView.isHidden = true
-        
-        switch sender.tag {
-        case 1:
-            newsIsSelectedView.isHidden = false
-        case 2:
-            calendarIsSelectedView.isHidden = false
-        case 3:
-            discographyIsSelectedView.isHidden = false
-        default:
-            break
-        }
     }
     
     // MARK: - Private
@@ -80,5 +56,30 @@ class MSegmentedMenu: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+}
+
+// MARK: - IBACtions
+extension MSegmentedMenu {
+    @IBAction func onButtonTapped(_ sender: UIButton) {
+        guard sender.tag != currentSelectedItem else { return }
+        
+        currentSelectedItem = sender.tag
+        delegate?.didSelectItem(at: currentSelectedItem)
+        
+        newsIsSelectedView.isHidden = true
+        calendarIsSelectedView.isHidden = true
+        discographyIsSelectedView.isHidden = true
+        
+        switch sender.tag {
+        case 1:
+            newsIsSelectedView.isHidden = false
+        case 2:
+            calendarIsSelectedView.isHidden = false
+        case 3:
+            discographyIsSelectedView.isHidden = false
+        default:
+            break
+        }
     }
 }

@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-class Artist: ArtistBandBase {
+class Artist: MusicalEntity {
     
     // MARK: - Private
     private enum CodingKeys: String, CodingKey {

@@ -9,7 +9,7 @@ import UIKit
 
 protocol AllArtistVCDelegate: AnyObject {
     func didFinishLoadingArtists()
-    func didSelect(artist: ArtistBandBase)
+    func didSelect(artist: MusicalEntity)
 }
 
 class AllArtistVC: UIViewController {
@@ -23,8 +23,8 @@ class AllArtistVC: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     //MARK: - Properties
-    private var allArtists: [ArtistBandBase] = []
-    private var filtredArtists: [ArtistBandBase] = []
+    private var allArtists: [MusicalEntity] = []
+    private var filtredArtists: [MusicalEntity] = []
     private var indexTitles: [String]?
     
     private weak var delegate: AllArtistVCDelegate?
@@ -52,7 +52,7 @@ class AllArtistVC: UIViewController {
             reload()
         }
         
-        guard let text = dataSource?.filterBy()?.uppercased(), !text.isEmpty else {
+        guard let text = dataSource?.filterBy?.uppercased(), !text.isEmpty else {
             filtredArtists = allArtists
             return
         }
@@ -70,7 +70,7 @@ class AllArtistVC: UIViewController {
     }
     
     private func setupArtistsCollectionView() {
-        collectionView.register(ArtistListCell.Constants.nib, forCellWithReuseIdentifier: ArtistListCell.Constants.identifier)
+        collectionView.register(ArtistCollectionViewCell.Constants.nib, forCellWithReuseIdentifier: ArtistCollectionViewCell.Constants.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -109,11 +109,11 @@ extension AllArtistVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistListCell.Constants.identifier, for: indexPath) as? ArtistListCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtistCollectionViewCell.Constants.identifier, for: indexPath) as? ArtistCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        cell.configure(item: filtredArtists[indexPath.row])
+        cell.configure(artist: filtredArtists[indexPath.row])
         return cell
     }
     
@@ -146,23 +146,5 @@ extension AllArtistVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelect(artist: filtredArtists[indexPath.row])
-    }
-}
-
-extension UICollectionView {
-
-    func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        messageLabel.text = message
-        messageLabel.textColor = .white
-        messageLabel.numberOfLines = 0;
-        messageLabel.textAlignment = .center;
-        messageLabel.sizeToFit()
-
-        self.backgroundView = messageLabel;
-    }
-
-    func restore() {
-        self.backgroundView = nil
     }
 }

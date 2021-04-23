@@ -8,27 +8,27 @@
 import UIKit
 import FirebaseUI
 
-class ArtistListCell: UICollectionViewCell {
+class ArtistCollectionViewCell: UICollectionViewCell {
 
     //MARK: - Constant
     enum Constants {
-        static let identifier = "ArtistListCell"
+        static let identifier = "ArtistCollectionViewCell"
         static let nib = UINib(nibName: Constants.identifier, bundle: nil)
     }
     
     //MARK: - IBOutlet
-    @IBOutlet weak var artistNameLabel: UILabel!
-    @IBOutlet weak var artistImage: CircularImageView!
+    @IBOutlet weak private var artistNameLabel: UILabel!
+    @IBOutlet weak private var artistImage: CircularImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         artistNameLabel.font = Fonts.AllArtist.Cell.title
     }
     
-    func configure(item: ArtistBandBase) {
-        artistNameLabel.text = item.name
+    func configure(artist: MusicalEntity) {
+        artistNameLabel.text = artist.name
         
-        let storage = Storage.storage().reference(forURL: item.avatar)
+        let storage = Storage.storage().reference(forURL: artist.avatar)
         artistImage.sd_setImage(with: storage)
     }
 }

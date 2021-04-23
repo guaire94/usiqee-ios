@@ -16,23 +16,23 @@ class ArtistDetailsVC: UIViewController {
     }
     
     // MARK: - IBOutlet
-    @IBOutlet weak var segmentedMenu: MSegmentedMenu!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var follewersLabel: UILabel!
-    @IBOutlet weak var labelDescription: UILabel!
-    @IBOutlet weak var labelContent: UILabel!
-    @IBOutlet weak var majorDescription: UILabel!
-    @IBOutlet weak var majorContent: UILabel!
-    @IBOutlet weak var groupDescription: UILabel!
-    @IBOutlet weak var groupContent: UILabel!
-    @IBOutlet weak var activityDescription: UILabel!
-    @IBOutlet weak var activityContent: UILabel!
-    @IBOutlet weak var fullImage: UIImageView!
-    @IBOutlet weak var mainImage: CircularImageView!
-    @IBOutlet weak var groupContainer: UIView!
+    @IBOutlet weak private var segmentedMenu: MSegmentedMenu!
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var follewersLabel: UILabel!
+    @IBOutlet weak private var labelDescription: UILabel!
+    @IBOutlet weak private var labelContent: UILabel!
+    @IBOutlet weak private var majorDescription: UILabel!
+    @IBOutlet weak private var majorContent: UILabel!
+    @IBOutlet weak private var groupDescription: UILabel!
+    @IBOutlet weak private var groupContent: UILabel!
+    @IBOutlet weak private var activityDescription: UILabel!
+    @IBOutlet weak private var activityContent: UILabel!
+    @IBOutlet weak private var fullImage: UIImageView!
+    @IBOutlet weak private var mainImage: CircularImageView!
+    @IBOutlet weak private var groupContainer: UIView!
     
     // MARK: - Properties
-    var item: ArtistBandBase!
+    var artist: MusicalEntity!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -61,20 +61,20 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func setupContent() {
-        nameLabel.text = item.name.uppercased()
-        labelContent.text = item.labelName
-        activityContent.text = L10N.ArtistDetails.activityContent(from: item.startActivityDate.year)
-        majorContent.text = item.majorName
+        nameLabel.text = artist.name.uppercased()
+        labelContent.text = artist.labelName
+        activityContent.text = L10N.ArtistDetails.activityContent(from: artist.startActivityDate.year)
+        majorContent.text = artist.majorName
         follewersLabel.text = L10N.ArtistDetails.followed(number: "1000")
         groupContainer.isHidden = true
-        if item is Artist,
-           let arist = item as? Artist,
+        if artist is Artist,
+           let arist = artist as? Artist,
            let groupName = arist.groupName {
             groupContent.text = groupName
             groupContainer.isHidden = false
         }
         
-        let storage = Storage.storage().reference(forURL: item.avatar)
+        let storage = Storage.storage().reference(forURL: artist.avatar)
         fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)
     }
@@ -83,7 +83,7 @@ class ArtistDetailsVC: UIViewController {
 // MARK: - IBActions
 extension ArtistDetailsVC {
     @IBAction func onBackTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
 

@@ -19,9 +19,9 @@ class ArtistVC: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet private weak var searchTextField: UITextField!
-    @IBOutlet weak var searchContainer: UIView!
-    @IBOutlet weak var contentStackView: UIStackView!
-    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak private var searchContainer: UIView!
+    @IBOutlet weak private var contentStackView: UIStackView!
+    @IBOutlet weak private var loadingView: UIView!
     
     //MARK: - Properties
     weak var allArtistView: AllArtistVC?
@@ -35,8 +35,8 @@ class ArtistVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ArtistDetailsVC.Constants.identifer {
             guard let vc = segue.destination as? ArtistDetailsVC,
-                  let item = sender as? ArtistBandBase else { return }
-            vc.item = item
+                  let item = sender as? MusicalEntity else { return }
+            vc.artist = item
         }
     }
 
@@ -81,14 +81,14 @@ extension ArtistVC {
 
 // MARK: - ArtistVCDataSource
 extension ArtistVC: ArtistVCDataSource {
-    func filterBy() -> String? {
+    var filterBy: String? {
         searchTextField.text
     }
 }
 
 // MARK: - AllArtistVCDelegate
 extension ArtistVC: AllArtistVCDelegate {
-    func didSelect(artist: ArtistBandBase) {
+    func didSelect(artist: MusicalEntity) {
         performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
     }
     
