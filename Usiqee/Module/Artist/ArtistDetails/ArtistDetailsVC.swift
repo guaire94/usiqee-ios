@@ -32,7 +32,7 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var groupContainer: UIView!
     
     // MARK: - Properties
-    var artist: MusicalEntity!
+    var musicalEntity: MusicalEntity!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -61,20 +61,19 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func setupContent() {
-        nameLabel.text = artist.name.uppercased()
-        labelContent.text = artist.labelName
-        activityContent.text = L10N.ArtistDetails.activityContent(from: artist.startActivityDate.year)
-        majorContent.text = artist.majorName
+        nameLabel.text = musicalEntity.name.uppercased()
+        labelContent.text = musicalEntity.labelName
+        activityContent.text = L10N.ArtistDetails.activityContent(from: musicalEntity.startActivityDate.year)
+        majorContent.text = musicalEntity.majorName
         follewersLabel.text = L10N.ArtistDetails.followed(number: "1000")
         groupContainer.isHidden = true
-        if artist is Artist,
-           let arist = artist as? Artist,
+        if let arist = musicalEntity as? Artist,
            let groupName = arist.groupName {
             groupContent.text = groupName
             groupContainer.isHidden = false
         }
         
-        let storage = Storage.storage().reference(forURL: artist.avatar)
+        let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
         fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)
     }

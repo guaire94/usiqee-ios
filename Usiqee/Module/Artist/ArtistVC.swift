@@ -36,7 +36,7 @@ class ArtistVC: UIViewController {
         if segue.identifier == ArtistDetailsVC.Constants.identifer {
             guard let vc = segue.destination as? ArtistDetailsVC,
                   let item = sender as? MusicalEntity else { return }
-            vc.artist = item
+            vc.musicalEntity = item
         }
     }
 
