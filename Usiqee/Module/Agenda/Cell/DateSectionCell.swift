@@ -18,7 +18,7 @@ class DateSectionCell: UITableViewHeaderFooterView {
     }
         
     // MARK: IBOutlet
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
 
     // MARK: LifeCycle
     func setUp(date: String) {

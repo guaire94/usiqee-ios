@@ -14,6 +14,21 @@
 
 "GLOBAL_DATE_TIMEAGO" = "Il y a %@";
 
+"ARTIST_SEARCH_PLACEHOLDER" = "Search";
+"ARTIST_ALL_TITLE" = "Artists";
+"ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
+
+"ARTIST_DETAILS_LABEL" = "Label:";
+"ARTIST_DETAILS_MAJOR" = "Major:";
+"ARTIST_DETAILS_GROUP" = "Group:";
+"ARTIST_DETAILS_ACTIVITY" = "Activity:";
+"ARTIST_DETAILS_ACTIVITY_CONTENT" = "Depuis %@";
+"ARTIST_DETAILS_FOLLOWED" = "%@ followers";
+
+"ARTIST_DETAILS_MENU_NEWS" = "News";
+"ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";
+"ARTIST_DETAILS_MENU_DISCOGRAPHY" = "Discography";
+
 "USER_FORM_MAIL"="Email";
 "USER_FORM_PASSWORD"="Mot de passe";
 "USER_FORM_FIRSTNAME"="Prénom";

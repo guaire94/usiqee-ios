@@ -16,7 +16,7 @@ class AgendaVC: UIViewController {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     
     //MARK: - Properties
     var eventsByDate: [(date: Date, events: [Event])] = [] {

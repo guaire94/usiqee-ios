@@ -24,10 +24,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Lato-Bold.ttf</string>
-		<string>Lato-Semibold.ttf</string>
-		<string>Lato-Regular.ttf</string>
-		<string>Lato-Light.ttf</string>
+		<string>SofiaProRegularAz.otf</string>
+        <string>SofiaProBoldAz.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -60,6 +58,8 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

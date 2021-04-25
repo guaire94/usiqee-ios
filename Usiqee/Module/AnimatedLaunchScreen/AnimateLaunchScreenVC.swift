@@ -12,7 +12,7 @@ import FirebaseAuth
 class AnimateLaunchScreenVC: UIViewController {
     
     // MARK: - IBOutlet
-    @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak private var versionLabel: UILabel!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

@@ -11,9 +11,9 @@ import UIKit
 class MDatePickerField: UIView {
     
     // MARK: - IBOutlet
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak private var contentView: UIView!
+    @IBOutlet weak private var label: UILabel!
+    @IBOutlet weak private var datePicker: UIDatePicker!
     
     // MARK: - Variables
     var date: Date {
