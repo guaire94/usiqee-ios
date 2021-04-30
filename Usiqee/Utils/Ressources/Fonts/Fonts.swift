@@ -11,6 +11,7 @@ enum Fonts: String {
     
     case SofiaProRegular = "SofiaPro"
     case SofiaProBold = "SofiaPro-Bold"
+    case HelveticaRegular = "Helvetica"
     
     private func withSize(with size: CGFloat) -> UIFont {
         guard let font = UIFont(name: rawValue, size: size) else {
@@ -23,9 +24,12 @@ enum Fonts: String {
         static var title: UIFont {
             Fonts.SofiaProRegular.withSize(with: 18)
         }
+        static var search: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 20)
+        }
         enum Cell {
             static var title: UIFont {
-                Fonts.SofiaProRegular.withSize(with: 14)
+                Fonts.HelveticaRegular.withSize(with: 14)
             }
         }
     }
@@ -47,7 +51,7 @@ enum Fonts: String {
             Fonts.SofiaProRegular.withSize(with: 14)
         }
         static var followers: UIFont {
-            Fonts.SofiaProBold.withSize(with: 18)
+            Fonts.SofiaProRegular.withSize(with: 18)
         }
         
         enum Menu {
@@ -59,6 +63,15 @@ enum Fonts: String {
             }
             static var discography: UIFont {
                 Fonts.SofiaProRegular.withSize(with: 14)
+            }
+        }
+        
+        enum Discography {
+            static var title: UIFont {
+                Fonts.SofiaProBold.withSize(with: 40)
+            }
+            static var subtitle: UIFont {
+                Fonts.SofiaProRegular.withSize(with: 30)
             }
         }
     }

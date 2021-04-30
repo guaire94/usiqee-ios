@@ -42,8 +42,10 @@ class ArtistVC: UIViewController {
 
     // MARK: - Privates
     private func setupView() {
+        loadingView.isHidden = false
         setupSearchTextField()
         loadAllArtistView()
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     private func loadAllArtistView() {
@@ -62,9 +64,13 @@ class ArtistVC: UIViewController {
         searchTextField.attributedPlaceholder = NSAttributedString(
             string: L10N.Artist.searchPlaceholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor: Constants.searchPlaceholderColor
+                .foregroundColor: Constants.searchPlaceholderColor,
+                .font: Fonts.AllArtist.search
             ]
         )
+        searchTextField.font = Fonts.AllArtist.search
+        searchTextField.clearButtonMode = .always
+        searchTextField.setClearButton(tintColor: Constants.searchPlaceholderColor)
     }
     
     private func refreshView() {
