@@ -69,7 +69,7 @@ class ArtistDetailsVC: UIViewController {
         labelContent.text = musicalEntity.labelName
         activityContent.text = L10N.ArtistDetails.activityContent(from: musicalEntity.startActivityDate.year)
         majorContent.text = musicalEntity.majorName
-        setFollowersText(followers: 1000)
+        follewersLabel.isHidden = true
         groupContainer.isHidden = true
         if let arist = musicalEntity as? Artist,
            let groupName = arist.groupName {
