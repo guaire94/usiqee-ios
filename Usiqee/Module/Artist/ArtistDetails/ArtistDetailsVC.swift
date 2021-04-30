@@ -13,6 +13,8 @@ class ArtistDetailsVC: UIViewController {
     // MARK: - Constants
     enum Constants {
         static let identifer = "ArtistDetailsVC"
+        static let followersDescription: UIColor = Colors.gray
+        static let followersNumber: UIColor = .white
     }
     
     // MARK: - IBOutlet
@@ -30,6 +32,7 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var fullImage: UIImageView!
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var groupContainer: UIView!
+    @IBOutlet weak private var discographyContainer: UIView!
     
     // MARK: - Properties
     var musicalEntity: MusicalEntity!
@@ -41,9 +44,11 @@ class ArtistDetailsVC: UIViewController {
         segmentedMenu.delegate = self
     }
     
+    // MARK: - Private
     private func setupView() {
         setupDescriptions()
         setupContent()
+        resetMenuSubViews()
     }
     
     private func setupDescriptions() {
@@ -52,7 +57,6 @@ class ArtistDetailsVC: UIViewController {
         groupContent.font = Fonts.ArtistDetails.group
         activityContent.font = Fonts.ArtistDetails.activity
         majorContent.font = Fonts.ArtistDetails.major
-        follewersLabel.font = Fonts.ArtistDetails.followers
         
         labelDescription.text = L10N.ArtistDetails.label
         groupDescription.text = L10N.ArtistDetails.group
@@ -65,7 +69,7 @@ class ArtistDetailsVC: UIViewController {
         labelContent.text = musicalEntity.labelName
         activityContent.text = L10N.ArtistDetails.activityContent(from: musicalEntity.startActivityDate.year)
         majorContent.text = musicalEntity.majorName
-        follewersLabel.text = L10N.ArtistDetails.followed(number: "1000")
+        follewersLabel.isHidden = true
         groupContainer.isHidden = true
         if let arist = musicalEntity as? Artist,
            let groupName = arist.groupName {
@@ -76,6 +80,29 @@ class ArtistDetailsVC: UIViewController {
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
         fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)
+    }
+    
+    private func setFollowersText(followers: Int) {
+        let text = NSMutableAttributedString()
+        text.append(NSAttributedString(
+            string: "\(followers) ",
+            attributes: [
+                .foregroundColor: Constants.followersNumber,
+                .font: Fonts.ArtistDetails.followers
+            ]))
+        text.append(NSAttributedString(
+            string: L10N.ArtistDetails.followed,
+            attributes: [
+                .foregroundColor: Constants.followersDescription,
+                .font: Fonts.ArtistDetails.followers
+            ])
+        )
+
+        follewersLabel.attributedText = text
+    }
+    
+    private func resetMenuSubViews() {
+        discographyContainer.isHidden = true
     }
 }
 
@@ -89,6 +116,17 @@ extension ArtistDetailsVC {
 // MARK: - MSegmentedMenuDelegate
 extension ArtistDetailsVC: MSegmentedMenuDelegate {
     func didSelectItem(at index: Int) {
+        resetMenuSubViews()
         
+        switch index {
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            discographyContainer.isHidden = false
+        default:
+            break
+        }
     }
 }

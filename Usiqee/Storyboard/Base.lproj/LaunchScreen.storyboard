@@ -19,19 +19,21 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zht-jt-99C">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Xv-5o-8e0">
-                                <rect key="frame" x="55.5" y="253.5" width="209" height="61"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LrR-04-kxs">
+                                <rect key="frame" x="0.0" y="253.5" width="320" height="61"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zht-jt-99C" secondAttribute="trailing" id="CgS-rB-3Ma"/>
-                            <constraint firstItem="2Xv-5o-8e0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QLk-Jt-npD"/>
-                            <constraint firstItem="2Xv-5o-8e0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="adb-Ju-qnJ"/>
+                            <constraint firstItem="LrR-04-kxs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZkR-Yw-5We"/>
                             <constraint firstItem="zht-jt-99C" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eSB-PM-8j0"/>
                             <constraint firstAttribute="bottom" secondItem="zht-jt-99C" secondAttribute="bottom" id="huV-ON-NX1"/>
                             <constraint firstItem="zht-jt-99C" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="icy-Dn-oU4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LrR-04-kxs" secondAttribute="trailing" id="jyD-gp-dXa"/>
+                            <constraint firstItem="LrR-04-kxs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oMZ-fy-p64"/>
+                            <constraint firstItem="LrR-04-kxs" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oOH-pU-ad9"/>
                         </constraints>
                     </view>
                 </viewController>

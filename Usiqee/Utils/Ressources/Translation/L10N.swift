@@ -67,14 +67,17 @@ struct L10N {
         static func activityContent(from year: String) -> String  {
             String(format: NSLocalizedString("ARTIST_DETAILS_ACTIVITY_CONTENT", comment: ""), year)
         }
-        static func followed(number: String) -> String  {
-            String(format: NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: ""), number)
-        }
+        static let followed: String = NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: "")
         
         struct Menu {
             static let news: String = NSLocalizedString("ARTIST_DETAILS_MENU_NEWS", comment: "")
             static let calendar: String = NSLocalizedString("ARTIST_DETAILS_MENU_CALENDAR", comment: "")
             static let discography: String = NSLocalizedString("ARTIST_DETAILS_MENU_DISCOGRAPHY", comment: "")
+        }
+        
+        struct Discography {
+            static let title: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_TITLE", comment: "")
+            static let subtitle: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE", comment: "")
         }
     }
 

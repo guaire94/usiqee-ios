@@ -22,6 +22,7 @@ class MSegmentedMenu: UIView {
     @IBOutlet weak private var calendarLabel: UILabel!
     @IBOutlet weak private var discographyLabel: UILabel!
     
+    // MARK: - Properties
     private var currentSelectedItem: Int = 1
     weak var delegate: MSegmentedMenuDelegate?
     
@@ -40,6 +41,7 @@ class MSegmentedMenu: UIView {
     private func commonInit() {
         loadView()
         setupView()
+        handleMenuUpdated()
     }
 
     private func setupView() {
@@ -57,6 +59,33 @@ class MSegmentedMenu: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
+    
+    private func reset() {
+        newsIsSelectedView.isHidden = true
+        calendarIsSelectedView.isHidden = true
+        discographyIsSelectedView.isHidden = true
+        newsLabel.textColor = Colors.gray
+        calendarLabel.textColor = Colors.gray
+        discographyLabel.textColor = Colors.gray
+    }
+    
+    private func handleMenuUpdated() {
+        reset()
+        
+        switch currentSelectedItem {
+        case 1:
+            newsIsSelectedView.isHidden = false
+            newsLabel.textColor = .white
+        case 2:
+            calendarIsSelectedView.isHidden = false
+            calendarLabel.textColor = .white
+        case 3:
+            discographyIsSelectedView.isHidden = false
+            discographyLabel.textColor = .white
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - IBACtions
@@ -67,19 +96,6 @@ extension MSegmentedMenu {
         currentSelectedItem = sender.tag
         delegate?.didSelectItem(at: currentSelectedItem)
         
-        newsIsSelectedView.isHidden = true
-        calendarIsSelectedView.isHidden = true
-        discographyIsSelectedView.isHidden = true
-        
-        switch sender.tag {
-        case 1:
-            newsIsSelectedView.isHidden = false
-        case 2:
-            calendarIsSelectedView.isHidden = false
-        case 3:
-            discographyIsSelectedView.isHidden = false
-        default:
-            break
-        }
+        handleMenuUpdated()
     }
 }
