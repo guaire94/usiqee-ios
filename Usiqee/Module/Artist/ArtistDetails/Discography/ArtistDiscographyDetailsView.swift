@@ -11,8 +11,8 @@ class ArtistDiscographyDetailsView: UIView {
     
     // MARK: - IBOutlet
     @IBOutlet weak private var contentView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var subtitleLabel: UILabel!
     
     // MARK: - Lifecycle
     override init(frame: CGRect) {
