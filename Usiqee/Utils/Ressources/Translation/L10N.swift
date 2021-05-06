@@ -60,9 +60,6 @@ struct L10N {
     }
     
     struct ArtistDetails {
-        static let label: String = NSLocalizedString("ARTIST_DETAILS_LABEL", comment: "")
-        static let major: String = NSLocalizedString("ARTIST_DETAILS_MAJOR", comment: "")
-        static let group: String = NSLocalizedString("ARTIST_DETAILS_GROUP", comment: "")
         static let activity: String = NSLocalizedString("ARTIST_DETAILS_ACTIVITY", comment: "")
         static func activityContent(from year: String) -> String  {
             String(format: NSLocalizedString("ARTIST_DETAILS_ACTIVITY_CONTENT", comment: ""), year)

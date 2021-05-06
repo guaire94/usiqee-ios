@@ -38,15 +38,6 @@ enum Fonts: String {
         static var title: UIFont {
             Fonts.SofiaProBold.withSize(with: 27)
         }
-        static var label: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 14)
-        }
-        static var major: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 14)
-        }
-        static var group: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 14)
-        }
         static var activity: UIFont {
             Fonts.SofiaProRegular.withSize(with: 14)
         }
