@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaProBoldAz.otf">
+            <string>SofiaPro-Bold</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MTextField" customModule="MyF_Zone" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MTextField" customModule="Usiqee" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Rml-9r-DYb"/>
                 <outlet property="label" destination="lSz-Ds-74e" id="7ha-5r-A8o"/>
@@ -24,25 +29,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="330" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MGP-JP-Av3">
-                            <rect key="frame" x="0.0" y="0.0" width="330" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSz-Ds-74e">
-                                    <rect key="frame" x="0.0" y="0.0" width="330" height="24"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="e7K-rx-qDN"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <color key="textColor" red="0.68235294120000001" green="0.70196078429999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="17"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQC-Zb-yXF">
-                                    <rect key="frame" x="0.0" y="24" width="330" height="35"/>
-                                    <color key="textColor" red="0.1058823529" green="0.1058823529" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="24" width="320" height="35"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="yes" smartInsertDeleteType="yes" smartQuotesType="yes"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1i-42-nf2">
-                                    <rect key="frame" x="0.0" y="59" width="330" height="1"/>
+                                    <rect key="frame" x="0.0" y="59" width="320" height="1"/>
                                     <color key="backgroundColor" red="0.68235294117647061" green="0.70196078431372544" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="cDE-Sp-I7V"/>
@@ -55,7 +60,7 @@
                     <constraints>
                         <constraint firstItem="MGP-JP-Av3" firstAttribute="top" secondItem="dBY-Zi-pKc" secondAttribute="top" id="BTe-98-RrP"/>
                         <constraint firstAttribute="bottom" secondItem="MGP-JP-Av3" secondAttribute="bottom" id="DDq-uN-e8t"/>
-                        <constraint firstAttribute="trailing" secondItem="MGP-JP-Av3" secondAttribute="trailing" id="VHR-sb-0v2"/>
+                        <constraint firstAttribute="trailing" secondItem="MGP-JP-Av3" secondAttribute="trailing" constant="10" id="VHR-sb-0v2"/>
                         <constraint firstItem="MGP-JP-Av3" firstAttribute="leading" secondItem="dBY-Zi-pKc" secondAttribute="leading" id="rEC-kU-qP8"/>
                     </constraints>
                 </view>

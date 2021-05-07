@@ -61,6 +61,24 @@ class MTextField: UIView {
         }
     }
     
+    var isSecureTextEntry: Bool {
+        get {
+            textField.isSecureTextEntry
+        }
+        set {
+            textField.isSecureTextEntry = newValue
+        }
+    }
+    
+    var keyboardType: UIKeyboardType {
+        get {
+            textField.keyboardType
+        }
+        set {
+            textField.keyboardType = newValue
+        }
+    }
+    
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
