@@ -12,7 +12,6 @@ class ServiceAuth {
     static func signUp(mail: String, avatar: String, username: String) {
         guard let user = Auth.auth().currentUser else { return }
         let data: [String : Any] = [
-            "id": user.uid,
             "avatar": avatar,
             "mail": mail,
             "username": username,

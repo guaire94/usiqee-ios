@@ -36,12 +36,37 @@
 "ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
 
+"PRE_AUTH_SIGNIN" = "Already have an account ? Sign in";
+"PRE_AUTH_SIGNUP" = "Sign up with email";
+"PRE_AUTH_OR" = "or";
+
+"ACCOUNT_NOT_LOGGED_TITLE" = "T'as pas encore de compte ?";
+"ACCOUNT_NOT_LOGGED_SUBTITLE" = "En te connectant tu peux: \n-follow les artists\n-  liker les news";
+"ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
+
 "SIGNIN_TITLE"="";
 "SIGNIN_NOACCOUNT"="";
 "SIGNIN_FORM_VALID"="";
+"SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
 
 "SIGNUP_TITLE"="";
 "SIGNUP_FORM_VALID"="";
+"SIGNUP_FORM_NOT_EMPTY_ERROR" = "Tous les champs sont obligatoires";
+
+"FORGET_PASSWORD_TITLE" = "Réinitialisation du mot de passe";
+"FORGET_PASSWORD_FORM_VALID" = "Réinitialiser";
+
+"ACCOUNT_SETTINGS_TITLE" = "Settings";
+"ACCOUNT_SETTINGS_LOGOUT" = "Logout";
+"ACCOUNT_SETTINGS_LEGAL_NOTICE" = "LEGAL NOTICE";
+"ACCOUNT_SETTINGS_PRIVACY" = "Privacy";
+"ACCOUNT_SETTINGS_CGU" = "Terms and Conditions";
+"ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS" = "Manage your notifications on settings";
+"ACCOUNT_SETTINGS_NOTIFICATIONS" = "Notifications";
+
+"USER_DETAILS_MENU_FOLLOWED" = "%d followed";
+"USER_DETAILS_MENU_FAVORIS" = "%d favoris";
+
 
 "AFFILIATE_TO_CLUB_TITLE"="";
 "AFFILIATE_TO_CLUB_SUBTITLE"="";
@@ -100,3 +125,6 @@
 "VERSION_AVAILABLE"="";
 "VERSION_REDIRECT_APPSTORE"="";
 "VERSION_UPDATE_LATER"="";
+
+"IMAGE_PICKER_GALLERY" = "Load from gallery";
+"IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";

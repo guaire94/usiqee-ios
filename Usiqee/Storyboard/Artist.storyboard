@@ -43,7 +43,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="WTf-d5-ewY" firstAttribute="top" secondItem="3Lm-3J-8Zu" secondAttribute="top" id="9uh-oh-uvk"/>
                                     <constraint firstAttribute="trailing" secondItem="WTf-d5-ewY" secondAttribute="trailing" id="JLn-cP-fdS"/>

@@ -5,20 +5,34 @@
 //  Created by Guaire94 on 26/03/2021.
 //
 
-import Foundation
+import FirebaseFirestore
+
+protocol ServiceArtistDelegate {
+    func dataAdded(artist: Artist)
+    func dataModified(artist: Artist)
+    func dataRemoved(artist: Artist)
+}
 
 class ServiceArtist {
     
-    static func getArtists(completion: @escaping ([Artist]) -> Void) {
-        FFirestoreReference.artist.getDocuments { (query, error) in
-            var artists: [Artist] = []
-            defer {
-                completion(artists)
-            }
-            guard error == nil, let documents = query?.documents else { return }
-            for document in documents {
-                if let artist = try? document.data(as: Artist.self) {
-                    artists.append(artist)
+    // MARK: - Property
+    private static var listener: ListenerRegistration?
+    
+    // MARK: - GET
+    static func listenArtists(delegate: ServiceArtistDelegate) {
+        listener?.remove()
+        self.listener = FFirestoreReference.artist.addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let artist = try? diff.document.data(as: Artist.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate.dataAdded(artist: artist)
+                case .modified:
+                    delegate.dataModified(artist: artist)
+                case .removed:
+                    delegate.dataRemoved(artist: artist)
                 }
             }
         }

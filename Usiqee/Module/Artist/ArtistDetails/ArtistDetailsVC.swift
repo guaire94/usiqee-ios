@@ -34,6 +34,7 @@ class ArtistDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        segmentedMenu.configure(with: L10N.ArtistDetails.Menu.news, L10N.ArtistDetails.Menu.calendar, L10N.ArtistDetails.Menu.discography)
         segmentedMenu.delegate = self
     }
     
@@ -97,11 +98,11 @@ extension ArtistDetailsVC: MSegmentedMenuDelegate {
         resetMenuSubViews()
         
         switch index {
+        case 0:
+            break
         case 1:
             break
         case 2:
-            break
-        case 3:
             discographyContainer.isHidden = false
         default:
             break

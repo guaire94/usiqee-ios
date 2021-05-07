@@ -36,11 +36,24 @@ struct L10N {
         }
     }
     
+    struct preAuth {
+        static let signIn: String = NSLocalizedString("PRE_AUTH_SIGNIN", comment: "")
+        static let signUp: String = NSLocalizedString("PRE_AUTH_SIGNUP", comment: "")
+        static let separator: String = NSLocalizedString("PRE_AUTH_OR", comment: "")
+    }
+    
+    struct AccountNotLogged {
+        static let title: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TITLE", comment: "")
+        static let subtitle: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_SUBTITLE", comment: "")
+        static let `continue`: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_CONTINUE", comment: "")
+    }
+    
     struct signIn {
         static let title: String = NSLocalizedString("SIGNIN_TITLE", comment: "")
         static let noAccount: String = NSLocalizedString("SIGNIN_NOACCOUNT", comment: "")
         struct form {
             static let valid: String = NSLocalizedString("SIGNIN_FORM_VALID", comment: "")
+            static let forgetPassword: String = NSLocalizedString("SIGNIN_FORM_FORGET_PASSWORD", comment: "")
         }
     }
 
@@ -48,6 +61,14 @@ struct L10N {
         static let title: String = NSLocalizedString("SIGNUP_TITLE", comment: "")
         struct form {
             static let valid: String = NSLocalizedString("SIGNUP_FORM_VALID", comment: "")
+            static let notEmptyError: String = NSLocalizedString("SIGNUP_FORM_NOT_EMPTY_ERROR", comment: "")
+        }
+    }
+    
+    struct ForgetPassword {
+        static let title: String = NSLocalizedString("FORGET_PASSWORD_TITLE", comment: "")
+        struct form {
+            static let valid: String = NSLocalizedString("FORGET_PASSWORD_FORM_VALID", comment: "")
         }
     }
 
@@ -78,10 +99,36 @@ struct L10N {
         }
     }
 
+    struct UserDetails {
+        struct Menu {
+            static func followed(_ numberOfFollower: Int) -> String {
+                String(format: NSLocalizedString("USER_DETAILS_MENU_FOLLOWED", comment: ""), numberOfFollower)
+            }
+            static func favoris(_ numberOfFavoris: Int) -> String {
+                String(format: NSLocalizedString("USER_DETAILS_MENU_FAVORIS", comment: ""), numberOfFavoris)
+            }
+        }
+    }
+    
+    struct AccountSettings {
+        static let title: String = NSLocalizedString("ACCOUNT_SETTINGS_TITLE", comment: "")
+        static let logout: String = NSLocalizedString("ACCOUNT_SETTINGS_LOGOUT", comment: "")
+        static let legalNotice: String = NSLocalizedString("ACCOUNT_SETTINGS_LEGAL_NOTICE", comment: "")
+        static let privacy: String = NSLocalizedString("ACCOUNT_SETTINGS_PRIVACY", comment: "")
+        static let cgu: String = NSLocalizedString("ACCOUNT_SETTINGS_CGU", comment: "")
+        static let notifications: String = NSLocalizedString("ACCOUNT_SETTINGS_NOTIFICATIONS", comment: "")
+        static let manageNotifications: String = NSLocalizedString("ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS", comment: "")
+    }
+    
     struct version {
         static let new: String = NSLocalizedString("VERSION_NEW", comment: "")
         static let available: String = NSLocalizedString("VERSION_AVAILABLE", comment: "")
         static let redirectAppStore: String = NSLocalizedString("VERSION_REDIRECT_APPSTORE", comment: "")
         static let updateLater: String = NSLocalizedString("VERSION_UPDATE_LATER", comment: "")
     }
+    
+    struct ImagePicker {
+       static let LoadFromGallery: String = NSLocalizedString("IMAGE_PICKER_GALLERY", comment: "")
+        static let takeAPhoto: String = NSLocalizedString("IMAGE_PICKER_TAKE_A_PHOTO", comment: "")
+   }
 }
