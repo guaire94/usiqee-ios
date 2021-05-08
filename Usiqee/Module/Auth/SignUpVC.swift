@@ -25,7 +25,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak private var email: MTextField!
     @IBOutlet weak private var password: MTextField!
     @IBOutlet weak private var username: MTextField!
-    @IBOutlet weak private var validButton: UIButton!
+    @IBOutlet weak private var validButton: FilledButton!
 
     // MARK: - Variables
     weak var delegate: SignUpVCDelegate?
@@ -66,9 +66,6 @@ class SignUpVC: UIViewController {
     }
     
     private func setupValidateButton() {
-        validButton.layer.cornerRadius = 20
-        validButton.clipsToBounds = true
-        validButton.setBackgroundColor(Colors.purple)
         validButton.titleLabel?.font = Fonts.SignUp.valid
     }
 }
@@ -112,12 +109,16 @@ extension SignUpVC {
         }
         
         upload(image: image) { [weak self] url in
-            self?.handleAvatarIsUploaded(email: email, username: username, avatar: url?.absoluteString)
+            guard let url = url?.absoluteString else {
+                self?.handleAvatarIsUploaded(email: email, username: username)
+                return
+            }
+            self?.handleAvatarIsUploaded(email: email, username: username, avatar: url)
         }
     }
     
-    private func handleAvatarIsUploaded(email: String, username: String, avatar: String? = "") {
-        ServiceAuth.signUp(mail: email, avatar: avatar ?? "", username: username)
+    private func handleAvatarIsUploaded(email: String, username: String, avatar: String = "") {
+        ServiceAuth.signUp(mail: email, avatar: avatar, username: username)
         (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
         navigationController?.popViewController(animated: false)
         delegate?.didSignUp()

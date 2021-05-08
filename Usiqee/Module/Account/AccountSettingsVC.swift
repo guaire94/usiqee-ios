@@ -29,7 +29,7 @@ class AccountSettingsVC: UIViewController {
     @IBOutlet weak private var legalNoticeLabel: UILabel!
     @IBOutlet weak private var privacyButton: UIButton!
     @IBOutlet weak private var cguButton: UIButton!
-    @IBOutlet weak private var logoutButton: UIButton!
+    @IBOutlet weak private var logoutButton: FilledButton!
     @IBOutlet weak private var notificationsLabel: UILabel!
     @IBOutlet weak private var manageNotificationsButton: UIButton!
     
@@ -43,7 +43,6 @@ class AccountSettingsVC: UIViewController {
     
     // MARK: - Private
     private func setupView() {
-        setupLogoutButton()
         setupTranslation()
         setupStyle()
     }
@@ -66,12 +65,6 @@ class AccountSettingsVC: UIViewController {
         manageNotificationsButton.titleLabel?.font = Fonts.AccountSettings.sectionItem
         notificationsLabel.font = Fonts.AccountSettings.sectionTitle
         logoutButton.titleLabel?.font = Fonts.AccountSettings.logout
-    }
-    
-    private func setupLogoutButton() {
-        logoutButton.layer.cornerRadius = 20
-        logoutButton.clipsToBounds = true
-        logoutButton.setBackgroundColor(Colors.purple)
     }
     
     private func showWebview(with urlString: String) {

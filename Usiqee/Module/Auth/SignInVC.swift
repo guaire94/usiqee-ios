@@ -22,7 +22,7 @@ class SignInVC: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak private var email: MTextField!
     @IBOutlet weak private var password: MTextField!
-    @IBOutlet weak private var validButton: UIButton!
+    @IBOutlet weak private var validButton: FilledButton!
     @IBOutlet weak private var forgetPasswordButton: UIButton!
 
     // MARK: - Variables
@@ -60,9 +60,6 @@ class SignInVC: UIViewController {
     }
     
     private func setupSignInButton() {
-        validButton.layer.cornerRadius = 20
-        validButton.clipsToBounds = true
-        validButton.setBackgroundColor(Colors.purple)
         validButton.titleLabel?.font = Fonts.SignIn.valid
     }
 }

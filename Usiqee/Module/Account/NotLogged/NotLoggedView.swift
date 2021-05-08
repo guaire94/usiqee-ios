@@ -22,7 +22,7 @@ class NotLoggedView: UIView {
     @IBOutlet weak private var contentView: UIView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var subtitleLabel: UILabel!
-    @IBOutlet weak private var continueButton: UIButton!
+    @IBOutlet weak private var continueButton: FilledButton!
     
     // MARK: - Properties
     weak var delegate: NotLoggedViewDelegate?
@@ -58,9 +58,6 @@ class NotLoggedView: UIView {
     
     private func setupContinueButton() {
         continueButton.setTitle(L10N.AccountNotLogged.continue, for: .normal)
-        continueButton.layer.cornerRadius = 20
-        continueButton.clipsToBounds = true
-        continueButton.setBackgroundColor(Colors.purple)
         continueButton.titleLabel?.font = Fonts.AccountNotLogged.continue
     }
     

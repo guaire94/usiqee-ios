@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Q8-PK-JJt">
-                                <rect key="frame" x="20" y="79" width="374" height="254"/>
+                                <rect key="frame" x="20" y="79" width="374" height="252"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-Dc-JwH" customClass="MTextField" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -48,7 +48,7 @@
                                             <constraint firstAttribute="height" constant="60" id="3Xc-cD-BxS"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxv-56-bfR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxv-56-bfR" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="160" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="a2j-Vb-2CN"/>
@@ -62,7 +62,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duv-LQ-VPg">
-                                        <rect key="frame" x="0.0" y="224" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="224" width="374" height="28"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal" title="Forget Password ?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -152,7 +153,7 @@
                                             <constraint firstAttribute="height" constant="60" id="phh-ax-78c"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPe-08-39g">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPe-08-39g" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="360" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ZNa-xe-ybO"/>
@@ -239,7 +240,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-hX-ZV4">
                                 <rect key="frame" x="83" y="386" width="248" height="124.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PdN-ru-BAB"/>
@@ -385,7 +386,7 @@
                                             <constraint firstAttribute="height" constant="60" id="Wl8-9A-7SD"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJO-3h-2pJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJO-3h-2pJ" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="RpR-lU-noh"/>

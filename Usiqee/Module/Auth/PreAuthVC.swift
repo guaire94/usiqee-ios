@@ -14,7 +14,7 @@ protocol PreAuthVCDelegate: class {
 class PreAuthVC: UIViewController {
 
     // MARK: - IBOutlet
-    @IBOutlet weak private var signUpButton: UIButton!
+    @IBOutlet weak private var signUpButton: FilledButton!
     @IBOutlet weak private var singInButton: UIButton!
     @IBOutlet weak private var separatorLabel: UILabel!
     
@@ -58,8 +58,6 @@ class PreAuthVC: UIViewController {
     
     private func setupSignInButton() {
         signUpButton.layer.cornerRadius = 25
-        signUpButton.clipsToBounds = true
-        signUpButton.setBackgroundColor(Colors.purple)
         signUpButton?.titleLabel?.font = Fonts.PreAuth.signUp
         signUpButton.setTitle(L10N.preAuth.signUp, for: .normal)
     }

@@ -15,9 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        setupFirebase()
         setUpWormholy()
         return true
+    }
+    
+    func setupFirebase() {
+        FirebaseApp.configure()
+        Auth.auth().useAppLanguage()
     }
     
     func setUpWormholy() {

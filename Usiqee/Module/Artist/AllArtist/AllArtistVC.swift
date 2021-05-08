@@ -26,7 +26,6 @@ class AllArtistVC: UIViewController {
     private var allArtists: [MusicalEntity] = []
     private var filtredArtists: [MusicalEntity] = []
     private var indexTitles: [String]?
-    private lazy var dispatchGroup = DispatchGroup()
     
     private weak var delegate: AllArtistVCDelegate?
     private weak var dataSource: ArtistVCDataSource?
@@ -78,12 +77,10 @@ class AllArtistVC: UIViewController {
     }
     
     private func didUpdateItems() {
-        self.allArtists.sort { lItem, rItem -> Bool in
-            lItem.name < rItem.name
-        }
-        self.filtredArtists = self.allArtists
-        self.reload()
-        self.delegate?.didFinishLoadingArtists()
+        allArtists.sort(by: { $0.name < $1.name })
+        filtredArtists = allArtists
+        reload()
+        delegate?.didFinishLoadingArtists()
     }
     
     private func reload() {

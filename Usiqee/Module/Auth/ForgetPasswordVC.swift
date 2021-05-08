@@ -16,7 +16,7 @@ class ForgetPasswordVC: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet weak private var email: MTextField!
-    @IBOutlet weak private var validButton: UIButton!
+    @IBOutlet weak private var validButton: FilledButton!
     
     // MARK: - Variables
     weak var delegate: ForgetPasswordVCDelegate?
@@ -42,9 +42,6 @@ class ForgetPasswordVC: UIViewController {
     
     private func setupSignInButton() {
         validButton.setTitle(L10N.ForgetPassword.form.valid, for: .normal)
-        validButton.layer.cornerRadius = 20
-        validButton.clipsToBounds = true
-        validButton.setBackgroundColor(Colors.purple)
         validButton?.titleLabel?.font = Fonts.ForgetPassword.valid
     }
 }

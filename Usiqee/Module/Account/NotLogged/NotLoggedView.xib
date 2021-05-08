@@ -55,7 +55,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eko-86-r1B">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eko-86-r1B" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="250" width="345" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Jfd-6X-rnw"/>

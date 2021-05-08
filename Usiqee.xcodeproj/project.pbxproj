@@ -43,6 +43,7 @@
 		67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A254C526412EBA008167DB /* AccountDetailsView.xib */; };
 		67A254CC2641DFA5008167DB /* AccountSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */; };
 		67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */; };
+		67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48BBA2646DFD100F27B35 /* FilledButton.swift */; };
 		67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */; };
 		67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */; };
 		67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */; };
@@ -153,6 +154,7 @@
 		67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsVC.swift; sourceTree = "<group>"; };
 		67A254CF264323D6008167DB /* Usiqee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Usiqee.entitlements; sourceTree = "<group>"; };
 		67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDeviceToken.swift; sourceTree = "<group>"; };
+		67C48BBA2646DFD100F27B35 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtistVC.swift; sourceTree = "<group>"; };
 		67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllArtistVC.xib; sourceTree = "<group>"; };
 		67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVCDataSource.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 		676EAF4B2633494200656B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67C48BB92646DFA400F27B35 /* FilledButton */,
 				67A2541C263D8149008167DB /* ImagePicker */,
 				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
 				676EAF1C2630CB7C00656B91 /* CircularImageView.swift */,
@@ -348,6 +351,14 @@
 				67A254C526412EBA008167DB /* AccountDetailsView.xib */,
 			);
 			path = AccountDetails;
+			sourceTree = "<group>";
+		};
+		67C48BB92646DFA400F27B35 /* FilledButton */ = {
+			isa = PBXGroup;
+			children = (
+				67C48BBA2646DFD100F27B35 /* FilledButton.swift */,
+			);
+			path = FilledButton;
 			sourceTree = "<group>";
 		};
 		67F720A8262C183000C9C84E /* AllArtist */ = {
@@ -927,6 +938,7 @@
 				67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
+				67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */,
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
 				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
