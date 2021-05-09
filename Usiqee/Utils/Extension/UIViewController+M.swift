@@ -27,4 +27,14 @@ extension UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = homeNavigationController
         navigationController?.popToRootViewController(animated: false)
     }
+    
+    func displayAuthentication(with delegate: PreAuthVCDelegate?) {
+        guard let authenticationNavigationController = MStoryboard.Auth.storyboard.instantiateInitialViewController() as? PreAuthVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.Home.rawValue)' Storyboard have failed")
+        }
+        authenticationNavigationController.delegate = delegate
+        let navigationController = UINavigationController(rootViewController: authenticationNavigationController)
+        navigationController.isNavigationBarHidden = true
+        present(navigationController, animated: true, completion: nil)
+    }
 }

@@ -31,6 +31,19 @@
 		67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A25406263A0F23008167DB /* ArtistDiscographyDetailsView.xib */; };
 		67A2540A263A0F5B008167DB /* ArtistDiscographyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A25409263A0F5B008167DB /* ArtistDiscographyDetailsView.swift */; };
 		67A2540E263C559C008167DB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2540D263C559C008167DB /* Colors.swift */; };
+		67A25419263D4CDD008167DB /* PreAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A25418263D4CDD008167DB /* PreAuthVC.swift */; };
+		67A2541E263D816C008167DB /* MImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2541D263D816C008167DB /* MImagePicker.swift */; };
+		67A25421263D817B008167DB /* MImagePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A25420263D817B008167DB /* MImagePicker.xib */; };
+		67A2544D263F226F008167DB /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2544C263F226E008167DB /* ForgetPasswordVC.swift */; };
+		67A25453263F2D3D008167DB /* NotLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A25452263F2D3D008167DB /* NotLoggedView.swift */; };
+		67A25457263F2D4B008167DB /* NotLoggedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A25456263F2D4B008167DB /* NotLoggedView.xib */; };
+		67A254BC26408E1A008167DB /* MSegmentedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254BB26408E1A008167DB /* MSegmentedMenuItem.swift */; };
+		67A254BF26408E26008167DB /* MSegmentedMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A254BE26408E26008167DB /* MSegmentedMenuItem.xib */; };
+		67A254C326412EAB008167DB /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254C226412EAB008167DB /* AccountDetailsView.swift */; };
+		67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A254C526412EBA008167DB /* AccountDetailsView.xib */; };
+		67A254CC2641DFA5008167DB /* AccountSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */; };
+		67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */; };
+		67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48BBA2646DFD100F27B35 /* FilledButton.swift */; };
 		67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */; };
 		67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */; };
 		67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */; };
@@ -128,6 +141,20 @@
 		67A25406263A0F23008167DB /* ArtistDiscographyDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDiscographyDetailsView.xib; sourceTree = "<group>"; };
 		67A25409263A0F5B008167DB /* ArtistDiscographyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDiscographyDetailsView.swift; sourceTree = "<group>"; };
 		67A2540D263C559C008167DB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		67A25418263D4CDD008167DB /* PreAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreAuthVC.swift; sourceTree = "<group>"; };
+		67A2541D263D816C008167DB /* MImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MImagePicker.swift; sourceTree = "<group>"; };
+		67A25420263D817B008167DB /* MImagePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MImagePicker.xib; sourceTree = "<group>"; };
+		67A2544C263F226E008167DB /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		67A25452263F2D3D008167DB /* NotLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotLoggedView.swift; sourceTree = "<group>"; };
+		67A25456263F2D4B008167DB /* NotLoggedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotLoggedView.xib; sourceTree = "<group>"; };
+		67A254BB26408E1A008167DB /* MSegmentedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSegmentedMenuItem.swift; sourceTree = "<group>"; };
+		67A254BE26408E26008167DB /* MSegmentedMenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MSegmentedMenuItem.xib; sourceTree = "<group>"; };
+		67A254C226412EAB008167DB /* AccountDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsView.swift; sourceTree = "<group>"; };
+		67A254C526412EBA008167DB /* AccountDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDetailsView.xib; sourceTree = "<group>"; };
+		67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsVC.swift; sourceTree = "<group>"; };
+		67A254CF264323D6008167DB /* Usiqee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Usiqee.entitlements; sourceTree = "<group>"; };
+		67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDeviceToken.swift; sourceTree = "<group>"; };
+		67C48BBA2646DFD100F27B35 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtistVC.swift; sourceTree = "<group>"; };
 		67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllArtistVC.xib; sourceTree = "<group>"; };
 		67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVCDataSource.swift; sourceTree = "<group>"; };
@@ -255,6 +282,7 @@
 		6751E06A262CBC0B00AC6509 /* MSegmentedMenu */ = {
 			isa = PBXGroup;
 			children = (
+				67A254BA26408DFB008167DB /* Cell */,
 				6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */,
 				6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */,
 			);
@@ -264,6 +292,9 @@
 		676EAF4B2633494200656B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67C48BB92646DFA400F27B35 /* FilledButton */,
+				67A2541C263D8149008167DB /* ImagePicker */,
+				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
 				676EAF1C2630CB7C00656B91 /* CircularImageView.swift */,
 			);
 			path = Views;
@@ -284,6 +315,50 @@
 				67A2540D263C559C008167DB /* Colors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		67A2541C263D8149008167DB /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				67A2541D263D816C008167DB /* MImagePicker.swift */,
+				67A25420263D817B008167DB /* MImagePicker.xib */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		67A25451263F2D11008167DB /* NotLogged */ = {
+			isa = PBXGroup;
+			children = (
+				67A25452263F2D3D008167DB /* NotLoggedView.swift */,
+				67A25456263F2D4B008167DB /* NotLoggedView.xib */,
+			);
+			path = NotLogged;
+			sourceTree = "<group>";
+		};
+		67A254BA26408DFB008167DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				67A254BB26408E1A008167DB /* MSegmentedMenuItem.swift */,
+				67A254BE26408E26008167DB /* MSegmentedMenuItem.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		67A254C126412E89008167DB /* AccountDetails */ = {
+			isa = PBXGroup;
+			children = (
+				67A254C226412EAB008167DB /* AccountDetailsView.swift */,
+				67A254C526412EBA008167DB /* AccountDetailsView.xib */,
+			);
+			path = AccountDetails;
+			sourceTree = "<group>";
+		};
+		67C48BB92646DFA400F27B35 /* FilledButton */ = {
+			isa = PBXGroup;
+			children = (
+				67C48BBA2646DFD100F27B35 /* FilledButton.swift */,
+			);
+			path = FilledButton;
 			sourceTree = "<group>";
 		};
 		67F720A8262C183000C9C84E /* AllArtist */ = {
@@ -317,7 +392,6 @@
 		B82FE3A2255DF0D000B52099 /* Fields */ = {
 			isa = PBXGroup;
 			children = (
-				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
 				B82FE3A4255DF0D700B52099 /* MDatePickerField */,
 				B84ECBD825407417007F8E9E /* MPickerField */,
 				B87BDA03253F7CC300252B96 /* MTextField */,
@@ -476,6 +550,7 @@
 		B8CE19BF253DBAE5002AC5A5 /* Usiqee */ = {
 			isa = PBXGroup;
 			children = (
+				67A254CF264323D6008167DB /* Usiqee.entitlements */,
 				B8CE19C0253DBAE5002AC5A5 /* AppDelegate.swift */,
 				B8CE19C2253DBAE5002AC5A5 /* SceneDelegate.swift */,
 				B8CE19CE253DBAE7002AC5A5 /* Info.plist */,
@@ -537,6 +612,7 @@
 				B87B26502542338D007D4A4D /* ServiceVersion.swift */,
 				EECAF244260DE63E00233ACB /* ServiceArtist.swift */,
 				670C4DF5261E337E005A72E2 /* ServiceBand.swift */,
+				67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -583,6 +659,8 @@
 			children = (
 				B8CE1AB0253F7001002AC5A5 /* SignInVC.swift */,
 				B84ECBB325402BAA007F8E9E /* SignUpVC.swift */,
+				67A25418263D4CDD008167DB /* PreAuthVC.swift */,
+				67A2544C263F226E008167DB /* ForgetPasswordVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -689,7 +767,10 @@
 		EEEAD11B25ED67C30062F901 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				67A254C126412E89008167DB /* AccountDetails */,
+				67A25451263F2D11008167DB /* NotLogged */,
 				EEEAD11C25ED67E50062F901 /* AccountVC.swift */,
+				67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -757,21 +838,25 @@
 			files = (
 				B84ECBDB25407436007F8E9E /* MPickerField.xib in Resources */,
 				B8B7DAEE255857AC00B33BDB /* Home.storyboard in Resources */,
+				67A254BF26408E26008167DB /* MSegmentedMenuItem.xib in Resources */,
 				B8CE19CD253DBAE7002AC5A5 /* LaunchScreen.storyboard in Resources */,
 				B87B2649254232B5007D4A4D /* AnimatedLaunchScreen.storyboard in Resources */,
 				65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */,
 				B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */,
 				EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */,
+				67A25421263D817B008167DB /* MImagePicker.xib in Resources */,
 				67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */,
 				EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
 				EE0921D925F15A47002C0174 /* Artist.storyboard in Resources */,
+				67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */,
 				B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */,
 				B8632C8B255AFCED00B196E5 /* Agenda.storyboard in Resources */,
 				B8CE1AAD253F6FC9002AC5A5 /* Auth.storyboard in Resources */,
 				B8FDE3AC253F780F00BD29B2 /* Localizable.strings in Resources */,
 				670C4DFB261E4175005A72E2 /* ArtistCollectionViewCell.xib in Resources */,
 				B8CE19CA253DBAE7002AC5A5 /* Assets.xcassets in Resources */,
+				67A25457263F2D4B008167DB /* NotLoggedView.xib in Resources */,
 				6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */,
 				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
 				67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */,
@@ -853,11 +938,13 @@
 				67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
+				67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */,
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
 				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
 				B836B6212548E45B00AAF48A /* UIButton+M.swift in Sources */,
 				670C4DFA261E4175005A72E2 /* ArtistCollectionViewCell.swift in Sources */,
+				67A25453263F2D3D008167DB /* NotLoggedView.swift in Sources */,
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
 				EE0921F325F15EBD002C0174 /* RelatedAuthor.swift in Sources */,
@@ -876,6 +963,7 @@
 				B87BDA06253F7D1000252B96 /* MTextField.swift in Sources */,
 				EE0921ED25F15E1F002C0174 /* RelatedBand.swift in Sources */,
 				EE0921F025F15E36002C0174 /* RelatedNews.swift in Sources */,
+				67A2544D263F226F008167DB /* ForgetPasswordVC.swift in Sources */,
 				EE09221D25F16583002C0174 /* Language.swift in Sources */,
 				67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */,
 				B84ECBF52541AFD8007F8E9E /* Band.swift in Sources */,
@@ -884,8 +972,11 @@
 				B87B264C254232C6007D4A4D /* AnimateLaunchScreenVC.swift in Sources */,
 				B8F71AD1254B985B00D686B4 /* UIView+M.swift in Sources */,
 				65CF69A325681BBA00CB9AF7 /* MEventType.swift in Sources */,
+				67A254C326412EAB008167DB /* AccountDetailsView.swift in Sources */,
 				65ADCF1B25791F26009A30EA /* UIImage+M.swift in Sources */,
 				EE09221625F1645C002C0174 /* Item.swift in Sources */,
+				67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */,
+				67A254CC2641DFA5008167DB /* AccountSettingsVC.swift in Sources */,
 				652B32552572C6ED008FFA60 /* News.swift in Sources */,
 				67A2540A263A0F5B008167DB /* ArtistDiscographyDetailsView.swift in Sources */,
 				B83BF57B255EED99006903A2 /* CollectionReference+M.swift in Sources */,
@@ -895,6 +986,7 @@
 				652B32542572C6ED008FFA60 /* NewsSection.swift in Sources */,
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,
 				EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */,
+				67A25419263D4CDD008167DB /* PreAuthVC.swift in Sources */,
 				B87B2638254225C2007D4A4D /* Follower.swift in Sources */,
 				676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */,
 				B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */,
@@ -915,8 +1007,10 @@
 				EEEAD11D25ED67E50062F901 /* AccountVC.swift in Sources */,
 				EE09220225F1616F002C0174 /* RelatedLanguage.swift in Sources */,
 				B8FDE37D253F730F00BD29B2 /* L10N.swift in Sources */,
+				67A254BC26408E1A008167DB /* MSegmentedMenuItem.swift in Sources */,
 				65CF699C25681A7400CB9AF7 /* EventCell.swift in Sources */,
 				67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */,
+				67A2541E263D816C008167DB /* MImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1075,6 +1169,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Usiqee/Usiqee.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6XWVM93GDL;
@@ -1084,7 +1179,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
@@ -1099,6 +1194,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Usiqee/Usiqee.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6XWVM93GDL;
@@ -1108,7 +1204,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";

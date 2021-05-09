@@ -44,7 +44,8 @@ class AllArtistVC: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        loadItems()
+        ServiceArtist.listenArtists(delegate: self)
+        ServiceBand.listenBands(delegate: self)
     }
     
     func refresh() {
@@ -75,22 +76,33 @@ class AllArtistVC: UIViewController {
         collectionView.delegate = self
     }
     
-    private func loadItems() {
-        ServiceArtist.getArtists { artists in
-            self.allArtists = artists
-            
-            self.allArtists.sort { lItem, rItem -> Bool in
-                lItem.name < rItem.name
-            }
-            self.filtredArtists = self.allArtists
-            self.reload()
-            self.delegate?.didFinishLoadingArtists()
-        }
+    private func didUpdateItems() {
+        allArtists.sort(by: { $0.name < $1.name })
+        filtredArtists = allArtists
+        reload()
+        delegate?.didFinishLoadingArtists()
     }
     
     private func reload() {
         indexTitles = Array(Set(filtredArtists.map{ String($0.name.prefix(1)).uppercased() })).sorted(by: { $0 < $1 })
         collectionView.reloadData()
+    }
+    
+    private func handleItemIsAdded(musicalEntity: MusicalEntity) {
+        allArtists.append(musicalEntity)
+        didUpdateItems()
+    }
+    
+    private func handleItemIsModified(musicalEntity: MusicalEntity) {
+        guard let index = allArtists.firstIndex(where: { $0.id == musicalEntity.id }) else { return }
+        allArtists[index] = musicalEntity
+        didUpdateItems()
+    }
+    
+    private func handleItemIsRemoved(musicalEntity: MusicalEntity) {
+        guard let index = allArtists.firstIndex(where: { $0.id == musicalEntity.id }) else { return }
+        allArtists.remove(at: index)
+        didUpdateItems()
     }
 }
 
@@ -146,5 +158,35 @@ extension AllArtistVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.didSelect(artist: filtredArtists[indexPath.row])
+    }
+}
+
+//MARK: - ServiceArtistDelegate
+extension AllArtistVC: ServiceArtistDelegate {
+    func dataAdded(artist: Artist) {
+        handleItemIsAdded(musicalEntity: artist)
+    }
+    
+    func dataModified(artist: Artist) {
+        handleItemIsModified(musicalEntity: artist)
+    }
+    
+    func dataRemoved(artist: Artist) {
+        handleItemIsRemoved(musicalEntity: artist)
+    }
+}
+
+//MARK: - ServiceBandDelegate
+extension AllArtistVC: ServiceBandDelegate {
+    func dataAdded(band: Band) {
+        handleItemIsAdded(musicalEntity: band)
+    }
+    
+    func dataModified(band: Band) {
+        handleItemIsModified(musicalEntity: band)
+    }
+    
+    func dataRemoved(band: Band) {
+        handleItemIsRemoved(musicalEntity: band)
     }
 }

@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="95" height="122"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jul" translatesAutoresizingMaskIntoConstraints="NO" id="thU-oZ-LZ5" customClass="CircularImageView" customModule="Usiqee" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thU-oZ-LZ5" customClass="CircularImageView" customModule="Usiqee" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="94"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="thU-oZ-LZ5" secondAttribute="height" multiplier="1:1" constant="1" id="Dpb-Ay-tIJ"/>
@@ -49,7 +49,4 @@
             <point key="canvasLocation" x="-110.86956521739131" y="76.674107142857139"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="jul" width="1440" height="720"/>
-    </resources>
 </document>

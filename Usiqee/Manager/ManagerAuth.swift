@@ -9,15 +9,18 @@ import Firebase
 
 class ManagerAuth {
     
+    // MARK: - Singleton
     static let shared = ManagerAuth()
+    private init() {}
     
+    // MARK: - Properties
     private lazy var dispatchGroup = DispatchGroup()
-    
     var user: User?
     private var followedArtists: [RelatedArtist] = []
     private var followedBands: [RelatedBand] = []
     private var likedBands: [RelatedNews] = []
 
+    // MARK: - Public
     var isConnected: Bool {
         Auth.auth().currentUser != nil
     }
@@ -41,5 +44,11 @@ class ManagerAuth {
         followedArtists = []
         followedBands = []
         likedBands = []
+        (UIApplication.shared.delegate as? AppDelegate)?.unregisterForRemoteNotifications()
+        Messaging.messaging().token { token, _ in
+            if let token = token {
+                ServiceDeviceToken.shared.unregister(token: token)
+            }
+        }
     }
 }
