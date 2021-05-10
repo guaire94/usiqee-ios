@@ -21,8 +21,6 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var segmentedMenu: MSegmentedMenu!
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var follewersLabel: UILabel!
-    @IBOutlet weak private var activityDescription: UILabel!
-    @IBOutlet weak private var activityContent: UILabel!
     @IBOutlet weak private var fullImage: UIImageView!
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var discographyContainer: UIView!
@@ -47,15 +45,10 @@ class ArtistDetailsVC: UIViewController {
     
     private func setupDescriptions() {
         nameLabel.font = Fonts.ArtistDetails.title
-        activityContent.font = Fonts.ArtistDetails.activity
-        activityDescription.text = L10N.ArtistDetails.activity
     }
     
     private func setupContent() {
         nameLabel.text = musicalEntity.name.uppercased()
-        if let date = musicalEntity.startActivityDate {
-            activityContent.text = L10N.ArtistDetails.activityContent(from: date.year)
-        }
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
         fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)

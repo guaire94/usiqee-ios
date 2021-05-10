@@ -25,8 +25,6 @@
 "ARTIST_ALL_TITLE" = "Artists";
 "ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
 
-"ARTIST_DETAILS_ACTIVITY" = "Activity:";
-"ARTIST_DETAILS_ACTIVITY_CONTENT" = "Depuis %@";
 "ARTIST_DETAILS_FOLLOWED" = "followers";
 
 "ARTIST_DETAILS_MENU_NEWS" = "News";

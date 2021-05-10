@@ -82,9 +82,6 @@ struct L10N {
     
     struct ArtistDetails {
         static let activity: String = NSLocalizedString("ARTIST_DETAILS_ACTIVITY", comment: "")
-        static func activityContent(from year: String) -> String  {
-            String(format: NSLocalizedString("ARTIST_DETAILS_ACTIVITY_CONTENT", comment: ""), year)
-        }
         static let followed: String = NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: "")
         
         struct Menu {
