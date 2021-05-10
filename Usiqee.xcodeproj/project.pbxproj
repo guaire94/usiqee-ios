@@ -44,8 +44,8 @@
 		67A254CC2641DFA5008167DB /* AccountSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */; };
 		67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */; };
 		67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C48BBA2646DFD100F27B35 /* FilledButton.swift */; };
-		67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */; };
-		67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */; };
+		67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720A9262C1A3A00C9C84E /* AllMusicalEntityView.swift */; };
+		67F720AC262C1A3A00C9C84E /* AllMusicalEntityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllMusicalEntityView.xib */; };
 		67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */; };
 		67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
@@ -155,8 +155,8 @@
 		67A254CF264323D6008167DB /* Usiqee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Usiqee.entitlements; sourceTree = "<group>"; };
 		67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDeviceToken.swift; sourceTree = "<group>"; };
 		67C48BBA2646DFD100F27B35 /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
-		67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllArtistVC.swift; sourceTree = "<group>"; };
-		67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllArtistVC.xib; sourceTree = "<group>"; };
+		67F720A9262C1A3A00C9C84E /* AllMusicalEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMusicalEntityView.swift; sourceTree = "<group>"; };
+		67F720AA262C1A3A00C9C84E /* AllMusicalEntityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllMusicalEntityView.xib; sourceTree = "<group>"; };
 		67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVCDataSource.swift; sourceTree = "<group>"; };
 		67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsVC.swift; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
@@ -365,8 +365,8 @@
 			isa = PBXGroup;
 			children = (
 				670C4DF3261E303B005A72E2 /* Cells */,
-				67F720A9262C1A3A00C9C84E /* AllArtistVC.swift */,
-				67F720AA262C1A3A00C9C84E /* AllArtistVC.xib */,
+				67F720A9262C1A3A00C9C84E /* AllMusicalEntityView.swift */,
+				67F720AA262C1A3A00C9C84E /* AllMusicalEntityView.xib */,
 			);
 			path = AllArtist;
 			sourceTree = "<group>";
@@ -845,7 +845,7 @@
 				B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */,
 				EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */,
 				67A25421263D817B008167DB /* MImagePicker.xib in Resources */,
-				67F720AC262C1A3A00C9C84E /* AllArtistVC.xib in Resources */,
+				67F720AC262C1A3A00C9C84E /* AllMusicalEntityView.xib in Resources */,
 				EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
 				EE0921D925F15A47002C0174 /* Artist.storyboard in Resources */,
@@ -935,7 +935,7 @@
 			files = (
 				B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
-				67F720AB262C1A3A00C9C84E /* AllArtistVC.swift in Sources */,
+				67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
 				67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */,

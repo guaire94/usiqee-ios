@@ -1,5 +1,5 @@
 //
-//  AllArtistVC.swift
+//  AllMusicalEntityView.swift
 //  Usiqee
 //
 //  Created by Amine on 18/04/2021.
@@ -7,18 +7,20 @@
 
 import UIKit
 
-protocol AllArtistVCDelegate: AnyObject {
+protocol AllMusicalEntityViewDelegate: AnyObject {
     func didFinishLoadingArtists()
     func didSelect(artist: MusicalEntity)
 }
 
-class AllArtistVC: UIViewController {
+class AllMusicalEntityView: UIView {
 
     enum Constants {
+        static let identifier: String = "AllMusicalEntityView"
         fileprivate static let collectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
     // MARK: - IBOutlet
+    @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var artistsLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     
@@ -27,25 +29,33 @@ class AllArtistVC: UIViewController {
     private var filtredArtists: [MusicalEntity] = []
     private var indexTitles: [String]?
     
-    private weak var delegate: AllArtistVCDelegate?
-    private weak var dataSource: ArtistVCDataSource?
+    weak var delegate: AllMusicalEntityViewDelegate?
+    weak var dataSource: ArtistVCDataSource?
     
-    init(dataSource: ArtistVCDataSource?, delegate: AllArtistVCDelegate?) {
-        super.init(nibName: "AllArtistVC", bundle: nil)
-        self.dataSource = dataSource
-        self.delegate = delegate
+    // MARK: - Lifecycle
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    // MARK: - Private
+    private func commonInit() {
+        loadView()
         setupView()
         ServiceArtist.listenArtists(delegate: self)
         ServiceBand.listenBands(delegate: self)
+    }
+    
+    private func loadView() {
+        Bundle.main.loadNibNamed(Constants.identifier, owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     func refresh() {
@@ -107,7 +117,7 @@ class AllArtistVC: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension AllArtistVC: UICollectionViewDataSource {
+extension AllMusicalEntityView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let numberOfItems = filtredArtists.count
         
@@ -146,7 +156,7 @@ extension AllArtistVC: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension AllArtistVC: UICollectionViewDelegateFlowLayout {
+extension AllMusicalEntityView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let nbCell = 3
         let nbSpacing = 10
@@ -162,7 +172,7 @@ extension AllArtistVC: UICollectionViewDelegateFlowLayout {
 }
 
 //MARK: - ServiceArtistDelegate
-extension AllArtistVC: ServiceArtistDelegate {
+extension AllMusicalEntityView: ServiceArtistDelegate {
     func dataAdded(artist: Artist) {
         handleItemIsAdded(musicalEntity: artist)
     }
@@ -177,7 +187,7 @@ extension AllArtistVC: ServiceArtistDelegate {
 }
 
 //MARK: - ServiceBandDelegate
-extension AllArtistVC: ServiceBandDelegate {
+extension AllMusicalEntityView: ServiceBandDelegate {
     func dataAdded(band: Band) {
         handleItemIsAdded(musicalEntity: band)
     }

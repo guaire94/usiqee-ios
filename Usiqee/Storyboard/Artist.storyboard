@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pHn-78-An9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pHn-78-An9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,6 +24,12 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rJP-FB-bAO">
                                 <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-Z3-yrW" customClass="AllMusicalEntityView" customModule="Usiqee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lm-3J-8Zu">
                                 <rect key="frame" x="20" y="60" width="374" height="48"/>
@@ -88,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bFh-G6-yeD"/>
                     <connections>
+                        <outlet property="allArtistView" destination="nhP-Z3-yrW" id="GO7-Vw-b3t"/>
                         <outlet property="contentStackView" destination="rJP-FB-bAO" id="VLf-Xd-gYq"/>
                         <outlet property="loadingView" destination="yzg-cu-erV" id="wUI-3z-FFj"/>
                         <outlet property="searchContainer" destination="3Lm-3J-8Zu" id="wjg-du-vHZ"/>
@@ -292,5 +300,8 @@
         <image name="back" width="12" height="21"/>
         <image name="follow" width="80" height="28"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -22,9 +22,7 @@ class ArtistVC: UIViewController {
     @IBOutlet weak private var searchContainer: UIView!
     @IBOutlet weak private var contentStackView: UIStackView!
     @IBOutlet weak private var loadingView: UIView!
-    
-    //MARK: - Properties
-    weak var allArtistView: AllArtistVC?
+    @IBOutlet weak private var allArtistView: AllMusicalEntityView!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -49,11 +47,8 @@ class ArtistVC: UIViewController {
     }
     
     private func loadAllArtistView() {
-        let allArtistView = AllArtistVC(dataSource: self, delegate: self)
-        contentStackView.addArrangedSubview(allArtistView.view)
-        addChild(allArtistView)
-        allArtistView.didMove(toParent: self)
-        self.allArtistView = allArtistView
+        allArtistView.dataSource = self
+        allArtistView.delegate = self
     }
 
     private func setupSearchTextField() {
@@ -74,7 +69,7 @@ class ArtistVC: UIViewController {
     }
     
     private func refreshView() {
-        allArtistView?.refresh()
+        allArtistView.refresh()
     }
 }
 
@@ -92,8 +87,8 @@ extension ArtistVC: ArtistVCDataSource {
     }
 }
 
-// MARK: - AllArtistVCDelegate
-extension ArtistVC: AllArtistVCDelegate {
+// MARK: - AllMusicalEntityViewDelegate
+extension ArtistVC: AllMusicalEntityViewDelegate {
     func didSelect(artist: MusicalEntity) {
         performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
     }
