@@ -71,6 +71,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera permission to allow you to change your avatar</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>
