@@ -6,6 +6,7 @@
 //
 
 import FirebaseFirestore
+import Firebase
 
 protocol ServiceBandDelegate {
     func dataAdded(band: Band)
@@ -34,6 +35,46 @@ class ServiceBand {
                 case .removed:
                     delegate.dataRemoved(band: band)
                 }
+            }
+        }
+    }
+    
+    static func follow(band: Band, completion: @escaping (Error?) -> Void)  {
+        guard let currentUser = ManagerAuth.shared.user,
+              let userId = currentUser.id else {
+            return
+        }
+        let data: [String : Any] = [
+            "bandId": band.id,
+            "name": band.name,
+            "avatar": band.avatar
+        ]
+        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: data) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
+            }
+        }
+    }
+    
+    static func unfollow(band: RelatedBand, completion: @escaping (Error?) -> Void) {
+        guard let user = Auth.auth().currentUser,
+              let bandId = band.id else {
+            return
+        }
+        
+        FFirestoreReference.userFollowedBands(userId: user.uid).document(bandId).delete { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
             }
         }
     }

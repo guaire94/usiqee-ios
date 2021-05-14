@@ -22,7 +22,9 @@ class MSegmentedMenu: UIView {
     private var contentTexts: [String] = []
     private var tabs: [MSegmentedMenuItem] = []
     weak var delegate: MSegmentedMenuDelegate?
-    
+    var selectedItem: Int {
+        currentSelectedItem
+    }
     
     // MARK: - Lifecycle
     override init(frame: CGRect) {

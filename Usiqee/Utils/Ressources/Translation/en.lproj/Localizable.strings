@@ -25,7 +25,10 @@
 "ARTIST_ALL_TITLE" = "Artists";
 "ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
 
+"ARTIST_DETAILS_TITLE" = "Détails d'artist";
 "ARTIST_DETAILS_FOLLOWED" = "followers";
+"ARTIST_DETAILS_FOLLOW" = "Suivre";
+"ARTIST_DETAILS_UNFOLLOW" = "Abonné";
 
 "ARTIST_DETAILS_MENU_NEWS" = "News";
 "ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";

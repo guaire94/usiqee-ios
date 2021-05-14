@@ -53,6 +53,7 @@ class AnimateLaunchScreenVC: UIViewController {
     
     private func loadUserIfNeeded() {
         ManagerAuth.shared.synchronise { [weak self] in
+            ManagerAuth.shared.didChangeStatus()
             self?.displayHome()
         }
     }

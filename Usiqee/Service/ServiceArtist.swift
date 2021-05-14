@@ -6,6 +6,7 @@
 //
 
 import FirebaseFirestore
+import Firebase
 
 protocol ServiceArtistDelegate {
     func dataAdded(artist: Artist)
@@ -34,6 +35,45 @@ class ServiceArtist {
                 case .removed:
                     delegate.dataRemoved(artist: artist)
                 }
+            }
+        }
+    }
+    
+    static func follow(artist: Artist, completion: @escaping (Error?) -> Void)  {
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        let data: [String : Any] = [
+            "artistId": artist.id,
+            "name": artist.name,
+            "avatar": artist.avatar
+        ]
+        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: data) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
+            }
+        }
+    }
+    
+    static func unfollow(artist: RelatedArtist, completion: @escaping (Error?) -> Void) {
+        guard let user = Auth.auth().currentUser,
+              let artistId = artist.id else {
+            return
+        }
+        
+        FFirestoreReference.userFollowedArtists(userId: user.uid).document(artistId).delete { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
             }
         }
     }

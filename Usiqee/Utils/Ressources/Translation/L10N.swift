@@ -81,8 +81,11 @@ struct L10N {
     }
     
     struct ArtistDetails {
+        static let title: String = NSLocalizedString("ARTIST_DETAILS_TITLE", comment: "")
         static let activity: String = NSLocalizedString("ARTIST_DETAILS_ACTIVITY", comment: "")
         static let followed: String = NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: "")
+        static let follow: String = NSLocalizedString("ARTIST_DETAILS_FOLLOW", comment: "")
+        static let unfollow: String = NSLocalizedString("ARTIST_DETAILS_UNFOLLOW", comment: "")
         
         struct Menu {
             static let news: String = NSLocalizedString("ARTIST_DETAILS_MENU_NEWS", comment: "")
