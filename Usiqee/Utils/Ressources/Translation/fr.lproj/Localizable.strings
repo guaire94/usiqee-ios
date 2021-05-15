@@ -17,6 +17,8 @@
 "ARTIST_SEARCH_PLACEHOLDER" = "Search";
 "ARTIST_ALL_TITLE" = "Artists";
 "ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
+"ARTIST_FOLLOWED_TITLE" = "Followed Artist";
+"ARTIST_FOLLOWED_EMPTY_LIST" = "Aucune correspondance trouvée";
 
 "ARTIST_DETAILS_TITLE" = "Détails d'artist";
 "ARTIST_DETAILS_FOLLOWED" = "followers";
@@ -25,7 +27,7 @@
 
 "ARTIST_DETAILS_MENU_NEWS" = "News";
 "ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";
-"ARTIST_DETAILS_MENU_DISCOGRAPHY" = "Discography";
+"ARTIST_DETAILS_MENU_BIO" = "Bio";
 
 "ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
@@ -68,6 +70,8 @@
 
 "USER_DETAILS_MENU_FOLLOWED" = "%d followed";
 "USER_DETAILS_MENU_FAVORIS" = "%d favoris";
+"USER_DETAILS_UNFOLLOW" = "Abonné";
+"USER_DETAILS_FOLLOWED_EMPTY_LIST" = "Vous ne suivez aucun artist";
 
 "IMAGE_PICKER_GALLERY" = "Load from gallery";
 "IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";

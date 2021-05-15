@@ -31,4 +31,11 @@ class ArtistCollectionViewCell: UICollectionViewCell {
         let storage = Storage.storage().reference(forURL: artist.avatar)
         artistImage.sd_setImage(with: storage)
     }
+    
+    func configure(followedEntity: RelatedMusicalEntity) {
+        artistNameLabel.text = followedEntity.name
+        
+        let storage = Storage.storage().reference(forURL: followedEntity.avatar)
+        artistImage.sd_setImage(with: storage)
+    }
 }

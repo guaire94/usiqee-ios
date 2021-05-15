@@ -28,7 +28,7 @@ extension UIViewController {
         navigationController?.popToRootViewController(animated: false)
     }
     
-    func displayAuthentication(with delegate: PreAuthVCDelegate?) {
+    func displayAuthentication(with delegate: PreAuthVCDelegate? = nil) {
         guard let authenticationNavigationController = MStoryboard.Auth.storyboard.instantiateInitialViewController() as? PreAuthVC else {
             fatalError("Load initial view controller from '\(MStoryboard.Home.rawValue)' Storyboard have failed")
         }

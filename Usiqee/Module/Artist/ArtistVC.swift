@@ -23,6 +23,7 @@ class ArtistVC: UIViewController {
     @IBOutlet weak private var contentStackView: UIStackView!
     @IBOutlet weak private var loadingView: UIView!
     @IBOutlet weak private var allArtistView: AllMusicalEntityView!
+    @IBOutlet weak private var followedArtistView: FollowedMusicalEntityView!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -43,12 +44,19 @@ class ArtistVC: UIViewController {
         loadingView.isHidden = false
         setupSearchTextField()
         loadAllArtistView()
+        loadFollowedView()
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        ManagerAuth.shared.add(delegate: self)
     }
     
     private func loadAllArtistView() {
         allArtistView.dataSource = self
         allArtistView.delegate = self
+    }
+    
+    private func loadFollowedView() {
+        followedArtistView.dataSource = self
+        followedArtistView.delegate = self
     }
 
     private func setupSearchTextField() {
@@ -70,6 +78,7 @@ class ArtistVC: UIViewController {
     
     private func refreshView() {
         allArtistView.refresh()
+        followedArtistView.refresh()
     }
 }
 
@@ -103,5 +112,29 @@ extension ArtistVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
+    }
+}
+
+// MARK: - ManagerAuthSignInDelegate
+extension ArtistVC: ManagerAuthDelegate {
+    func didUpdateUserStatus() {
+        followedArtistView.isHidden = !ManagerAuth.shared.isConnected
+    }
+    
+    func didUpdateFollowedEntities() {
+        followedArtistView.refresh()
+    }
+}
+
+// MARK: - FollowedMusicalEntityViewDelegate
+extension ArtistVC: FollowedMusicalEntityViewDelegate {
+    func didSelectArtist(id: String) {
+        let artist = ManagerMusicalEntity.shared.getArtist(by: id)
+        performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
+    }
+    
+    func didSelectBand(id: String) {
+        let band = ManagerMusicalEntity.shared.getBand(by: id)
+        performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: band)
     }
 }

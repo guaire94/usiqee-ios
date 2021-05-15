@@ -78,6 +78,10 @@ struct L10N {
             static let title: String = NSLocalizedString("ARTIST_ALL_TITLE", comment: "")
             static let emptyListMessage: String = NSLocalizedString("ARTIST_ALL_EMPTY_LIST", comment: "")
         }
+        struct FollowedArtist {
+            static let title: String = NSLocalizedString("ARTIST_FOLLOWED_TITLE", comment: "")
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_FOLLOWED_EMPTY_LIST", comment: "")
+        }
     }
     
     struct ArtistDetails {
@@ -90,7 +94,7 @@ struct L10N {
         struct Menu {
             static let news: String = NSLocalizedString("ARTIST_DETAILS_MENU_NEWS", comment: "")
             static let calendar: String = NSLocalizedString("ARTIST_DETAILS_MENU_CALENDAR", comment: "")
-            static let discography: String = NSLocalizedString("ARTIST_DETAILS_MENU_DISCOGRAPHY", comment: "")
+            static let bio: String = NSLocalizedString("ARTIST_DETAILS_MENU_BIO", comment: "")
         }
         
         struct Discography {
@@ -108,6 +112,8 @@ struct L10N {
                 String(format: NSLocalizedString("USER_DETAILS_MENU_FAVORIS", comment: ""), numberOfFavoris)
             }
         }
+        static let unfollow: String = NSLocalizedString("USER_DETAILS_UNFOLLOW", comment: "")
+        static let followedEmptyListMessage = NSLocalizedString("USER_DETAILS_FOLLOWED_EMPTY_LIST", comment: "")
     }
     
     struct AccountSettings {

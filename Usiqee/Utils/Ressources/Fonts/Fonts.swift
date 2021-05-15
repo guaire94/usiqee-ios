@@ -21,6 +21,12 @@ enum Fonts: String {
         return font
     }
     
+    enum Global {
+        static var emptyMessage: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 18)
+        }
+    }
+    
     enum AllArtist {
         static var title: UIFont {
             Fonts.SofiaProRegular.withSize(with: 18)
@@ -32,6 +38,15 @@ enum Fonts: String {
             static var title: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 14)
             }
+        }
+    }
+    
+    enum FollowedArtist {
+        static var title: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 18)
+        }
+        static var numberOfFollowing: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 11)
         }
     }
     
@@ -77,6 +92,9 @@ enum Fonts: String {
     enum AccountDetails {
         static var userName: UIFont {
             Fonts.SofiaProRegular.withSize(with: 21)
+        }
+        static var artistName: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 14)
         }
     }
     

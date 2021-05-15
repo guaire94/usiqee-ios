@@ -22,6 +22,7 @@ class ServiceArtist {
     // MARK: - GET
     static func listenArtists(delegate: ServiceArtistDelegate) {
         listener?.remove()
+        ManagerMusicalEntity.shared.clearArtist()
         self.listener = FFirestoreReference.artist.addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
@@ -30,9 +31,12 @@ class ServiceArtist {
                 switch diff.type {
                 case .added:
                     delegate.dataAdded(artist: artist)
+                    ManagerMusicalEntity.shared.add(artist: artist)
                 case .modified:
                     delegate.dataModified(artist: artist)
+                    ManagerMusicalEntity.shared.update(artist: artist)
                 case .removed:
+                    ManagerMusicalEntity.shared.delete(artist: artist)
                     delegate.dataRemoved(artist: artist)
                 }
             }

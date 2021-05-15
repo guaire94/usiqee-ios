@@ -26,17 +26,8 @@ class AccountVC: UIViewController {
         super.viewDidLoad()
         setUpView()
         handleSubviewsVisibility()
+        ManagerAuth.shared.add(delegate: self)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == AccountSettingsVC.Constants.identifier {
-            guard let vc = segue.destination as? AccountSettingsVC else {
-                return
-            }
-            
-            vc.delegate = self
-        }
     }
     
     // MARK: - Privates
@@ -60,7 +51,7 @@ class AccountVC: UIViewController {
 // MARK: - NotLoggedViewDelegate
 extension AccountVC: NotLoggedViewDelegate {
     func showPreAuthentication() {
-        displayAuthentication(with: self)
+        displayAuthentication()
     }
 }
 
@@ -71,16 +62,13 @@ extension AccountVC: AccountDetailsViewDelegate {
     }
 }
 
-// MARK: - PreAuthVCDelegate
-extension AccountVC: PreAuthVCDelegate {
-    func didSignIn() {
+// MARK: - ManagerAuthSignInDelegate
+extension AccountVC: ManagerAuthDelegate {
+    func didUpdateUserStatus() {
         handleSubviewsVisibility()
     }
-}
-
-// MARK: - AccountSettingsVCDelegate
-extension AccountVC: AccountSettingsVCDelegate {
-    func didLogout() {
-        handleSubviewsVisibility()
+    
+    func didUpdateFollowedEntities() {
+        accountDetailsView.refresh()
     }
 }

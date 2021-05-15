@@ -231,13 +231,13 @@ enum FFirestoreReference {
         env.collection(FirebaseCollection.user)
     }
     static func userFollowedArtists(userId: String) -> CollectionReference {
-        event.document(userId).collection(FirebaseCollection.userFollowedArtists)
+        user.document(userId).collection(FirebaseCollection.userFollowedArtists)
     }
     static func userFollowedBands(userId: String) -> CollectionReference {
-        event.document(userId).collection(FirebaseCollection.userFollowedBands)
+        user.document(userId).collection(FirebaseCollection.userFollowedBands)
     }
     static func userLikedNews(userId: String) -> CollectionReference {
-        event.document(userId).collection(FirebaseCollection.userLikedNews)
+        user.document(userId).collection(FirebaseCollection.userLikedNews)
     }
         
     // MARK: - LANGUAGE

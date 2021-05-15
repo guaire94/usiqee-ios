@@ -1,13 +1,13 @@
 //
-//  UICollectionView+M.swift
+//  UITableView+M.swift
 //  Usiqee
 //
-//  Created by Amine on 23/04/2021.
+//  Created by Amine on 15/05/2021.
 //
 
 import UIKit
 
-extension UICollectionView {
+extension UITableView {
 
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))

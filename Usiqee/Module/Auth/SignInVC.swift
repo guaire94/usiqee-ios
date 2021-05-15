@@ -87,6 +87,7 @@ extension SignInVC {
                 (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 self.delegate?.didSignIn()
+                ManagerAuth.shared.didChangeStatus()
             }
         }
     }

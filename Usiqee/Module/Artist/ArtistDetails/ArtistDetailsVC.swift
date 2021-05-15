@@ -23,7 +23,6 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var follewersLabel: UILabel!
     @IBOutlet weak private var fullImage: UIImageView!
     @IBOutlet weak private var mainImage: CircularImageView!
-    @IBOutlet weak private var discographyContainer: UIView!
     @IBOutlet weak private var followingButton: FilledButton!
     
     // MARK: - Properties
@@ -33,7 +32,7 @@ class ArtistDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        segmentedMenu.configure(with: L10N.ArtistDetails.Menu.news, L10N.ArtistDetails.Menu.calendar, L10N.ArtistDetails.Menu.discography)
+        segmentedMenu.configure(with: L10N.ArtistDetails.Menu.bio, L10N.ArtistDetails.Menu.news, L10N.ArtistDetails.Menu.calendar)
         segmentedMenu.delegate = self
     }
     
@@ -41,7 +40,6 @@ class ArtistDetailsVC: UIViewController {
     private func setupView() {
         setupDescriptions()
         setupContent()
-        resetMenuSubViews()
     }
     
     private func setupDescriptions() {
@@ -84,10 +82,6 @@ class ArtistDetailsVC: UIViewController {
         )
 
         follewersLabel.attributedText = text
-    }
-    
-    private func resetMenuSubViews() {
-        discographyContainer.isHidden = true
     }
     
     private func handleFollowing() {
@@ -171,20 +165,7 @@ extension ArtistDetailsVC {
 
 // MARK: - MSegmentedMenuDelegate
 extension ArtistDetailsVC: MSegmentedMenuDelegate {
-    func didSelectItem(at index: Int) {
-        resetMenuSubViews()
-        
-        switch index {
-        case 0:
-            break
-        case 1:
-            break
-        case 2:
-            discographyContainer.isHidden = false
-        default:
-            break
-        }
-    }
+    func didSelectItem(at index: Int) { }
 }
 
 // MARK: - PreAuthVCDelegate
