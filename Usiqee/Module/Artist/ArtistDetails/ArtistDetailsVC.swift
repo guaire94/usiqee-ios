@@ -13,8 +13,9 @@ class ArtistDetailsVC: UIViewController {
     // MARK: - Constants
     enum Constants {
         static let identifer = "ArtistDetailsVC"
-        static let followersDescription: UIColor = Colors.gray
-        static let followersNumber: UIColor = .white
+        fileprivate static let followersDescription: UIColor = Colors.gray
+        fileprivate static let followersNumber: UIColor = .white
+        fileprivate static let followingCornerRadius: CGFloat = 15
     }
     
     // MARK: - IBOutlet
@@ -43,7 +44,7 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func setupDescriptions() {
-        followingButton.layer.cornerRadius = 15
+        followingButton.layer.cornerRadius = Constants.followingCornerRadius
         nameLabel.font = Fonts.ArtistDetails.title
     }
     
@@ -59,7 +60,7 @@ class ArtistDetailsVC: UIViewController {
         if ManagerAuth.shared.isFollowing(musicalEntity: musicalEntity) {
             followingButton.isFilled = true
             followingButton.setTitle(L10N.ArtistDetails.unfollow, for: .normal)
-        }else {
+        } else {
             followingButton.isFilled = false
             followingButton.setTitle(L10N.ArtistDetails.follow, for: .normal)
         }
@@ -112,7 +113,8 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func unfollow(artist: Artist) {
-        guard let relatedArtist = ManagerAuth.shared.relatedArtist(by: artist.id!) else {
+        guard let artistId = artist.id,
+              let relatedArtist = ManagerAuth.shared.relatedArtist(by: artistId) else {
             return
         }
         ServiceArtist.unfollow(artist: relatedArtist) { [weak self] error in
@@ -127,7 +129,8 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func unfollow(band: Band) {
-        guard let relatedBand = ManagerAuth.shared.relatedBand(by: band.id!) else {
+        guard let bandId = band.id,
+              let relatedBand = ManagerAuth.shared.relatedBand(by: bandId) else {
             return
         }
         ServiceBand.unfollow(band: relatedBand) { [weak self] error in

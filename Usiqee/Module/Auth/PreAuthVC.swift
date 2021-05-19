@@ -34,7 +34,7 @@ class PreAuthVC: UIViewController {
             }
             
             signInVC.delegate = self
-        }else if segue.identifier == SignUpVC.Constants.identifier {
+        } else if segue.identifier == SignUpVC.Constants.identifier {
             guard let signUpVC = segue.destination as? SignUpVC else {
                 return
             }

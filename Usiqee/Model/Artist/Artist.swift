@@ -8,4 +8,13 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-class Artist: MusicalEntity {}
+class Artist: MusicalEntity {
+    
+    var relatedData: [String : Any] {
+        [
+            "artistId": id,
+            "name": name,
+            "avatar": avatar
+        ]
+    }
+}

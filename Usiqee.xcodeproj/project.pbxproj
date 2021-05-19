@@ -25,6 +25,7 @@
 		6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */; };
 		6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */; };
 		67656A452654593900672911 /* SofiaProRegularItalicAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67656A442654593900672911 /* SofiaProRegularItalicAz.otf */; };
+		67656A4A2655AE0E00672911 /* ServiceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67656A492655AE0E00672911 /* ServiceUser.swift */; };
 		676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF152630AAEE00656B91 /* MusicalEntity.swift */; };
 		676EAF192630C86700656B91 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF182630C86700656B91 /* Fonts.swift */; };
 		676EAF1D2630CB7C00656B91 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF1C2630CB7C00656B91 /* CircularImageView.swift */; };
@@ -143,6 +144,7 @@
 		6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSegmentedMenu.swift; sourceTree = "<group>"; };
 		6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularAz.otf; sourceTree = "<group>"; };
 		67656A442654593900672911 /* SofiaProRegularItalicAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularItalicAz.otf; sourceTree = "<group>"; };
+		67656A492655AE0E00672911 /* ServiceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUser.swift; sourceTree = "<group>"; };
 		676EAF152630AAEE00656B91 /* MusicalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalEntity.swift; sourceTree = "<group>"; };
 		676EAF182630C86700656B91 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		676EAF1C2630CB7C00656B91 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 				EECAF244260DE63E00233ACB /* ServiceArtist.swift */,
 				670C4DF5261E337E005A72E2 /* ServiceBand.swift */,
 				67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */,
+				67656A492655AE0E00672911 /* ServiceUser.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				676EAF192630C86700656B91 /* Fonts.swift in Sources */,
 				67A25403263A0299008167DB /* UITextField+M.swift in Sources */,
 				B8CE19C3253DBAE5002AC5A5 /* SceneDelegate.swift in Sources */,
+				67656A4A2655AE0E00672911 /* ServiceUser.swift in Sources */,
 				676EAF1D2630CB7C00656B91 /* CircularImageView.swift in Sources */,
 				B84ECBDC25407436007F8E9E /* MPickerField.swift in Sources */,
 				EE0921E625F15DD4002C0174 /* Comment.swift in Sources */,

@@ -5,7 +5,6 @@
 //  Created by Amine on 07/04/2021.
 //
 
-import FirebaseFirestore
 import Firebase
 
 protocol ServiceBandDelegate {
@@ -48,12 +47,8 @@ class ServiceBand {
               let userId = currentUser.id else {
             return
         }
-        let data: [String : Any] = [
-            "bandId": band.id,
-            "name": band.name,
-            "avatar": band.avatar
-        ]
-        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: data) { error in
+
+        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.relatedData) { error in
             if let error = error {
                 completion(error)
                 return

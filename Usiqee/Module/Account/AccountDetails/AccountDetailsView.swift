@@ -43,6 +43,7 @@ class AccountDetailsView: UIView {
         commonInit()
     }
     
+    // MARK: - Public
     func refresh() {
         ManagerAuth.shared.synchronise {
             self.retreiveFollowedMusicalEntities()
@@ -143,13 +144,12 @@ extension AccountDetailsView {
 extension AccountDetailsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedMenu.selectedItem == 0 {
-            let numberOfItems = musicalEntities.count
-            if numberOfItems == 0 {
+            if musicalEntities.isEmpty {
                 tableView.setEmptyMessage(L10N.UserDetails.followedEmptyListMessage)
-            }else {
+            } else {
                 tableView.restore()
             }
-            return numberOfItems
+            return musicalEntities.count
         }
         
         tableView.restore()

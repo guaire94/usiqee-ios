@@ -44,7 +44,7 @@ class MSegmentedMenuItem: UIView {
         if isSelected {
             contentLabel.textColor = .white
             isSelectedView.isHidden = false
-        }else {
+        } else {
             contentLabel.textColor = Colors.gray
             isSelectedView.isHidden = true
         }

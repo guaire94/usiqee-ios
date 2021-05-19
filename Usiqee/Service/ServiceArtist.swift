@@ -5,7 +5,6 @@
 //  Created by Guaire94 on 26/03/2021.
 //
 
-import FirebaseFirestore
 import Firebase
 
 protocol ServiceArtistDelegate {
@@ -47,12 +46,8 @@ class ServiceArtist {
         guard let user = Auth.auth().currentUser else {
             return
         }
-        let data: [String : Any] = [
-            "artistId": artist.id,
-            "name": artist.name,
-            "avatar": artist.avatar
-        ]
-        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: data) { error in
+        
+        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: artist.relatedData) { error in
             if let error = error {
                 completion(error)
                 return

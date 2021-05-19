@@ -5,7 +5,6 @@
 //  Created by Amine on 14/05/2021.
 //
 
-import Firebase
 import FirebaseFirestoreSwift
 
 class RelatedMusicalEntity: Identifiable, Codable {

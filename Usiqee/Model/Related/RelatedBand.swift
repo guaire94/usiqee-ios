@@ -5,9 +5,6 @@
 //  Created by Guaire94 on 04/03/2021.
 //
 
-import Firebase
-import FirebaseFirestoreSwift
-
 class RelatedBand: RelatedMusicalEntity {
     
     // MARK: - Private

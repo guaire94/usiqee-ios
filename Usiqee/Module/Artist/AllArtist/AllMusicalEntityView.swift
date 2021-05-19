@@ -43,6 +43,22 @@ class AllMusicalEntityView: UIView {
         commonInit()
     }
     
+    // MARK: - Public
+    func refresh() {
+        defer {
+            reload()
+        }
+        
+        guard let text = dataSource?.filterBy?.uppercased(), !text.isEmpty else {
+            filtredArtists = allArtists
+            return
+        }
+        
+        filtredArtists = allArtists.filter({ item -> Bool in
+            item.name.uppercased().contains(text)
+        })
+    }
+    
     // MARK: - Private
     private func commonInit() {
         loadView()
@@ -58,22 +74,6 @@ class AllMusicalEntityView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    func refresh() {
-        defer {
-            reload()
-        }
-        
-        guard let text = dataSource?.filterBy?.uppercased(), !text.isEmpty else {
-            filtredArtists = allArtists
-            return
-        }
-        
-        filtredArtists = allArtists.filter({ item -> Bool in
-            item.name.uppercased().contains(text)
-        })
-    }
-
-    // MARK: - Privates
     private func setupView() {
         setupArtistsCollectionView()
         artistsLabel.text = L10N.Artist.allArtist.title
@@ -119,15 +119,12 @@ class AllMusicalEntityView: UIView {
 // MARK: - UICollectionViewDataSource
 extension AllMusicalEntityView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItems = filtredArtists.count
-        
-        if numberOfItems == 0 {
+        if filtredArtists.isEmpty {
             collectionView.setEmptyMessage(L10N.Artist.allArtist.emptyListMessage)
-        }else {
+        } else {
             collectionView.restore()
         }
-        
-        return numberOfItems
+        return filtredArtists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

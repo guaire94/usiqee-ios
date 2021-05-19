@@ -63,12 +63,12 @@ class ManagerAuth {
     }
     
     func didChangeStatus() {
-        
         if let user = Auth.auth().currentUser {
-            setupFollowedArtists(user: user)
-            setupFollowedBands(user: user)
+            ServiceUser.shared.delegate = self
+            ServiceUser.shared.setupFollowedArtists(user: user)
+            ServiceUser.shared.setupFollowedBands(user: user)
         } else {
-            cleanListeners()
+            ServiceUser.shared.clear()
         }
         
         delegates.forEach {
@@ -102,58 +102,46 @@ class ManagerAuth {
     
     // MARK: - private
     
-    private func setupFollowedArtists(user: FirebaseAuth.User) {
-        followedArtistsListener = FFirestoreReference.userFollowedArtists(userId: user.uid).addSnapshotListener { query, error in
-            guard let snapshot = query else { return }
-            snapshot.documentChanges.forEach { diff in
-                guard let artist = try? diff.document.data(as: RelatedArtist.self) else { return }
-                
-                switch diff.type {
-                case .added:
-                    self.followedArtists.append(artist)
-                case .modified:
-                    guard let index = self.followedArtists.firstIndex(where: { $0.id == artist.id }) else { return }
-                    self.followedArtists[index] = artist
-                case .removed:
-                    guard let index = self.followedArtists.firstIndex(where: { $0.id == artist.id }) else { return }
-                    self.followedArtists.remove(at: index)
-                }
-                
-                self.delegates.forEach {
-                    $0.didUpdateFollowedEntities()
-                }
-            }
+    private func didUpdateFollowedMusicalEntities() {
+        self.delegates.forEach {
+            $0.didUpdateFollowedEntities()
         }
     }
-    
-    private func setupFollowedBands(user: FirebaseAuth.User) {
-        followedBandsListener = FFirestoreReference.userFollowedBands(userId: user.uid).addSnapshotListener { query, error in
-            guard let snapshot = query else { return }
-            snapshot.documentChanges.forEach { diff in
-                guard let band = try? diff.document.data(as: RelatedBand.self) else { return }
-                
-                switch diff.type {
-                case .added:
-                    self.followedBands.append(band)
-                case .modified:
-                    guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
-                    self.followedBands[index] = band
-                case .removed:
-                    guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
-                    self.followedBands.remove(at: index)
-                }
-                
-                self.delegates.forEach {
-                    $0.didUpdateFollowedEntities()
-                }
-            }
-        }
+}
+
+// MARK: - ServiceUserDelegate
+extension ManagerAuth: ServiceUserDelegate {
+    func dataAdded(artist: RelatedArtist) {
+        followedArtists.append(artist)
+        didUpdateFollowedMusicalEntities()
     }
     
-    private func cleanListeners() {
-        followedArtistsListener?.remove()
-        followedArtistsListener = nil
-        followedBandsListener?.remove()
-        followedBandsListener = nil
+    func dataModified(artist: RelatedArtist) {
+        guard let index = self.followedArtists.firstIndex(where: { $0.id == artist.id }) else { return }
+        followedArtists[index] = artist
+        didUpdateFollowedMusicalEntities()
+    }
+    
+    func dataRemoved(artist: RelatedArtist) {
+        guard let index = self.followedArtists.firstIndex(where: { $0.id == artist.id }) else { return }
+        followedArtists.remove(at: index)
+        didUpdateFollowedMusicalEntities()
+    }
+    
+    func dataAdded(band: RelatedBand) {
+        followedBands.append(band)
+        didUpdateFollowedMusicalEntities()
+    }
+    
+    func dataModified(band: RelatedBand) {
+        guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
+        followedBands[index] = band
+        didUpdateFollowedMusicalEntities()
+    }
+    
+    func dataRemoved(band: RelatedBand) {
+        guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
+        followedBands.remove(at: index)
+        didUpdateFollowedMusicalEntities()
     }
 }

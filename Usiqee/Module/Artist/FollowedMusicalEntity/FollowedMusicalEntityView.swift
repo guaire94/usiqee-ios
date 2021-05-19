@@ -49,7 +49,7 @@ class FollowedMusicalEntityView: UIView {
         }
         loadItems()
         
-        if musicalEntities.isEmpty {
+        guard !musicalEntities.isEmpty else {
             isHidden = true
             return
         }
@@ -109,15 +109,12 @@ class FollowedMusicalEntityView: UIView {
 // MARK: - UICollectionViewDataSource
 extension FollowedMusicalEntityView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItems = filtredMusicalEntities.count
-        
-        if numberOfItems == 0 {
+        if filtredMusicalEntities.isEmpty {
             collectionView.setEmptyMessage(L10N.Artist.allArtist.emptyListMessage)
-        }else {
+        } else {
             collectionView.restore()
         }
-        
-        return numberOfItems
+        return filtredMusicalEntities.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
