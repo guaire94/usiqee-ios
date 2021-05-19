@@ -43,9 +43,15 @@
 "PRE_AUTH_SIGNUP" = "Sign up with email";
 "PRE_AUTH_OR" = "or";
 
-"ACCOUNT_NOT_LOGGED_TITLE" = "T'as pas encore de compte ?";
-"ACCOUNT_NOT_LOGGED_SUBTITLE" = "En te connectant tu peux: \n-follow les artists\n-  liker les news";
+"ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
+"ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
 "ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
+"ACCOUNT_NOT_LOGGED_FOLLOW" = "Follow artistes";
+"ACCOUNT_NOT_LOGGED_COMMENTS" = "Section com’";
+"ACCOUNT_NOT_LOGGED_LIKES" = "Like d’articles";
+"ACCOUNT_NOT_LOGGED_NOTIFICATIONS" = "Notifis perso";
+"ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
+"ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
 
 "SIGNIN_TITLE"="";
 "SIGNIN_NOACCOUNT"="";

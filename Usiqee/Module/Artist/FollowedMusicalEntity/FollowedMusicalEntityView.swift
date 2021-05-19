@@ -57,9 +57,11 @@ class FollowedMusicalEntityView: UIView {
         
         guard let text = dataSource?.filterBy?.uppercased(), !text.isEmpty else {
             filtredMusicalEntities = musicalEntities
+            followingNumberLabel.isHidden = false
             return
         }
         
+        followingNumberLabel.isHidden = true
         filtredMusicalEntities = musicalEntities.filter({ item -> Bool in
             item.name.uppercased().contains(text)
         })

@@ -23,6 +23,12 @@ class NotLoggedView: UIView {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var subtitleLabel: UILabel!
     @IBOutlet weak private var continueButton: FilledButton!
+    @IBOutlet weak private var followLabel: UILabel!
+    @IBOutlet weak private var commentsLabel: UILabel!
+    @IBOutlet weak private var likeLabel: UILabel!
+    @IBOutlet weak private var notificationsLabel: UILabel!
+    @IBOutlet weak private var trophiesLabel: UILabel!
+    @IBOutlet weak private var eventsLabel: UILabel!
     
     // MARK: - Properties
     weak var delegate: NotLoggedViewDelegate?
@@ -66,6 +72,18 @@ class NotLoggedView: UIView {
         titleLabel.text = L10N.AccountNotLogged.title
         subtitleLabel.font = Fonts.AccountNotLogged.subtitle
         subtitleLabel.text = L10N.AccountNotLogged.subtitle
+        followLabel.text = L10N.AccountNotLogged.follow
+        followLabel.font = Fonts.AccountNotLogged.icon
+        commentsLabel.text = L10N.AccountNotLogged.comments
+        commentsLabel.font = Fonts.AccountNotLogged.icon
+        likeLabel.text = L10N.AccountNotLogged.likes
+        likeLabel.font = Fonts.AccountNotLogged.icon
+        notificationsLabel.text = L10N.AccountNotLogged.notifications
+        notificationsLabel.font = Fonts.AccountNotLogged.icon
+        trophiesLabel.text = L10N.AccountNotLogged.trophies
+        trophiesLabel.font = Fonts.AccountNotLogged.icon
+        eventsLabel.text = L10N.AccountNotLogged.events
+        eventsLabel.font = Fonts.AccountNotLogged.icon
     }
 }
 

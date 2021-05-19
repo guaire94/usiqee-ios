@@ -26,6 +26,7 @@
 	<array>
 		<string>SofiaProRegularAz.otf</string>
         <string>SofiaProBoldAz.otf</string>
+        <string>SofiaProRegularItalicAz.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

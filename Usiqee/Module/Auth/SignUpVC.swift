@@ -57,7 +57,11 @@ class SignUpVC: UIViewController {
         email.keyboardType = .emailAddress
         email.returnKeyType = .next
         password.delegate = self
-        password.textContentType = .name
+        if #available(iOS 12.0, *) {
+            password.textContentType = .newPassword
+        } else {
+            password.textContentType = .password
+        }
         password.isSecureTextEntry = true
         password.returnKeyType = .done
         username.delegate = self

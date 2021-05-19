@@ -24,6 +24,7 @@
 		6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */; };
 		6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */; };
 		6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */; };
+		67656A452654593900672911 /* SofiaProRegularItalicAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67656A442654593900672911 /* SofiaProRegularItalicAz.otf */; };
 		676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF152630AAEE00656B91 /* MusicalEntity.swift */; };
 		676EAF192630C86700656B91 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF182630C86700656B91 /* Fonts.swift */; };
 		676EAF1D2630CB7C00656B91 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF1C2630CB7C00656B91 /* CircularImageView.swift */; };
@@ -141,6 +142,7 @@
 		6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MSegmentedMenu.xib; sourceTree = "<group>"; };
 		6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSegmentedMenu.swift; sourceTree = "<group>"; };
 		6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularAz.otf; sourceTree = "<group>"; };
+		67656A442654593900672911 /* SofiaProRegularItalicAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularItalicAz.otf; sourceTree = "<group>"; };
 		676EAF152630AAEE00656B91 /* MusicalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalEntity.swift; sourceTree = "<group>"; };
 		676EAF182630C86700656B91 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		676EAF1C2630CB7C00656B91 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
@@ -722,6 +724,7 @@
 		B8FDE3B1253F799900BD29B2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				67656A442654593900672911 /* SofiaProRegularItalicAz.otf */,
 				676EAF202630D54800656B91 /* SofiaProBoldAz.otf */,
 				6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */,
 				676EAF182630C86700656B91 /* Fonts.swift */,
@@ -873,6 +876,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67656A452654593900672911 /* SofiaProRegularItalicAz.otf in Resources */,
 				B84ECBDB25407436007F8E9E /* MPickerField.xib in Resources */,
 				B8B7DAEE255857AC00B33BDB /* Home.storyboard in Resources */,
 				67BBFC07264D4A2100A14DCD /* AccountDetailsFollowingCell.xib in Resources */,
@@ -1223,7 +1227,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
@@ -1248,7 +1252,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";

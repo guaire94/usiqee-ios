@@ -11,6 +11,7 @@ enum Fonts: String {
     
     case SofiaProRegular = "SofiaPro"
     case SofiaProBold = "SofiaPro-Bold"
+    case SofiaProItalic = "SofiaPro-Italic"
     case HelveticaRegular = "Helvetica"
     case HelveticaBold = "Helvetica-Bold"
     
@@ -79,13 +80,16 @@ enum Fonts: String {
     
     enum AccountNotLogged {
         static var title: UIFont {
-            Fonts.SofiaProBold.withSize(with: 30)
+            Fonts.SofiaProBold.withSize(with: 36)
         }
         static var subtitle: UIFont {
-            Fonts.SofiaProBold.withSize(with: 20)
+            Fonts.SofiaProItalic.withSize(with: 18)
         }
         static var `continue`: UIFont {
             Fonts.HelveticaRegular.withSize(with: 15)
+        }
+        static var icon: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 14)
         }
     }
     

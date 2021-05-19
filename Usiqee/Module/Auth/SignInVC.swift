@@ -53,8 +53,9 @@ class SignInVC: UIViewController {
     
     private func setUpTextField() {
         email.textContentType = .emailAddress
+        email.keyboardType = .emailAddress
         email.returnKeyType = .next
-        password.textContentType = .name
+        password.textContentType = .password
         password.isSecureTextEntry = true
         password.returnKeyType = .done
     }

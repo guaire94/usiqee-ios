@@ -18,6 +18,7 @@ class AccountDetailsView: UIView {
     private enum Constants {
         static let identifier = "AccountDetailsView"
         fileprivate static let placeHolderImage: UIImage = #imageLiteral(resourceName: "userPlaceholder")
+        fileprivate static let contentInsetTop: CGFloat = 20
     }
     
     // MARK: - IBOutlet
@@ -61,6 +62,7 @@ class AccountDetailsView: UIView {
         menuContentTableView.register(AccountDetailsFollowingCell.Constants.nib, forCellReuseIdentifier: AccountDetailsFollowingCell.Constants.identifier)
         menuContentTableView.dataSource = self
         menuContentTableView.delegate = self
+        menuContentTableView.contentInset.top = Constants.contentInsetTop
     }
     
     private func loadView() {

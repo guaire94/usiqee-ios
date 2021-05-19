@@ -46,6 +46,12 @@ struct L10N {
         static let title: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TITLE", comment: "")
         static let subtitle: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_SUBTITLE", comment: "")
         static let `continue`: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_CONTINUE", comment: "")
+        static let follow: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_FOLLOW", comment: "")
+        static let comments: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_COMMENTS", comment: "")
+        static let likes: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_LIKES", comment: "")
+        static let notifications: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_NOTIFICATIONS", comment: "")
+        static let trophies: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TROPHIES", comment: "")
+        static let events: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_EVENTS", comment: "")
     }
     
     struct signIn {
