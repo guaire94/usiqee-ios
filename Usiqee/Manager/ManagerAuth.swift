@@ -26,8 +26,6 @@ class ManagerAuth {
     private var likedNews: [RelatedNews] = []
 
     private var delegates: [ManagerAuthDelegate] = []
-    private var followedArtistsListener: ListenerRegistration?
-    private var followedBandsListener: ListenerRegistration?
     
     // MARK: - Public
     var isConnected: Bool {
