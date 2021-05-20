@@ -7,37 +7,30 @@
 
 import UIKit
 
-var BUTTON_TITLE: String? = ""
-var BUTTON_IMAGE: UIImage? = nil
-
 extension UIButton {
     
-    func loadingIndicator(show: Bool, color: UIColor = UIColor.white) {
+    func loadingIndicator(show: Bool,
+                          color: UIColor = UIColor.white,
+                          backgroundColor: UIColor? = nil) {
         let tag = 1000
         if show {
             isEnabled = false
-            
-            BUTTON_TITLE = title(for: .normal)
-            setTitle("", for: .normal)
-            
-            BUTTON_IMAGE = image(for: .normal)
-            setImage(nil, for: .normal)
-            
             let indicator = UIActivityIndicatorView()
-            indicator.center = CGPoint(x: bounds.size.width/2, y: bounds.size.height/2)
-            indicator.tag = tag
+            let buttonHeight = bounds.size.height
+            let buttonWidth = bounds.size.width
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+            view.backgroundColor = backgroundColor ?? self.backgroundColor
+            view.tag = tag
+            indicator.center = CGPoint(x:buttonWidth/2, y:buttonHeight/2)
             indicator.color = color
-            
-            addSubview(indicator)
+            view.addSubview(indicator)
             indicator.startAnimating()
+            addSubview(view)
         } else {
             DispatchQueue.main.async {
-                if let indicator = self.viewWithTag(tag) as? UIActivityIndicatorView {
+                if let indicatorView = self.viewWithTag(tag) {
                     self.isEnabled = true
-                    self.setTitle(BUTTON_TITLE, for: .normal)
-                    self.setImage(BUTTON_IMAGE, for: .normal)
-                    indicator.stopAnimating()
-                    indicator.removeFromSuperview()
+                    indicatorView.removeFromSuperview()
                 }
             }
         }

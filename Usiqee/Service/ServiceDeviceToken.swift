@@ -5,7 +5,6 @@
 //  Created by Amine on 06/05/2021.
 //
 
-import Foundation
 import Firebase
 
 class ServiceDeviceToken {

@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AuthenticationBackground" translatesAutoresizingMaskIntoConstraints="NO" id="kqu-sE-TqO" customClass="CircularImageView" customModule="Usiqee" customModuleProvider="target">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="kqu-sE-TqO" customClass="CircularImageView" customModule="Usiqee" customModuleProvider="target">
                     <rect key="frame" x="159" y="2" width="96" height="96"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="kqu-sE-TqO" secondAttribute="height" multiplier="1:1" id="Oeb-fW-2yv"/>
@@ -51,6 +51,6 @@
         </view>
     </objects>
     <resources>
-        <image name="AuthenticationBackground" width="375" height="768"/>
+        <image name="userPlaceholder" width="612" height="612"/>
     </resources>
 </document>

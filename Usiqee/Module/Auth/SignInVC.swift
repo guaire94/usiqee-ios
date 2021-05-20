@@ -53,8 +53,9 @@ class SignInVC: UIViewController {
     
     private func setUpTextField() {
         email.textContentType = .emailAddress
+        email.keyboardType = .emailAddress
         email.returnKeyType = .next
-        password.textContentType = .name
+        password.textContentType = .password
         password.isSecureTextEntry = true
         password.returnKeyType = .done
     }
@@ -87,6 +88,7 @@ extension SignInVC {
                 (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 self.delegate?.didSignIn()
+                ManagerAuth.shared.didChangeStatus()
             }
         }
     }

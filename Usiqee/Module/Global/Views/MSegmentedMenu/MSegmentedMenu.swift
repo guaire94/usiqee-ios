@@ -18,11 +18,10 @@ class MSegmentedMenu: UIView {
     @IBOutlet weak private var stackview: UIStackView!
     
     // MARK: - Properties
-    private var currentSelectedItem: Int = 0
+    private(set) var selectedItem: Int = 0
     private var contentTexts: [String] = []
     private var tabs: [MSegmentedMenuItem] = []
     weak var delegate: MSegmentedMenuDelegate?
-    
     
     // MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -76,10 +75,10 @@ class MSegmentedMenu: UIView {
 // MARK: - MSegmentedMenuItemDelegate
 extension MSegmentedMenu: MSegmentedMenuItemDelegate {
     func didSelectedItem(at index: Int) {
-        guard index != currentSelectedItem else { return }
+        guard index != selectedItem else { return }
         
-        currentSelectedItem = index
-        delegate?.didSelectItem(at: currentSelectedItem)
+        selectedItem = index
+        delegate?.didSelectItem(at: selectedItem)
         
         handleMenuUpdated()
     }
@@ -92,6 +91,6 @@ extension MSegmentedMenu: MSegmentedMenuItemDataSource {
     }
     
     func isSelectedItem(at index: Int) -> Bool {
-        index == currentSelectedItem
+        index == selectedItem
     }
 }

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountDetailsView" customModule="Usiqee" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Mn7-lq-COo"/>
+                <outlet property="menuContentTableView" destination="qgQ-ng-1x4" id="dLd-F4-d1S"/>
                 <outlet property="segmentedMenu" destination="Rxx-pk-0ww" id="sci-5Q-WFx"/>
                 <outlet property="userAvatar" destination="Jal-zR-6nL" id="U2y-2q-hp3"/>
                 <outlet property="userName" destination="bbo-bx-GJR" id="f6F-Fb-qqW"/>
@@ -75,6 +76,10 @@
                         <constraint firstItem="bbo-bx-GJR" firstAttribute="top" secondItem="QZo-4y-7yE" secondAttribute="top" constant="10" id="zfb-pS-oFm"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgQ-ng-1x4">
+                    <rect key="frame" x="0.0" y="405.5" width="414" height="456.5"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,9 +88,13 @@
                 <constraint firstItem="QZo-4y-7yE" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.35" id="ADQ-6V-nZj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aBw-Rh-2sN" secondAttribute="trailing" id="CeE-SE-rlJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QZo-4y-7yE" secondAttribute="trailing" id="Ga3-DS-EPm"/>
+                <constraint firstItem="qgQ-ng-1x4" firstAttribute="top" secondItem="QZo-4y-7yE" secondAttribute="bottom" id="IoL-Jp-CuF"/>
                 <constraint firstItem="QZo-4y-7yE" firstAttribute="top" secondItem="aBw-Rh-2sN" secondAttribute="bottom" id="K01-1w-60s"/>
                 <constraint firstItem="QZo-4y-7yE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LXL-Xp-b7c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qgQ-ng-1x4" secondAttribute="bottom" id="LbT-Bq-qjO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qgQ-ng-1x4" secondAttribute="trailing" id="PAe-tD-1jw"/>
                 <constraint firstItem="aBw-Rh-2sN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Vq4-CW-naD"/>
+                <constraint firstItem="qgQ-ng-1x4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jBL-wS-w99"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="48.883928571428569"/>
         </view>

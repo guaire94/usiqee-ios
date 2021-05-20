@@ -20,8 +20,13 @@ class MImagePicker: UIView {
     
     // MARK:- Properties
     weak var parentViewController: UIViewController?
+    private var chosenImage: UIImage? {
+        didSet {
+            avatar.image = chosenImage
+        }
+    }
     var image: UIImage? {
-        avatar.image
+        chosenImage
     }
     
     // MARK: - Lifecycle
@@ -66,7 +71,7 @@ extension MImagePicker {
             self.showPicker(from: .camera)
         }))
         
-        alert.addAction(UIAlertAction(title: L10N.global.action.cancel, style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: L10N.global.action.cancel, style: .cancel, handler: nil))
         
         parentViewController?.present(alert, animated: true, completion: nil)
     }
@@ -88,6 +93,6 @@ extension MImagePicker: UIImagePickerControllerDelegate & UINavigationController
             return
         }
         
-        avatar.image = image
+        chosenImage = image
     }
 }

@@ -24,14 +24,17 @@
 "ARTIST_SEARCH_PLACEHOLDER" = "Search";
 "ARTIST_ALL_TITLE" = "Artists";
 "ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
+"ARTIST_FOLLOWED_TITLE" = "Followed Artist";
+"ARTIST_FOLLOWED_EMPTY_LIST" = "Aucune correspondance trouvée";
 
-"ARTIST_DETAILS_ACTIVITY" = "Activity:";
-"ARTIST_DETAILS_ACTIVITY_CONTENT" = "Depuis %@";
+"ARTIST_DETAILS_TITLE" = "Détails d'artist";
 "ARTIST_DETAILS_FOLLOWED" = "followers";
+"ARTIST_DETAILS_FOLLOW" = "Suivre";
+"ARTIST_DETAILS_UNFOLLOW" = "Abonné";
 
 "ARTIST_DETAILS_MENU_NEWS" = "News";
 "ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";
-"ARTIST_DETAILS_MENU_DISCOGRAPHY" = "Discography";
+"ARTIST_DETAILS_MENU_BIO" = "Bio";
 
 "ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
@@ -40,9 +43,15 @@
 "PRE_AUTH_SIGNUP" = "Sign up with email";
 "PRE_AUTH_OR" = "or";
 
-"ACCOUNT_NOT_LOGGED_TITLE" = "T'as pas encore de compte ?";
-"ACCOUNT_NOT_LOGGED_SUBTITLE" = "En te connectant tu peux: \n-follow les artists\n-  liker les news";
+"ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
+"ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
 "ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
+"ACCOUNT_NOT_LOGGED_FOLLOW" = "Follow artistes";
+"ACCOUNT_NOT_LOGGED_COMMENTS" = "Section com’";
+"ACCOUNT_NOT_LOGGED_LIKES" = "Like d’articles";
+"ACCOUNT_NOT_LOGGED_NOTIFICATIONS" = "Notifis perso";
+"ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
+"ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
 
 "SIGNIN_TITLE"="";
 "SIGNIN_NOACCOUNT"="";
@@ -66,8 +75,9 @@
 
 "USER_DETAILS_MENU_FOLLOWED" = "%d followed";
 "USER_DETAILS_MENU_FAVORIS" = "%d favoris";
-
-
+"USER_DETAILS_UNFOLLOW" = "Abonné";
+"USER_DETAILS_FOLLOWED_EMPTY_LIST" = "Vous ne suivez aucun artist";
+ 
 "AFFILIATE_TO_CLUB_TITLE"="";
 "AFFILIATE_TO_CLUB_SUBTITLE"="";
 "AFFILIATE_TO_CLUB_FORM_AFFILIATION_CODE"="";

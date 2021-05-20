@@ -9,6 +9,13 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class Band: MusicalEntity {
-   
+    
+    var relatedData: [String : Any] {
+        [
+            "bandId": id,
+            "name": name,
+            "avatar": avatar
+        ]
+    }
 }
 

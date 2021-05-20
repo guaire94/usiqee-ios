@@ -46,6 +46,12 @@ struct L10N {
         static let title: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TITLE", comment: "")
         static let subtitle: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_SUBTITLE", comment: "")
         static let `continue`: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_CONTINUE", comment: "")
+        static let follow: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_FOLLOW", comment: "")
+        static let comments: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_COMMENTS", comment: "")
+        static let likes: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_LIKES", comment: "")
+        static let notifications: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_NOTIFICATIONS", comment: "")
+        static let trophies: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TROPHIES", comment: "")
+        static let events: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_EVENTS", comment: "")
     }
     
     struct signIn {
@@ -78,19 +84,23 @@ struct L10N {
             static let title: String = NSLocalizedString("ARTIST_ALL_TITLE", comment: "")
             static let emptyListMessage: String = NSLocalizedString("ARTIST_ALL_EMPTY_LIST", comment: "")
         }
+        struct FollowedArtist {
+            static let title: String = NSLocalizedString("ARTIST_FOLLOWED_TITLE", comment: "")
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_FOLLOWED_EMPTY_LIST", comment: "")
+        }
     }
     
     struct ArtistDetails {
+        static let title: String = NSLocalizedString("ARTIST_DETAILS_TITLE", comment: "")
         static let activity: String = NSLocalizedString("ARTIST_DETAILS_ACTIVITY", comment: "")
-        static func activityContent(from year: String) -> String  {
-            String(format: NSLocalizedString("ARTIST_DETAILS_ACTIVITY_CONTENT", comment: ""), year)
-        }
         static let followed: String = NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: "")
+        static let follow: String = NSLocalizedString("ARTIST_DETAILS_FOLLOW", comment: "")
+        static let unfollow: String = NSLocalizedString("ARTIST_DETAILS_UNFOLLOW", comment: "")
         
         struct Menu {
             static let news: String = NSLocalizedString("ARTIST_DETAILS_MENU_NEWS", comment: "")
             static let calendar: String = NSLocalizedString("ARTIST_DETAILS_MENU_CALENDAR", comment: "")
-            static let discography: String = NSLocalizedString("ARTIST_DETAILS_MENU_DISCOGRAPHY", comment: "")
+            static let bio: String = NSLocalizedString("ARTIST_DETAILS_MENU_BIO", comment: "")
         }
         
         struct Discography {
@@ -108,6 +118,8 @@ struct L10N {
                 String(format: NSLocalizedString("USER_DETAILS_MENU_FAVORIS", comment: ""), numberOfFavoris)
             }
         }
+        static let unfollow: String = NSLocalizedString("USER_DETAILS_UNFOLLOW", comment: "")
+        static let followedEmptyListMessage = NSLocalizedString("USER_DETAILS_FOLLOWED_EMPTY_LIST", comment: "")
     }
     
     struct AccountSettings {

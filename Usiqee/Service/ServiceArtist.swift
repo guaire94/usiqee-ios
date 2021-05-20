@@ -5,7 +5,7 @@
 //  Created by Guaire94 on 26/03/2021.
 //
 
-import FirebaseFirestore
+import Firebase
 
 protocol ServiceArtistDelegate {
     func dataAdded(artist: Artist)
@@ -21,6 +21,7 @@ class ServiceArtist {
     // MARK: - GET
     static func listenArtists(delegate: ServiceArtistDelegate) {
         listener?.remove()
+        ManagerMusicalEntity.shared.clearArtist()
         self.listener = FFirestoreReference.artist.addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
@@ -29,11 +30,49 @@ class ServiceArtist {
                 switch diff.type {
                 case .added:
                     delegate.dataAdded(artist: artist)
+                    ManagerMusicalEntity.shared.add(artist: artist)
                 case .modified:
                     delegate.dataModified(artist: artist)
+                    ManagerMusicalEntity.shared.update(artist: artist)
                 case .removed:
+                    ManagerMusicalEntity.shared.delete(artist: artist)
                     delegate.dataRemoved(artist: artist)
                 }
+            }
+        }
+    }
+    
+    static func follow(artist: Artist, completion: @escaping (Error?) -> Void)  {
+        guard let user = Auth.auth().currentUser else {
+            return
+        }
+        
+        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: artist.relatedData) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
+            }
+        }
+    }
+    
+    static func unfollow(artist: RelatedArtist, completion: @escaping (Error?) -> Void) {
+        guard let user = Auth.auth().currentUser,
+              let artistId = artist.id else {
+            return
+        }
+        
+        FFirestoreReference.userFollowedArtists(userId: user.uid).document(artistId).delete { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            ManagerAuth.shared.synchronise {
+                completion(nil)
             }
         }
     }

@@ -11,6 +11,7 @@ enum Fonts: String {
     
     case SofiaProRegular = "SofiaPro"
     case SofiaProBold = "SofiaPro-Bold"
+    case SofiaProItalic = "SofiaPro-Italic"
     case HelveticaRegular = "Helvetica"
     case HelveticaBold = "Helvetica-Bold"
     
@@ -19,6 +20,12 @@ enum Fonts: String {
             return UIFont.systemFont(ofSize: size)
         }
         return font
+    }
+    
+    enum Global {
+        static var emptyMessage: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 18)
+        }
     }
     
     enum AllArtist {
@@ -32,6 +39,15 @@ enum Fonts: String {
             static var title: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 14)
             }
+        }
+    }
+    
+    enum FollowedArtist {
+        static var title: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 18)
+        }
+        static var numberOfFollowing: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 11)
         }
     }
     
@@ -64,19 +80,25 @@ enum Fonts: String {
     
     enum AccountNotLogged {
         static var title: UIFont {
-            Fonts.SofiaProBold.withSize(with: 30)
+            Fonts.SofiaProBold.withSize(with: 36)
         }
         static var subtitle: UIFont {
-            Fonts.SofiaProBold.withSize(with: 20)
+            Fonts.SofiaProItalic.withSize(with: 18)
         }
         static var `continue`: UIFont {
             Fonts.HelveticaRegular.withSize(with: 15)
+        }
+        static var icon: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 14)
         }
     }
     
     enum AccountDetails {
         static var userName: UIFont {
             Fonts.SofiaProRegular.withSize(with: 21)
+        }
+        static var artistName: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 14)
         }
     }
     
