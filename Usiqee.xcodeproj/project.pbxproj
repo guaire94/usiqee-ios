@@ -116,6 +116,7 @@
 		EE09221625F1645C002C0174 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221525F1645C002C0174 /* Item.swift */; };
 		EE09221925F16518002C0174 /* MItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221825F16518002C0174 /* MItemType.swift */; };
 		EE09221D25F16583002C0174 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221C25F16583002C0174 /* Language.swift */; };
+		EE18832F265BFB1A004B0D29 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */; };
 		EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05725ED24E500D7A965 /* NewsVC.swift */; };
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
@@ -239,6 +240,7 @@
 		EE09221525F1645C002C0174 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EE09221825F16518002C0174 /* MItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MItemType.swift; sourceTree = "<group>"; };
 		EE09221C25F16583002C0174 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		EE96B05725ED24E500D7A965 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 		B8CE1A99253F3354002AC5A5 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */,
 				B8FDE3A5253F761100BD29B2 /* GoogleService-Info.plist */,
 				B84ECBB9254036CF007F8E9E /* FirebaseConfig.swift */,
 				B84ECBBF25403840007F8E9E /* Config.swift */,
@@ -884,6 +887,7 @@
 				B8B7DAEE255857AC00B33BDB /* Home.storyboard in Resources */,
 				67BBFC07264D4A2100A14DCD /* AccountDetailsFollowingCell.xib in Resources */,
 				67A254BF26408E26008167DB /* MSegmentedMenuItem.xib in Resources */,
+				EE18832F265BFB1A004B0D29 /* applanga_settings.applanga in Resources */,
 				B8CE19CD253DBAE7002AC5A5 /* LaunchScreen.storyboard in Resources */,
 				B87B2649254232B5007D4A4D /* AnimatedLaunchScreen.storyboard in Resources */,
 				65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */,

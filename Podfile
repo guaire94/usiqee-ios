@@ -22,5 +22,7 @@ target 'Usiqee' do
 
   pod 'Wormholy'
   pod 'Kingfisher', '~> 5.0'
+
+  pod 'Applanga'
 end
 

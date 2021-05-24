@@ -212,6 +212,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - Applanga (2.0.147)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
@@ -385,6 +386,7 @@ PODS:
   - Wormholy (1.6.4)
 
 DEPENDENCIES:
+  - Applanga
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -403,6 +405,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - abseil
+    - Applanga
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -435,6 +438,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
+  Applanga: 12cb69d3f26124b980859dfe42e4eff685045814
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
@@ -465,6 +469,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Wormholy: 2e70f64227e010d363f8d33268369f77faf12471
 
-PODFILE CHECKSUM: bae0aa44ad5ac21d6b44d39004a157fb2531840d
+PODFILE CHECKSUM: 8b9a35e0ca1baa940bfa0cd04c976221acbe625d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
