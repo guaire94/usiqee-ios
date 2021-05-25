@@ -20,22 +20,25 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var artistNameLabel: UILabel!
     @IBOutlet weak private var artistImage: CircularImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        artistNameLabel.font = Fonts.AllArtist.Cell.title
-    }
-    
+    // MARK: - Public
     func configure(artist: MusicalEntity) {
-        artistNameLabel.text = artist.name
-        
-        let storage = Storage.storage().reference(forURL: artist.avatar)
-        artistImage.sd_setImage(with: storage)
+        set(name: artist.name, font: Fonts.AllArtist.Cell.title)
+        set(image: artist.avatar)
     }
     
     func configure(followedEntity: RelatedMusicalEntity) {
-        artistNameLabel.text = followedEntity.name
-        
-        let storage = Storage.storage().reference(forURL: followedEntity.avatar)
+        set(name: followedEntity.name, font: Fonts.FollowedArtist.Cell.title)
+        set(image: followedEntity.avatar)
+    }
+    
+    //MARK: - Private
+    private func set(name: String, font: UIFont) {
+        artistNameLabel.text = name
+        artistNameLabel.font = font
+    }
+    
+    private func set(image: String) {
+        let storage = Storage.storage().reference(forURL: image)
         artistImage.sd_setImage(with: storage)
     }
 }

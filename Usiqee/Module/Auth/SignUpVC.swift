@@ -48,7 +48,7 @@ class SignUpVC: UIViewController {
         email.placeHolder = L10N.user.form.mail
         password.placeHolder = L10N.user.form.password
         username.placeHolder = L10N.user.form.username
-        validButton.setTitle(L10N.signUp.form.valid.uppercased(), for: .normal)
+        validButton.setTitle(L10N.signUp.form.valid, for: .normal)
     }
     
     private func setUpTextField() {

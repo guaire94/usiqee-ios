@@ -46,6 +46,7 @@ class ArtistDetailsVC: UIViewController {
     private func setupDescriptions() {
         followingButton.layer.cornerRadius = Constants.followingCornerRadius
         nameLabel.font = Fonts.ArtistDetails.title
+        followingButton.titleLabel?.font = Fonts.ArtistDetails.followButton
     }
     
     private func setupContent() {
