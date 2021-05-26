@@ -49,10 +49,10 @@ class AccountSettingsVC: UIViewController {
     
     private func setupTranslation() {
         titleLabel.text = L10N.AccountSettings.title
-        legalNoticeLabel.text = L10N.AccountSettings.legalNotice.uppercased()
+        legalNoticeLabel.text = L10N.AccountSettings.legalNotice
         privacyButton.setTitle(L10N.AccountSettings.privacy, for: .normal)
         cguButton.setTitle(L10N.AccountSettings.cgu, for: .normal)
-        notificationsLabel.text = L10N.AccountSettings.notifications.uppercased()
+        notificationsLabel.text = L10N.AccountSettings.notifications
         manageNotificationsButton.setTitle(L10N.AccountSettings.manageNotifications, for: .normal)
         logoutButton.setTitle(L10N.AccountSettings.logout, for: .normal)
     }
