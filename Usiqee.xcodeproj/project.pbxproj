@@ -525,8 +525,8 @@
 		B87BDA02253F7CBB00252B96 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				676EAF4B2633494200656B91 /* Views */,
 				B8B7DAF0255857CA00B33BDB /* TabsVC.swift */,
+				676EAF4B2633494200656B91 /* Views */,
 				B82FE3A2255DF0D000B52099 /* Fields */,
 			);
 			path = Global;

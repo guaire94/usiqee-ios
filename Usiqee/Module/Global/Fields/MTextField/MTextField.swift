@@ -94,6 +94,8 @@ class MTextField: UIView {
     // MARK: - Private
     private func commonInit() {
         setUpView()
+        label.font = Fonts.Global.Form.fieldDescription
+        textField.font = Fonts.Global.Form.textField
     }
 
     private func setUpView() {

@@ -26,11 +26,19 @@ enum Fonts: String {
         static var emptyMessage: UIFont {
             Fonts.SofiaProRegular.withSize(with: 18)
         }
+        enum Form {
+            static var textField: UIFont {
+                Fonts.SofiaProBold.withSize(with: 17)
+            }
+            static var fieldDescription: UIFont {
+                Fonts.SofiaProBold.withSize(with: 17)
+            }
+        }
     }
     
     enum AllArtist {
         static var title: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 18)
+            Fonts.SofiaProBold.withSize(with: 18)
         }
         static var search: UIFont {
             Fonts.HelveticaRegular.withSize(with: 20)
@@ -44,10 +52,15 @@ enum Fonts: String {
     
     enum FollowedArtist {
         static var title: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 18)
+            Fonts.SofiaProBold.withSize(with: 18)
         }
         static var numberOfFollowing: UIFont {
             Fonts.HelveticaRegular.withSize(with: 11)
+        }
+        enum Cell {
+            static var title: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 11)
+            }
         }
     }
     
@@ -55,8 +68,8 @@ enum Fonts: String {
         static var title: UIFont {
             Fonts.SofiaProBold.withSize(with: 27)
         }
-        static var activity: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 14)
+        static var followButton: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 12)
         }
         static var followers: UIFont {
             Fonts.SofiaProRegular.withSize(with: 18)
@@ -95,7 +108,7 @@ enum Fonts: String {
     
     enum AccountDetails {
         static var userName: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 21)
+            Fonts.SofiaProBold.withSize(with: 21)
         }
         static var artistName: UIFont {
             Fonts.HelveticaRegular.withSize(with: 14)

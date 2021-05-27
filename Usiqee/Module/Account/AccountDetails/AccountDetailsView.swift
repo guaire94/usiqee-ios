@@ -85,7 +85,7 @@ class AccountDetailsView: UIView {
         }
         
         displayMenuItems()
-        userName.text = user.username
+        userName.text = user.username.uppercased()
         
         userAvatar.image = Constants.placeHolderImage
         if let url = URL(string: user.avatar) {
