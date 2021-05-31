@@ -20,6 +20,18 @@ struct L10N {
         struct date {
            static let timeAgo: String = NSLocalizedString("GLOBAL_DATE_TIMEAGO", comment: "")
        }
+        struct events {
+            static let ep: String = "ep"
+            static let album: String = "album"
+            static let single: String = "single"
+            static let mixtape: String = "mixtape"
+            static let freestyle: String = "freestyle"
+            static let video: String = "video"
+            static let concert: String = "concert"
+            static let showcase: String = "showcase"
+            static let festival: String = "festival"
+            static let other: String = "other"
+        }
     }
 
     struct user {
@@ -143,4 +155,12 @@ struct L10N {
        static let LoadFromGallery: String = NSLocalizedString("IMAGE_PICKER_GALLERY", comment: "")
         static let takeAPhoto: String = NSLocalizedString("IMAGE_PICKER_TAKE_A_PHOTO", comment: "")
    }
+    
+    struct EventsFilter {
+        static let title: String = NSLocalizedString("EVENTS_FILTER_TITLE", comment: "")
+        static let resetButton: String = NSLocalizedString("EVENTS_FILTER_RESET", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_FILTER_VALIDATE", comment: "")
+        static let followersFilter: String = NSLocalizedString("EVENTS_FILTER_FOLLOWERS_CATEGORY", comment: "")
+        static let typeFilter: String = NSLocalizedString("EVENTS_FILTER_TYPE_CATEGORY", comment: "")
+    }
 }

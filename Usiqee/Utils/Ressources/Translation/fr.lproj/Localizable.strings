@@ -140,3 +140,9 @@
 "VERSION_AVAILABLE" = "Une nouvelle version de l'application est disponible";
 "VERSION_REDIRECT_APPSTORE" = "Aller sur l'Appstore";
 "VERSION_UPDATE_LATER" = "Mettre à jour plus tard";
+
+"EVENTS_FILTER_TITLE" = "Filtres";
+"EVENTS_FILTER_RESET" = "reset";
+"EVENTS_FILTER_VALIDATE" = "Continuer";
+"EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Uniquement les artistes suivis";
+"EVENTS_FILTER_TYPE_CATEGORY" = "Type d'évèvement :";

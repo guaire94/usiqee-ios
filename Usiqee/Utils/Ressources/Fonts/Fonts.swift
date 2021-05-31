@@ -76,6 +76,18 @@ enum Fonts: String {
                 Fonts.SofiaProRegular.withSize(with: 30)
             }
         }
+        
+        enum Events {
+            static var date: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+            static var type: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+            static var place: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+        }
     }
     
     enum AccountNotLogged {
@@ -149,5 +161,30 @@ enum Fonts: String {
             Fonts.HelveticaRegular.withSize(with: 15)
         }
     }
+    
+    enum Events {
+        static var title: UIFont {
+            Fonts.SofiaProBold.withSize(with: 18)
+        }
+    }
+    
+    enum EventsFilter {
+        static var title: UIFont {
+            Fonts.SofiaProBold.withSize(with: 21)
+        }
+        static var resetButton: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 15)
+        }
+        static var validateButton: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 18)
+        }
+        enum Cell {
+            static var header: UIFont {
+                Fonts.SofiaProBold.withSize(with: 18)
+            }
+            static var title: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 17)
+            }
+        }
+    }
 }
-
