@@ -31,7 +31,7 @@ enum Fonts: String {
                 Fonts.SofiaProRegular.withSize(with: 17)
             }
             static var fieldDescription: UIFont {
-                Fonts.SofiaProBold.withSize(with: 17)
+                Fonts.SofiaProRegular.withSize(with: 17)
             }
         }
     }
