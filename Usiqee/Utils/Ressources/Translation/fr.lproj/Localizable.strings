@@ -32,6 +32,8 @@
 "ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
 
+"ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
+
 "USER_FORM_MAIL"="Email";
 "USER_FORM_PASSWORD"="Mot de passe";
 "USER_FORM_FIRSTNAME"="Prénom";
@@ -146,3 +148,14 @@
 "EVENTS_FILTER_VALIDATE" = "Continuer";
 "EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Uniquement les artistes suivis";
 "EVENTS_FILTER_TYPE_CATEGORY" = "Type d'évèvement :";
+
+"EVENTS_DATE_FILTER_TITLE" = "Filtres";
+"EVENTS_DATE_FILTER_VALIDATE" = "Valider";
+
+"EVENTS_DETAILS_TITLE" = "Détails de l'évènement";
+"EVENTS_DETAILS_ADD_TO_CALENDAR" = "Ajouter au calendrier";
+"EVENTS_DETAILS_SHOW_DETAILS" = "Détails";
+"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "l'évènement ne peut pas être ajouter au calendrier";
+
+"EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
+"EVENTS_NEXT_MONTH" = "Mois prochain";

@@ -14,6 +14,8 @@ enum Fonts: String {
     case SofiaProItalic = "SofiaPro-Italic"
     case HelveticaRegular = "Helvetica"
     case HelveticaBold = "Helvetica-Bold"
+    case HelveticaLight = "Helvetica-Light"
+    case HelveticaMedium = "Helvetica-Medium"
     
     private func withSize(with size: CGFloat) -> UIFont {
         guard let font = UIFont(name: rawValue, size: size) else {
@@ -79,12 +81,12 @@ enum Fonts: String {
         
         enum Events {
             static var date: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 13)
+                Fonts.HelveticaRegular.withSize(with: 18)
             }
             static var type: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 13)
             }
-            static var place: UIFont {
+            static var description: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 13)
             }
         }
@@ -166,6 +168,50 @@ enum Fonts: String {
         static var title: UIFont {
             Fonts.SofiaProBold.withSize(with: 18)
         }
+        enum Cell {
+            static var header: UIFont {
+                Fonts.SofiaProBold.withSize(with: 18)
+            }
+            static var name: UIFont {
+                Fonts.SofiaProRegular.withSize(with: 16)
+            }
+            static var type: UIFont {
+                Fonts.HelveticaLight.withSize(with: 11)
+            }
+            static var description: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 12)
+            }
+            static var time: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 12)
+            }
+            static var nextMonthButton: UIFont {
+                Fonts.HelveticaMedium.withSize(with: 15)
+            }
+            static var emptyMessage: UIFont {
+                Fonts.SofiaProRegular.withSize(with: 18)
+            }
+        }
+    }
+    
+    enum EventDetails {
+        static var name: UIFont {
+            Fonts.SofiaProBold.withSize(with: 24)
+        }
+        static var type: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 18)
+        }
+        static var description: UIFont {
+            Fonts.SofiaProBold.withSize(with: 24)
+        }
+        static var date: UIFont {
+            Fonts.HelveticaMedium.withSize(with: 22)
+        }
+        static var time: UIFont {
+            Fonts.HelveticaMedium.withSize(with: 22)
+        }
+        static var button: UIFont {
+            Fonts.HelveticaMedium.withSize(with: 18)
+        }
     }
     
     enum EventsFilter {
@@ -185,6 +231,21 @@ enum Fonts: String {
             static var title: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 17)
             }
+        }
+    }
+    
+    enum EventsDateFilter {
+        static var title: UIFont {
+            Fonts.SofiaProBold.withSize(with: 21)
+        }
+        static var validateButton: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 18)
+        }
+    }
+    
+    enum MonthYearDatePicker {
+        static var text: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 17)
         }
     }
 }

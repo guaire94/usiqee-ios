@@ -25,8 +25,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SofiaProRegularAz.otf</string>
-        <string>SofiaProBoldAz.otf</string>
-        <string>SofiaProRegularItalicAz.otf</string>
+		<string>SofiaProBoldAz.otf</string>
+		<string>SofiaProRegularItalicAz.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -59,8 +59,8 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-    <key>UIViewControllerBasedStatusBarAppearance</key>
-    <false/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -74,6 +74,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>We need camera permission to allow you to change your avatar</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We’d like to access your calendar to add events when you request it</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>

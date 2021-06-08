@@ -42,6 +42,8 @@
 		679B199B266168350026568B /* EventsFilterTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B199A266168350026568B /* EventsFilterTableViewHandler.swift */; };
 		679B19A026616F7B0026568B /* EventsFilterEventTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B199E26616F7A0026568B /* EventsFilterEventTypeCell.swift */; };
 		679B19A126616F7B0026568B /* EventsFilterEventTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679B199F26616F7A0026568B /* EventsFilterEventTypeCell.xib */; };
+		679B19A526658EF50026568B /* ServiceEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B19A426658EF40026568B /* ServiceEvents.swift */; };
+		679B19A92666C6220026568B /* MonthYearDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679B19A82666C6220026568B /* MonthYearDatePickerView.swift */; };
 		67A25403263A0299008167DB /* UITextField+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A25402263A0299008167DB /* UITextField+M.swift */; };
 		67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A25406263A0F23008167DB /* ArtistDiscographyDetailsView.xib */; };
 		67A2540A263A0F5B008167DB /* ArtistDiscographyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A25409263A0F5B008167DB /* ArtistDiscographyDetailsView.swift */; };
@@ -68,6 +70,10 @@
 		67F720AC262C1A3A00C9C84E /* AllMusicalEntityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F720AA262C1A3A00C9C84E /* AllMusicalEntityView.xib */; };
 		67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */; };
 		67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */; };
+		67FA274B2667CCDB00482131 /* EventsDatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA274A2667CCDB00482131 /* EventsDatePickerVC.swift */; };
+		67FA2751266D4C8E00482131 /* EventDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA2750266D4C8E00482131 /* EventDetailsVC.swift */; };
+		67FA2755266EBB1900482131 /* EventFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA2754266EBB1900482131 /* EventFooterView.xib */; };
+		67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA2757266EBB9C00482131 /* EventFooterView.swift */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -173,6 +179,8 @@
 		679B199A266168350026568B /* EventsFilterTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterTableViewHandler.swift; sourceTree = "<group>"; };
 		679B199E26616F7A0026568B /* EventsFilterEventTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterEventTypeCell.swift; sourceTree = "<group>"; };
 		679B199F26616F7A0026568B /* EventsFilterEventTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventsFilterEventTypeCell.xib; sourceTree = "<group>"; };
+		679B19A426658EF40026568B /* ServiceEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEvents.swift; sourceTree = "<group>"; };
+		679B19A82666C6220026568B /* MonthYearDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearDatePickerView.swift; sourceTree = "<group>"; };
 		67A25402263A0299008167DB /* UITextField+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+M.swift"; sourceTree = "<group>"; };
 		67A25406263A0F23008167DB /* ArtistDiscographyDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDiscographyDetailsView.xib; sourceTree = "<group>"; };
 		67A25409263A0F5B008167DB /* ArtistDiscographyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDiscographyDetailsView.swift; sourceTree = "<group>"; };
@@ -200,6 +208,10 @@
 		67F720AA262C1A3A00C9C84E /* AllMusicalEntityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllMusicalEntityView.xib; sourceTree = "<group>"; };
 		67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistVCDataSource.swift; sourceTree = "<group>"; };
 		67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsVC.swift; sourceTree = "<group>"; };
+		67FA274A2667CCDB00482131 /* EventsDatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDatePickerVC.swift; sourceTree = "<group>"; };
+		67FA2750266D4C8E00482131 /* EventDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsVC.swift; sourceTree = "<group>"; };
+		67FA2754266EBB1900482131 /* EventFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventFooterView.xib; sourceTree = "<group>"; };
+		67FA2757266EBB9C00482131 /* EventFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFooterView.swift; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -345,6 +357,7 @@
 				67A2541C263D8149008167DB /* ImagePicker */,
 				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
 				676EAF1C2630CB7C00656B91 /* CircularImageView.swift */,
+				679B19A82666C6220026568B /* MonthYearDatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +535,31 @@
 			path = ArtistDetails;
 			sourceTree = "<group>";
 		};
+		67FA274E266D4C6400482131 /* EventsDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				67FA274A2667CCDB00482131 /* EventsDatePickerVC.swift */,
+			);
+			path = EventsDatePicker;
+			sourceTree = "<group>";
+		};
+		67FA274F266D4C7200482131 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				67FA2750266D4C8E00482131 /* EventDetailsVC.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		67FA2753266EBAF400482131 /* EventFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				67FA2754266EBB1900482131 /* EventFooterView.xib */,
+				67FA2757266EBB9C00482131 /* EventFooterView.swift */,
+			);
+			path = EventFooterView;
+			sourceTree = "<group>";
+		};
 		831C7A2813CE126EF0B332FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,7 +635,10 @@
 			isa = PBXGroup;
 			children = (
 				B8632C82255AF92200B196E5 /* AgendaVC.swift */,
+				67FA274F266D4C7200482131 /* EventDetails */,
+				67FA274E266D4C6400482131 /* EventsDatePicker */,
 				679B1984266043E90026568B /* EventsFilter */,
+				67FA2753266EBAF400482131 /* EventFooterView */,
 				65155344256EC0DD0060177E /* Cell */,
 			);
 			path = Agenda;
@@ -755,12 +796,13 @@
 		B8CE1A9D253F3399002AC5A5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B84ECBB625403235007F8E9E /* ServiceAuth.swift */,
-				B87B26502542338D007D4A4D /* ServiceVersion.swift */,
 				EECAF244260DE63E00233ACB /* ServiceArtist.swift */,
+				B84ECBB625403235007F8E9E /* ServiceAuth.swift */,
 				670C4DF5261E337E005A72E2 /* ServiceBand.swift */,
 				67C48B6526447F3F00F27B35 /* ServiceDeviceToken.swift */,
+				679B19A426658EF40026568B /* ServiceEvents.swift */,
 				67656A492655AE0E00672911 /* ServiceUser.swift */,
+				B87B26502542338D007D4A4D /* ServiceVersion.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1019,6 +1061,7 @@
 				6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */,
 				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
 				67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */,
+				67FA2755266EBB1900482131 /* EventFooterView.xib in Resources */,
 				676EAF212630D54800656B91 /* SofiaProBoldAz.otf in Resources */,
 				B8CE19C8253DBAE5002AC5A5 /* News.storyboard in Resources */,
 				B8FDE3A7253F761100BD29B2 /* GoogleService-Info.plist in Resources */,
@@ -1093,10 +1136,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				67BBFC06264D4A2100A14DCD /* AccountDetailsFollowingCell.swift in Sources */,
+				67FA274B2667CCDB00482131 /* EventsDatePickerVC.swift in Sources */,
 				B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
 				67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
+				67FA2751266D4C8E00482131 /* EventDetailsVC.swift in Sources */,
 				679B1997266167070026568B /* EventsFilterSwitchCell.swift in Sources */,
 				67BBFC0B264EF71600A14DCD /* RelatedMusicalEntity.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
@@ -1131,6 +1176,7 @@
 				EE09221D25F16583002C0174 /* Language.swift in Sources */,
 				67F720B0262C1CF800C9C84E /* ArtistVCDataSource.swift in Sources */,
 				B84ECBF52541AFD8007F8E9E /* Band.swift in Sources */,
+				679B19A92666C6220026568B /* MonthYearDatePickerView.swift in Sources */,
 				B84ECBC025403840007F8E9E /* Config.swift in Sources */,
 				EE0921EA25F15DF8002C0174 /* RelatedArtist.swift in Sources */,
 				B87B264C254232C6007D4A4D /* AnimateLaunchScreenVC.swift in Sources */,
@@ -1149,6 +1195,7 @@
 				EE0921F725F15EF9002C0174 /* Author.swift in Sources */,
 				679B199B266168350026568B /* EventsFilterTableViewHandler.swift in Sources */,
 				B82FE3AA255DF10E00B52099 /* MDatePickerField.swift in Sources */,
+				67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */,
 				652B32542572C6ED008FFA60 /* NewsSection.swift in Sources */,
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,
 				EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */,
@@ -1156,6 +1203,7 @@
 				B87B2638254225C2007D4A4D /* Follower.swift in Sources */,
 				676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */,
 				B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */,
+				679B19A526658EF50026568B /* ServiceEvents.swift in Sources */,
 				679B1975265ED4110026568B /* ArtistDetailsEventCell.swift in Sources */,
 				EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */,
 				676EAF192630C86700656B91 /* Fonts.swift in Sources */,

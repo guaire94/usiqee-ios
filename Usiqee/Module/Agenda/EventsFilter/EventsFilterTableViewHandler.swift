@@ -9,6 +9,20 @@ import Foundation
 
 class EventsFilterTableViewHandler: NSObject {
     
+    // MARK: - Properties
+    var showOnlyFollowed: Bool!
+    var events: [SelectedEvent]!
+    
+    private var numberOfSelectedEvents: Int {
+        events.filter({ $0.isSelected }).count
+    }
+    
+    // MARK: - LifeCycle
+    override init() {
+        super.init()
+        setDefaultValues()
+    }
+    
     // MARK: - Enums
     enum SectionType {
         case followed
@@ -44,9 +58,9 @@ class EventsFilterTableViewHandler: NSObject {
      func item(for indexPath: IndexPath) -> CellType? {
         switch sectiontype(at: indexPath.section) {
         case .followed:
-            return .followed(isSelected: ManagerEvents.shared.showOnlyFollowed)
+            return .followed(isSelected: showOnlyFollowed)
         case .event:
-            return .event(ManagerEvents.shared.events[indexPath.row])
+            return .event(events[indexPath.row])
         default:
             return nil
         }
@@ -59,5 +73,30 @@ class EventsFilterTableViewHandler: NSObject {
         default:
             return ""
         }
+    }
+    
+    func reset() {
+        ManagerEvents.shared.reset()
+        setDefaultValues()
+    }
+    
+    func validate() {
+        ManagerEvents.shared.showOnlyFollowed = showOnlyFollowed
+        ManagerEvents.shared.events = events
+        ManagerEvents.shared.didUpdateFilter()
+    }
+    
+    func didSelectEvent(at index: Int) {
+        if numberOfSelectedEvents == 1,
+           events[index].isSelected {
+            return
+        }
+        
+        events[index].isSelected.toggle()
+    }
+    
+    private func setDefaultValues() {
+        showOnlyFollowed = ManagerEvents.shared.showOnlyFollowed
+        events = ManagerEvents.shared.events
     }
 }

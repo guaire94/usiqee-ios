@@ -119,6 +119,10 @@ struct L10N {
             static let title: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_TITLE", comment: "")
             static let subtitle: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE", comment: "")
         }
+        
+        struct Calendar {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
+        }
     }
 
     struct UserDetails {
@@ -162,5 +166,22 @@ struct L10N {
         static let validateButton: String = NSLocalizedString("EVENTS_FILTER_VALIDATE", comment: "")
         static let followersFilter: String = NSLocalizedString("EVENTS_FILTER_FOLLOWERS_CATEGORY", comment: "")
         static let typeFilter: String = NSLocalizedString("EVENTS_FILTER_TYPE_CATEGORY", comment: "")
+    }
+    
+    struct EventsDateFilter {
+        static let title: String = NSLocalizedString("EVENTS_DATE_FILTER_TITLE", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_DATE_FILTER_VALIDATE", comment: "")
+    }
+    
+    struct EventDetails {
+        static let title: String = NSLocalizedString("EVENTS_DETAILS_TITLE", comment: "")
+        static let addToCalendar: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR", comment: "")
+        static let showDetails: String = NSLocalizedString("EVENTS_DETAILS_SHOW_DETAILS", comment: "")
+        static let addToCalendarError: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR", comment: "")
+    }
+    
+    struct Events {
+        static let nextMonth: String = NSLocalizedString("EVENTS_NEXT_MONTH", comment: "")
+        static let emptyListMessage: String = NSLocalizedString("EVENTS_EMPTY_LIST", comment: "")
     }
 }

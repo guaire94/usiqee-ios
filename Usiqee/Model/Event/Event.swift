@@ -13,6 +13,7 @@ struct Event: Identifiable, Codable {
     var title: String
     var type: String
     var date: Timestamp
+    var webLink: String?
     
     var eventType: MEventType? {
         MEventType(rawValue: type)

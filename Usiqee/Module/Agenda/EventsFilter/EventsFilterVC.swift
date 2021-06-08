@@ -57,7 +57,7 @@ class EventsFilterVC: UIViewController {
 // MARK: - IBActions
 extension EventsFilterVC {
     @IBAction func onResetTapped() {
-        ManagerEvents.shared.reset()
+        tableviewHandler.reset()
         tableView.reloadData()
     }
     
@@ -66,6 +66,7 @@ extension EventsFilterVC {
     }
     
     @IBAction func onValidationTapped() {
+        tableviewHandler.validate()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -81,7 +82,7 @@ extension EventsFilterVC: UITableViewDataSource {
         case .followed:
             return 1
         case .event:
-            return ManagerEvents.shared.events.count
+            return tableviewHandler.events.count
         default:
             return 0
         }
@@ -146,7 +147,7 @@ extension EventsFilterVC: UITableViewDelegate {
         
         switch cellType {
         case .event:
-            ManagerEvents.shared.didSelectEvent(at: indexPath.row)
+            tableviewHandler.didSelectEvent(at: indexPath.row)
             tableView.reloadRows(at: [indexPath], with: .fade)
         case .followed:
             break
@@ -157,6 +158,6 @@ extension EventsFilterVC: UITableViewDelegate {
 // MARK: - EventsFilterSwitchCellDelegate
 extension EventsFilterVC: EventsFilterSwitchCellDelegate {
     func didUpdateStatus() {
-        ManagerEvents.shared.showOnlyFollowed.toggle()
+        tableviewHandler.showOnlyFollowed.toggle()
     }
 }

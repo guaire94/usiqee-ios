@@ -40,6 +40,18 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    var full: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: self)
+    }
+    
+    var time: String {
+        stringWith(format: "hh:mm a")
+    }
+    
     var short: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -75,4 +87,40 @@ extension Date {
         dateFormatter.locale = Locale.current
         return dateFormatter.string(from: self)
     }
+    
+    func stringWith(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale.current
+        return dateFormatter.string(from: self)
+    }
+    
+    var firstMonthDay: Date? {
+        let dateComponents = Calendar.current.dateComponents([.year, .month], from: self)
+        guard let year = dateComponents.year,
+              let month = dateComponents.month else {
+            return nil
+        }
+        
+        return Date(month: month, year: year)
+    }
+    
+    var lastMonthDay: Date? {
+        Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self)
+    }
+    
+    var nextMonth: Date? {
+        Calendar.current.date(byAdding: DateComponents(month: 1), to: self)
+    }
+    
+    init?(month: Int, year: Int) {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier:"GMT")
+        formatter.dateFormat = "yyyy/MM"
+        guard let d = formatter.date(from: "\(year)/\(month)") else {
+            return nil
+        }
+        self.init(timeInterval: 0, since: d)
+    }
 }
+

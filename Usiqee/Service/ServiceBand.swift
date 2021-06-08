@@ -13,10 +13,17 @@ protocol ServiceBandDelegate {
     func dataRemoved(band: Band)
 }
 
+protocol ServiceBandEventsDelegate: AnyObject {
+    func dataAdded(event: RelatedEvent)
+    func dataModified(event: RelatedEvent)
+    func dataRemoved(event: RelatedEvent)
+}
+
 class ServiceBand {
     
     // MARK: - Property
     private static var listener: ListenerRegistration?
+    private static var eventsListener: ListenerRegistration?
     
     // MARK: - GET
     static func listenBands(delegate: ServiceBandDelegate) {
@@ -55,6 +62,7 @@ class ServiceBand {
             }
             
             ManagerAuth.shared.synchronise {
+                ManagerEvents.shared.didUpdateFilter()
                 completion(nil)
             }
         }
@@ -73,8 +81,36 @@ class ServiceBand {
             }
             
             ManagerAuth.shared.synchronise {
+                ManagerEvents.shared.didUpdateFilter()
                 completion(nil)
             }
         }
+    }
+    
+    static func listenToRelatedEvents(band: Band, delegate: ServiceBandEventsDelegate?) {
+        eventsListener?.remove()
+        weak var delegate = delegate
+        guard let bandId = band.id else { return }
+        
+        self.eventsListener = FFirestoreReference.bandEvents(bandId: bandId).addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let event = try? diff.document.data(as: RelatedEvent.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(event: event)
+                case .modified:
+                    delegate?.dataModified(event: event)
+                case .removed:
+                    delegate?.dataRemoved(event: event)
+                }
+            }
+            
+        }
+    }
+    
+    static func detachRelatedEvents() {
+        eventsListener?.remove()
     }
 }

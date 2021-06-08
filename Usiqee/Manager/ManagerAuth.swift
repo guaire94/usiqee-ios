@@ -57,6 +57,7 @@ class ManagerAuth {
                 ServiceDeviceToken.shared.unregister(token: token)
             }
         }
+        ManagerEvents.shared.didUpdateFilter()
         didChangeStatus()
     }
     
