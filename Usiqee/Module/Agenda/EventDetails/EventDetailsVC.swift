@@ -18,6 +18,7 @@ class EventDetailsVC: UIViewController {
     }
     
     // MARK: - IBOutlet
+    @IBOutlet weak private var loaderView: UIView!
     @IBOutlet weak private var artistImage: UIImageView!
     @IBOutlet weak private var artistNameLabel: UILabel!
     @IBOutlet weak private var typeLabel: UILabel!
@@ -29,6 +30,7 @@ class EventDetailsVC: UIViewController {
     
     // MARK: - Properties
     var event: EventItem?
+    var eventId: String?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -41,7 +43,17 @@ class EventDetailsVC: UIViewController {
     private func setupView() {
         setupFonts()
         setupDescription()
-        displayEventInformation()
+        setupEvent()
+    }
+    
+    private func setupEvent() {
+        guard let eventId = eventId else {
+            displayEventInformation()
+            return
+        }
+        
+        loaderView.isHidden = false
+        loadEventInformation(eventId)
     }
     
     private func setupFonts() {
@@ -62,6 +74,7 @@ class EventDetailsVC: UIViewController {
     private func displayEventInformation() {
         guard let item = event else { return }
         
+        loaderView.isHidden = true
         descriptionLabel.text = item.event.title
         typeLabel.text = item.event.eventType?.title
         dateLabel.text = item.event.date.dateValue().full
@@ -95,12 +108,26 @@ class EventDetailsVC: UIViewController {
         event.title = title
         event.startDate = eventItem.event.date.dateValue()
         event.endDate = eventItem.event.date.dateValue()
+        event.isAllDay = true
+        if let urlString = eventItem.event.webLink,
+           let url = URL(string: urlString) {
+            event.url = url
+        }
         
         let eventController = EKEventEditViewController()
         eventController.event = event
         eventController.eventStore = eventStore
         eventController.editViewDelegate = self
         present(eventController, animated: true, completion: nil)
+    }
+    
+    func loadEventInformation(_ eventId: String) {
+        ServiceEvents.load(eventId: eventId) { [weak self] event in
+            guard let self = self else { return }
+            
+            self.event = event
+            self.displayEventInformation()
+        }
     }
 }
 

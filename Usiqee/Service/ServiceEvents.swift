@@ -82,4 +82,41 @@ class ServiceEvents {
             }
         }
     }
+    
+    static func load(eventId: String, completion: @escaping (EventItem?) -> Void) {
+        FFirestoreReference.event.document(eventId).getDocument { (document, error) in
+            guard let document = document, document.exists,
+                  let event = try? document.data(as: Event.self) else {
+                completion(nil)
+                return
+            }
+            syncRelated(event: event) { eventItem in
+                completion(eventItem)
+            }
+        }
+    }
+    
+    static func syncRelated(event: Event, completion: @escaping (EventItem) -> Void ) {
+        guard let eventId = event.id else { return }
+        var relatedArtists: [RelatedArtist] = []
+        var relatedBands: [RelatedBand] = []
+        
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        ServiceEvents.getArtistsEvent(eventId: eventId) { (artists) in
+            relatedArtists = artists
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        ServiceEvents.getBandsEvent(eventId: eventId) { (bands) in
+            relatedBands = bands
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            let item = EventItem(event: event, artists: relatedArtists, bands: relatedBands)
+            completion(item)
+        }
+    }
 }

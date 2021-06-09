@@ -20,12 +20,11 @@ extension UIViewController {
         }
     }
     
-    func displayHome() {
+    static func displayHome() {
         guard let homeNavigationController = MStoryboard.Home.storyboard.instantiateInitialViewController() else {
             fatalError("Load initial view controller from '\(MStoryboard.Home.rawValue)' Storyboard have failed")
         }
         UIApplication.shared.keyWindow?.rootViewController = homeNavigationController
-        navigationController?.popToRootViewController(animated: false)
     }
     
     func displayAuthentication(with delegate: PreAuthVCDelegate? = nil) {
@@ -36,5 +35,13 @@ extension UIViewController {
         let navigationController = UINavigationController(rootViewController: authenticationNavigationController)
         navigationController.isNavigationBarHidden = true
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    static var eventDetailsVC: EventDetailsVC? {
+        guard let eventDetails = MStoryboard.Agenda.storyboard.instantiateViewController(withIdentifier: EventDetailsVC.Constants.identifer) as? EventDetailsVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.Agenda.rawValue)' Storyboard have failed")
+        }
+        
+        return eventDetails
     }
 }

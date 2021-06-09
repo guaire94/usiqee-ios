@@ -92,7 +92,7 @@
         <!--Event DetailsVC-->
         <scene sceneID="HKk-Ds-naD">
             <objects>
-                <viewController id="3ad-U9-8bm" customClass="EventDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailsVC" id="3ad-U9-8bm" customClass="EventDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="plG-Ww-yep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,19 +193,37 @@
                                     <constraint firstAttribute="width" secondItem="Dr3-cV-hGm" secondAttribute="height" multiplier="1:1" id="wMA-pU-qmI"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Y8-XRW">
+                                <rect key="frame" x="0.0" y="54" width="414" height="754"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PRy-VF-vRk">
+                                        <rect key="frame" x="188.5" y="358.5" width="37" height="37"/>
+                                        <color key="color" red="0.4823529412" green="0.13725490200000001" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="PRy-VF-vRk" firstAttribute="centerY" secondItem="i5G-Y8-XRW" secondAttribute="centerY" id="ACn-cq-yOm"/>
+                                    <constraint firstItem="PRy-VF-vRk" firstAttribute="centerX" secondItem="i5G-Y8-XRW" secondAttribute="centerX" id="iSG-5z-rJy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="luL-ui-cO0"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Dr3-cV-hGm" firstAttribute="centerX" secondItem="plG-Ww-yep" secondAttribute="centerX" id="1oX-qC-tpg"/>
+                            <constraint firstItem="luL-ui-cO0" firstAttribute="bottom" secondItem="i5G-Y8-XRW" secondAttribute="bottom" id="8Wh-47-II6"/>
                             <constraint firstItem="Dr3-cV-hGm" firstAttribute="top" secondItem="Mgr-tb-7cK" secondAttribute="bottom" id="92n-a1-V5y"/>
                             <constraint firstItem="Mgr-tb-7cK" firstAttribute="top" secondItem="luL-ui-cO0" secondAttribute="top" constant="20" id="RlK-b8-xD5"/>
                             <constraint firstItem="tDA-3H-Gpo" firstAttribute="top" secondItem="Dr3-cV-hGm" secondAttribute="bottom" constant="20" id="UM8-Ne-KNN"/>
+                            <constraint firstItem="luL-ui-cO0" firstAttribute="trailing" secondItem="i5G-Y8-XRW" secondAttribute="trailing" id="a5Q-Vi-hEL"/>
                             <constraint firstItem="luL-ui-cO0" firstAttribute="trailing" secondItem="Mgr-tb-7cK" secondAttribute="trailing" constant="20" id="aKL-Gv-0mN"/>
                             <constraint firstItem="luL-ui-cO0" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tDA-3H-Gpo" secondAttribute="bottom" id="cx0-ls-IZI"/>
+                            <constraint firstItem="i5G-Y8-XRW" firstAttribute="leading" secondItem="plG-Ww-yep" secondAttribute="leading" id="h7z-3Z-9lc"/>
                             <constraint firstItem="Dr3-cV-hGm" firstAttribute="width" secondItem="plG-Ww-yep" secondAttribute="width" multiplier="0.4" id="nAy-zC-sE0"/>
                             <constraint firstItem="luL-ui-cO0" firstAttribute="trailing" secondItem="tDA-3H-Gpo" secondAttribute="trailing" constant="20" id="nmo-TT-GQE"/>
                             <constraint firstItem="tDA-3H-Gpo" firstAttribute="leading" secondItem="luL-ui-cO0" secondAttribute="leading" constant="20" id="qJS-La-oTi"/>
+                            <constraint firstItem="i5G-Y8-XRW" firstAttribute="top" secondItem="Mgr-tb-7cK" secondAttribute="bottom" id="r1W-jI-wEu"/>
                         </constraints>
                     </view>
                     <connections>
@@ -214,6 +232,7 @@
                         <outlet property="artistNameLabel" destination="cuU-J7-gcu" id="6Pk-Ma-MxK"/>
                         <outlet property="dateLabel" destination="dl2-J1-9Ti" id="zCu-FD-NjP"/>
                         <outlet property="descriptionLabel" destination="Muv-5J-vrT" id="eaY-6j-QPB"/>
+                        <outlet property="loaderView" destination="i5G-Y8-XRW" id="dzn-jm-aoa"/>
                         <outlet property="showDetailsButton" destination="fWN-WF-FAJ" id="f8x-qc-rrJ"/>
                         <outlet property="timeLabel" destination="cuY-C4-ipb" id="LDi-yE-Sx0"/>
                         <outlet property="typeLabel" destination="6Lv-Dl-gjg" id="29L-0o-FMB"/>
@@ -221,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2g-Iz-KNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="96"/>
+            <point key="canvasLocation" x="1408.6956521739132" y="95.758928571428569"/>
         </scene>
         <!--Events Date PickerVC-->
         <scene sceneID="340-gc-oy1">

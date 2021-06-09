@@ -73,30 +73,6 @@ class ManagerEvents {
         events = MEventType.allCases.map { ($0, true)  }
     }
     
-    private func syncRelated(event: Event, completion: @escaping (EventItem) -> Void ) {
-        guard let eventId = event.id else { return }
-        var relatedArtists: [RelatedArtist] = []
-        var relatedBands: [RelatedBand] = []
-        
-        let dispatchGroup = DispatchGroup()
-        dispatchGroup.enter()
-        ServiceEvents.getArtistsEvent(eventId: eventId) { (artists) in
-            relatedArtists = artists
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        ServiceEvents.getBandsEvent(eventId: eventId) { (bands) in
-            relatedBands = bands
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            let item = EventItem(event: event, artists: relatedArtists, bands: relatedBands)
-            completion(item)
-        }
-    }
-    
     private func filterEvents() {
         let activeEventTypes = events.filter { $0.isSelected }.compactMap { $0.event.rawValue }
         var filteredEvents = allEvents.filter { activeEventTypes.contains($0.event.type) }
@@ -148,7 +124,7 @@ class ManagerEvents {
 // MARK: - ServiceEventsDelegate
 extension ManagerEvents: ServiceEventsDelegate {
     func dataAdded(event: Event) {
-        syncRelated(event: event, completion: { [weak self] item in
+        ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
             if item.artists.isEmpty && item.bands.isEmpty {
                 return
@@ -159,7 +135,7 @@ extension ManagerEvents: ServiceEventsDelegate {
     
     func dataModified(event: Event) {
         guard let index = allEvents.firstIndex(where: { $0.event.id == event.id }) else { return }
-        syncRelated(event: event, completion: { [weak self] item in
+        ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
             if item.artists.isEmpty && item.bands.isEmpty {
                 self.dataRemoved(event: event)
