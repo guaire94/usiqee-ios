@@ -68,5 +68,9 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need location permission to allow you to specify a location when adding an event</string>
+    <key>NSContactsUsageDescription</key>
+    <string>We need contact permission to allow you to specify a contact when adding an event</string>
 </dict>
 </plist>

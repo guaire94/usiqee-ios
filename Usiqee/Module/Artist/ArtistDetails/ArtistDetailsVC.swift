@@ -67,6 +67,7 @@ class ArtistDetailsVC: UIViewController {
     private func setupTableView() {
         menuContentTableView.register(ArtistDetailsEventCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsEventCell.Constants.identifier)
         menuContentTableView.dataSource = self
+        menuContentTableView.delegate = self
     }
     
     private func setupListeners() {
@@ -208,10 +209,7 @@ extension ArtistDetailsVC: UITableViewDataSource {
         }
         
         switch type {
-        case .bio:
-            tableView.restore()
-            return 0
-        case .news:
+        case .bio, .news:
             tableView.restore()
             return 0
         case .calendar:
@@ -231,9 +229,7 @@ extension ArtistDetailsVC: UITableViewDataSource {
         }
         
         switch type {
-        case .bio:
-            return UITableViewCell()
-        case .news:
+        case .bio, .news:
             return UITableViewCell()
         case .calendar:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsEventCell.Constants.identifier) as? ArtistDetailsEventCell else {
@@ -242,6 +238,25 @@ extension ArtistDetailsVC: UITableViewDataSource {
             
             cell.configure(event: relatedEvents[indexPath.row])
             return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ArtistDetailsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let type = menuContentTableViewType else { return }
+        
+        switch type {
+        case .bio, .news:
+            break
+        case .calendar:
+            guard let eventDetailsVC = UIViewController.eventDetailsVC else {
+                return
+            }
+            
+            eventDetailsVC.eventId = relatedEvents[indexPath.row].eventId
+            present(eventDetailsVC, animated: true, completion: nil)
         }
     }
 }

@@ -104,12 +104,12 @@ class ManagerEvents {
     
     private func sort(events: [EventItem]) {
         var sortedEvent: [(date: Date, events: [EventItem])] = []
-        let dict = Dictionary(grouping: events, by: { $0.event.date })
+        let dict = Dictionary(grouping: events, by: { $0.event.date.withoutTime })
         let sortedKeys = Array(dict.keys).sorted(by: { $0.compare($1) == .orderedAscending })
         
         for key in sortedKeys {
             if let events = dict[key] {
-                sortedEvent.append((date: key.dateValue(), events: events))
+                sortedEvent.append((date: key, events: events))
             }
         }
         eventsByDate = sortedEvent

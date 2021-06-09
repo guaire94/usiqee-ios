@@ -13,7 +13,6 @@ class ArtistDetailsEventCell: UITableViewCell {
     enum Constants {
         static let identifier = "ArtistDetailsEventCell"
         static let nib = UINib(nibName: Constants.identifier, bundle: nil)
-        fileprivate static let dateFormat: String = "MMMM d"
     }
     
     // MARK: - IBOutlet
@@ -30,7 +29,7 @@ class ArtistDetailsEventCell: UITableViewCell {
     func configure(event: RelatedEvent) {
         eventDescription.text = event.title
         eventType.text = event.eventType?.title
-        eventDate.text = event.date.dateValue().stringWith(format: Constants.dateFormat)
+        eventDate.text = event.date.long
     }
     
     // MARK: - Private

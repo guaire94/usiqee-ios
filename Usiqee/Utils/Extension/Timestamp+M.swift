@@ -24,6 +24,10 @@ extension Timestamp {
     var year: String {
         dateValue().year
     }
+    
+    var withoutTime: Date {
+        dateValue().withoutTime ?? dateValue()
+    }
 }
 
 extension Date {
@@ -105,6 +109,17 @@ extension Date {
         return Date(month: month, year: year)
     }
     
+    var withoutTime: Date? {
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        guard let year = dateComponents.year,
+              let month = dateComponents.month,
+              let day = dateComponents.day else {
+            return nil
+        }
+        
+        return Date(day: day, month: month, year: year)
+    }
+    
     var lastMonthDay: Date? {
         Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self)
     }
@@ -118,6 +133,16 @@ extension Date {
         formatter.timeZone = TimeZone(identifier:"GMT")
         formatter.dateFormat = "yyyy/MM"
         guard let d = formatter.date(from: "\(year)/\(month)") else {
+            return nil
+        }
+        self.init(timeInterval: 0, since: d)
+    }
+    
+    init?(day: Int, month: Int, year: Int) {
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier:"GMT")
+        formatter.dateFormat = "yyyy/MM/d"
+        guard let d = formatter.date(from: "\(year)/\(month)/\(day)") else {
             return nil
         }
         self.init(timeInterval: 0, since: d)

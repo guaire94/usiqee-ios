@@ -29,7 +29,7 @@ class ServiceBand {
     static func listenBands(delegate: ServiceBandDelegate) {
         listener?.remove()
         ManagerMusicalEntity.shared.clearBands()
-        self.listener = FFirestoreReference.band.addSnapshotListener { query, error in
+        listener = FFirestoreReference.band.addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
                 guard let band = try? diff.document.data(as: Band.self) else { return }
@@ -90,9 +90,12 @@ class ServiceBand {
     static func listenToRelatedEvents(band: Band, delegate: ServiceBandEventsDelegate?) {
         eventsListener?.remove()
         weak var delegate = delegate
-        guard let bandId = band.id else { return }
+        guard let bandId = band.id,
+              let startDate = Date().withoutTime else { return }
         
-        self.eventsListener = FFirestoreReference.bandEvents(bandId: bandId).addSnapshotListener { query, error in
+        eventsListener = FFirestoreReference.bandEvents(bandId: bandId)
+            .whereField("date", isGreaterThan: startDate.timestamp)
+            .addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
                 guard let event = try? diff.document.data(as: RelatedEvent.self) else { return }

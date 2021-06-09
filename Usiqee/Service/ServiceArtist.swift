@@ -29,7 +29,7 @@ class ServiceArtist {
     static func listenArtists(delegate: ServiceArtistDelegate) {
         listener?.remove()
         ManagerMusicalEntity.shared.clearArtist()
-        self.listener = FFirestoreReference.artist.addSnapshotListener { query, error in
+        listener = FFirestoreReference.artist.addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
                 guard let artist = try? diff.document.data(as: Artist.self) else { return }
@@ -90,9 +90,9 @@ class ServiceArtist {
         eventsListener?.remove()
         weak var delegate = delegate
         guard let artistId = artist.id,
-              let startDate = Date().firstMonthDay else { return }
+              let startDate = Date().withoutTime else { return }
         
-        self.eventsListener = FFirestoreReference.artistEvents(artistId: artistId)
+        eventsListener = FFirestoreReference.artistEvents(artistId: artistId)
             .whereField("date", isGreaterThan: startDate.timestamp)
             .addSnapshotListener { query, error in
             guard let snapshot = query else { return }
