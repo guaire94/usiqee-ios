@@ -13,10 +13,6 @@ class EventsFilterTableViewHandler: NSObject {
     var showOnlyFollowed: Bool!
     var events: [SelectedEvent]!
     
-    private var numberOfSelectedEvents: Int {
-        events.filter({ $0.isSelected }).count
-    }
-    
     // MARK: - LifeCycle
     override init() {
         super.init()
@@ -87,11 +83,6 @@ class EventsFilterTableViewHandler: NSObject {
     }
     
     func didSelectEvent(at index: Int) {
-        if numberOfSelectedEvents == 1,
-           events[index].isSelected {
-            return
-        }
-        
         events[index].isSelected.toggle()
     }
     

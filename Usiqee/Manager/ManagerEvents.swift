@@ -70,11 +70,15 @@ class ManagerEvents {
     // MARK: - Private
     private func setDefaultValues() {
         showOnlyFollowed = false
-        events = MEventType.allCases.map { ($0, true)  }
+        events = MEventType.allCases.map { ($0, false)  }
     }
     
     private func filterEvents() {
-        let activeEventTypes = events.filter { $0.isSelected }.compactMap { $0.event.rawValue }
+        var activeEventTypes = events.filter { $0.isSelected }.compactMap { $0.event.rawValue }
+        if activeEventTypes.isEmpty {
+            activeEventTypes = events.compactMap { $0.event.rawValue }
+        }
+        
         var filteredEvents = allEvents.filter { activeEventTypes.contains($0.event.type) }
         
         if ManagerAuth.shared.isConnected, showOnlyFollowed {
