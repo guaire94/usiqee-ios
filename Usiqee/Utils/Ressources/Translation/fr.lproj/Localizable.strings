@@ -159,3 +159,27 @@
 
 "EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
 "EVENTS_NEXT_MONTH" = "Mois prochain";
+
+"EVENTS_TYPE_EP" = "ep";
+"EVENTS_TYPE_ALBUM" = "Album";
+"EVENTS_TYPE_SINGLE" = "Single";
+"EVENTS_TYPE_MIXTAPE" = "Mixtape";
+"EVENTS_TYPE_FREESTYLE" = "Freestyle";
+"EVENTS_TYPE_VIDEO" = "Video";
+"EVENTS_TYPE_CONCERT" = "Concert";
+"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_FESTIVAL" = "Festival";
+"EVENTS_TYPE_OTHER" = "Autres";
+
+"MONTHS_JANUARY" = "Janvier";
+"MONTHS_FEBRUARY" = "Février";
+"MONTHS_MARCH" = "Mars";
+"MONTHS_APRIL" = "Avril";
+"MONTHS_MAY" = "Mai";
+"MONTHS_JUNE" = "Juin";
+"MONTHS_JULY" = "Juillet";
+"MONTHS_AUGUST" = "Août";
+"MONTHS_SEPTEMBER" = "Septembre";
+"MONTHS_OCTOBER" = "Octobre";
+"MONTHS_NOBEMBER" = "Novembre";
+"MONTHS_DECEMBER" = "Décembre";

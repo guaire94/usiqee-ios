@@ -18,7 +18,7 @@ class EventFooterView: UIView {
         fileprivate static let identifier = "EventFooterView"
         enum Heights {
             static let withMessage: CGFloat = 150
-            static let withoutMessage: CGFloat = 70
+            static let withoutMessage: CGFloat = 80
         }
     }
     

@@ -76,6 +76,7 @@
 		67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA2757266EBB9C00482131 /* EventFooterView.swift */; };
 		67FA275C2670129000482131 /* ManagerDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA275B2670128F00482131 /* ManagerDeepLink.swift */; };
 		67FA27622670B2E700482131 /* HelperRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27612670B2E700482131 /* HelperRouting.swift */; };
+		67FA276626728D2200482131 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA276526728D2200482131 /* EventItem.swift */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -215,6 +216,7 @@
 		67FA2757266EBB9C00482131 /* EventFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFooterView.swift; sourceTree = "<group>"; };
 		67FA275B2670128F00482131 /* ManagerDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDeepLink.swift; sourceTree = "<group>"; };
 		67FA27612670B2E700482131 /* HelperRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperRouting.swift; sourceTree = "<group>"; };
+		67FA276526728D2200482131 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 			isa = PBXGroup;
 			children = (
 				B836B6242548E73400AAF48A /* Event.swift */,
+				67FA276526728D2200482131 /* EventItem.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1229,6 +1232,7 @@
 				B87BDA10253F8E7300252B96 /* MEvent.swift in Sources */,
 				65CF698C2567FD0800CB9AF7 /* MNewsSectionType.swift in Sources */,
 				B8632C83255AF92200B196E5 /* AgendaVC.swift in Sources */,
+				67FA276626728D2200482131 /* EventItem.swift in Sources */,
 				67BBFC11265012F600A14DCD /* UITableView+M.swift in Sources */,
 				EE0921FF25F1610C002C0174 /* RelatedEvent.swift in Sources */,
 				B87B2655254234B9007D4A4D /* Version.swift in Sources */,

@@ -19,7 +19,20 @@ class MonthYearDatePickerView: UIPickerView {
     }
     
     private enum Constants {
-        fileprivate static let months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre","Octobre", "Novembre", "Décembre"]
+        fileprivate static let months = [
+            L10N.Months.january,
+            L10N.Months.february,
+            L10N.Months.march,
+            L10N.Months.april,
+            L10N.Months.may,
+            L10N.Months.june,
+            L10N.Months.july,
+            L10N.Months.august,
+            L10N.Months.september,
+            L10N.Months.october,
+            L10N.Months.november,
+            L10N.Months.december
+        ]
         fileprivate static let componentsCount = 2
         fileprivate static let textColor = UIColor.white
         fileprivate static let textFont = Fonts.MonthYearDatePicker.text
@@ -28,8 +41,8 @@ class MonthYearDatePickerView: UIPickerView {
     }
     
     //MARK: - Properties
-    private var minYear = 2021
-    private var maxYear = 2026
+    private var minYear: Int = 2021
+    private var maxYear: Int = 2026
     private var currentMonth: Int = 0
     private var currentYear: Int = 0
     private var currentMonthIndex: Int = 0

@@ -78,18 +78,10 @@ extension EventsFilterVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch tableviewHandler.sectiontype(at: section) {
-        case .followed:
-            return 1
-        case .event:
-            return tableviewHandler.events.count
-        default:
-            return 0
-        }
+        tableviewHandler.numberOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let defaultCell = UITableViewCell()
         
         guard let cellType = tableviewHandler.item(for: indexPath) else {
@@ -115,16 +107,7 @@ extension EventsFilterVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cellType = tableviewHandler.item(for: indexPath) else {
-            return 0
-        }
-        
-        switch cellType {
-        case .followed:
-            return EventsFilterSwitchCell.Constants.height
-        case .event:
-            return EventsFilterEventTypeCell.Constants.height
-        }
+        tableviewHandler.heightForRow(at: indexPath)
     }
 }
 

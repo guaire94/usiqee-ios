@@ -20,18 +20,6 @@ struct L10N {
         struct date {
            static let timeAgo: String = NSLocalizedString("GLOBAL_DATE_TIMEAGO", comment: "")
        }
-        struct events {
-            static let ep: String = "ep"
-            static let album: String = "album"
-            static let single: String = "single"
-            static let mixtape: String = "mixtape"
-            static let freestyle: String = "freestyle"
-            static let video: String = "video"
-            static let concert: String = "concert"
-            static let showcase: String = "showcase"
-            static let festival: String = "festival"
-            static let other: String = "other"
-        }
     }
 
     struct user {
@@ -181,7 +169,35 @@ struct L10N {
     }
     
     struct Events {
+        struct types {
+            static let ep: String = NSLocalizedString("EVENTS_TYPE_EP", comment: "")
+            static let album: String = NSLocalizedString("EVENTS_TYPE_ALBUM", comment: "")
+            static let single: String = NSLocalizedString("EVENTS_TYPE_SINGLE", comment: "")
+            static let mixtape: String = NSLocalizedString("EVENTS_TYPE_MIXTAPE", comment: "")
+            static let freestyle: String = NSLocalizedString("EVENTS_TYPE_FREESTYLE", comment: "")
+            static let video: String = NSLocalizedString("EVENTS_TYPE_VIDEO", comment: "")
+            static let concert: String = NSLocalizedString("EVENTS_TYPE_CONCERT", comment: "")
+            static let showcase: String = NSLocalizedString("EVENTS_TYPE_SHOWCASE", comment: "")
+            static let festival: String = NSLocalizedString("EVENTS_TYPE_FESTIVAL", comment: "")
+            static let other: String = NSLocalizedString("EVENTS_TYPE_OTHER", comment: "")
+        }
+        
         static let nextMonth: String = NSLocalizedString("EVENTS_NEXT_MONTH", comment: "")
         static let emptyListMessage: String = NSLocalizedString("EVENTS_EMPTY_LIST", comment: "")
+    }
+    
+    struct Months {
+        static let january = NSLocalizedString("MONTHS_JANUARY", comment: "")
+        static let february = NSLocalizedString("MONTHS_FEBRUARY", comment: "")
+        static let march = NSLocalizedString("MONTHS_MARCH", comment: "")
+        static let april = NSLocalizedString("MONTHS_APRIL", comment: "")
+        static let may = NSLocalizedString("MONTHS_MAY", comment: "")
+        static let june = NSLocalizedString("MONTHS_JUNE", comment: "")
+        static let july = NSLocalizedString("MONTHS_JULY", comment: "")
+        static let august = NSLocalizedString("MONTHS_AUGUST", comment: "")
+        static let september = NSLocalizedString("MONTHS_SEPTEMBER", comment: "")
+        static let october = NSLocalizedString("MONTHS_OCTOBER", comment: "")
+        static let november = NSLocalizedString("MONTHS_NOBEMBER", comment: "")
+        static let december = NSLocalizedString("MONTHS_DECEMBER", comment: "")
     }
 }

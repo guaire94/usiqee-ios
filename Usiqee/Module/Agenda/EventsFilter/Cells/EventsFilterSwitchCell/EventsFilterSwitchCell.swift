@@ -40,6 +40,7 @@ class EventsFilterSwitchCell: UITableViewCell {
     }
 }
 
+// MARK: - EventsFilterSwitchCell
 extension EventsFilterSwitchCell {
     @IBAction func onActivationValueChanged(_ sender: Any) {
         delegate?.didUpdateStatus()

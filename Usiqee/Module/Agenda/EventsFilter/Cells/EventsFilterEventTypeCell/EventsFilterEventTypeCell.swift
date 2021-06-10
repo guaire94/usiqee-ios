@@ -26,7 +26,7 @@ class EventsFilterEventTypeCell: UITableViewCell {
         eventTitle.font = Fonts.EventsFilter.Cell.title
     }
     
-    func configure(event: SelectedEvent) {
+    func configure(event: selectedEventType) {
         eventTitle.text = event.event.title
         isSelectedImage.isHidden = !event.isSelected
     }

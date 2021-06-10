@@ -41,7 +41,7 @@ class EventCell: UITableViewCell {
         descriptionLabel.text = item.event.title
         typeLabel.text = item.event.eventType?.title
         timeLabel.text = item.event.date.dateValue().time
-        if let musicalEntity = getMusicalEntity(item: item) {
+        if let musicalEntity = item.musicalEntity {
             let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
             avatarImage.sd_setImage(with: storage)
             artistLabel.text = musicalEntity.name
@@ -54,17 +54,5 @@ class EventCell: UITableViewCell {
         descriptionLabel.font = Fonts.Events.Cell.description
         typeLabel.font = Fonts.Events.Cell.type
         timeLabel.font = Fonts.Events.Cell.time
-    }
-    
-    private func getMusicalEntity(item: EventItem) -> RelatedMusicalEntity? {
-        if let artist = item.artists.first {
-            return artist
-        }
-        
-        if let band = item.bands.first {
-            return band
-        }
-        
-        return nil
     }
 }

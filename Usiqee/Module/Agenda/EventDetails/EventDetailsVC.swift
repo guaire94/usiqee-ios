@@ -80,45 +80,11 @@ class EventDetailsVC: UIViewController {
         dateLabel.text = item.event.date.dateValue().full
         timeLabel.text = item.event.date.dateValue().time
         showDetailsButton.isHidden = item.event.webLink == nil
-        if let musicalEntity = getMusicalEntity(item: item) {
+        if let musicalEntity = item.musicalEntity {
             let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
             artistImage.sd_setImage(with: storage)
             artistNameLabel.text = musicalEntity.name
         }
-    }
-    
-    private func getMusicalEntity(item: EventItem) -> RelatedMusicalEntity? {
-        if let artist = item.artists.first {
-            return artist
-        }
-
-        if let band = item.bands.first {
-            return band
-        }
-        
-        return nil
-    }
-    
-    private func addEvent(eventStore: EKEventStore, eventItem: EventItem, musicalEntity: RelatedMusicalEntity) {
-        let event = EKEvent(eventStore: eventStore)
-        var title = "\(musicalEntity.name) - \(eventItem.event.title)"
-        if let eventType = eventItem.event.eventType {
-            title += " - \(eventType)"
-        }
-        event.title = title
-        event.startDate = eventItem.event.date.dateValue()
-        event.endDate = eventItem.event.date.dateValue()
-        event.isAllDay = true
-        if let urlString = eventItem.event.webLink,
-           let url = URL(string: urlString) {
-            event.url = url
-        }
-        
-        let eventController = EKEventEditViewController()
-        eventController.event = event
-        eventController.eventStore = eventStore
-        eventController.editViewDelegate = self
-        present(eventController, animated: true, completion: nil)
     }
     
     func loadEventInformation(_ eventId: String) {
@@ -138,8 +104,7 @@ extension EventDetailsVC {
     }
     
     @IBAction func onAddToCalendarTapped(_ sender: Any) {
-        guard let eventItem = event,
-              let musicalEntity = getMusicalEntity(item: eventItem) else { return }
+        guard let eventItem = event else { return }
         
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{ granted, error in
@@ -149,7 +114,15 @@ extension EventDetailsVC {
                     return
                 }
                 
-                self.addEvent(eventStore: eventStore, eventItem: eventItem, musicalEntity: musicalEntity)
+                guard let event = eventItem.createEvent(with: eventStore) else {
+                    return
+                }
+                
+                let eventController = EKEventEditViewController()
+                eventController.event = event
+                eventController.eventStore = eventStore
+                eventController.editViewDelegate = self
+                self.present(eventController, animated: true, completion: nil)
             }
         })
     }

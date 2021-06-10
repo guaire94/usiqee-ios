@@ -7,16 +7,10 @@
 
 import Foundation
 
-typealias SelectedEvent = (event: MEventType, isSelected: Bool)
+typealias selectedEventType = (event: MEventType, isSelected: Bool)
 
 protocol ManagerEventDelegate: AnyObject {
     func didUpdateEvents()
-}
-
-struct EventItem {
-    var event: Event
-    var artists: [RelatedArtist]
-    var bands: [RelatedBand]
 }
 
 class ManagerEvents {
@@ -25,12 +19,13 @@ class ManagerEvents {
     static let shared = ManagerEvents()
     private init() {
         selectedDate = Date().firstMonthDay ?? Date()
-        setDefaultValues()
+        showOnlyFollowed = false
+        selectedEventTypes = MEventType.allCases.map { ($0, false)  }
     }
     
     // MARK: - Properties
-    var showOnlyFollowed: Bool!
-    var events: [SelectedEvent]!
+    var showOnlyFollowed: Bool
+    var selectedEventTypes: [selectedEventType]
     var selectedDate: Date
     weak var delegate: ManagerEventDelegate?
     
@@ -70,21 +65,21 @@ class ManagerEvents {
     // MARK: - Private
     private func setDefaultValues() {
         showOnlyFollowed = false
-        events = MEventType.allCases.map { ($0, false)  }
+        selectedEventTypes = MEventType.allCases.map { ($0, false)  }
     }
     
     private func filterEvents() {
-        var activeEventTypes = events.filter { $0.isSelected }.compactMap { $0.event.rawValue }
+        var activeEventTypes = selectedEventTypes.filter { $0.isSelected }.compactMap { $0.event.rawValue }
         if activeEventTypes.isEmpty {
-            activeEventTypes = events.compactMap { $0.event.rawValue }
+            activeEventTypes = selectedEventTypes.compactMap { $0.event.rawValue }
         }
         
         var filteredEvents = allEvents.filter { activeEventTypes.contains($0.event.type) }
         
         if ManagerAuth.shared.isConnected, showOnlyFollowed {
-            var relatedEvents: [EventItem] = []
+            var events: [EventItem] = []
             
-            relatedEvents.append(contentsOf: filteredEvents.filter { item -> Bool in
+            events.append(contentsOf: filteredEvents.filter { item -> Bool in
                 ManagerAuth.shared.followedArtists.contains(where: { followedArtist in
                     item.artists
                         .compactMap({ $0.artistId })
@@ -92,7 +87,7 @@ class ManagerEvents {
                 })
             })
             
-            relatedEvents.append(contentsOf: filteredEvents.filter { item -> Bool in
+            events.append(contentsOf: filteredEvents.filter { item -> Bool in
                 ManagerAuth.shared.followedBands.contains(where: { followedBand in
                     item.bands
                         .compactMap({ $0.bandId })
@@ -100,7 +95,7 @@ class ManagerEvents {
                 })
             })
             
-            filteredEvents = relatedEvents
+            filteredEvents = events
         }
         
         sort(events: filteredEvents)

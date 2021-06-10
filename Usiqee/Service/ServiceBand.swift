@@ -109,7 +109,6 @@ class ServiceBand {
                     delegate?.dataRemoved(event: event)
                 }
             }
-            
         }
     }
     

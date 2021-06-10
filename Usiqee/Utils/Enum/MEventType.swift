@@ -20,25 +20,25 @@ enum MEventType: String, CaseIterable {
     var title: String {
         switch self {
         case .ep:
-            return L10N.global.events.ep
+            return L10N.Events.types.ep
         case .album:
-            return L10N.global.events.album
+            return L10N.Events.types.album
         case .single:
-            return L10N.global.events.single
+            return L10N.Events.types.single
         case .mixtape:
-            return L10N.global.events.mixtape
+            return L10N.Events.types.mixtape
         case .freestyle:
-            return L10N.global.events.freestyle
+            return L10N.Events.types.freestyle
         case .video:
-            return L10N.global.events.video
+            return L10N.Events.types.video
         case .concert:
-            return L10N.global.events.concert
+            return L10N.Events.types.concert
         case .showcase:
-            return L10N.global.events.showcase
+            return L10N.Events.types.showcase
         case .festival:
-            return L10N.global.events.festival
+            return L10N.Events.types.festival
         case .other:
-            return L10N.global.events.other
+            return L10N.Events.types.other
         }
     }
 }

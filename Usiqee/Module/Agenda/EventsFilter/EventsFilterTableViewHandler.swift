@@ -5,18 +5,18 @@
 //  Created by Amine on 28/05/2021.
 //
 
-import Foundation
+import UIKit
 
 class EventsFilterTableViewHandler: NSObject {
     
     // MARK: - Properties
-    var showOnlyFollowed: Bool!
-    var events: [SelectedEvent]!
+    var showOnlyFollowed: Bool
+    var selectedEventTypes: [selectedEventType]
     
     // MARK: - LifeCycle
     override init() {
-        super.init()
-        setDefaultValues()
+        showOnlyFollowed = ManagerEvents.shared.showOnlyFollowed
+        selectedEventTypes = ManagerEvents.shared.selectedEventTypes
     }
     
     // MARK: - Enums
@@ -27,7 +27,7 @@ class EventsFilterTableViewHandler: NSObject {
     
     enum CellType {
         case followed(isSelected: Bool)
-        case event(SelectedEvent)
+        case event(selectedEventType)
     }
     
     // MARK: - Helper
@@ -51,12 +51,36 @@ class EventsFilterTableViewHandler: NSObject {
         }
     }
     
-     func item(for indexPath: IndexPath) -> CellType? {
+    func numberOfRows(in section: Int) -> Int {
+        switch sectiontype(at: section) {
+        case .followed:
+            return 1
+        case .event:
+            return selectedEventTypes.count
+        default:
+            return 0
+        }
+    }
+    
+    func heightForRow(at indexPath: IndexPath) -> CGFloat {
+        guard let cellType = item(for: indexPath) else {
+            return 0
+        }
+        
+        switch cellType {
+        case .followed:
+            return EventsFilterSwitchCell.Constants.height
+        case .event:
+            return EventsFilterEventTypeCell.Constants.height
+        }
+    }
+    
+    func item(for indexPath: IndexPath) -> CellType? {
         switch sectiontype(at: indexPath.section) {
         case .followed:
             return .followed(isSelected: showOnlyFollowed)
         case .event:
-            return .event(events[indexPath.row])
+            return .event(selectedEventTypes[indexPath.row])
         default:
             return nil
         }
@@ -78,16 +102,16 @@ class EventsFilterTableViewHandler: NSObject {
     
     func validate() {
         ManagerEvents.shared.showOnlyFollowed = showOnlyFollowed
-        ManagerEvents.shared.events = events
+        ManagerEvents.shared.selectedEventTypes = selectedEventTypes
         ManagerEvents.shared.didUpdateFilter()
     }
     
     func didSelectEvent(at index: Int) {
-        events[index].isSelected.toggle()
+        selectedEventTypes[index].isSelected.toggle()
     }
     
     private func setDefaultValues() {
         showOnlyFollowed = ManagerEvents.shared.showOnlyFollowed
-        events = ManagerEvents.shared.events
+        selectedEventTypes = ManagerEvents.shared.selectedEventTypes
     }
 }

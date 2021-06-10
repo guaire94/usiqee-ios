@@ -108,7 +108,6 @@ class ServiceArtist {
                     delegate?.dataRemoved(event: event)
                 }
             }
-            
         }
     }
     
