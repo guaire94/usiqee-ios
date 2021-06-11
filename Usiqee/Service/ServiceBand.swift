@@ -50,14 +50,40 @@ class ServiceBand {
     }
     
     static func follow(band: Band, completion: @escaping (Error?) -> Void)  {
-        guard let currentUser = ManagerAuth.shared.user,
-              let userId = currentUser.id else {
+        guard let user = Auth.auth().currentUser,
+              let follower = user.toFollower,
+              let bandId = band.id else {
             return
         }
-
-        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.relatedData) { error in
+        
+        let dispatchGroup = DispatchGroup()
+        var didFollowBand: Bool = true
+        var didAddFollower: Bool = true
+        
+        dispatchGroup.enter()
+        FFirestoreReference.userFollowedBands(userId: user.uid).addDocument(data: band.toRelated) { error in
             if let error = error {
+                didFollowBand = false
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.bandFollowers(bandId: bandId).document(user.uid).setData(follower.toRelated, completion: { error in
+            if let error = error {
+                didAddFollower = false
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+            guard didAddFollower, didFollowBand else {
                 return
             }
             

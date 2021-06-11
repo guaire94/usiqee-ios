@@ -10,7 +10,7 @@ import FirebaseFirestoreSwift
 
 class Band: MusicalEntity {
     
-    var relatedData: [String : Any] {
+    var toRelated: [String : Any] {
         [
             "bandId": id,
             "name": name,
