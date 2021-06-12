@@ -50,14 +50,39 @@ class ServiceBand {
     }
     
     static func follow(band: Band, completion: @escaping (Error?) -> Void)  {
-        guard let currentUser = ManagerAuth.shared.user,
-              let userId = currentUser.id else {
+        guard let userId = Auth.auth().currentUser?.uid,
+              let follower = ManagerAuth.shared.user?.toFollower,
+              let bandId = band.id else {
             return
         }
-
-        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.relatedData) { error in
+        
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
+        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.toRelated) { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.bandFollowers(bandId: bandId).document(userId).setData(follower.toRelated, completion: { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             
@@ -74,9 +99,33 @@ class ServiceBand {
             return
         }
         
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
         FFirestoreReference.userFollowedBands(userId: user.uid).document(bandId).delete { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.bandFollowers(bandId: band.bandId).document(user.uid).delete { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             

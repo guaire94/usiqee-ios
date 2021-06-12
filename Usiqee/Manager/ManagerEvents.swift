@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias selectedEventType = (event: MEventType, isSelected: Bool)
+typealias SelectedEventType = (event: MEventType, isSelected: Bool)
 
 protocol ManagerEventDelegate: AnyObject {
     func didUpdateEvents()
@@ -25,7 +25,7 @@ class ManagerEvents {
     
     // MARK: - Properties
     var showOnlyFollowed: Bool
-    var selectedEventTypes: [selectedEventType]
+    var selectedEventTypes: [SelectedEventType]
     var selectedDate: Date
     weak var delegate: ManagerEventDelegate?
     

@@ -11,7 +11,7 @@ class EventsFilterTableViewHandler: NSObject {
     
     // MARK: - Properties
     var showOnlyFollowed: Bool
-    var selectedEventTypes: [selectedEventType]
+    var selectedEventTypes: [SelectedEventType]
     
     // MARK: - LifeCycle
     override init() {
@@ -27,7 +27,7 @@ class EventsFilterTableViewHandler: NSObject {
     
     enum CellType {
         case followed(isSelected: Bool)
-        case event(selectedEventType)
+        case event(SelectedEventType)
     }
     
     // MARK: - Helper

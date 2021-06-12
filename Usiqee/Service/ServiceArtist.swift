@@ -50,13 +50,39 @@ class ServiceArtist {
     }
     
     static func follow(artist: Artist, completion: @escaping (Error?) -> Void)  {
-        guard let user = Auth.auth().currentUser else {
+        guard let userId = Auth.auth().currentUser?.uid,
+              let follower = ManagerAuth.shared.user?.toFollower,
+              let artistId = artist.id else {
             return
         }
         
-        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: artist.relatedData) { error in
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
+        FFirestoreReference.userFollowedArtists(userId: userId).addDocument(data: artist.toRelated) { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toRelated, completion: { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             
@@ -73,9 +99,33 @@ class ServiceArtist {
             return
         }
         
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
         FFirestoreReference.userFollowedArtists(userId: user.uid).document(artistId).delete { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.artistFollowers(artistId: artist.artistId).document(user.uid).delete { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             
