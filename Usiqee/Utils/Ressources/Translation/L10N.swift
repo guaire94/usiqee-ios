@@ -107,6 +107,10 @@ struct L10N {
             static let title: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_TITLE", comment: "")
             static let subtitle: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE", comment: "")
         }
+        
+        struct Calendar {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
+        }
     }
 
     struct UserDetails {
@@ -143,4 +147,57 @@ struct L10N {
        static let LoadFromGallery: String = NSLocalizedString("IMAGE_PICKER_GALLERY", comment: "")
         static let takeAPhoto: String = NSLocalizedString("IMAGE_PICKER_TAKE_A_PHOTO", comment: "")
    }
+    
+    struct EventsFilter {
+        static let title: String = NSLocalizedString("EVENTS_FILTER_TITLE", comment: "")
+        static let resetButton: String = NSLocalizedString("EVENTS_FILTER_RESET", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_FILTER_VALIDATE", comment: "")
+        static let followersFilter: String = NSLocalizedString("EVENTS_FILTER_FOLLOWERS_CATEGORY", comment: "")
+        static let typeFilter: String = NSLocalizedString("EVENTS_FILTER_TYPE_CATEGORY", comment: "")
+    }
+    
+    struct EventsDateFilter {
+        static let title: String = NSLocalizedString("EVENTS_DATE_FILTER_TITLE", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_DATE_FILTER_VALIDATE", comment: "")
+    }
+    
+    struct EventDetails {
+        static let title: String = NSLocalizedString("EVENTS_DETAILS_TITLE", comment: "")
+        static let addToCalendar: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR", comment: "")
+        static let showDetails: String = NSLocalizedString("EVENTS_DETAILS_SHOW_DETAILS", comment: "")
+        static let addToCalendarError: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR", comment: "")
+    }
+    
+    struct Events {
+        struct types {
+            static let ep: String = NSLocalizedString("EVENTS_TYPE_EP", comment: "")
+            static let album: String = NSLocalizedString("EVENTS_TYPE_ALBUM", comment: "")
+            static let single: String = NSLocalizedString("EVENTS_TYPE_SINGLE", comment: "")
+            static let mixtape: String = NSLocalizedString("EVENTS_TYPE_MIXTAPE", comment: "")
+            static let freestyle: String = NSLocalizedString("EVENTS_TYPE_FREESTYLE", comment: "")
+            static let video: String = NSLocalizedString("EVENTS_TYPE_VIDEO", comment: "")
+            static let concert: String = NSLocalizedString("EVENTS_TYPE_CONCERT", comment: "")
+            static let showcase: String = NSLocalizedString("EVENTS_TYPE_SHOWCASE", comment: "")
+            static let festival: String = NSLocalizedString("EVENTS_TYPE_FESTIVAL", comment: "")
+            static let other: String = NSLocalizedString("EVENTS_TYPE_OTHER", comment: "")
+        }
+        
+        static let nextMonth: String = NSLocalizedString("EVENTS_NEXT_MONTH", comment: "")
+        static let emptyListMessage: String = NSLocalizedString("EVENTS_EMPTY_LIST", comment: "")
+    }
+    
+    struct Months {
+        static let january = NSLocalizedString("MONTHS_JANUARY", comment: "")
+        static let february = NSLocalizedString("MONTHS_FEBRUARY", comment: "")
+        static let march = NSLocalizedString("MONTHS_MARCH", comment: "")
+        static let april = NSLocalizedString("MONTHS_APRIL", comment: "")
+        static let may = NSLocalizedString("MONTHS_MAY", comment: "")
+        static let june = NSLocalizedString("MONTHS_JUNE", comment: "")
+        static let july = NSLocalizedString("MONTHS_JULY", comment: "")
+        static let august = NSLocalizedString("MONTHS_AUGUST", comment: "")
+        static let september = NSLocalizedString("MONTHS_SEPTEMBER", comment: "")
+        static let october = NSLocalizedString("MONTHS_OCTOBER", comment: "")
+        static let november = NSLocalizedString("MONTHS_NOBEMBER", comment: "")
+        static let december = NSLocalizedString("MONTHS_DECEMBER", comment: "")
+    }
 }

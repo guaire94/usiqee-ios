@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventFooterView" customModule="Usiqee" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="BqD-7R-r16"/>
+                <outlet property="messageLabel" destination="dVC-f4-Aa0" id="gLQ-M1-XpO"/>
+                <outlet property="nextMonthButton" destination="4dS-AR-lHt" id="7aF-e5-4t5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVC-f4-Aa0">
+                    <rect key="frame" x="20" y="0.0" width="374" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-XE-fSe">
+                    <rect key="frame" x="20" y="10" width="374" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dS-AR-lHt" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                            <connections>
+                                <action selector="onNextTapped" destination="-1" eventType="touchUpInside" id="fo7-TC-R6h"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Xza-WZ-nmm"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dVC-f4-Aa0" secondAttribute="trailing" constant="20" id="H1w-Kv-m7N"/>
+                <constraint firstAttribute="bottom" secondItem="4Ah-XE-fSe" secondAttribute="bottom" constant="10" id="Y98-GS-wkg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4Ah-XE-fSe" secondAttribute="trailing" constant="20" id="dHW-e3-biv"/>
+                <constraint firstItem="4Ah-XE-fSe" firstAttribute="top" secondItem="dVC-f4-Aa0" secondAttribute="bottom" constant="10" id="djG-3b-D9h"/>
+                <constraint firstItem="4Ah-XE-fSe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="rg7-hx-81W"/>
+                <constraint firstItem="dVC-f4-Aa0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tCl-YN-O2q"/>
+                <constraint firstItem="dVC-f4-Aa0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="yFh-Zf-iTL"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="121.73913043478262" y="-588.61607142857144"/>
+        </view>
+    </objects>
+</document>

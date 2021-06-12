@@ -13,7 +13,13 @@ import Firebase
    let firebaseEnv = "Release"
 #endif
 
-let db = Firestore.firestore()
+var db: Firestore = {
+    let settings = FirestoreSettings()
+    settings.isPersistenceEnabled = true
+    let db = Firestore.firestore()
+    db.settings = settings
+    return db
+}()
 
 enum FirebaseCollection {
     

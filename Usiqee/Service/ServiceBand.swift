@@ -13,16 +13,23 @@ protocol ServiceBandDelegate {
     func dataRemoved(band: Band)
 }
 
+protocol ServiceBandEventsDelegate: AnyObject {
+    func dataAdded(event: RelatedEvent)
+    func dataModified(event: RelatedEvent)
+    func dataRemoved(event: RelatedEvent)
+}
+
 class ServiceBand {
     
     // MARK: - Property
     private static var listener: ListenerRegistration?
+    private static var eventsListener: ListenerRegistration?
     
     // MARK: - GET
     static func listenBands(delegate: ServiceBandDelegate) {
         listener?.remove()
         ManagerMusicalEntity.shared.clearBands()
-        self.listener = FFirestoreReference.band.addSnapshotListener { query, error in
+        listener = FFirestoreReference.band.addSnapshotListener { query, error in
             guard let snapshot = query else { return }
             snapshot.documentChanges.forEach { diff in
                 guard let band = try? diff.document.data(as: Band.self) else { return }
@@ -43,18 +50,44 @@ class ServiceBand {
     }
     
     static func follow(band: Band, completion: @escaping (Error?) -> Void)  {
-        guard let currentUser = ManagerAuth.shared.user,
-              let userId = currentUser.id else {
+        guard let userId = Auth.auth().currentUser?.uid,
+              let follower = ManagerAuth.shared.user?.toFollower,
+              let bandId = band.id else {
             return
         }
-
-        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.relatedData) { error in
+        
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
+        FFirestoreReference.userFollowedBands(userId: userId).addDocument(data: band.toRelated) { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.bandFollowers(bandId: bandId).document(userId).setData(follower.toRelated, completion: { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             
             ManagerAuth.shared.synchronise {
+                ManagerEvents.shared.didUpdateFilter()
                 completion(nil)
             }
         }
@@ -66,15 +99,69 @@ class ServiceBand {
             return
         }
         
+        let dispatchGroup = DispatchGroup()
+        var hasError: Bool = false
+        
+        dispatchGroup.enter()
         FFirestoreReference.userFollowedBands(userId: user.uid).document(bandId).delete { error in
             if let error = error {
+                hasError = true
                 completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        FFirestoreReference.bandFollowers(bandId: band.bandId).document(user.uid).delete { error in
+            if let error = error {
+                hasError = true
+                completion(error)
+                dispatchGroup.leave()
+                return
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+            guard !hasError else {
                 return
             }
             
             ManagerAuth.shared.synchronise {
+                ManagerEvents.shared.didUpdateFilter()
                 completion(nil)
             }
         }
+    }
+    
+    static func listenToRelatedEvents(band: Band, delegate: ServiceBandEventsDelegate?) {
+        eventsListener?.remove()
+        weak var delegate = delegate
+        guard let bandId = band.id,
+              let startDate = Date().withoutTime else { return }
+        
+        eventsListener = FFirestoreReference.bandEvents(bandId: bandId)
+            .whereField("date", isGreaterThan: startDate.timestamp)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let event = try? diff.document.data(as: RelatedEvent.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(event: event)
+                case .modified:
+                    delegate?.dataModified(event: event)
+                case .removed:
+                    delegate?.dataRemoved(event: event)
+                }
+            }
+        }
+    }
+    
+    static func detachRelatedEvents() {
+        eventsListener?.remove()
     }
 }

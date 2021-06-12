@@ -32,6 +32,8 @@
 "ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
 
+"ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
+
 "USER_FORM_MAIL"="Email";
 "USER_FORM_PASSWORD"="Mot de passe";
 "USER_FORM_FIRSTNAME"="Prénom";
@@ -140,3 +142,44 @@
 "VERSION_AVAILABLE" = "Une nouvelle version de l'application est disponible";
 "VERSION_REDIRECT_APPSTORE" = "Aller sur l'Appstore";
 "VERSION_UPDATE_LATER" = "Mettre à jour plus tard";
+
+"EVENTS_FILTER_TITLE" = "Filtres";
+"EVENTS_FILTER_RESET" = "reset";
+"EVENTS_FILTER_VALIDATE" = "Continuer";
+"EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Uniquement les artistes suivis";
+"EVENTS_FILTER_TYPE_CATEGORY" = "Type d'évèvement :";
+
+"EVENTS_DATE_FILTER_TITLE" = "Filtres";
+"EVENTS_DATE_FILTER_VALIDATE" = "Valider";
+
+"EVENTS_DETAILS_TITLE" = "Détails de l'évènement";
+"EVENTS_DETAILS_ADD_TO_CALENDAR" = "Ajouter au calendrier";
+"EVENTS_DETAILS_SHOW_DETAILS" = "Détails";
+"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "l'évènement ne peut pas être ajouter au calendrier";
+
+"EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
+"EVENTS_NEXT_MONTH" = "Mois prochain";
+
+"EVENTS_TYPE_EP" = "ep";
+"EVENTS_TYPE_ALBUM" = "Album";
+"EVENTS_TYPE_SINGLE" = "Single";
+"EVENTS_TYPE_MIXTAPE" = "Mixtape";
+"EVENTS_TYPE_FREESTYLE" = "Freestyle";
+"EVENTS_TYPE_VIDEO" = "Video";
+"EVENTS_TYPE_CONCERT" = "Concert";
+"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_FESTIVAL" = "Festival";
+"EVENTS_TYPE_OTHER" = "Autres";
+
+"MONTHS_JANUARY" = "Janvier";
+"MONTHS_FEBRUARY" = "Février";
+"MONTHS_MARCH" = "Mars";
+"MONTHS_APRIL" = "Avril";
+"MONTHS_MAY" = "Mai";
+"MONTHS_JUNE" = "Juin";
+"MONTHS_JULY" = "Juillet";
+"MONTHS_AUGUST" = "Août";
+"MONTHS_SEPTEMBER" = "Septembre";
+"MONTHS_OCTOBER" = "Octobre";
+"MONTHS_NOBEMBER" = "Novembre";
+"MONTHS_DECEMBER" = "Décembre";

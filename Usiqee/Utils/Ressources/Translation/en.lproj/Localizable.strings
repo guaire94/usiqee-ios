@@ -138,3 +138,16 @@
 
 "IMAGE_PICKER_GALLERY" = "Load from gallery";
 "IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";
+
+"MONTHS_JANUARY" = "January";
+"MONTHS_FEBRUARY" = "February";
+"MONTHS_MARCH" = "March";
+"MONTHS_APRIL" = "April";
+"MONTHS_MAY" = "May";
+"MONTHS_JUNE" = "June";
+"MONTHS_JULY" = "July";
+"MONTHS_AUGUST" = "August";
+"MONTHS_SEPTEMBER" = "September";
+"MONTHS_OCTOBER" = "October";
+"MONTHS_NOBEMBER" = "November";
+"MONTHS_DECEMBER" = "December";

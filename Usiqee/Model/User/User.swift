@@ -14,5 +14,11 @@ struct User: Identifiable, Codable {
     var mail: String
     var username: String
     var createdDate: Timestamp
+    
+    var toFollower: Follower? {
+        guard let uid = id else { return nil}
+        
+        return Follower(userId: uid, username: username, avatar: avatar)
+    }
 }
 

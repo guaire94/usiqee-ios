@@ -230,14 +230,21 @@
                                     <constraint firstItem="vrr-c7-J4t" firstAttribute="top" secondItem="nZT-Te-TeO" secondAttribute="bottom" constant="15" id="xSQ-Mj-x8b"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-lk-Pa6">
+                                <rect key="frame" x="0.0" y="380" width="414" height="428"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d0g-OS-Rv1"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="d0g-OS-Rv1" firstAttribute="trailing" secondItem="8DK-lk-Pa6" secondAttribute="trailing" id="19D-Eg-dcC"/>
                             <constraint firstItem="ASB-Fg-aHn" firstAttribute="bottom" secondItem="lPu-2e-dMq" secondAttribute="bottom" id="1Fo-GX-LM8"/>
+                            <constraint firstItem="d0g-OS-Rv1" firstAttribute="bottom" secondItem="8DK-lk-Pa6" secondAttribute="bottom" id="3Rc-nG-8Lc"/>
                             <constraint firstItem="lPu-2e-dMq" firstAttribute="top" secondItem="d0g-OS-Rv1" secondAttribute="top" id="3gm-xg-9w9"/>
                             <constraint firstItem="ike-2F-TQX" firstAttribute="leading" secondItem="d0g-OS-Rv1" secondAttribute="leading" id="FdR-pz-UuK"/>
                             <constraint firstItem="ASB-Fg-aHn" firstAttribute="leading" secondItem="d0g-OS-Rv1" secondAttribute="leading" id="Fm3-F5-hWr"/>
+                            <constraint firstItem="8DK-lk-Pa6" firstAttribute="leading" secondItem="d0g-OS-Rv1" secondAttribute="leading" id="La2-iL-iPq"/>
                             <constraint firstItem="ASB-Fg-aHn" firstAttribute="top" secondItem="bbt-HP-NuD" secondAttribute="top" id="XGp-lF-w5p"/>
                             <constraint firstItem="d0g-OS-Rv1" firstAttribute="trailing" secondItem="lPu-2e-dMq" secondAttribute="trailing" id="bIA-hG-ZTO"/>
                             <constraint firstItem="ASB-Fg-aHn" firstAttribute="trailing" secondItem="d0g-OS-Rv1" secondAttribute="trailing" id="g5w-sI-gPB"/>
@@ -245,6 +252,7 @@
                             <constraint firstItem="lPu-2e-dMq" firstAttribute="leading" secondItem="d0g-OS-Rv1" secondAttribute="leading" id="rFr-xv-xZm"/>
                             <constraint firstItem="lPu-2e-dMq" firstAttribute="height" secondItem="d0g-OS-Rv1" secondAttribute="height" multiplier="0.47" id="sDg-Ia-osp"/>
                             <constraint firstItem="ike-2F-TQX" firstAttribute="trailing" secondItem="d0g-OS-Rv1" secondAttribute="trailing" id="uOM-AX-Isf"/>
+                            <constraint firstItem="8DK-lk-Pa6" firstAttribute="top" secondItem="ASB-Fg-aHn" secondAttribute="bottom" id="uv9-8U-h4L"/>
                             <constraint firstItem="ike-2F-TQX" firstAttribute="height" secondItem="ASB-Fg-aHn" secondAttribute="height" id="yQ1-if-udG"/>
                         </constraints>
                     </view>
@@ -254,6 +262,7 @@
                         <outlet property="followingButton" destination="EzD-Jh-301" id="Dd6-DJ-RWo"/>
                         <outlet property="fullImage" destination="ASB-Fg-aHn" id="bVy-3T-mxl"/>
                         <outlet property="mainImage" destination="LJ8-if-Bkr" id="wcV-dc-83X"/>
+                        <outlet property="menuContentTableView" destination="8DK-lk-Pa6" id="Zcp-on-VHi"/>
                         <outlet property="nameLabel" destination="SXD-vQ-dxR" id="A3O-JJ-g72"/>
                         <outlet property="segmentedMenu" destination="vrr-c7-J4t" id="Sgg-Wl-ifp"/>
                     </connections>

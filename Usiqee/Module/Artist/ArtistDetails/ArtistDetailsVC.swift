@@ -8,6 +8,12 @@
 import UIKit
 import Firebase
 
+fileprivate enum ContentType: Int {
+    case bio = 0
+    case news
+    case calendar
+}
+
 class ArtistDetailsVC: UIViewController {
 
     // MARK: - Constants
@@ -25,22 +31,51 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var fullImage: UIImageView!
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var followingButton: FilledButton!
+    @IBOutlet weak private var menuContentTableView: UITableView!
     
     // MARK: - Properties
     var musicalEntity: MusicalEntity!
+    private var menuContentTableViewType: ContentType?
+    private var relatedEvents: [RelatedEvent] = []
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        segmentedMenu.configure(with: L10N.ArtistDetails.Menu.bio, L10N.ArtistDetails.Menu.news, L10N.ArtistDetails.Menu.calendar)
-        segmentedMenu.delegate = self
+    }
+    
+    deinit {
+        ServiceArtist.detachRelatedEvents()
+        ServiceBand.detachRelatedEvents()
     }
     
     // MARK: - Private
     private func setupView() {
+        setupMenu()
         setupDescriptions()
         setupContent()
+        setupTableView()
+        setupListeners()
+    }
+    
+    private func setupMenu() {
+        segmentedMenu.configure(with: L10N.ArtistDetails.Menu.bio, L10N.ArtistDetails.Menu.news, L10N.ArtistDetails.Menu.calendar)
+        segmentedMenu.delegate = self
+        menuContentTableViewType = .bio
+    }
+    
+    private func setupTableView() {
+        menuContentTableView.register(ArtistDetailsEventCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsEventCell.Constants.identifier)
+        menuContentTableView.dataSource = self
+        menuContentTableView.delegate = self
+    }
+    
+    private func setupListeners() {
+        if let artist = musicalEntity as? Artist {
+            ServiceArtist.listenToRelatedEvents(artist: artist, delegate: self)
+        } else if let band = musicalEntity as? Band {
+            ServiceBand.listenToRelatedEvents(band: band, delegate: self)
+        }
     }
     
     private func setupDescriptions() {
@@ -167,14 +202,97 @@ extension ArtistDetailsVC {
     }
 }
 
+// MARK: - UITableViewDataSource
+extension ArtistDetailsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let type = menuContentTableViewType else {
+            return 0
+        }
+        
+        switch type {
+        case .bio, .news:
+            tableView.restore()
+            return 0
+        case .calendar:
+            if relatedEvents.isEmpty {
+                tableView.setEmptyMessage(L10N.ArtistDetails.Calendar.emptyListMessage)
+            } else {
+                tableView.restore()
+            }
+            
+            return relatedEvents.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let type = menuContentTableViewType else {
+            return UITableViewCell()
+        }
+        
+        switch type {
+        case .bio, .news:
+            return UITableViewCell()
+        case .calendar:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsEventCell.Constants.identifier) as? ArtistDetailsEventCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(event: relatedEvents[indexPath.row])
+            return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ArtistDetailsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let type = menuContentTableViewType else { return }
+        
+        switch type {
+        case .bio, .news:
+            break
+        case .calendar:
+            guard let eventDetailsVC = UIViewController.eventDetailsVC else {
+                return
+            }
+            
+            eventDetailsVC.eventId = relatedEvents[indexPath.row].eventId
+            present(eventDetailsVC, animated: true, completion: nil)
+        }
+    }
+}
+
 // MARK: - MSegmentedMenuDelegate
 extension ArtistDetailsVC: MSegmentedMenuDelegate {
-    func didSelectItem(at index: Int) { }
+    func didSelectItem(at index: Int) {
+        menuContentTableViewType = ContentType(rawValue: index)
+        menuContentTableView.reloadData()
+    }
 }
 
 // MARK: - PreAuthVCDelegate
 extension ArtistDetailsVC: PreAuthVCDelegate {
     func didSignIn() {
         setupFollowButton()
+    }
+}
+
+// MARK: - ServiceArtistEventsDelegate
+extension ArtistDetailsVC: ServiceArtistEventsDelegate, ServiceBandEventsDelegate {
+    func dataAdded(event: RelatedEvent) {
+        relatedEvents.append(event)
+        menuContentTableView.reloadData()
+    }
+    
+    func dataModified(event: RelatedEvent) {
+        guard let index = relatedEvents.firstIndex(where: { $0.eventId == event.eventId }) else { return }
+        relatedEvents[index] = event
+        menuContentTableView.reloadData()
+    }
+    
+    func dataRemoved(event: RelatedEvent) {
+        guard let index = relatedEvents.firstIndex(where: { $0.eventId == event.eventId }) else { return }
+        relatedEvents.remove(at: index)
+        menuContentTableView.reloadData()
     }
 }
