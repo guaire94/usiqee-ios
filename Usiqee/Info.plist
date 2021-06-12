@@ -72,5 +72,7 @@
 	<string>We need location permission to allow you to specify a location when adding an event</string>
     <key>NSContactsUsageDescription</key>
     <string>We need contact permission to allow you to specify a contact when adding an event</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>We need calendar permission to allow you to add event in your personal calendar</string>
 </dict>
 </plist>
