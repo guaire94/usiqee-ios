@@ -77,7 +77,6 @@
 		67FA275C2670129000482131 /* ManagerDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA275B2670128F00482131 /* ManagerDeepLink.swift */; };
 		67FA27622670B2E700482131 /* HelperRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27612670B2E700482131 /* HelperRouting.swift */; };
 		67FA276626728D2200482131 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA276526728D2200482131 /* EventItem.swift */; };
-		67FA278F2672C0AB00482131 /* FIRUser+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA278E2672C0AA00482131 /* FIRUser+M.swift */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -218,7 +217,6 @@
 		67FA275B2670128F00482131 /* ManagerDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDeepLink.swift; sourceTree = "<group>"; };
 		67FA27612670B2E700482131 /* HelperRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperRouting.swift; sourceTree = "<group>"; };
 		67FA276526728D2200482131 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
-		67FA278E2672C0AA00482131 /* FIRUser+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FIRUser+M.swift"; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -715,7 +713,6 @@
 				676EAF482633451300656B91 /* UICollectionView+M.swift */,
 				67A25402263A0299008167DB /* UITextField+M.swift */,
 				67BBFC10265012F600A14DCD /* UITableView+M.swift */,
-				67FA278E2672C0AA00482131 /* FIRUser+M.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1179,7 +1176,6 @@
 				EE09220825F16308002C0174 /* MReleaseType.swift in Sources */,
 				679B197F2660338D0026568B /* ManagerEvents.swift in Sources */,
 				676EAF492633451300656B91 /* UICollectionView+M.swift in Sources */,
-				67FA278F2672C0AB00482131 /* FIRUser+M.swift in Sources */,
 				B84ECBB725403235007F8E9E /* ServiceAuth.swift in Sources */,
 				6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */,
 				EE0921DE25F15A77002C0174 /* ArtistVC.swift in Sources */,

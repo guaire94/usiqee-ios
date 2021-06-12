@@ -50,20 +50,19 @@ class ServiceArtist {
     }
     
     static func follow(artist: Artist, completion: @escaping (Error?) -> Void)  {
-        guard let user = Auth.auth().currentUser,
-              let follower = user.toFollower,
+        guard let userId = Auth.auth().currentUser?.uid,
+              let follower = ManagerAuth.shared.user?.toFollower,
               let artistId = artist.id else {
             return
         }
         
         let dispatchGroup = DispatchGroup()
-        var didFollowArtist: Bool = true
-        var didAddFollower: Bool = true
+        var hasError: Bool = false
         
         dispatchGroup.enter()
-        FFirestoreReference.userFollowedArtists(userId: user.uid).addDocument(data: artist.toRelated) { error in
+        FFirestoreReference.userFollowedArtists(userId: userId).addDocument(data: artist.toRelated) { error in
             if let error = error {
-                didFollowArtist = false
+                hasError = true
                 completion(error)
                 dispatchGroup.leave()
                 return
@@ -72,9 +71,9 @@ class ServiceArtist {
         }
         
         dispatchGroup.enter()
-        FFirestoreReference.artistFollowers(artistId: artistId).document(user.uid).setData(follower.toRelated, completion: { error in
+        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toRelated, completion: { error in
             if let error = error {
-                didAddFollower = false
+                hasError = true
                 completion(error)
                 dispatchGroup.leave()
                 return
@@ -83,7 +82,7 @@ class ServiceArtist {
         })
         
         dispatchGroup.notify(queue: .main) {
-            guard didAddFollower, didFollowArtist else {
+            guard !hasError else {
                 return
             }
             
@@ -101,13 +100,12 @@ class ServiceArtist {
         }
         
         let dispatchGroup = DispatchGroup()
-        var didUnfollowArtist: Bool = true
-        var didRemoveFollower: Bool = true
+        var hasError: Bool = false
         
         dispatchGroup.enter()
         FFirestoreReference.userFollowedArtists(userId: user.uid).document(artistId).delete { error in
             if let error = error {
-                didUnfollowArtist = false
+                hasError = true
                 completion(error)
                 dispatchGroup.leave()
                 return
@@ -118,7 +116,7 @@ class ServiceArtist {
         dispatchGroup.enter()
         FFirestoreReference.artistFollowers(artistId: artist.artistId).document(user.uid).delete { error in
             if let error = error {
-                didRemoveFollower = false
+                hasError = true
                 completion(error)
                 dispatchGroup.leave()
                 return
@@ -127,7 +125,7 @@ class ServiceArtist {
         }
 
         dispatchGroup.notify(queue: .main) {
-            guard didUnfollowArtist, didRemoveFollower else {
+            guard !hasError else {
                 return
             }
             
