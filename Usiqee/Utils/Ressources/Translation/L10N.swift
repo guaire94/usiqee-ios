@@ -111,6 +111,36 @@ struct L10N {
         struct Calendar {
             static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
         }
+        struct Bio {
+            struct Labels {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_LABELS_TITLE", comment: "")
+            }
+            struct Groupes {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_GROUPES_TITLE", comment: "")
+            }
+            struct Members {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_MEMBERS_TITLE", comment: "")
+            }
+            struct Information {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_INFORMATION_TITLE", comment: "")
+                static func pseudos(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_PSEUDOS", comment: ""), text)
+                }
+                static func birthName(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_BIRTHNAME", comment: ""), text)
+                }
+                static func birthDate(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_BIRTHDATE", comment: ""), text)
+                }
+                static func activity(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_ACTIVITY", comment: ""), text)
+                }
+                static func provenance(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_PROVENANCE", comment: ""), text)
+                }
+            }
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_BIO_EMPTY_LIST", comment: "")
+        }
     }
 
     struct UserDetails {

@@ -183,3 +183,14 @@
 "MONTHS_OCTOBER" = "Octobre";
 "MONTHS_NOBEMBER" = "Novembre";
 "MONTHS_DECEMBER" = "Décembre";
+
+"ARTIST_DETAILS_BIO_EMPTY_LIST" = "pas d'informations disponibles";
+"ARTIST_DETAILS_BIO_INFORMATION_TITLE" = "Informations";
+"ARTIST_DETAILS_BIO_PSEUDOS" = "Pseudos: %@";
+"ARTIST_DETAILS_BIO_BIRTHNAME" = "Nom de naissance: %@";
+"ARTIST_DETAILS_BIO_BIRTHDATE" = "Date de naissance: %@";
+"ARTIST_DETAILS_BIO_ACTIVITY" = "Période d’activité: %@";
+"ARTIST_DETAILS_BIO_PROVENANCE" = "Provenance: %@";
+"ARTIST_DETAILS_BIO_GROUPES_TITLE" = "Groupes";
+"ARTIST_DETAILS_BIO_MEMBERS_TITLE" = "Membres";
+"ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";

@@ -77,6 +77,20 @@
 		67FA275C2670129000482131 /* ManagerDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA275B2670128F00482131 /* ManagerDeepLink.swift */; };
 		67FA27622670B2E700482131 /* HelperRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27612670B2E700482131 /* HelperRouting.swift */; };
 		67FA276626728D2200482131 /* EventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA276526728D2200482131 /* EventItem.swift */; };
+		67FA27952677D1D500482131 /* ArtistDetailsTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27942677D1D500482131 /* ArtistDetailsTableViewHandler.swift */; };
+		67FA279D267A3B8000482131 /* RelatedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA279C267A3B7F00482131 /* RelatedLabel.swift */; };
+		67FA27A2267A517100482131 /* ArtistDetailsInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27A0267A517100482131 /* ArtistDetailsInformationCell.swift */; };
+		67FA27A3267A517100482131 /* ArtistDetailsInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA27A1267A517100482131 /* ArtistDetailsInformationCell.xib */; };
+		67FA27CD267A988D00482131 /* ArtistDetailsGroupesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27CB267A988D00482131 /* ArtistDetailsGroupesCell.swift */; };
+		67FA27CE267A988D00482131 /* ArtistDetailsGroupesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA27CC267A988D00482131 /* ArtistDetailsGroupesCell.xib */; };
+		67FA27D3267B6E0100482131 /* ArtistDetailsLabelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27D1267B6E0000482131 /* ArtistDetailsLabelsCell.swift */; };
+		67FA27D4267B6E0100482131 /* ArtistDetailsLabelsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA27D2267B6E0000482131 /* ArtistDetailsLabelsCell.xib */; };
+		67FA27DA267B7DDB00482131 /* ArtistDetailsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27D8267B7DDA00482131 /* ArtistDetailsLabelCell.swift */; };
+		67FA27DB267B7DDB00482131 /* ArtistDetailsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA27D9267B7DDA00482131 /* ArtistDetailsLabelCell.xib */; };
+		67FA27DF267BEF6D00482131 /* BandDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27DE267BEF6C00482131 /* BandDetailsVC.swift */; };
+		67FA27E3267BEF8600482131 /* BandDetailsTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27E2267BEF8600482131 /* BandDetailsTableViewHandler.swift */; };
+		67FA27E9267BF84D00482131 /* BandDetailsMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA27E7267BF84C00482131 /* BandDetailsMembersCell.swift */; };
+		67FA27EA267BF84D00482131 /* BandDetailsMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67FA27E8267BF84C00482131 /* BandDetailsMembersCell.xib */; };
 		86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */; };
 		B811E8A7254F6835008DB735 /* Timestamp+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811E8A6254F6835008DB735 /* Timestamp+M.swift */; };
 		B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */; };
@@ -217,6 +231,20 @@
 		67FA275B2670128F00482131 /* ManagerDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDeepLink.swift; sourceTree = "<group>"; };
 		67FA27612670B2E700482131 /* HelperRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperRouting.swift; sourceTree = "<group>"; };
 		67FA276526728D2200482131 /* EventItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItem.swift; sourceTree = "<group>"; };
+		67FA27942677D1D500482131 /* ArtistDetailsTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsTableViewHandler.swift; sourceTree = "<group>"; };
+		67FA279C267A3B7F00482131 /* RelatedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedLabel.swift; sourceTree = "<group>"; };
+		67FA27A0267A517100482131 /* ArtistDetailsInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsInformationCell.swift; sourceTree = "<group>"; };
+		67FA27A1267A517100482131 /* ArtistDetailsInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailsInformationCell.xib; sourceTree = "<group>"; };
+		67FA27CB267A988D00482131 /* ArtistDetailsGroupesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsGroupesCell.swift; sourceTree = "<group>"; };
+		67FA27CC267A988D00482131 /* ArtistDetailsGroupesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailsGroupesCell.xib; sourceTree = "<group>"; };
+		67FA27D1267B6E0000482131 /* ArtistDetailsLabelsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsLabelsCell.swift; sourceTree = "<group>"; };
+		67FA27D2267B6E0000482131 /* ArtistDetailsLabelsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailsLabelsCell.xib; sourceTree = "<group>"; };
+		67FA27D8267B7DDA00482131 /* ArtistDetailsLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsLabelCell.swift; sourceTree = "<group>"; };
+		67FA27D9267B7DDA00482131 /* ArtistDetailsLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailsLabelCell.xib; sourceTree = "<group>"; };
+		67FA27DE267BEF6C00482131 /* BandDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailsVC.swift; sourceTree = "<group>"; };
+		67FA27E2267BEF8600482131 /* BandDetailsTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailsTableViewHandler.swift; sourceTree = "<group>"; };
+		67FA27E7267BF84C00482131 /* BandDetailsMembersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailsMembersCell.swift; sourceTree = "<group>"; };
+		67FA27E8267BF84C00482131 /* BandDetailsMembersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BandDetailsMembersCell.xib; sourceTree = "<group>"; };
 		B811E8A6254F6835008DB735 /* Timestamp+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+M.swift"; sourceTree = "<group>"; };
 		B82FE3A7255DF10E00B52099 /* MDatePickerField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDatePickerField.xib; sourceTree = "<group>"; };
 		B82FE3A8255DF10E00B52099 /* MDatePickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDatePickerField.swift; sourceTree = "<group>"; };
@@ -369,6 +397,10 @@
 		679B1972265ED3D20026568B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				67FA27D7267B7D9F00482131 /* LabelCell */,
+				67FA27D0267B6DD000482131 /* LabelsCell */,
+				67FA27A6267A93C000482131 /* GroupesCell */,
+				67FA279F267A512800482131 /* InformationCell */,
 				679B1978265ED9330026568B /* EventCell */,
 			);
 			path = Cells;
@@ -532,9 +564,10 @@
 		67F720D6262C312A00C9C84E /* ArtistDetails */ = {
 			isa = PBXGroup;
 			children = (
+				67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */,
+				67FA27942677D1D500482131 /* ArtistDetailsTableViewHandler.swift */,
 				679B1972265ED3D20026568B /* Cells */,
 				67A25405263A0E59008167DB /* Discography */,
-				67F720DC262C315F00C9C84E /* ArtistDetailsVC.swift */,
 			);
 			path = ArtistDetails;
 			sourceTree = "<group>";
@@ -570,6 +603,69 @@
 				67FA27612670B2E700482131 /* HelperRouting.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		67FA279F267A512800482131 /* InformationCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27A0267A517100482131 /* ArtistDetailsInformationCell.swift */,
+				67FA27A1267A517100482131 /* ArtistDetailsInformationCell.xib */,
+			);
+			path = InformationCell;
+			sourceTree = "<group>";
+		};
+		67FA27A6267A93C000482131 /* GroupesCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27CB267A988D00482131 /* ArtistDetailsGroupesCell.swift */,
+				67FA27CC267A988D00482131 /* ArtistDetailsGroupesCell.xib */,
+			);
+			path = GroupesCell;
+			sourceTree = "<group>";
+		};
+		67FA27D0267B6DD000482131 /* LabelsCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27D1267B6E0000482131 /* ArtistDetailsLabelsCell.swift */,
+				67FA27D2267B6E0000482131 /* ArtistDetailsLabelsCell.xib */,
+			);
+			path = LabelsCell;
+			sourceTree = "<group>";
+		};
+		67FA27D7267B7D9F00482131 /* LabelCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27D8267B7DDA00482131 /* ArtistDetailsLabelCell.swift */,
+				67FA27D9267B7DDA00482131 /* ArtistDetailsLabelCell.xib */,
+			);
+			path = LabelCell;
+			sourceTree = "<group>";
+		};
+		67FA27DD267BEF4400482131 /* BandDetails */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27E5267BF80100482131 /* Cells */,
+				67FA27DE267BEF6C00482131 /* BandDetailsVC.swift */,
+				67FA27E2267BEF8600482131 /* BandDetailsTableViewHandler.swift */,
+			);
+			path = BandDetails;
+			sourceTree = "<group>";
+		};
+		67FA27E5267BF80100482131 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27E6267BF80C00482131 /* MembersCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		67FA27E6267BF80C00482131 /* MembersCell */ = {
+			isa = PBXGroup;
+			children = (
+				67FA27E7267BF84C00482131 /* BandDetailsMembersCell.swift */,
+				67FA27E8267BF84C00482131 /* BandDetailsMembersCell.xib */,
+			);
+			path = MembersCell;
 			sourceTree = "<group>";
 		};
 		831C7A2813CE126EF0B332FB /* Pods */ = {
@@ -906,6 +1002,7 @@
 				67F720AF262C1CF800C9C84E /* ArtistVCDataSource.swift */,
 				67F720A8262C183000C9C84E /* AllArtist */,
 				67F720D6262C312A00C9C84E /* ArtistDetails */,
+				67FA27DD267BEF4400482131 /* BandDetails */,
 				6727151F264C6A240022DA2D /* FollowedMusicalEntity */,
 			);
 			path = Artist;
@@ -921,6 +1018,7 @@
 				EE0921FE25F1610C002C0174 /* RelatedEvent.swift */,
 				EE09220125F1616F002C0174 /* RelatedLanguage.swift */,
 				EE09220425F1617A002C0174 /* RelatedRelease.swift */,
+				67FA279C267A3B7F00482131 /* RelatedLabel.swift */,
 			);
 			path = Related;
 			sourceTree = "<group>";
@@ -1054,9 +1152,11 @@
 				65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */,
 				B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */,
 				679B1976265ED4110026568B /* ArtistDetailsEventCell.xib in Resources */,
+				67FA27A3267A517100482131 /* ArtistDetailsInformationCell.xib in Resources */,
 				EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */,
 				67A25421263D817B008167DB /* MImagePicker.xib in Resources */,
 				67F720AC262C1A3A00C9C84E /* AllMusicalEntityView.xib in Resources */,
+				67FA27CE267A988D00482131 /* ArtistDetailsGroupesCell.xib in Resources */,
 				EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */,
 				679B1991266044F60026568B /* EventsFilterHeaderCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
@@ -1064,14 +1164,17 @@
 				67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */,
 				679B19A126616F7B0026568B /* EventsFilterEventTypeCell.xib in Resources */,
 				B82FE3A9255DF10E00B52099 /* MDatePickerField.xib in Resources */,
+				67FA27EA267BF84D00482131 /* BandDetailsMembersCell.xib in Resources */,
 				B8632C8B255AFCED00B196E5 /* Agenda.storyboard in Resources */,
 				67271525264C6A930022DA2D /* FollowedMusicalEntityView.xib in Resources */,
 				679B1998266167070026568B /* EventsFilterSwitchCell.xib in Resources */,
 				B8CE1AAD253F6FC9002AC5A5 /* Auth.storyboard in Resources */,
 				B8FDE3AC253F780F00BD29B2 /* Localizable.strings in Resources */,
 				670C4DFB261E4175005A72E2 /* ArtistCollectionViewCell.xib in Resources */,
+				67FA27D4267B6E0100482131 /* ArtistDetailsLabelsCell.xib in Resources */,
 				B8CE19CA253DBAE7002AC5A5 /* Assets.xcassets in Resources */,
 				67A25457263F2D4B008167DB /* NotLoggedView.xib in Resources */,
+				67FA27DB267B7DDB00482131 /* ArtistDetailsLabelCell.xib in Resources */,
 				6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */,
 				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
 				67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */,
@@ -1150,8 +1253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				67BBFC06264D4A2100A14DCD /* AccountDetailsFollowingCell.swift in Sources */,
+				67FA27E9267BF84D00482131 /* BandDetailsMembersCell.swift in Sources */,
 				67FA274B2667CCDB00482131 /* EventsDatePickerVC.swift in Sources */,
 				B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */,
+				67FA27952677D1D500482131 /* ArtistDetailsTableViewHandler.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
 				67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
@@ -1162,6 +1267,7 @@
 				67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */,
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
+				67FA279D267A3B8000482131 /* RelatedLabel.swift in Sources */,
 				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
 				B836B6212548E45B00AAF48A /* UIButton+M.swift in Sources */,
 				670C4DFA261E4175005A72E2 /* ArtistCollectionViewCell.swift in Sources */,
@@ -1169,6 +1275,7 @@
 				67FA275C2670129000482131 /* ManagerDeepLink.swift in Sources */,
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
+				67FA27E3267BEF8600482131 /* BandDetailsTableViewHandler.swift in Sources */,
 				EE0921F325F15EBD002C0174 /* RelatedAuthor.swift in Sources */,
 				67A2540E263C559C008167DB /* Colors.swift in Sources */,
 				EE09221225F163FE002C0174 /* Release.swift in Sources */,
@@ -1177,11 +1284,14 @@
 				679B197F2660338D0026568B /* ManagerEvents.swift in Sources */,
 				676EAF492633451300656B91 /* UICollectionView+M.swift in Sources */,
 				B84ECBB725403235007F8E9E /* ServiceAuth.swift in Sources */,
+				67FA27D3267B6E0100482131 /* ArtistDetailsLabelsCell.swift in Sources */,
 				6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */,
 				EE0921DE25F15A77002C0174 /* ArtistVC.swift in Sources */,
 				B84ECBC5254064AD007F8E9E /* User.swift in Sources */,
 				EE09221925F16518002C0174 /* MItemType.swift in Sources */,
 				67BBFC0E264FF53900A14DCD /* ManagerMusicalEntity.swift in Sources */,
+				67FA27DA267B7DDB00482131 /* ArtistDetailsLabelCell.swift in Sources */,
+				67FA27A2267A517100482131 /* ArtistDetailsInformationCell.swift in Sources */,
 				B87BDA0C253F8E0A00252B96 /* UIViewController+M.swift in Sources */,
 				670C4DF6261E337E005A72E2 /* ServiceBand.swift in Sources */,
 				B87BDA06253F7D1000252B96 /* MTextField.swift in Sources */,
@@ -1197,8 +1307,10 @@
 				B87B264C254232C6007D4A4D /* AnimateLaunchScreenVC.swift in Sources */,
 				B8F71AD1254B985B00D686B4 /* UIView+M.swift in Sources */,
 				65CF69A325681BBA00CB9AF7 /* MEventType.swift in Sources */,
+				67FA27CD267A988D00482131 /* ArtistDetailsGroupesCell.swift in Sources */,
 				67A254C326412EAB008167DB /* AccountDetailsView.swift in Sources */,
 				65ADCF1B25791F26009A30EA /* UIImage+M.swift in Sources */,
+				67FA27DF267BEF6D00482131 /* BandDetailsVC.swift in Sources */,
 				EE09221625F1645C002C0174 /* Item.swift in Sources */,
 				67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */,
 				67FA27622670B2E700482131 /* HelperRouting.swift in Sources */,
@@ -1415,7 +1527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
@@ -1440,7 +1552,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
