@@ -106,7 +106,7 @@ class ArtistDetailsTableViewHandler {
         guard let artist = artist else { return [] }
         var result: [ArtistDetailsCellType.BioCellType] = []
         
-        if artist.hasInformationBloc {
+        if artist.hasInformation {
             result.append(.information)
         }
         
@@ -119,15 +119,5 @@ class ArtistDetailsTableViewHandler {
         }
         
         return result
-    }
-}
-
-// MARK: - Artist
-private extension Artist {
-    var hasInformationBloc: Bool {
-        if pseudos == nil, startActivityYear == nil, provenance == nil, birthName == nil, birthDate == nil {
-            return false
-        }
-        return true
     }
 }

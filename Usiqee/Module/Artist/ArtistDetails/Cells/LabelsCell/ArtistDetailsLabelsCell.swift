@@ -14,6 +14,7 @@ class ArtistDetailsLabelsCell: UITableViewCell {
         static let identifier = "ArtistDetailsLabelsCell"
         static let nib = UINib(nibName: Constants.identifier, bundle: nil)
         fileprivate static let cornerRadius: CGFloat = 11
+        fileprivate static let cellWitdhPercentage: CGFloat = 1.1
     }
     
     // MARK: - IBOutlets
@@ -70,7 +71,7 @@ extension ArtistDetailsLabelsCell: UICollectionViewDataSource {
 extension ArtistDetailsLabelsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let heightCell = collectionView.frame.height
-        let widthCell = heightCell / 1.1
+        let widthCell = heightCell / Constants.cellWitdhPercentage
         return CGSize(width: widthCell, height: heightCell)
     }
 }

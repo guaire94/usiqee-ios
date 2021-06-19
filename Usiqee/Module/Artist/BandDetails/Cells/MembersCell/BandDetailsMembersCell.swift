@@ -14,6 +14,7 @@ class BandDetailsMembersCell: UITableViewCell {
         static let identifier = "BandDetailsMembersCell"
         static let nib = UINib(nibName: Constants.identifier, bundle: nil)
         fileprivate static let cornerRadius: CGFloat = 11
+        fileprivate static let cellWitdhPercentage: CGFloat = 1.4
     }
     
     // MARK: - IBOutlets
@@ -48,7 +49,6 @@ class BandDetailsMembersCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -71,7 +71,7 @@ extension BandDetailsMembersCell: UICollectionViewDataSource {
 extension BandDetailsMembersCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let heightCell = collectionView.frame.height
-        let widthCell = heightCell / 1.4
+        let widthCell = heightCell / Constants.cellWitdhPercentage
         return CGSize(width: widthCell, height: heightCell)
     }
 }

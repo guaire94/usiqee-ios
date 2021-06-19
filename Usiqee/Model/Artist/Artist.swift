@@ -27,6 +27,13 @@ class Artist: MusicalEntity {
         ]
     }
     
+    var hasInformation: Bool {
+        if pseudos == nil, startActivityYear == nil, provenance == nil, birthName == nil, birthDate == nil {
+            return false
+        }
+        return true
+    }
+    
     // MARK: - Codable
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)

@@ -106,7 +106,7 @@ class BandDetailsTableViewHandler {
         guard let band = band else { return [] }
         var result: [BandDetailsCellType.BioCellType] = []
         
-        if band.hasInformationBloc {
+        if band.hasInformation {
             result.append(.information)
         }
         
@@ -119,16 +119,6 @@ class BandDetailsTableViewHandler {
         }
         
         return result
-    }
-}
-
-// MARK: - Band
-private extension Band {
-    var hasInformationBloc: Bool {
-        if pseudos == nil, startActivityYear == nil, provenance == nil {
-            return false
-        }
-        return true
     }
 }
 

@@ -48,7 +48,6 @@ class ArtistDetailsGroupesCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
