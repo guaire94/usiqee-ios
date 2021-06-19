@@ -19,11 +19,25 @@ protocol ServiceBandEventsDelegate: AnyObject {
     func dataRemoved(event: RelatedEvent)
 }
 
+protocol ServiceBandLabelsDelegate: AnyObject {
+    func dataAdded(label: RelatedLabel)
+    func dataModified(label: RelatedLabel)
+    func dataRemoved(label: RelatedLabel)
+}
+
+protocol ServiceBandMembersDelegate: AnyObject {
+    func dataAdded(artist: RelatedArtist)
+    func dataModified(artist: RelatedArtist)
+    func dataRemoved(artist: RelatedArtist)
+}
+
 class ServiceBand {
     
     // MARK: - Property
     private static var listener: ListenerRegistration?
     private static var eventsListener: ListenerRegistration?
+    private static var labelsListener: ListenerRegistration?
+    private static var membersListener: ListenerRegistration?
     
     // MARK: - GET
     static func listenBands(delegate: ServiceBandDelegate) {
@@ -161,7 +175,55 @@ class ServiceBand {
         }
     }
     
-    static func detachRelatedEvents() {
+    static func listenToRelatedLabels(band: Band, delegate: ServiceBandLabelsDelegate?) {
+        labelsListener?.remove()
+        weak var delegate = delegate
+        guard let bandId = band.id else { return }
+        
+        labelsListener = FFirestoreReference.bandLabels(bandId: bandId)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let label = try? diff.document.data(as: RelatedLabel.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(label: label)
+                case .modified:
+                    delegate?.dataModified(label: label)
+                case .removed:
+                    delegate?.dataRemoved(label: label)
+                }
+            }
+        }
+    }
+    
+    static func listenToRelatedMembers(band: Band, delegate: ServiceBandMembersDelegate?) {
+        membersListener?.remove()
+        weak var delegate = delegate
+        guard let bandId = band.id else { return }
+        
+        membersListener = FFirestoreReference.bandArtists(bandId: bandId)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let artist = try? diff.document.data(as: RelatedArtist.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(artist: artist)
+                case .modified:
+                    delegate?.dataModified(artist: artist)
+                case .removed:
+                    delegate?.dataRemoved(artist: artist)
+                }
+            }
+        }
+    }
+    
+    static func detachRelatedListeners() {
         eventsListener?.remove()
+        labelsListener?.remove()
+        membersListener?.remove()
     }
 }

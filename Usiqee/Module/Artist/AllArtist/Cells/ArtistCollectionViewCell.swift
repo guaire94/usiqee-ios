@@ -31,10 +31,21 @@ class ArtistCollectionViewCell: UICollectionViewCell {
         set(image: followedEntity.avatar)
     }
     
+    func configure(relatedBand: RelatedBand) {
+        set(name: relatedBand.name, font: Fonts.ArtistDetails.Bio.description, textColor: Colors.gray)
+        set(image: relatedBand.avatar)
+    }
+    
+    func configure(relatedArtist: RelatedArtist) {
+        set(name: relatedArtist.name, font: Fonts.ArtistDetails.Bio.description, textColor: Colors.gray)
+        set(image: relatedArtist.avatar)
+    }
+    
     //MARK: - Private
-    private func set(name: String, font: UIFont) {
+    private func set(name: String, font: UIFont, textColor: UIColor = .white) {
         artistNameLabel.text = name
         artistNameLabel.font = font
+        artistNameLabel.textColor = textColor
     }
     
     private func set(image: String) {

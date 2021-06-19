@@ -1,14 +1,14 @@
 //
-//  ArtistDetailsVC.swift
+//  BandDetailsVC.swift
 //  Usiqee
 //
-//  Created by Amine on 18/04/2021.
+//  Created by Amine on 17/06/2021.
 //
 
 import UIKit
 import Firebase
 
-class ArtistDetailsVC: UIViewController {
+class BandDetailsVC: UIViewController {
     
     enum ContentType: Int {
         case bio = 0
@@ -18,7 +18,7 @@ class ArtistDetailsVC: UIViewController {
     
     // MARK: - Constants
     enum Constants {
-        static let identifer = "ArtistDetailsVC"
+        static let identifer = "BandDetailsVC"
         fileprivate static let followersDescription: UIColor = Colors.gray
         fileprivate static let followersNumber: UIColor = .white
         fileprivate static let followingCornerRadius: CGFloat = 15
@@ -32,10 +32,10 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var followingButton: FilledButton!
     @IBOutlet weak private var menuContentTableView: UITableView!
-    
+
     // MARK: - Properties
-    var artist: Artist!
-    private var tableviewHandler = ArtistDetailsTableViewHandler()
+    var band: Band!
+    private var tableviewHandler = BandDetailsTableViewHandler()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class ArtistDetailsVC: UIViewController {
     }
     
     deinit {
-        ServiceArtist.detachRelatedListeners()
+        ServiceBand.detachRelatedListeners()
     }
     
     // MARK: - Private
@@ -66,7 +66,7 @@ class ArtistDetailsVC: UIViewController {
     private func setupTableView() {
         menuContentTableView.register(ArtistDetailsEventCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsEventCell.Constants.identifier)
         menuContentTableView.register(ArtistDetailsInformationCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsInformationCell.Constants.identifier)
-        menuContentTableView.register(ArtistDetailsGroupesCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsGroupesCell.Constants.identifier)
+        menuContentTableView.register(BandDetailsMembersCell.Constants.nib, forCellReuseIdentifier: BandDetailsMembersCell.Constants.identifier)
         menuContentTableView.register(ArtistDetailsLabelsCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsLabelsCell.Constants.identifier)
         menuContentTableView.dataSource = self
         menuContentTableView.delegate = self
@@ -75,13 +75,13 @@ class ArtistDetailsVC: UIViewController {
     
     private func setupTableViewHelper() {
         tableviewHandler.delegate = self
-        tableviewHandler.artist = artist
+        tableviewHandler.band = band
     }
     
     private func setupListeners() {
-        ServiceArtist.listenToRelatedEvents(artist: artist, delegate: self)
-        ServiceArtist.listenToRelatedLabels(artist: artist, delegate: self)
-        ServiceArtist.listenToRelatedBand(artist: artist, delegate: self)
+        ServiceBand.listenToRelatedEvents(band: band, delegate: self)
+        ServiceBand.listenToRelatedLabels(band: band, delegate: self)
+        ServiceBand.listenToRelatedMembers(band: band, delegate: self)
     }
     
     private func setupDescriptions() {
@@ -91,15 +91,15 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func setupContent() {
-        nameLabel.text = artist.name.uppercased()
-        let storage = Storage.storage().reference(forURL: artist.avatar)
+        nameLabel.text = band.name.uppercased()
+        let storage = Storage.storage().reference(forURL: band.avatar)
         fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)
         setupFollowButton()
     }
     
     private func setupFollowButton() {
-        if ManagerAuth.shared.isFollowing(musicalEntity: artist) {
+        if ManagerAuth.shared.isFollowing(musicalEntity: band) {
             followingButton.isFilled = true
             followingButton.setTitle(L10N.ArtistDetails.unfollow, for: .normal)
         } else {
@@ -108,49 +108,29 @@ class ArtistDetailsVC: UIViewController {
         }
     }
     
-    private func setFollowersText(followers: Int) {
-        let text = NSMutableAttributedString()
-        text.append(NSAttributedString(
-            string: "\(followers) ",
-            attributes: [
-                .foregroundColor: Constants.followersNumber,
-                .font: Fonts.ArtistDetails.followers
-            ]))
-        text.append(NSAttributedString(
-            string: L10N.ArtistDetails.followed,
-            attributes: [
-                .foregroundColor: Constants.followersDescription,
-                .font: Fonts.ArtistDetails.followers
-            ])
-        )
-
-        follewersLabel.attributedText = text
-    }
-    
     private func handleFollowing() {
-        let isFollowing = ManagerAuth.shared.isFollowing(musicalEntity: artist)
+        let isFollowing = ManagerAuth.shared.isFollowing(musicalEntity: band)
         if isFollowing {
             followingButton.loadingIndicator(show: true)
-            unfollow(artist: artist)
+            unfollow(band: band)
         } else {
             followingButton.loadingIndicator(show: true, backgroundColor: Colors.purple)
-            follow(artist: artist)
+            follow(band: band)
         }
     }
     
-    private func follow(artist: Artist) {
-        ServiceArtist.follow(artist: artist, completion: { [weak self] error in
+    private func follow(band: Band) {
+        ServiceBand.follow(band: band) { [weak self] error in
             self?.didFinishFollowing(error)
-        })
+        }
     }
     
-    private func unfollow(artist: Artist) {
-        guard let artistId = artist.id,
-              let relatedArtist = ManagerAuth.shared.relatedArtist(by: artistId) else {
+    private func unfollow(band: Band) {
+        guard let bandId = band.id,
+              let relatedBand = ManagerAuth.shared.relatedBand(by: bandId) else {
             return
         }
-        ServiceArtist.unfollow(artist: relatedArtist) { [weak self] error in
-            self?.didFinishFollowing(error)
+        ServiceBand.unfollow(band: relatedBand) { [weak self] error in self?.didFinishFollowing(error)
         }
     }
     
@@ -167,7 +147,7 @@ class ArtistDetailsVC: UIViewController {
 }
 
 // MARK: - IBActions
-extension ArtistDetailsVC {
+extension BandDetailsVC {
     @IBAction func onBackTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -183,7 +163,7 @@ extension ArtistDetailsVC {
 }
 
 // MARK: - UITableViewDataSource
-extension ArtistDetailsVC: UITableViewDataSource {
+extension BandDetailsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableviewHandler.numberOfRows(in: section)
     }
@@ -202,13 +182,13 @@ extension ArtistDetailsVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsInformationCell.Constants.identifier) as? ArtistDetailsInformationCell else {
                 return defaultCell
             }
-            cell.configure(artist: artist)
+            cell.configure(band: band)
             return cell
-        case let .bio(cellType) where cellType == .group:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsGroupesCell.Constants.identifier) as? ArtistDetailsGroupesCell else {
+        case let .bio(cellType) where cellType == .member:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BandDetailsMembersCell.Constants.identifier) as? BandDetailsMembersCell else {
                 return defaultCell
             }
-            cell.configure(bands: tableviewHandler.relatedBands)
+            cell.configure(artists: tableviewHandler.relatedArtists)
             return cell
         case let .bio(cellType) where cellType == .label:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsLabelsCell.Constants.identifier) as? ArtistDetailsLabelsCell else {
@@ -230,7 +210,7 @@ extension ArtistDetailsVC: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension ArtistDetailsVC: UITableViewDelegate {
+extension BandDetailsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = tableviewHandler.item(for: indexPath) else { return }
         
@@ -249,7 +229,7 @@ extension ArtistDetailsVC: UITableViewDelegate {
 }
 
 // MARK: - MSegmentedMenuDelegate
-extension ArtistDetailsVC: MSegmentedMenuDelegate {
+extension BandDetailsVC: MSegmentedMenuDelegate {
     func didSelectItem(at index: Int) {
         guard let type = ContentType(rawValue: index) else { return }
         tableviewHandler.tableViewType = type
@@ -257,14 +237,14 @@ extension ArtistDetailsVC: MSegmentedMenuDelegate {
 }
 
 // MARK: - PreAuthVCDelegate
-extension ArtistDetailsVC: PreAuthVCDelegate {
+extension BandDetailsVC: PreAuthVCDelegate {
     func didSignIn() {
         setupFollowButton()
     }
 }
 
-// MARK: - ServiceArtistEventsDelegate
-extension ArtistDetailsVC: ServiceArtistEventsDelegate {
+// MARK: - ServiceBandEventsDelegate
+extension BandDetailsVC: ServiceBandEventsDelegate {
     func dataAdded(event: RelatedEvent) {
         tableviewHandler.relatedEvents.append(event)
     }
@@ -280,8 +260,8 @@ extension ArtistDetailsVC: ServiceArtistEventsDelegate {
     }
 }
 
-// MARK: - ServiceArtistLabelsDelegate
-extension ArtistDetailsVC: ServiceArtistLabelsDelegate {
+// MARK: - ServiceBandLabelsDelegate
+extension BandDetailsVC: ServiceBandLabelsDelegate {
     func dataAdded(label: RelatedLabel) {
         tableviewHandler.relatedLabels.append(label)
     }
@@ -297,25 +277,25 @@ extension ArtistDetailsVC: ServiceArtistLabelsDelegate {
     }
 }
 
-// MARK: - ServiceArtistBandsDelegate
-extension ArtistDetailsVC: ServiceArtistBandsDelegate {
-    func dataAdded(band: RelatedBand) {
-        tableviewHandler.relatedBands.append(band)
+// MARK: - ServiceBandMembersDelegate
+extension BandDetailsVC: ServiceBandMembersDelegate {
+    func dataAdded(artist: RelatedArtist) {
+        tableviewHandler.relatedArtists.append(artist)
     }
     
-    func dataModified(band: RelatedBand) {
-        guard let index = tableviewHandler.relatedBands.firstIndex(where: { $0.bandId == band.bandId }) else { return }
-        tableviewHandler.relatedBands[index] = band
+    func dataModified(artist: RelatedArtist) {
+        guard let index = tableviewHandler.relatedArtists.firstIndex(where: { $0.artistId == artist.artistId }) else { return }
+        tableviewHandler.relatedArtists[index] = artist
     }
     
-    func dataRemoved(band: RelatedBand) {
-        guard let index = tableviewHandler.relatedBands.firstIndex(where: { $0.bandId == band.bandId }) else { return }
-        tableviewHandler.relatedBands.remove(at: index)
+    func dataRemoved(artist: RelatedArtist) {
+        guard let index = tableviewHandler.relatedArtists.firstIndex(where: { $0.artistId == artist.artistId }) else { return }
+        tableviewHandler.relatedArtists.remove(at: index)
     }
 }
 
-// MARK: - ArtistDetailsTableViewHandlerDelegate
-extension ArtistDetailsVC: ArtistDetailsTableViewHandlerDelegate {
+// MARK: - BandDetailsTableViewHandlerDelegate
+extension BandDetailsVC: BandDetailsTableViewHandlerDelegate {
     func reloadData() {
         menuContentTableView.reloadData()
     }

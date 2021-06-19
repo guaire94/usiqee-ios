@@ -12,5 +12,7 @@ class MusicalEntity: Identifiable, Codable {
     @DocumentID var id: String?
     var avatar: String
     var name: String
-    var startActivityDate: Timestamp?
+    var pseudos: String?
+    var startActivityYear: String?
+    var provenance: String?
 }

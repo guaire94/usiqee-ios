@@ -103,6 +103,14 @@ enum Fonts: String {
                 Fonts.HelveticaRegular.withSize(with: 13)
             }
         }
+        enum Bio {
+            static var title: UIFont {
+                Fonts.SofiaProRegular.withSize(with: 16)
+            }
+            static var description: UIFont {
+                Fonts.SofiaProRegular.withSize(with: 14)
+            }
+        }
     }
     
     enum AccountNotLogged {

@@ -17,5 +17,12 @@ class Band: MusicalEntity {
             "avatar": avatar
         ]
     }
+    
+    var hasInformation: Bool {
+        if pseudos == nil, startActivityYear == nil, provenance == nil {
+            return false
+        }
+        return true
+    }
 }
 

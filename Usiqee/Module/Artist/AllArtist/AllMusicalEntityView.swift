@@ -9,7 +9,7 @@ import UIKit
 
 protocol AllMusicalEntityViewDelegate: AnyObject {
     func didFinishLoadingArtists()
-    func didSelect(artist: MusicalEntity)
+    func didSelect(musicalEntity: MusicalEntity)
 }
 
 class AllMusicalEntityView: UIView {
@@ -164,7 +164,7 @@ extension AllMusicalEntityView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelect(artist: filtredArtists[indexPath.row])
+        delegate?.didSelect(musicalEntity: filtredArtists[indexPath.row])
     }
 }
 

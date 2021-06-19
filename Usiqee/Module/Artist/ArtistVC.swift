@@ -34,8 +34,12 @@ class ArtistVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ArtistDetailsVC.Constants.identifer {
             guard let vc = segue.destination as? ArtistDetailsVC,
-                  let item = sender as? MusicalEntity else { return }
-            vc.musicalEntity = item
+                  let artist = sender as? Artist else { return }
+            vc.artist = artist
+        } else if segue.identifier == BandDetailsVC.Constants.identifer {
+            guard let vc = segue.destination as? BandDetailsVC,
+                  let band = sender as? Band else { return }
+            vc.band = band
         }
     }
 
@@ -98,8 +102,12 @@ extension ArtistVC: ArtistVCDataSource {
 
 // MARK: - AllMusicalEntityViewDelegate
 extension ArtistVC: AllMusicalEntityViewDelegate {
-    func didSelect(artist: MusicalEntity) {
-        performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
+    func didSelect(musicalEntity: MusicalEntity) {
+        if let artist = musicalEntity as? Artist {
+            performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
+        } else if let band = musicalEntity as? Band {
+            performSegue(withIdentifier: BandDetailsVC.Constants.identifer, sender: band)
+        }
     }
     
     func didFinishLoadingArtists() {
@@ -135,6 +143,6 @@ extension ArtistVC: FollowedMusicalEntityViewDelegate {
     
     func didSelectBand(id: String) {
         let band = ManagerMusicalEntity.shared.getBand(by: id)
-        performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: band)
+        performSegue(withIdentifier: BandDetailsVC.Constants.identifer, sender: band)
     }
 }
