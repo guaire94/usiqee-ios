@@ -158,7 +158,6 @@
 "EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "l'évènement ne peut pas être ajouter au calendrier";
 
 "EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
-"EVENTS_NEXT_MONTH" = "Mois prochain";
 
 "EVENTS_TYPE_EP" = "ep";
 "EVENTS_TYPE_ALBUM" = "Album";
@@ -169,7 +168,7 @@
 "EVENTS_TYPE_CONCERT" = "Concert";
 "EVENTS_TYPE_SHOWCASE" = "Showcase";
 "EVENTS_TYPE_FESTIVAL" = "Festival";
-"EVENTS_TYPE_OTHER" = "Autres";
+"EVENTS_TYPE_SPECIAL" = "Spécial";
 
 "MONTHS_JANUARY" = "Janvier";
 "MONTHS_FEBRUARY" = "Février";

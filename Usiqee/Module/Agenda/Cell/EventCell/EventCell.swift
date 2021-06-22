@@ -38,13 +38,13 @@ class EventCell: UITableViewCell {
     }
     
     func configure(item: EventItem) {
-        descriptionLabel.text = item.event.title
-        typeLabel.text = item.event.eventType?.title
-        timeLabel.text = item.event.date.dateValue().time
+        descriptionLabel.text = item.event.title.uppercased()
+        typeLabel.text = item.event.eventType?.title.uppercased()
+        timeLabel.text = item.event.date.dateValue().hour
         if let musicalEntity = item.musicalEntity {
             let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
             avatarImage.sd_setImage(with: storage)
-            artistLabel.text = musicalEntity.name
+            artistLabel.text = musicalEntity.name.uppercased()
         }
     }
     

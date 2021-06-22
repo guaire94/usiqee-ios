@@ -13,15 +13,17 @@ struct EventItem {
     let event: Event
     let artists: [RelatedArtist]
     let bands: [RelatedBand]
+    let mainArtist: RelatedArtist?
+    let mainBand: RelatedBand?
     
     // MARK: - Helper
     var musicalEntity: RelatedMusicalEntity? {
-        if let artist = artists.first {
-            return artist
+        if mainArtist != nil {
+            return mainArtist
         }
-
-        if let band = bands.first {
-            return band
+        
+        if mainBand != nil {
+            return mainBand
         }
 
         return nil

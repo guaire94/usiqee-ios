@@ -189,12 +189,15 @@ enum Fonts: String {
         static var title: UIFont {
             Fonts.SofiaProBold.withSize(with: 18)
         }
+        static var filterBadge: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 6)
+        }
         enum Cell {
             static var header: UIFont {
                 Fonts.SofiaProBold.withSize(with: 18)
             }
             static var name: UIFont {
-                Fonts.SofiaProRegular.withSize(with: 16)
+                Fonts.SofiaProBold.withSize(with: 16)
             }
             static var type: UIFont {
                 Fonts.HelveticaLight.withSize(with: 11)
@@ -206,7 +209,10 @@ enum Fonts: String {
                 Fonts.HelveticaRegular.withSize(with: 12)
             }
             static var nextMonthButton: UIFont {
-                Fonts.HelveticaMedium.withSize(with: 15)
+                Fonts.SofiaProBold.withSize(with: 14)
+            }
+            static var previousMonthButton: UIFont {
+                Fonts.SofiaProBold.withSize(with: 14)
             }
             static var emptyMessage: UIFont {
                 Fonts.SofiaProRegular.withSize(with: 18)

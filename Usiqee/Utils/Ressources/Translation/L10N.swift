@@ -209,10 +209,9 @@ struct L10N {
             static let concert: String = NSLocalizedString("EVENTS_TYPE_CONCERT", comment: "")
             static let showcase: String = NSLocalizedString("EVENTS_TYPE_SHOWCASE", comment: "")
             static let festival: String = NSLocalizedString("EVENTS_TYPE_FESTIVAL", comment: "")
-            static let other: String = NSLocalizedString("EVENTS_TYPE_OTHER", comment: "")
+            static let special: String = NSLocalizedString("EVENTS_TYPE_SPECIAL", comment: "")
         }
         
-        static let nextMonth: String = NSLocalizedString("EVENTS_NEXT_MONTH", comment: "")
         static let emptyListMessage: String = NSLocalizedString("EVENTS_EMPTY_LIST", comment: "")
     }
     
