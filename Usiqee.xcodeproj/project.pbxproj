@@ -23,6 +23,7 @@
 		67271525264C6A930022DA2D /* FollowedMusicalEntityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67271524264C6A930022DA2D /* FollowedMusicalEntityView.xib */; };
 		6731F3C12681E7550050E692 /* EventHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6731F3C02681E7550050E692 /* EventHeaderView.swift */; };
 		6731F3C52681E75F0050E692 /* EventHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6731F3C42681E75F0050E692 /* EventHeaderView.xib */; };
+		6731F3C92683CC650050E692 /* SFProDisplayRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6731F3C82683CC650050E692 /* SFProDisplayRegular.ttf */; };
 		6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */; };
 		6751E06F262CBC3E00AC6509 /* MSegmentedMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */; };
 		6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */; };
@@ -178,6 +179,7 @@
 		67271524264C6A930022DA2D /* FollowedMusicalEntityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowedMusicalEntityView.xib; sourceTree = "<group>"; };
 		6731F3C02681E7550050E692 /* EventHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHeaderView.swift; sourceTree = "<group>"; };
 		6731F3C42681E75F0050E692 /* EventHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventHeaderView.xib; sourceTree = "<group>"; };
+		6731F3C82683CC650050E692 /* SFProDisplayRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProDisplayRegular.ttf; sourceTree = "<group>"; };
 		6751E06B262CBC2B00AC6509 /* MSegmentedMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MSegmentedMenu.xib; sourceTree = "<group>"; };
 		6751E06E262CBC3E00AC6509 /* MSegmentedMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSegmentedMenu.swift; sourceTree = "<group>"; };
 		6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularAz.otf; sourceTree = "<group>"; };
@@ -1001,6 +1003,7 @@
 		B8FDE3B1253F799900BD29B2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6731F3C82683CC650050E692 /* SFProDisplayRegular.ttf */,
 				67656A442654593900672911 /* SofiaProRegularItalicAz.otf */,
 				676EAF202630D54800656B91 /* SofiaProBoldAz.otf */,
 				6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */,
@@ -1194,6 +1197,7 @@
 				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
 				67A25407263A0F23008167DB /* ArtistDiscographyDetailsView.xib in Resources */,
 				67FA2755266EBB1900482131 /* EventFooterView.xib in Resources */,
+				6731F3C92683CC650050E692 /* SFProDisplayRegular.ttf in Resources */,
 				676EAF212630D54800656B91 /* SofiaProBoldAz.otf in Resources */,
 				B8CE19C8253DBAE5002AC5A5 /* News.storyboard in Resources */,
 				B8FDE3A7253F761100BD29B2 /* GoogleService-Info.plist in Resources */,

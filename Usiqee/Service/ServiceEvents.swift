@@ -40,7 +40,7 @@ class ServiceEvents {
             }
             snapshot.documentChanges.forEach { diff in
                 numberOfItems -= 1
-                if numberOfItems == 0 {
+                if numberOfItems == .zero {
                     delegate.didFinishLoading()
                 }
                 guard let event = try? diff.document.data(as: Event.self) else { return }

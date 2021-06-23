@@ -40,6 +40,7 @@
 		<string>SofiaProRegularAz.otf</string>
 		<string>SofiaProBoldAz.otf</string>
 		<string>SofiaProRegularItalicAz.otf</string>
+        <string>SFProDisplayRegular.ttf</string>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>

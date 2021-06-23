@@ -79,12 +79,21 @@ class EventDetailsVC: UIViewController {
         typeLabel.text = item.event.eventType?.title.uppercased()
         dateLabel.text = item.event.date.dateValue().full
         timeLabel.text = item.event.date.dateValue().hour
-        showDetailsButton.isHidden = item.event.webLink == nil
+        showDetailsButton.isHidden = isShowDetailsButtonHidden(webLink: item.event.webLink)
         if let musicalEntity = item.musicalEntity {
             let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
             artistImage.sd_setImage(with: storage)
             artistNameLabel.text = musicalEntity.name.uppercased()
         }
+    }
+    
+    private func isShowDetailsButtonHidden(webLink: String?) -> Bool {
+        guard let urlString = webLink,
+              let url = URL(string: urlString) else {
+            return true
+        }
+        
+        return !UIApplication.shared.canOpenURL(url)
     }
     
     private func loadEventInformation(_ eventId: String) {

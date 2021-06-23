@@ -173,9 +173,8 @@ extension ManagerEvents: ServiceEventsDelegate {
     func dataAdded(event: Event) {
         ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
-            if item.artists.isEmpty && item.bands.isEmpty {
-                return
-            }
+            if item.mainArtist == nil && item.mainBand == nil { return }
+            
             self.allEvents.append(item)
         })
     }
@@ -184,7 +183,7 @@ extension ManagerEvents: ServiceEventsDelegate {
         guard let index = allEvents.firstIndex(where: { $0.event.id == event.id }) else { return }
         ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
-            if item.artists.isEmpty && item.bands.isEmpty {
+            if item.mainArtist == nil && item.mainBand == nil {
                 self.dataRemoved(event: event)
                 return
             }

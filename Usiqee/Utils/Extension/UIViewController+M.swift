@@ -44,4 +44,20 @@ extension UIViewController {
         
         return eventDetails
     }
+    
+    static var bandDetailsVC: BandDetailsVC? {
+        guard let bandDetails = MStoryboard.Artist.storyboard.instantiateViewController(withIdentifier: BandDetailsVC.Constants.identifer) as? BandDetailsVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.Artist.rawValue)' Storyboard have failed")
+        }
+        
+        return bandDetails
+    }
+    
+    static var artistDetailsVC: ArtistDetailsVC? {
+        guard let artistDetails = MStoryboard.Artist.storyboard.instantiateViewController(withIdentifier: ArtistDetailsVC.Constants.identifer) as? ArtistDetailsVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.Artist.rawValue)' Storyboard have failed")
+        }
+        
+        return artistDetails
+    }
 }
