@@ -18,7 +18,9 @@ class AgendaVC: UIViewController {
 
     // MARK: - IBOutlet
     @IBOutlet weak private var datePickerButton: UIButton!
+    @IBOutlet weak private var filterButtonBadge: UILabel!
     @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var loaderView: UIView!
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -50,6 +52,13 @@ class AgendaVC: UIViewController {
         setupTableView()
         setupDataPickerButton()
         setupListener()
+        setupFilterBadge()
+        loaderView.isHidden = false
+    }
+    
+    private func setupFilterBadge() {
+        filterButtonBadge.isHidden = true
+        filterButtonBadge.font = Fonts.Events.filterBadge
     }
     
     private func setupListener() {
@@ -88,6 +97,19 @@ class AgendaVC: UIViewController {
         footer.configure(message: message, delegate: self)
         tableView.tableFooterView = footer
     }
+    
+    private func setupHeader() {
+        let height = EventHeaderView.Constants.height
+        let header = EventHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: height))
+        header.configure(delegate: self)
+        tableView.tableHeaderView = header
+    }
+    
+    private func displayFiltersCountIfNeeded() {
+        let filtersCount = ManagerEvents.shared.numberOfActiveFilters
+        filterButtonBadge.text = "\(filtersCount)"
+        filterButtonBadge.isHidden = filtersCount == .zero
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -95,6 +117,7 @@ extension AgendaVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         setupFooter()
+        setupHeader()
         return ManagerEvents.shared.eventsByDate.count
     }
     
@@ -152,6 +175,19 @@ extension AgendaVC: EventsDatePickerVCDelegate {
 extension AgendaVC: ManagerEventDelegate {
     func didUpdateEvents() {
         tableView.reloadData()
+        displayFiltersCountIfNeeded()
+    }
+    
+    func didStartLoading() {
+        loaderView.isHidden = false
+    }
+    
+    func didFinishLoading() {
+        loaderView.isHidden = true
+    }
+    
+    func scroll(to section: Int) {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: section), at: .bottom, animated: true)
     }
 }
 
@@ -159,6 +195,14 @@ extension AgendaVC: ManagerEventDelegate {
 extension AgendaVC: EventFooterViewDelegate {
     func didTapNextMonth() {
         ManagerEvents.shared.didSelectNextMonth()
+        displaySelectedDate()
+    }
+}
+
+// MARK: - EventHeaderViewDelegate
+extension AgendaVC: EventHeaderViewDelegate {
+    func didTapPreviousMonth() {
+        ManagerEvents.shared.didSelectPreviousMonth()
         displaySelectedDate()
     }
 }

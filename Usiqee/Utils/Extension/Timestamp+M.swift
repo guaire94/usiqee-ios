@@ -52,10 +52,6 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    var time: String {
-        stringWith(format: "hh:mm a")
-    }
-    
     var short: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -126,6 +122,10 @@ extension Date {
     
     var nextMonth: Date? {
         Calendar.current.date(byAdding: DateComponents(month: 1), to: self)
+    }
+    
+    var previousMonth: Date? {
+        Calendar.current.date(byAdding: DateComponents(month: -1), to: self)
     }
     
     init?(month: Int, year: Int) {

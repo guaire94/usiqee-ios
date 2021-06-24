@@ -1,35 +1,31 @@
 //
-//  EventFooterView.swift
+//  EventHeaderView.swift
 //  Usiqee
 //
-//  Created by Amine on 07/06/2021.
+//  Created by Amine on 22/06/2021.
 //
 
 import UIKit
 
-protocol EventFooterViewDelegate: AnyObject {
-    func didTapNextMonth()
+protocol EventHeaderViewDelegate: AnyObject {
+    func didTapPreviousMonth()
 }
 
-class EventFooterView: UIView {
+class EventHeaderView: UIView {
     
     // MARK: - Constants
     enum Constants {
-        fileprivate static let identifier = "EventFooterView"
+        fileprivate static let identifier = "EventHeaderView"
         fileprivate static let dateFormat: String = "MMMM yyyy"
-        enum Heights {
-            static let withMessage: CGFloat = 170
-            static let withoutMessage: CGFloat = 100
-        }
+        static let height: CGFloat = 50
     }
     
     // MARK: - IBOutlet
     @IBOutlet weak private var contentView: UIView!
-    @IBOutlet weak private var nextMonthLabel: UILabel!
-    @IBOutlet weak private var messageLabel: UILabel!
+    @IBOutlet weak private var previousMonthLabel: UILabel!
     
     // MARK: - Properties
-    weak var delegate: EventFooterViewDelegate?
+    weak var delegate: EventHeaderViewDelegate?
     
     // MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -42,8 +38,7 @@ class EventFooterView: UIView {
         commonInit()
     }
     
-    func configure(message: String?, delegate: EventFooterViewDelegate?) {
-        messageLabel.text = message
+    func configure(delegate: EventHeaderViewDelegate?) {
         self.delegate = delegate
     }
     
@@ -61,17 +56,17 @@ class EventFooterView: UIView {
     }
     
     private func setupView() {
-        nextMonthLabel.font = Fonts.Events.Cell.nextMonthButton
-        guard let date = ManagerEvents.shared.selectedDate.nextMonth else {
+        previousMonthLabel.font = Fonts.Events.Cell.previousMonthButton
+        guard let date = ManagerEvents.shared.selectedDate.previousMonth else {
             return
         }
-        nextMonthLabel.text = date.stringWith(format: Constants.dateFormat)
+        previousMonthLabel.text = date.stringWith(format: Constants.dateFormat)
     }
 }
 
 // MARK: - IBOutlet
-extension EventFooterView {
-    @IBAction func onNextTapped() {
-        delegate?.didTapNextMonth()
+extension EventHeaderView {
+    @IBAction func onPreviousTapped() {
+        delegate?.didTapPreviousMonth()
     }
 }

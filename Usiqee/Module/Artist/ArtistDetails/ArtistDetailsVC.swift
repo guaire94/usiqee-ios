@@ -208,7 +208,7 @@ extension ArtistDetailsVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsGroupesCell.Constants.identifier) as? ArtistDetailsGroupesCell else {
                 return defaultCell
             }
-            cell.configure(bands: tableviewHandler.relatedBands)
+            cell.configure(bands: tableviewHandler.relatedBands, delegate: self)
             return cell
         case let .bio(cellType) where cellType == .label:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsLabelsCell.Constants.identifier) as? ArtistDetailsLabelsCell else {
@@ -326,5 +326,15 @@ extension ArtistDetailsVC: ArtistDetailsTableViewHandlerDelegate {
     
     func restore() {
         menuContentTableView.restore()
+    }
+}
+
+// MARK: - ArtistDetailsGroupesCellDelegate
+extension ArtistDetailsVC: ArtistDetailsGroupesCellDelegate {
+    func didSelect(band: RelatedBand) {
+        guard let band = ManagerMusicalEntity.shared.getBand(by: band.bandId),
+              let vc = UIViewController.bandDetailsVC else { return }
+        vc.band = band
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

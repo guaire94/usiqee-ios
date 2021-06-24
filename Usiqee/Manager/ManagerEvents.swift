@@ -11,6 +11,9 @@ typealias SelectedEventType = (event: MEventType, isSelected: Bool)
 
 protocol ManagerEventDelegate: AnyObject {
     func didUpdateEvents()
+    func didStartLoading()
+    func didFinishLoading()
+    func scroll(to section: Int)
 }
 
 class ManagerEvents {
@@ -28,6 +31,7 @@ class ManagerEvents {
     var selectedEventTypes: [SelectedEventType]
     var selectedDate: Date
     weak var delegate: ManagerEventDelegate?
+    private var isLoading: Bool = false
     
     private var allEvents: [EventItem] = [] {
         didSet {
@@ -38,7 +42,32 @@ class ManagerEvents {
     private(set) var eventsByDate: [(date: Date, events: [EventItem])] = [] {
         didSet {
             delegate?.didUpdateEvents()
+            if !isLoading {
+                delegate?.didFinishLoading()
+            }
+            
+            scrollToEventIfNeeded()
         }
+    }
+    
+    private func scrollToEventIfNeeded() {
+        guard let today = Date().withoutTime,
+              selectedDate.firstMonthDay == today.firstMonthDay else {
+            return
+        }
+        
+        var dateIndex: Int?
+        var minDifference: TimeInterval = TimeInterval.greatestFiniteMagnitude
+        for i in 0..<eventsByDate.count {
+            let difference = today.timeIntervalSince1970 - eventsByDate[i].date.timeIntervalSince1970
+            if abs(difference) <= minDifference {
+                dateIndex = i
+                minDifference = difference
+            }
+        }
+        
+        guard let index = dateIndex else { return }
+        delegate?.scroll(to: index)
     }
     
     //MARK: - Public
@@ -62,6 +91,23 @@ class ManagerEvents {
         reloadData()
     }
     
+    func didSelectPreviousMonth() {
+        guard let previousMonth = selectedDate.previousMonth else { return }
+        
+        selectedDate = previousMonth
+        reloadData()
+    }
+    
+    var numberOfActiveFilters: Int {
+        var filtersCount = selectedEventTypes.filter { $0.isSelected }.count
+        
+        if showOnlyFollowed {
+            filtersCount += 1
+        }
+        
+        return filtersCount
+    }
+        
     // MARK: - Private
     private func setDefaultValues() {
         showOnlyFollowed = false
@@ -115,6 +161,8 @@ class ManagerEvents {
     }
     
     private func reloadData() {
+        isLoading = true
+        delegate?.didStartLoading()
         allEvents.removeAll()
         ServiceEvents.listenEvents(delegate: self)
     }
@@ -125,9 +173,8 @@ extension ManagerEvents: ServiceEventsDelegate {
     func dataAdded(event: Event) {
         ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
-            if item.artists.isEmpty && item.bands.isEmpty {
-                return
-            }
+            if item.mainArtist == nil && item.mainBand == nil { return }
+            
             self.allEvents.append(item)
         })
     }
@@ -136,7 +183,7 @@ extension ManagerEvents: ServiceEventsDelegate {
         guard let index = allEvents.firstIndex(where: { $0.event.id == event.id }) else { return }
         ServiceEvents.syncRelated(event: event, completion: { [weak self] item in
             guard let self = self else { return }
-            if item.artists.isEmpty && item.bands.isEmpty {
+            if item.mainArtist == nil && item.mainBand == nil {
                 self.dataRemoved(event: event)
                 return
             }
@@ -147,5 +194,14 @@ extension ManagerEvents: ServiceEventsDelegate {
     func dataRemoved(event: Event) {
         guard let index = allEvents.firstIndex(where: { $0.event.id == event.id }) else { return }
         allEvents.remove(at: index)
+    }
+    
+    func notifyEmptyList() {
+        isLoading = false
+        delegate?.didFinishLoading()
+    }
+    
+    func didFinishLoading() {
+        isLoading = false
     }
 }

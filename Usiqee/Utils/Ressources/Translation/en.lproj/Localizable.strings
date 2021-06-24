@@ -139,6 +139,17 @@
 "IMAGE_PICKER_GALLERY" = "Load from gallery";
 "IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";
 
+"EVENTS_TYPE_EP" = "ep";
+"EVENTS_TYPE_ALBUM" = "Album";
+"EVENTS_TYPE_SINGLE" = "Single";
+"EVENTS_TYPE_MIXTAPE" = "Mixtape";
+"EVENTS_TYPE_FREESTYLE" = "Freestyle";
+"EVENTS_TYPE_VIDEO" = "Video";
+"EVENTS_TYPE_CONCERT" = "Concert";
+"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_FESTIVAL" = "Festival";
+"EVENTS_TYPE_SPECIAL" = "Special";
+
 "MONTHS_JANUARY" = "January";
 "MONTHS_FEBRUARY" = "February";
 "MONTHS_MARCH" = "March";

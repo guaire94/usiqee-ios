@@ -56,10 +56,7 @@ class MonthYearDatePickerView: UIPickerView {
     }
     
     private var months: [String] {
-        guard currentYearIndex == 0 else {
-            return Constants.months
-        }
-        return Array(Constants.months[currentMonth..<12])
+        Constants.months
     }
     
     private var years : [Int] {
@@ -77,12 +74,7 @@ class MonthYearDatePickerView: UIPickerView {
         let monthIndex = selectedRow(inComponent: DatePickerComponent.month.rawValue)
         let yearIndex = selectedRow(inComponent: DatePickerComponent.year.rawValue)
         
-        let month: Int
-        if yearIndex == 0 {
-            month = monthIndex + currentMonth + 1
-        } else {
-            month = monthIndex + 1
-        }
+        let month: Int = monthIndex + 1
         let year = years[yearIndex]
         return Date(month: month, year: year)
     }
@@ -96,14 +88,7 @@ class MonthYearDatePickerView: UIPickerView {
         }
         
         if let month = dateComponents.month {
-            let monthIndex: Int
-            if currentYear == minYear {
-                monthIndex = month-currentMonth-1
-            } else {
-                monthIndex = month-1
-            }
-            
-            currentMonthIndex = max(monthIndex, 0)
+            currentMonthIndex = max(month-1, 0)
             selectRow(currentMonthIndex, inComponent: 0, animated: true)
         }
     }
@@ -186,17 +171,11 @@ extension MonthYearDatePickerView: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == DatePickerComponent.year.rawValue {
-            let wasCurrentYear = currentYearIndex == 0
             let currentMonth = selectedRow(inComponent: DatePickerComponent.month.rawValue)
             
             currentYearIndex = row
             reloadAllComponents()
-            
-            if row == 0 {
-                selectRow(0, inComponent: DatePickerComponent.month.rawValue, animated: true)
-            } else if wasCurrentYear {
-                selectRow(currentMonth+self.currentMonth, inComponent: DatePickerComponent.month.rawValue, animated: true)
-            }
+            selectRow(currentMonth, inComponent: DatePickerComponent.month.rawValue, animated: true)
             pickerDelegate?.didUpdateValue()
             return
         }

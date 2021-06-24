@@ -119,7 +119,7 @@
         <!--Artist DetailsVC-->
         <scene sceneID="oKi-mx-kUb">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="w1F-08-MHo" customClass="ArtistDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArtistDetailsVC" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="w1F-08-MHo" customClass="ArtistDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bbt-HP-NuD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,7 +275,7 @@
         <!--Band DetailsVC-->
         <scene sceneID="l2W-qO-ReG">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="uHZ-PY-cid" customClass="BandDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BandDetailsVC" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="uHZ-PY-cid" customClass="BandDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XaR-CT-nXa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

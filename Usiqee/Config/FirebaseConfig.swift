@@ -46,6 +46,8 @@ enum FirebaseCollection {
     static var event: String = "Event"
     static var eventArtists: String = "Artists"
     static var eventBands: String = "Bands"
+    static var eventMainArtist: String = "MainArtist"
+    static var eventMainBand: String = "MainBand"
 
     // MARK: - ARTIST
     static var artist: String = "Artist"
@@ -147,6 +149,12 @@ enum FFirestoreReference {
     static func eventBands(eventId: String) -> CollectionReference {
         event.document(eventId).collection(FirebaseCollection.eventBands)
     }
+    static func eventMainArtist(eventId: String) -> CollectionReference {
+        event.document(eventId).collection(FirebaseCollection.eventMainArtist)
+    }
+    static func eventMainBand(eventId: String) -> CollectionReference {
+            event.document(eventId).collection(FirebaseCollection.eventMainBand)
+        }
     
     // MARK: - ARTIST
     static var artist: CollectionReference {

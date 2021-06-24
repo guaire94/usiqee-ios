@@ -15,7 +15,7 @@ enum MEventType: String, CaseIterable {
     case concert
     case showcase
     case festival
-    case other
+    case special
 
     var title: String {
         switch self {
@@ -37,8 +37,8 @@ enum MEventType: String, CaseIterable {
             return L10N.Events.types.showcase
         case .festival:
             return L10N.Events.types.festival
-        case .other:
-            return L10N.Events.types.other
+        case .special:
+            return L10N.Events.types.special
         }
     }
 }

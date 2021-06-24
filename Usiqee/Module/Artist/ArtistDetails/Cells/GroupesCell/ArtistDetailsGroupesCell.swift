@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ArtistDetailsGroupesCellDelegate: AnyObject {
+    func didSelect(band: RelatedBand)
+}
+
 class ArtistDetailsGroupesCell: UITableViewCell {
 
     // MARK: - Constants
@@ -23,6 +27,7 @@ class ArtistDetailsGroupesCell: UITableViewCell {
     
     // MARK: - Properties
     private var bands: [RelatedBand] = []
+    private weak var delegate: ArtistDetailsGroupesCellDelegate?
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -30,8 +35,9 @@ class ArtistDetailsGroupesCell: UITableViewCell {
         setupUI()
     }
     
-    func configure(bands: [RelatedBand]) {
+    func configure(bands: [RelatedBand], delegate: ArtistDetailsGroupesCellDelegate?) {
         self.bands = bands
+        self.delegate = delegate
         collectionView.reloadData()
     }
     
@@ -72,5 +78,9 @@ extension ArtistDetailsGroupesCell: UICollectionViewDelegateFlowLayout {
         let heightCell = collectionView.frame.height
         let widthCell = heightCell / 1.4
         return CGSize(width: widthCell, height: heightCell)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelect(band: bands[indexPath.row])
     }
 }

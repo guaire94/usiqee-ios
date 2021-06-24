@@ -75,19 +75,28 @@ class EventDetailsVC: UIViewController {
         guard let item = event else { return }
         
         loaderView.isHidden = true
-        descriptionLabel.text = item.event.title
-        typeLabel.text = item.event.eventType?.title
+        descriptionLabel.text = item.event.title.uppercased()
+        typeLabel.text = item.event.eventType?.title.uppercased()
         dateLabel.text = item.event.date.dateValue().full
-        timeLabel.text = item.event.date.dateValue().time
-        showDetailsButton.isHidden = item.event.webLink == nil
+        timeLabel.text = item.event.date.dateValue().hour
+        showDetailsButton.isHidden = isShowDetailsButtonHidden(webLink: item.event.webLink)
         if let musicalEntity = item.musicalEntity {
             let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
             artistImage.sd_setImage(with: storage)
-            artistNameLabel.text = musicalEntity.name
+            artistNameLabel.text = musicalEntity.name.uppercased()
         }
     }
     
-    func loadEventInformation(_ eventId: String) {
+    private func isShowDetailsButtonHidden(webLink: String?) -> Bool {
+        guard let urlString = webLink,
+              let url = URL(string: urlString) else {
+            return true
+        }
+        
+        return !UIApplication.shared.canOpenURL(url)
+    }
+    
+    private func loadEventInformation(_ eventId: String) {
         ServiceEvents.load(eventId: eventId) { [weak self] event in
             guard let self = self else { return }
             
@@ -129,7 +138,8 @@ extension EventDetailsVC {
     
     @IBAction func onShowDetailsTapped(_ sender: Any) {
         guard let urlString = event?.event.webLink,
-              let url = URL(string: urlString) else { return }
+              let url = URL(string: urlString),
+              UIApplication.shared.canOpenURL(url) else { return }
         
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
