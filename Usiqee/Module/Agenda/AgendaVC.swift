@@ -187,7 +187,7 @@ extension AgendaVC: ManagerEventDelegate {
     }
     
     func scroll(to section: Int) {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: section), at: .bottom, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: .zero, section: section), at: .top, animated: true)
     }
 }
 
