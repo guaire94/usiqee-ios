@@ -18,6 +18,7 @@ class NewsDetailsVC: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var loaderView: UIView!
+    @IBOutlet weak private var footer: NewsDetailsFooterView!
     
     // MARK: - Properties
     private var tableViewHandler: NewsDetailsTableViewHandler = NewsDetailsTableViewHandler()
@@ -38,6 +39,7 @@ class NewsDetailsVC: UIViewController {
     private func syncNewsDetails() {
         loaderView.isHidden = false
         guard let news = news else { return }
+        footer.configure(news: news, delegate: self)
         ServiceNews.syncAllInformation(news: news) { [weak self] sections, author in
             guard let self = self else { return }
             self.tableViewHandler.sections = sections
@@ -116,7 +118,6 @@ private extension NewsDetailsVC {
 }
 
 // MARK: - NewsDetailsAuthorCellDelegate
-
 extension NewsDetailsVC: NewsDetailsAuthorCellDelegate {
     func openExternalLink(url: String?) {
         guard let urlString = url,
@@ -138,6 +139,17 @@ extension NewsDetailsVC: NewsDetailsAuthorCellDelegate {
         if #available(iOS 13.0, *) {
             vc.modalPresentationStyle = .automatic
         }
+        present(vc, animated: true)
+    }
+}
+
+// MARK: - NewsDetailsFooterViewDelegate
+extension NewsDetailsVC: NewsDetailsFooterViewDelegate {
+    func didTapShare() {
+        guard let urlString = news?.news.externalLink,
+              let url = URL(string: urlString) else { return }
+        
+        let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(vc, animated: true)
     }
 }
