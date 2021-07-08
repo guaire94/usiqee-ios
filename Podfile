@@ -25,5 +25,6 @@ target 'Usiqee' do
 
   pod 'Applanga'
   pod 'youtube-ios-player-helper'
+  pod 'Google-Mobile-Ads-SDK'
 end
 
