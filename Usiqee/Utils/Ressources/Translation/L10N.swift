@@ -229,4 +229,10 @@ struct L10N {
         static let november = NSLocalizedString("MONTHS_NOBEMBER", comment: "")
         static let december = NSLocalizedString("MONTHS_DECEMBER", comment: "")
     }
+    
+    struct NewsDetails {
+        static func authorWebLink(_ text: String) -> String {
+            String(format: NSLocalizedString("NEWS_DETAILS_AUTHOR_WEBLINK", comment: ""), text)
+        }
+    }
 }

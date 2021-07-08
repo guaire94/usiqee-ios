@@ -8,9 +8,9 @@
 import Firebase
 
 struct RelatedNews: Codable {
-    var newsId: String
-    var cover: String
-    var author: String
-    var title: String
-    var createdAt: Timestamp
+    let newsId: String
+    let cover: String
+    let author: String
+    let title: String
+    let createdDate: Timestamp
 }

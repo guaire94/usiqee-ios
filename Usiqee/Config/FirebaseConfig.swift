@@ -32,7 +32,7 @@ enum FirebaseCollection {
     // MARK: - NEWS
     static var news: String = "News"
     static var newsSections: String = "Sections"
-    static var newsAuthor: String = "Author"
+    static var newsAuthor: String = "Authors"
     static var newsLikes: String = "Likes"
     static var newsComments: String = "Comments"
     static var newsArtists: String = "Artists"
