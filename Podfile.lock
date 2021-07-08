@@ -384,6 +384,7 @@ PODS:
   - SDWebImage/Core (5.10.4)
   - SwiftKeychainWrapper (4.0.1)
   - Wormholy (1.6.4)
+  - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
   - Applanga
@@ -401,6 +402,7 @@ DEPENDENCIES:
   - Kingfisher (~> 5.0)
   - SwiftKeychainWrapper
   - Wormholy
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -435,6 +437,7 @@ SPEC REPOS:
     - SDWebImage
     - SwiftKeychainWrapper
     - Wormholy
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -468,7 +471,8 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Wormholy: 2e70f64227e010d363f8d33268369f77faf12471
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 8b9a35e0ca1baa940bfa0cd04c976221acbe625d
+PODFILE CHECKSUM: 959a3e255e6513c5dbf31f21474bf47f4f9b482a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.8.4
