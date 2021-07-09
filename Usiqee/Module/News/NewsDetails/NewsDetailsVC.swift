@@ -56,6 +56,7 @@ class NewsDetailsVC: UIViewController {
         tableView.register(NewsDetailsImageCell.Constants.nib, forCellReuseIdentifier: NewsDetailsImageCell.Constants.identifier)
         tableView.register(NewsDetailsAuthorCell.Constants.nib, forCellReuseIdentifier: NewsDetailsAuthorCell.Constants.identifier)
         tableView.register(NewsDetailsVideoCell.Constants.nib, forCellReuseIdentifier: NewsDetailsVideoCell.Constants.identifier)
+        tableView.register(NewsDetailsAdCell.Constants.nib, forCellReuseIdentifier: NewsDetailsAdCell.Constants.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = nil
@@ -98,6 +99,11 @@ extension NewsDetailsVC: UITableViewDataSource {
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsVideoCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsVideoCell else { return UITableViewCell() }
             cell.configure(videoId: videoId)
+            return cell
+        case .ads:
+            let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsAdCell.Constants.identifier, for: indexPath)
+            guard let cell = reusableCell as? NewsDetailsAdCell else { return UITableViewCell() }
+            cell.configure()
             return cell
         }
     }

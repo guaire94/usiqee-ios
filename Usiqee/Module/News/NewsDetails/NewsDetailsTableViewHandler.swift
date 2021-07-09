@@ -16,6 +16,7 @@ class NewsDetailsTableViewHandler {
         case image(url: String)
         case text(content: String)
         case video(videoId: String)
+        case ads
         case author(Author)
     }
     
@@ -41,6 +42,8 @@ class NewsDetailsTableViewHandler {
         switch item {
         case .overview:
             return 371
+        case .ads:
+            return 320
         case .image,
              .text,
              .video,
@@ -72,7 +75,7 @@ class NewsDetailsTableViewHandler {
         case let .image(url: url):
             return .image(url: url)
         case .ads:
-            return nil
+            return .ads
         case let .video(url: videoId):
             return .video(videoId: videoId)
         }

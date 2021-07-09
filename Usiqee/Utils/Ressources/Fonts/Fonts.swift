@@ -337,5 +337,16 @@ enum Fonts: String {
                 Fonts.HelveticaRegular.withSize(with: 13)
             }
         }
+        enum Ads {
+            static var headline: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 17)
+            }
+            static var advertiser: UIFont {
+                Fonts.HelveticaItalic.withSize(with: 14)
+            }
+            static var body: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 14)
+            }
+        }
     }
 }

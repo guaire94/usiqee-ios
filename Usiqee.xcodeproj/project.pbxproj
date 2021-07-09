@@ -83,6 +83,8 @@
 		67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A254C526412EBA008167DB /* AccountDetailsView.xib */; };
 		67A254CC2641DFA5008167DB /* AccountSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */; };
 		67A813E726973B4C00344937 /* NewsDetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A813E626973B4C00344937 /* NewsDetailsFooterView.swift */; };
+		67A8145B2697A1BF00344937 /* NewsDetailsAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A814592697A1BF00344937 /* NewsDetailsAdCell.swift */; };
+		67A8145C2697A1C000344937 /* NewsDetailsAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A8145A2697A1BF00344937 /* NewsDetailsAdCell.xib */; };
 		67BBFC06264D4A2100A14DCD /* AccountDetailsFollowingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BBFC04264D4A2100A14DCD /* AccountDetailsFollowingCell.swift */; };
 		67BBFC07264D4A2100A14DCD /* AccountDetailsFollowingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67BBFC05264D4A2100A14DCD /* AccountDetailsFollowingCell.xib */; };
 		67BBFC0B264EF71600A14DCD /* RelatedMusicalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BBFC0A264EF71600A14DCD /* RelatedMusicalEntity.swift */; };
@@ -261,6 +263,8 @@
 		67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsVC.swift; sourceTree = "<group>"; };
 		67A254CF264323D6008167DB /* Usiqee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Usiqee.entitlements; sourceTree = "<group>"; };
 		67A813E626973B4C00344937 /* NewsDetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsFooterView.swift; sourceTree = "<group>"; };
+		67A814592697A1BF00344937 /* NewsDetailsAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsAdCell.swift; sourceTree = "<group>"; };
+		67A8145A2697A1BF00344937 /* NewsDetailsAdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsDetailsAdCell.xib; sourceTree = "<group>"; };
 		67BBFC04264D4A2100A14DCD /* AccountDetailsFollowingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsFollowingCell.swift; sourceTree = "<group>"; };
 		67BBFC05264D4A2100A14DCD /* AccountDetailsFollowingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDetailsFollowingCell.xib; sourceTree = "<group>"; };
 		67BBFC0A264EF71600A14DCD /* RelatedMusicalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedMusicalEntity.swift; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 		6731F3F02694ACFF0050E692 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				67A814582697A1A500344937 /* Ad */,
 				6731F455269618DB0050E692 /* Video */,
 				6731F4042695004C0050E692 /* Author */,
 				6731F3FE2694F88D0050E692 /* Image */,
@@ -693,6 +698,15 @@
 				67A813E626973B4C00344937 /* NewsDetailsFooterView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		67A814582697A1A500344937 /* Ad */ = {
+			isa = PBXGroup;
+			children = (
+				67A814592697A1BF00344937 /* NewsDetailsAdCell.swift */,
+				67A8145A2697A1BF00344937 /* NewsDetailsAdCell.xib */,
+			);
+			path = Ad;
 			sourceTree = "<group>";
 		};
 		67BBFC03264D49F300A14DCD /* Cells */ = {
@@ -1328,6 +1342,7 @@
 				67A25421263D817B008167DB /* MImagePicker.xib in Resources */,
 				67F720AC262C1A3A00C9C84E /* AllMusicalEntityView.xib in Resources */,
 				67FA27CE267A988D00482131 /* ArtistDetailsGroupesCell.xib in Resources */,
+				67A8145C2697A1C000344937 /* NewsDetailsAdCell.xib in Resources */,
 				EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */,
 				679B1991266044F60026568B /* EventsFilterHeaderCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
@@ -1439,6 +1454,7 @@
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				67FA2751266D4C8E00482131 /* EventDetailsVC.swift in Sources */,
 				679B1997266167070026568B /* EventsFilterSwitchCell.swift in Sources */,
+				67A8145B2697A1BF00344937 /* NewsDetailsAdCell.swift in Sources */,
 				67BBFC0B264EF71600A14DCD /* RelatedMusicalEntity.swift in Sources */,
 				B8CE1AB1253F7001002AC5A5 /* SignInVC.swift in Sources */,
 				67C48BBB2646DFD100F27B35 /* FilledButton.swift in Sources */,
@@ -1719,7 +1735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
@@ -1744,7 +1760,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";

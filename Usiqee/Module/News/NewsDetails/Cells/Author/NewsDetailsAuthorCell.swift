@@ -84,7 +84,9 @@ class NewsDetailsAuthorCell: UITableViewCell {
     
     private func showExternalLinks(author: Author) {
         author.externalLinks.forEach { externalLink in
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+            let button = UIButton()
+            button.widthAnchor.constraint(equalToConstant: 35).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 35).isActive = true
             button.setImage(externalLink.image, for: .normal)
             button.addTarget(self, action: #selector(onSocialMediaTapped(_:)), for: .touchUpInside)
             button.tag = externalLink.rawValue
