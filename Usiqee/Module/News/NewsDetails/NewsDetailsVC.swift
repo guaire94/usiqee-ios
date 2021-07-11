@@ -66,7 +66,7 @@ class NewsDetailsVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension NewsDetailsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableViewHandler.numberOfRows()
+        tableViewHandler.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,10 +90,10 @@ extension NewsDetailsVC: UITableViewDataSource {
             guard let cell = reusableCell as? NewsDetailsTextCell else { return UITableViewCell() }
             cell.configure(content: content)
             return cell
-        case let .author(author):
+        case let .author(author, externalLink):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsAuthorCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsAuthorCell else { return UITableViewCell() }
-            cell.configure(author: author, delegate: self)
+            cell.configure(author: author, externalLink: externalLink, delegate: self)
             return cell
         case let .video(videoId):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsVideoCell.Constants.identifier, for: indexPath)

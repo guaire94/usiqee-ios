@@ -20,6 +20,8 @@ class NewsDetailsAuthorCell: UITableViewCell {
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsDetailsAuthorCell"
         fileprivate static let externalLinkCornerRadius: CGFloat = 15
+        fileprivate static let externalLinkButtonWidth: CGFloat = 35
+        fileprivate static let externalLinkButtonHeight: CGFloat = 35
     }
         
     // MARK: - IBOutlets
@@ -34,6 +36,7 @@ class NewsDetailsAuthorCell: UITableViewCell {
     // MARK: - Properties
     private weak var delegate: NewsDetailsAuthorCellDelegate?
     private var author: Author?
+    private var externalLink: String?
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -47,15 +50,16 @@ class NewsDetailsAuthorCell: UITableViewCell {
         hideSubviews()
     }
 
-    func configure(author: Author, delegate: NewsDetailsAuthorCellDelegate?) {
+    func configure(author: Author, externalLink: String?, delegate: NewsDetailsAuthorCellDelegate?) {
         self.delegate = delegate
         self.author = author
+        self.externalLink = externalLink
         authorDescriptionLabel.text = author.desc
         authorLabel.text = author.name
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
         authorAvatar.sd_setImage(with: authorStorage)
         
-        if let externalLink = author.webLink,
+        if let externalLink = externalLink,
            let url = URL(string: externalLink),
            UIApplication.shared.canOpenURL(url) {
             externalLinkView.isHidden = false
@@ -85,8 +89,8 @@ class NewsDetailsAuthorCell: UITableViewCell {
     private func showExternalLinks(author: Author) {
         author.externalLinks.forEach { externalLink in
             let button = UIButton()
-            button.widthAnchor.constraint(equalToConstant: 35).isActive = true
-            button.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            button.widthAnchor.constraint(equalToConstant: Constants.externalLinkButtonWidth).isActive = true
+            button.heightAnchor.constraint(equalToConstant: Constants.externalLinkButtonHeight).isActive = true
             button.setImage(externalLink.image, for: .normal)
             button.addTarget(self, action: #selector(onSocialMediaTapped(_:)), for: .touchUpInside)
             button.tag = externalLink.rawValue
@@ -98,32 +102,13 @@ class NewsDetailsAuthorCell: UITableViewCell {
 // MARK: - IBActions & selector
 private extension NewsDetailsAuthorCell {
     @IBAction func onExternalLinkTapped() {
-        delegate?.showExternalLink(url: author?.webLink)
+        delegate?.showExternalLink(url: externalLink)
     }
     
     @objc
     func onSocialMediaTapped(_ sender: UIButton) {
-        guard let item = Author.SocialMedia(rawValue: sender.tag) else { return }
-        
-        let url: String?
-        switch item {
-        case .twitter:
-            url = author?.twitterLink
-        case .facebook:
-            url = author?.fbLink
-        case .instagram:
-            url = author?.instagramLink
-        case .youtube:
-            url = author?.youtubeLink
-        case .snapchat:
-            url = author?.snapchatLink
-        case .twitch:
-            url = author?.twitchLink
-        case .tiktok:
-            url = author?.tiktokLink
-        case .linkedin:
-            url = author?.linkedinLink
-        }
+        guard let item = Author.SocialMedia(rawValue: sender.tag),
+              let url = author?.externalLink(for: item) else { return }
         
         delegate?.openExternalLink(url: url)
     }

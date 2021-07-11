@@ -11,7 +11,7 @@ protocol ManagerNewsDelegate: AnyObject {
     func didUpdateNews()
     func didStartLoading()
     func didFinishLoading()
-    func didStartLoadMoreLoading()
+    func didLoadMore()
 }
 
 class ManagerNews {
@@ -43,7 +43,7 @@ class ManagerNews {
             delegate?.didFinishLoading()
             return
         }
-        delegate?.didStartLoadMoreLoading()
+        delegate?.didLoadMore()
         isLoading = true
         ServiceNews.listenNews(delegate: self)
     }

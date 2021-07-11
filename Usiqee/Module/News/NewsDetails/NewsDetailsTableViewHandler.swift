@@ -17,7 +17,7 @@ class NewsDetailsTableViewHandler {
         case text(content: String)
         case video(videoId: String)
         case ads
-        case author(Author)
+        case author(Author, String?)
     }
     
     // MARK: - Properties
@@ -26,7 +26,7 @@ class NewsDetailsTableViewHandler {
     var author: Author?
     
     // MARK: - Helper
-    func numberOfRows() -> Int {
+    var numberOfRows: Int {
         var result = sections.count+1
         
         if author != nil {
@@ -63,7 +63,7 @@ class NewsDetailsTableViewHandler {
             guard let author = author else {
                 return nil
             }
-            return .author(author)
+            return .author(author, news.news.externalLink)
         }
         
         let section = sections[indexPath.row-1]

@@ -19,6 +19,7 @@ struct Author: Identifiable, Codable {
         case twitch
         case tiktok
         case linkedin
+        case web
         
         var image: UIImage? {
             switch self {
@@ -38,6 +39,8 @@ struct Author: Identifiable, Codable {
                 return UIImage(named: "tiktok")
             case .linkedin:
                 return UIImage(named: "linkedin")
+            case .web:
+                return UIImage(named: "web")
             }
         }
     }
@@ -59,11 +62,7 @@ struct Author: Identifiable, Codable {
     
     // MARK: - Helper
     var hasExternalLinks: Bool {
-        if twitterLink == nil && fbLink == nil && instagramLink == nil && youtubeLink == nil && snapchatLink == nil && twitchLink == nil && tiktokLink == nil && linkedinLink == nil {
-            return false
-        }
-        
-        return true
+        !externalLinks.isEmpty
     }
     
     var externalLinks: [SocialMedia] {
@@ -101,6 +100,33 @@ struct Author: Identifiable, Codable {
             result.append(.linkedin)
         }
         
+        if webLink != nil {
+            result.append(.web)
+        }
+        
         return result
+    }
+    
+    func externalLink(for socialMedia: SocialMedia) -> String? {
+        switch socialMedia {
+        case .twitter:
+            return twitchLink
+        case .facebook:
+            return fbLink
+        case .instagram:
+            return instagramLink
+        case .youtube:
+            return youtubeLink
+        case .snapchat:
+            return snapchatLink
+        case .twitch:
+            return twitchLink
+        case .tiktok:
+            return tiktokLink
+        case .linkedin:
+            return linkedinLink
+        case .web:
+            return webLink
+        }
     }
 }

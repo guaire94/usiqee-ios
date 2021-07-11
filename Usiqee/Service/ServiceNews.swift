@@ -18,6 +18,10 @@ protocol ServiceNewsDelegate {
 
 class ServiceNews {
 
+    // MARK: Constants
+    private enum Constants {
+        static let numberOfItems: Int = 10
+    }
     // MARK: - Property
     private static var listener: ListenerRegistration?
     private static var lastSnapshot: QueryDocumentSnapshot?
@@ -35,7 +39,7 @@ class ServiceNews {
         }
         
         self.listener = listener
-            .limit(to: 10)
+            .limit(to: Constants.numberOfItems)
             .addSnapshotListener { query, error in
                 guard let snapshot = query else { return }
                 var numberOfItems = snapshot.count

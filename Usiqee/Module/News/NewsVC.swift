@@ -152,7 +152,7 @@ extension NewsVC: ManagerNewsDelegate {
         hideLoaders()
     }
     
-    func didStartLoadMoreLoading() {
+    func didLoadMore() {
         showLoadingFooter()
     }
 }
