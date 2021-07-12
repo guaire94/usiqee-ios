@@ -16,6 +16,7 @@ enum Fonts: String {
     case HelveticaBold = "Helvetica-Bold"
     case HelveticaLight = "Helvetica-Light"
     case HelveticaMedium = "Helvetica-Medium"
+    case HelveticaItalic = "Helvetica-Italic"
     case SofiaProDisplayRegular = "SFProDisplay-Regular"
     
     private func withSize(with size: CGFloat) -> UIFont {
@@ -274,6 +275,78 @@ enum Fonts: String {
     enum MonthYearDatePicker {
         static var text: UIFont {
             Fonts.HelveticaRegular.withSize(with: 17)
+        }
+    }
+    
+    enum News {
+        enum Cell {
+            static var title: UIFont {
+                Fonts.SofiaProBold.withSize(with: 14)
+            }
+            static var author: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 11)
+            }
+            static var date: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 10)
+            }
+        }
+        enum Carousel {
+            static var title: UIFont {
+                Fonts.SofiaProBold.withSize(with: 20)
+            }
+            static var author: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 12)
+            }
+            static var date: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 11)
+            }
+            static var hour: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 11)
+            }
+        }
+    }
+    
+    enum NewsDetails {
+        enum Overview {
+            static var title: UIFont {
+                Fonts.SofiaProBold.withSize(with: 22)
+            }
+            static var author: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 14)
+            }
+            static var date: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+            static var hour: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+        }
+        enum Text {
+            static var content: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 16)
+            }
+        }
+        enum Author {
+            static var name: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 15)
+            }
+            static var description: UIFont {
+                Fonts.HelveticaItalic.withSize(with: 13)
+            }
+            static var externalLink: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 13)
+            }
+        }
+        enum Ads {
+            static var headline: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 17)
+            }
+            static var advertiser: UIFont {
+                Fonts.HelveticaItalic.withSize(with: 14)
+            }
+            static var body: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 14)
+            }
         }
     }
 }

@@ -24,5 +24,7 @@ target 'Usiqee' do
   pod 'Kingfisher', '~> 5.0'
 
   pod 'Applanga'
+  pod 'youtube-ios-player-helper'
+  pod 'Google-Mobile-Ads-SDK'
 end
 
