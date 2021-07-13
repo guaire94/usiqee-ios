@@ -14,7 +14,6 @@ class NewsDetailsAdCell: UITableViewCell {
     enum Constants {
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsDetailsAdCell"
-        fileprivate static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     }
     
     // MARK: - IBOutlet
@@ -49,7 +48,7 @@ class NewsDetailsAdCell: UITableViewCell {
         loader.isHidden = false
         loader.startAnimating()
         adLoader = GADAdLoader(
-            adUnitID: Constants.adUnitId, rootViewController: UIApplication.shared.keyWindow?.rootViewController,
+            adUnitID: Config.adUnitId, rootViewController: UIApplication.shared.keyWindow?.rootViewController,
             adTypes: [.unifiedNative], options: nil)
         adLoader?.delegate = self
         adLoader?.load(GADRequest())

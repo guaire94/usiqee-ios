@@ -13,6 +13,8 @@ class NewsDetailsTextCell: UITableViewCell {
     enum Constants {
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsDetailsTextCell"
+        fileprivate static let kern: CGFloat = -0.33
+        fileprivate static let lineHeightMultiple: CGFloat = 1.11
     }
     
     // MARK: - IBOutlet
@@ -25,6 +27,15 @@ class NewsDetailsTextCell: UITableViewCell {
     }
     
     func configure(content: String) {
-        contentLabel.text = content
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = Constants.lineHeightMultiple
+        let attributedText = NSMutableAttributedString(
+            string: content,
+            attributes: [
+                NSAttributedString.Key.kern: Constants.kern,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        )
+        
+        contentLabel.attributedText = attributedText
     }
 }
