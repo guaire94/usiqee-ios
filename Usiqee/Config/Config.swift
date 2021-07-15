@@ -11,13 +11,9 @@ enum Config {
     
     #if DEBUG
         static let WormholyIsEnabled = true
-    #else
-        static let WormholyIsEnabled = false
-    #endif
-    
-    #if DEBUG
         static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #else
+        static let WormholyIsEnabled = false
         static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #endif
 }
