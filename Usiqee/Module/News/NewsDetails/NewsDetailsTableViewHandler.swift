@@ -22,7 +22,17 @@ class NewsDetailsTableViewHandler {
     
     // MARK: - Properties
     var news: NewsItem?
-    var sections: [NewsSection] = []
+    var sections: [NewsSection] = [] {
+        didSet {
+            guard let news = news,
+                  !news.news.subtitle.isEmpty else {
+                return
+            }
+            
+            let subtitle = NewsSection(type: "text", content: news.news.subtitle, rank: -1)
+            sections.insert(subtitle, at: 0)
+        }
+    }
     var author: Author?
     
     // MARK: - Helper
@@ -40,11 +50,10 @@ class NewsDetailsTableViewHandler {
         guard let item = item(for: indexPath) else { return 0 }
         
         switch item {
-        case .overview:
-            return 371
         case .ads:
             return 320
-        case .image,
+        case .overview,
+             .image,
              .text,
              .video,
              .author:

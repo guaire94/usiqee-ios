@@ -18,6 +18,7 @@ class NewsCarouselCell: UITableViewCell {
         static let height: CGFloat = 371
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsCarouselCell"
+        fileprivate static let animationDuration: TimeInterval = 6.0
     }
     
     // MARK: - IBOutlet
@@ -27,6 +28,7 @@ class NewsCarouselCell: UITableViewCell {
     // MARK: - Properties
     private var news: [NewsItem] = []
     private weak var delegate: NewsCarouselCellDelegate?
+    private var timer: Timer?
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -38,7 +40,7 @@ class NewsCarouselCell: UITableViewCell {
         self.delegate = delegate
         self.news = news
         pageControl.numberOfPages = news.count
-        collectionView.reloadData()
+        reload()
     }
     
     // MARK: - Private
@@ -50,6 +52,19 @@ class NewsCarouselCell: UITableViewCell {
         collectionView.register(NewsCarouselItemCell.Constants.nib, forCellWithReuseIdentifier: NewsCarouselItemCell.Constants.identifier)
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    private func reload() {
+        collectionView.reloadData()
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] _ in
+            guard let self = self,
+                  !self.collectionView.isDragging else { return }
+            let row = (self.pageControl.currentPage+1) % self.news.count
+            self.pageControl.currentPage = row
+            let index = IndexPath(row: row, section: 0)
+            self.collectionView.scrollToItem(at: index, at: .right, animated: true)
+        }
     }
 }
 

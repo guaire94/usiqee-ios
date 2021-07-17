@@ -7,11 +7,13 @@
 
 
 enum Config {
-    static var AppStoreLink = "itms-apps://itunes.apple.com/app/id1561023361"
+    static let AppStoreLink = "itms-apps://itunes.apple.com/app/id1561023361"
     
     #if DEBUG
-        static var WormholyIsEnabled = true
+        static let WormholyIsEnabled = true
+        static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #else
-        static var WormholyIsEnabled = false
+        static let WormholyIsEnabled = false
+        static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #endif
 }

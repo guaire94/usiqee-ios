@@ -110,7 +110,7 @@ struct Author: Identifiable, Codable {
     func externalLink(for socialMedia: SocialMedia) -> String? {
         switch socialMedia {
         case .twitter:
-            return twitchLink
+            return twitterLink
         case .facebook:
             return fbLink
         case .instagram:

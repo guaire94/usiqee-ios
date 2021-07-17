@@ -284,7 +284,7 @@ enum Fonts: String {
                 Fonts.SofiaProBold.withSize(with: 14)
             }
             static var author: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 11)
+                Fonts.HelveticaMedium.withSize(with: 12)
             }
             static var date: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 10)
@@ -295,7 +295,7 @@ enum Fonts: String {
                 Fonts.SofiaProBold.withSize(with: 20)
             }
             static var author: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 12)
+                Fonts.HelveticaMedium.withSize(with: 13)
             }
             static var date: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 11)
@@ -312,7 +312,7 @@ enum Fonts: String {
                 Fonts.SofiaProBold.withSize(with: 22)
             }
             static var author: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 14)
+                Fonts.HelveticaMedium.withSize(with: 15)
             }
             static var date: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 13)
@@ -328,7 +328,7 @@ enum Fonts: String {
         }
         enum Author {
             static var name: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 15)
+                Fonts.HelveticaMedium.withSize(with: 16)
             }
             static var description: UIFont {
                 Fonts.HelveticaItalic.withSize(with: 13)
