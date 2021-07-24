@@ -14,6 +14,6 @@ enum Config {
         static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #else
         static let WormholyIsEnabled = false
-        static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
+        static let adUnitId: String = "ca-app-pub-4194874184462866/2219336903"
     #endif
 }

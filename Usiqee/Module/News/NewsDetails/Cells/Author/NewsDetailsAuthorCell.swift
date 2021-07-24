@@ -20,8 +20,15 @@ class NewsDetailsAuthorCell: UITableViewCell {
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsDetailsAuthorCell"
         fileprivate static let externalLinkCornerRadius: CGFloat = 15
-        fileprivate static let externalLinkButtonWidth: CGFloat = 35
-        fileprivate static let externalLinkButtonHeight: CGFloat = 35
+        fileprivate enum externalLinkButton {
+            static let width: CGFloat = 35
+            static let height: CGFloat = 35
+            static let tintColor: UIColor = .white
+            static let imageEdgeInsetTop: CGFloat = 8
+            static let imageEdgeInsetBottom: CGFloat = 8
+            static let imageEdgeInsetRight: CGFloat = 8
+            static let imageEdgeInsetLeft: CGFloat = 8
+        }
     }
         
     // MARK: - IBOutlets
@@ -88,14 +95,26 @@ class NewsDetailsAuthorCell: UITableViewCell {
     
     private func showExternalLinks(author: Author) {
         author.externalLinks.forEach { externalLink in
-            let button = UIButton()
-            button.widthAnchor.constraint(equalToConstant: Constants.externalLinkButtonWidth).isActive = true
-            button.heightAnchor.constraint(equalToConstant: Constants.externalLinkButtonHeight).isActive = true
-            button.setImage(externalLink.image, for: .normal)
-            button.addTarget(self, action: #selector(onSocialMediaTapped(_:)), for: .touchUpInside)
-            button.tag = externalLink.rawValue
+            let button = createExternalLinkButton(with: externalLink)
             authorLinksStack.addArrangedSubview(button)
         }
+    }
+    
+    private func createExternalLinkButton(with socialMedia: Author.SocialMedia) -> UIButton{
+        let button = UIButton()
+        button.tintColor = Constants.externalLinkButton.tintColor
+        button.imageEdgeInsets = UIEdgeInsets(
+            top: Constants.externalLinkButton.imageEdgeInsetTop,
+            left: Constants.externalLinkButton.imageEdgeInsetLeft,
+            bottom: Constants.externalLinkButton.imageEdgeInsetBottom,
+            right: Constants.externalLinkButton.imageEdgeInsetRight
+        )
+        button.widthAnchor.constraint(equalToConstant: Constants.externalLinkButton.width).isActive = true
+        button.heightAnchor.constraint(equalToConstant: Constants.externalLinkButton.height).isActive = true
+        button.addTarget(self, action: #selector(onSocialMediaTapped(_:)), for: .touchUpInside)
+        button.setImage(socialMedia.image, for: .normal)
+        button.tag = socialMedia.rawValue
+        return button
     }
 }
 

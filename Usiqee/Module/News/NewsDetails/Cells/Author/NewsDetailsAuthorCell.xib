@@ -68,19 +68,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJW-1u-I3s">
                                 <rect key="frame" x="0.0" y="124" width="337" height="35"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ov3-Ax-iYu">
-                                        <rect key="frame" x="107.5" y="0.0" width="122" height="35"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ov3-Ax-iYu">
+                                        <rect key="frame" x="112.5" y="0.0" width="112" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThH-od-8AV">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="35"/>
                                                 <state key="normal" image="button:ThH-od-8AV:image"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-R8-qbm">
-                                                <rect key="frame" x="44" y="0.0" width="34" height="35"/>
+                                                <rect key="frame" x="39" y="0.0" width="34" height="35"/>
                                                 <state key="normal" image="button:ThH-od-8AV:image"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIx-JR-ARY">
-                                                <rect key="frame" x="88" y="0.0" width="34" height="35"/>
+                                                <rect key="frame" x="78" y="0.0" width="34" height="35"/>
                                                 <state key="normal" image="button:ThH-od-8AV:image"/>
                                             </button>
                                         </subviews>
