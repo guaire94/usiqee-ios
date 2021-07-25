@@ -34,8 +34,7 @@ class NewsDetailsFooterView: UIView {
         guard let news = news else { return }
         
         if ManagerAuth.shared.isLiked(news: news) {
-            likeButton.setImage(#imageLiteral(resourceName: "close"), for: .normal)
-            // TODO: update like button picture with fil heart
+            likeButton.setImage(#imageLiteral(resourceName: "unlike"), for: .normal)
         } else {
             likeButton.setImage(#imageLiteral(resourceName: "Like"), for: .normal)
         }

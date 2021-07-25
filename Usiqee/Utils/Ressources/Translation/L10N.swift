@@ -154,6 +154,7 @@ struct L10N {
         }
         static let unfollow: String = NSLocalizedString("USER_DETAILS_UNFOLLOW", comment: "")
         static let followedEmptyListMessage = NSLocalizedString("USER_DETAILS_FOLLOWED_EMPTY_LIST", comment: "")
+        static let likedNewsEmptyListMessage = NSLocalizedString("USER_DETAILS_LIKED_NEWS_EMPTY_LIST", comment: "")
     }
     
     struct AccountSettings {

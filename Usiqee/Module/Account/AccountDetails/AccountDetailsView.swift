@@ -31,7 +31,8 @@ class AccountDetailsView: UIView {
     weak var delegate: AccountDetailsViewDelegate?
     
     private var musicalEntities: [RelatedMusicalEntity] = []
-    
+    private var likedNews: [RelatedNews] = []
+
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +48,7 @@ class AccountDetailsView: UIView {
     func refresh() {
         ManagerAuth.shared.synchronise {
             self.retreiveFollowedMusicalEntities()
+            self.retreiveLikedNews()
             self.displayUserInformation()
             self.menuContentTableView.reloadData()
         }
@@ -61,6 +63,7 @@ class AccountDetailsView: UIView {
     
     private func setupTableView() {
         menuContentTableView.register(AccountDetailsFollowingCell.Constants.nib, forCellReuseIdentifier: AccountDetailsFollowingCell.Constants.identifier)
+        menuContentTableView.register(LikedNewsCell.Constants.nib, forCellReuseIdentifier: LikedNewsCell.Constants.identifier)
         menuContentTableView.dataSource = self
         menuContentTableView.delegate = self
         menuContentTableView.contentInset.top = Constants.contentInsetTop
@@ -107,6 +110,10 @@ class AccountDetailsView: UIView {
         musicalEntities.sort(by: { $0.name < $1.name })
     }
     
+    private func retreiveLikedNews() {
+        likedNews = ManagerAuth.shared.likedNews
+    }
+    
     private func unfollow(artist: RelatedArtist) {
         guard let relatedArtist = ManagerAuth.shared.relatedArtist(by: artist.artistId) else {
             return
@@ -150,6 +157,13 @@ extension AccountDetailsView: UITableViewDataSource {
                 tableView.restore()
             }
             return musicalEntities.count
+        } else if segmentedMenu.selectedItem == 1 {
+            if likedNews.isEmpty {
+                tableView.setEmptyMessage(L10N.UserDetails.likedNewsEmptyListMessage)
+            } else {
+                tableView.restore()
+            }
+            return likedNews.count
         }
         
         tableView.restore()
@@ -164,9 +178,22 @@ extension AccountDetailsView: UITableViewDataSource {
             cell.configure(musicalEntity: musicalEntities[indexPath.row])
             cell.delegate = self
             return cell
+        } else if segmentedMenu.selectedItem == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: LikedNewsCell.Constants.identifier) as? LikedNewsCell else {
+                return UITableViewCell()
+            }
+            cell.configure(likedNews: likedNews[indexPath.row])
+            return cell
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if segmentedMenu.selectedItem == 1 {
+            let relatedNews = likedNews[indexPath.row]
+            // TODO: sync news item and display news details
+       }
     }
 }
 
@@ -175,6 +202,8 @@ extension AccountDetailsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if segmentedMenu.selectedItem == 0 {
             return AccountDetailsFollowingCell.Constants.height
+        } else if segmentedMenu.selectedItem == 1 {
+            return LikedNewsCell.Constants.height
         }
         
         return 0

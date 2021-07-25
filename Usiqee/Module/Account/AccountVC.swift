@@ -73,6 +73,6 @@ extension AccountVC: ManagerAuthDelegate {
     }
     
     func didUpdateLikedNews() {
-        // TODO: refresh account details view
+        accountDetailsView.refresh()
     }
 }

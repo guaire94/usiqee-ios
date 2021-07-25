@@ -80,6 +80,7 @@
 "USER_DETAILS_MENU_FAVORIS" = "%d favoris";
 "USER_DETAILS_UNFOLLOW" = "Abonné";
 "USER_DETAILS_FOLLOWED_EMPTY_LIST" = "Vous ne suivez aucun artist";
+"USER_DETAILS_LIKED_NEWS_EMPTY_LIST"= "Vous n'avez pas aimé d'articles";
 
 "IMAGE_PICKER_GALLERY" = "Load from gallery";
 "IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";

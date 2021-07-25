@@ -180,6 +180,8 @@
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
 		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
+		EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECB84F726AE154F00346851 /* LikedNewsCell.xib */; };
+		EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECB84F826AE154F00346851 /* LikedNewsCell.swift */; };
 		EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAD11825ED66DA0062F901 /* Account.storyboard */; };
 		EEEAD11D25ED67E50062F901 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAD11C25ED67E50062F901 /* AccountVC.swift */; };
 /* End PBXBuildFile section */
@@ -363,6 +365,8 @@
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
+		EECB84F726AE154F00346851 /* LikedNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedNewsCell.xib; sourceTree = "<group>"; };
+		EECB84F826AE154F00346851 /* LikedNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedNewsCell.swift; sourceTree = "<group>"; };
 		EEEAD11825ED66DA0062F901 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		EEEAD11C25ED67E50062F901 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		F912F9E23943BDE362DFF196 /* Pods-Usiqee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Usiqee.debug.xcconfig"; path = "Target Support Files/Pods-Usiqee/Pods-Usiqee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -712,6 +716,8 @@
 		67BBFC03264D49F300A14DCD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EECB84F826AE154F00346851 /* LikedNewsCell.swift */,
+				EECB84F726AE154F00346851 /* LikedNewsCell.xib */,
 				67BBFC04264D4A2100A14DCD /* AccountDetailsFollowingCell.swift */,
 				67BBFC05264D4A2100A14DCD /* AccountDetailsFollowingCell.xib */,
 			);
@@ -1363,6 +1369,7 @@
 				67FA27D4267B6E0100482131 /* ArtistDetailsLabelsCell.xib in Resources */,
 				B8CE19CA253DBAE7002AC5A5 /* Assets.xcassets in Resources */,
 				67A25457263F2D4B008167DB /* NotLoggedView.xib in Resources */,
+				EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */,
 				67FA27DB267B7DDB00482131 /* ArtistDetailsLabelCell.xib in Resources */,
 				6751E06C262CBC2B00AC6509 /* MSegmentedMenu.xib in Resources */,
 				6751E073262F7B9200AC6509 /* SofiaProRegularAz.otf in Resources */,
@@ -1512,6 +1519,7 @@
 				67A254C326412EAB008167DB /* AccountDetailsView.swift in Sources */,
 				65ADCF1B25791F26009A30EA /* UIImage+M.swift in Sources */,
 				67FA27DF267BEF6D00482131 /* BandDetailsVC.swift in Sources */,
+				EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */,
 				EE09221625F1645C002C0174 /* Item.swift in Sources */,
 				67C48B6626447F3F00F27B35 /* ServiceDeviceToken.swift in Sources */,
 				67FA27622670B2E700482131 /* HelperRouting.swift in Sources */,
