@@ -311,6 +311,9 @@ enum Fonts: String {
             static var title: UIFont {
                 Fonts.SofiaProBold.withSize(with: 22)
             }
+            static var subtitle: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 16)
+            }
             static var author: UIFont {
                 Fonts.HelveticaMedium.withSize(with: 15)
             }
@@ -323,7 +326,7 @@ enum Fonts: String {
         }
         enum Text {
             static var content: UIFont {
-                Fonts.HelveticaRegular.withSize(with: 16)
+                Fonts.HelveticaRegular.withSize(with: 14)
             }
         }
         enum Author {
