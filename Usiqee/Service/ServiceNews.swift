@@ -92,7 +92,7 @@ class ServiceNews {
             completion(newsSections, newsAuthor)
         }
     }
-    
+
     static func syncRelated(news: News, completion: @escaping (NewsItem) -> Void ) {
         guard let newsId = news.id else { return }
         var relatedAuthor: RelatedAuthor?
@@ -107,6 +107,44 @@ class ServiceNews {
         dispatchGroup.notify(queue: .main) {
             let item = NewsItem(news: news, author: relatedAuthor)
             completion(item)
+        }
+    }
+    
+    static func syncLikedNews(likedNews: RelatedNews, completion: @escaping (NewsItem) -> Void ) {
+        let newsId = likedNews.newsId
+        
+        var news: News?
+        var relatedAuthor: RelatedAuthor?
+
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        getNews(newsId: newsId) { (loadedNews) in
+            news = loadedNews
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getNewsAuthor(newsId: newsId) { (author) in
+            relatedAuthor = author
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            guard let news = news else { return }
+            let item = NewsItem(news: news, author: relatedAuthor)
+            completion(item)
+        }
+    }
+
+    static func getNews(newsId: String, completion: @escaping (News?) -> Void) {
+        FFirestoreReference.news.document(newsId).getDocument { (document, err) in
+            guard let document = document, document.exists,
+                  let news = try? document.data(as: News.self) else {
+                completion(nil)
+                return
+            }
+            completion(news)
         }
     }
 

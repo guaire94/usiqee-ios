@@ -65,7 +65,7 @@
         <!--News DetailsVC-->
         <scene sceneID="Prv-JX-d52">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="DRa-BK-fqG" customClass="NewsDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsDetailsVC" hidesBottomBarWhenPushed="YES" id="DRa-BK-fqG" customClass="NewsDetailsVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qkx-oI-5zr">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

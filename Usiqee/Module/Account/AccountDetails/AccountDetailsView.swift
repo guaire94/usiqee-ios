@@ -10,6 +10,7 @@ import Kingfisher
 
 protocol AccountDetailsViewDelegate: class {
     func didTapSettings()
+    func didTapLikedNews(likedNews: RelatedNews)
 }
 
 class AccountDetailsView: UIView {
@@ -150,7 +151,7 @@ extension AccountDetailsView {
 // MARK: - UITableViewDataSource
 extension AccountDetailsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if segmentedMenu.selectedItem == 0 {
+        if segmentedMenu.selectedItem == .zero {
             if musicalEntities.isEmpty {
                 tableView.setEmptyMessage(L10N.UserDetails.followedEmptyListMessage)
             } else {
@@ -171,7 +172,7 @@ extension AccountDetailsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if segmentedMenu.selectedItem == 0 {
+        if segmentedMenu.selectedItem == .zero {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountDetailsFollowingCell.Constants.identifier) as? AccountDetailsFollowingCell else {
                 return UITableViewCell()
             }
@@ -188,25 +189,24 @@ extension AccountDetailsView: UITableViewDataSource {
         
         return UITableViewCell()
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if segmentedMenu.selectedItem == 1 {
-            let relatedNews = likedNews[indexPath.row]
-            // TODO: sync news item and display news details
-       }
-    }
 }
 
 // MARK: - UITableViewDelegate
 extension AccountDetailsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if segmentedMenu.selectedItem == 0 {
+        if segmentedMenu.selectedItem == .zero {
             return AccountDetailsFollowingCell.Constants.height
         } else if segmentedMenu.selectedItem == 1 {
             return LikedNewsCell.Constants.height
         }
         
-        return 0
+        return .zero
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if segmentedMenu.selectedItem == 1 {
+            delegate?.didTapLikedNews(likedNews: likedNews[indexPath.row])
+       }
     }
 }
 

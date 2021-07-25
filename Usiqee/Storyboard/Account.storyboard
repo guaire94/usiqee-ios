@@ -42,6 +42,7 @@
                         <outlet property="accountDetailsView" destination="aqC-WA-zCG" id="MY4-j4-KVA"/>
                         <outlet property="notLoggedView" destination="efw-ij-mrr" id="0Ag-nV-jFO"/>
                         <segue destination="kvx-bE-tSl" kind="show" identifier="AccountSettingsVC" id="nG1-19-xin"/>
+                        <segue destination="F4R-44-AQR" kind="show" identifier="NewsDetailsVC" id="Pdj-Zv-Rgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7C-VG-F1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,6 +216,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGm-C1-eZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1299" y="96"/>
+        </scene>
+        <!--NewsDetailsVC-->
+        <scene sceneID="rH0-Yu-yhm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" referencedIdentifier="NewsDetailsVC" id="F4R-44-AQR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3g7-hF-cWs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Irr-ZJ-A4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="498"/>
         </scene>
     </scenes>
     <resources>

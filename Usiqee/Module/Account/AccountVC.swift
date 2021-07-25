@@ -30,6 +30,19 @@ class AccountVC: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == NewsDetailsVC.Constants.identifier {
+            guard let vc = segue.destination as? NewsDetailsVC,
+                  let news = sender as? NewsItem else {
+                return
+            }
+            
+            vc.news = news
+        }
+    }
+    
     // MARK: - Privates
     private func setUpView() {
         notLoggedView.delegate = self
@@ -59,6 +72,14 @@ extension AccountVC: NotLoggedViewDelegate {
 extension AccountVC: AccountDetailsViewDelegate {
     func didTapSettings() {
         performSegue(withIdentifier: AccountSettingsVC.Constants.identifier, sender: nil)
+    }
+    
+    func didTapLikedNews(likedNews: RelatedNews) {
+        ServiceNews.syncLikedNews(likedNews: likedNews) { (newsItem) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: NewsDetailsVC.Constants.identifier, sender: newsItem)
+            }
+        }
     }
 }
 
