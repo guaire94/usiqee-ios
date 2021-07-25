@@ -10,6 +10,13 @@ import Firebase
 protocol ManagerAuthDelegate: class {
     func didUpdateUserStatus()
     func didUpdateFollowedEntities()
+    func didUpdateLikedNews()
+}
+
+extension ManagerAuthDelegate {
+    func didUpdateUserStatus() {}
+    func didUpdateFollowedEntities() {}
+    func didUpdateLikedNews() {}
 }
 
 class ManagerAuth {
@@ -23,7 +30,7 @@ class ManagerAuth {
     var user: User?
     private(set) var followedArtists: [RelatedArtist] = []
     private(set) var followedBands: [RelatedBand] = []
-    private var likedNews: [RelatedNews] = []
+    private(set) var likedNews: [RelatedNews] = []
 
     private var delegates: [ManagerAuthDelegate] = []
     
@@ -66,6 +73,7 @@ class ManagerAuth {
             ServiceUser.shared.delegate = self
             ServiceUser.shared.setupFollowedArtists(user: user)
             ServiceUser.shared.setupFollowedBands(user: user)
+            ServiceUser.shared.setupLikedNews(user: user)
         } else {
             ServiceUser.shared.clear()
         }
@@ -91,6 +99,10 @@ class ManagerAuth {
         return followedArtists.contains { $0.artistId == musicalEntity.id }
     }
     
+    func isLiked(news: News) -> Bool {
+        ManagerAuth.shared.likedNews.contains(where: { $0.newsId == news.id })
+    }
+    
     func relatedArtist(by artistId: String) -> RelatedArtist? {
         followedArtists.filter { $0.artistId ==  artistId }.first
     }
@@ -100,16 +112,23 @@ class ManagerAuth {
     }
     
     // MARK: - private
-    
     private func didUpdateFollowedMusicalEntities() {
         self.delegates.forEach {
             $0.didUpdateFollowedEntities()
+        }
+    }
+    
+    private func didUpdateLikedNews() {
+        self.delegates.forEach {
+            $0.didUpdateLikedNews()
         }
     }
 }
 
 // MARK: - ServiceUserDelegate
 extension ManagerAuth: ServiceUserDelegate {
+    
+    // MARK: - Followed artist
     func dataAdded(artist: RelatedArtist) {
         followedArtists.append(artist)
         didUpdateFollowedMusicalEntities()
@@ -127,20 +146,39 @@ extension ManagerAuth: ServiceUserDelegate {
         didUpdateFollowedMusicalEntities()
     }
     
+    // MARK: - Followed band
     func dataAdded(band: RelatedBand) {
         followedBands.append(band)
         didUpdateFollowedMusicalEntities()
     }
     
     func dataModified(band: RelatedBand) {
-        guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
+        guard let index = followedBands.firstIndex(where: { $0.id == band.id }) else { return }
         followedBands[index] = band
         didUpdateFollowedMusicalEntities()
     }
     
     func dataRemoved(band: RelatedBand) {
-        guard let index = self.followedBands.firstIndex(where: { $0.id == band.id }) else { return }
+        guard let index = followedBands.firstIndex(where: { $0.id == band.id }) else { return }
         followedBands.remove(at: index)
         didUpdateFollowedMusicalEntities()
+    }
+    
+    // MARK: - Liked news
+    func dataAdded(news: RelatedNews) {
+        likedNews.append(news)
+        didUpdateLikedNews()
+    }
+    
+    func dataModified(news: RelatedNews) {
+        guard let index = likedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
+        likedNews[index] = news
+        didUpdateLikedNews()
+    }
+    
+    func dataRemoved(news: RelatedNews) {
+        guard let index = likedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
+        likedNews.remove(at: index)
+        didUpdateLikedNews()
     }
 }

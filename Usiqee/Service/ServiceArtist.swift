@@ -85,7 +85,7 @@ class ServiceArtist {
         }
         
         dispatchGroup.enter()
-        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toRelated, completion: { error in
+        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toData, completion: { error in
             if let error = error {
                 hasError = true
                 completion(error)

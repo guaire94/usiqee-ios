@@ -106,25 +106,44 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJB-Wo-94i" customClass="NewsDetailsFooterView" customModule="Usiqee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="818" width="428" height="54"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znX-GT-TbQ">
-                                                <rect key="frame" x="30" y="0.0" width="54" height="54"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="TRM-H5-4Nq">
+                                                <rect key="frame" x="110" y="0.0" width="208" height="54"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znX-GT-TbQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="znX-GT-TbQ" secondAttribute="height" multiplier="1:1" id="3Yc-ZH-g6G"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Share"/>
+                                                        <connections>
+                                                            <action selector="onShareTapped:" destination="qJB-Wo-94i" eventType="touchUpInside" id="S3M-wr-SXY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J86-zz-kc9">
+                                                        <rect key="frame" x="154" y="0.0" width="54" height="54"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="J86-zz-kc9" secondAttribute="height" multiplier="1:1" id="Xxb-dh-MGz"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Like"/>
+                                                        <connections>
+                                                            <action selector="onLikeTapped:" destination="qJB-Wo-94i" eventType="touchUpInside" id="ZWG-OX-xdn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="znX-GT-TbQ" secondAttribute="height" multiplier="1:1" id="3Yc-ZH-g6G"/>
+                                                    <constraint firstItem="J86-zz-kc9" firstAttribute="width" secondItem="J86-zz-kc9" secondAttribute="height" multiplier="1:1" id="WbR-I3-nFs"/>
                                                 </constraints>
-                                                <state key="normal" image="Share"/>
-                                                <connections>
-                                                    <action selector="onShareTapped:" destination="qJB-Wo-94i" eventType="touchUpInside" id="S3M-wr-SXY"/>
-                                                </connections>
-                                            </button>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="znX-GT-TbQ" firstAttribute="leading" secondItem="qJB-Wo-94i" secondAttribute="leading" constant="30" id="06z-51-OGC"/>
-                                            <constraint firstAttribute="bottom" secondItem="znX-GT-TbQ" secondAttribute="bottom" id="8lc-dP-eBt"/>
-                                            <constraint firstItem="znX-GT-TbQ" firstAttribute="top" secondItem="qJB-Wo-94i" secondAttribute="top" id="8rM-1n-lHJ"/>
+                                            <constraint firstItem="TRM-H5-4Nq" firstAttribute="top" secondItem="qJB-Wo-94i" secondAttribute="top" id="JTP-pe-qMq"/>
                                             <constraint firstAttribute="height" constant="54" id="RW8-Vu-Haw"/>
+                                            <constraint firstAttribute="bottom" secondItem="TRM-H5-4Nq" secondAttribute="bottom" id="bet-DK-6ju"/>
+                                            <constraint firstItem="TRM-H5-4Nq" firstAttribute="centerX" secondItem="qJB-Wo-94i" secondAttribute="centerX" id="nzB-wY-UI3"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="likeButton" destination="J86-zz-kc9" id="URf-E2-8BY"/>
                                             <outlet property="shareButton" destination="znX-GT-TbQ" id="axe-qn-fJV"/>
                                         </connections>
                                     </view>
@@ -169,6 +188,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Like" width="19" height="17"/>
         <image name="Share" width="16" height="20"/>
         <image name="back" width="12" height="21"/>
     </resources>

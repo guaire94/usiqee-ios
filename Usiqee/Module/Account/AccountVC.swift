@@ -71,4 +71,8 @@ extension AccountVC: ManagerAuthDelegate {
     func didUpdateFollowedEntities() {
         accountDetailsView.refresh()
     }
+    
+    func didUpdateLikedNews() {
+        // TODO: refresh account details view
+    }
 }

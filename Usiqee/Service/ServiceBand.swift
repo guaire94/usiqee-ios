@@ -85,7 +85,7 @@ class ServiceBand {
         }
         
         dispatchGroup.enter()
-        FFirestoreReference.bandFollowers(bandId: bandId).document(userId).setData(follower.toRelated, completion: { error in
+        FFirestoreReference.bandFollowers(bandId: bandId).document(userId).setData(follower.toData, completion: { error in
             if let error = error {
                 hasError = true
                 completion(error)

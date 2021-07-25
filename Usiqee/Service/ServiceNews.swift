@@ -5,7 +5,7 @@
 //  Created by Amine on 29/06/2021.
 //
 
-import Foundation
+import Firebase
 import FirebaseFirestore
 
 protocol ServiceNewsDelegate {
@@ -150,5 +150,25 @@ class ServiceNews {
             }
             completion(author)
         }
+    }
+    
+    // MARK: - POST
+    static func likeNews(news: News)  {
+        guard let userId = Auth.auth().currentUser?.uid,
+              let newsId = news.id,
+              let relatedNews = news.toRelated else {
+            return
+        }
+        
+        FFirestoreReference.userLikedNews(userId: userId).document(newsId).setData(relatedNews.toData)
+    }
+    
+    static func unlikeNews(news: News)  {
+        guard let userId = Auth.auth().currentUser?.uid,
+              let newsId = news.id else {
+            return
+        }
+        
+        FFirestoreReference.userLikedNews(userId: userId).document(newsId).delete()
     }
 }
