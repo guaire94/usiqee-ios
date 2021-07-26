@@ -33,6 +33,7 @@
 "ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
 
 "ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
+"ARTIST_DETAILS_NEWS_EMPTY_LIST" = "pas d'articles disponibles";
 
 "USER_FORM_MAIL"="Email";
 "USER_FORM_PASSWORD"="Mot de passe";

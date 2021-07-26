@@ -176,6 +176,8 @@
 		EE09221925F16518002C0174 /* MItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221825F16518002C0174 /* MItemType.swift */; };
 		EE09221D25F16583002C0174 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221C25F16583002C0174 /* Language.swift */; };
 		EE18832F265BFB1A004B0D29 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */; };
+		EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE724D0326AF2DE90061977D /* ArtistDetailsNewsCell.swift */; };
+		EE724D0626AF2DE90061977D /* ArtistDetailsNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE724D0426AF2DE90061977D /* ArtistDetailsNewsCell.xib */; };
 		EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05725ED24E500D7A965 /* NewsVC.swift */; };
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
@@ -361,6 +363,8 @@
 		EE09221825F16518002C0174 /* MItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MItemType.swift; sourceTree = "<group>"; };
 		EE09221C25F16583002C0174 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
+		EE724D0326AF2DE90061977D /* ArtistDetailsNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailsNewsCell.swift; sourceTree = "<group>"; };
+		EE724D0426AF2DE90061977D /* ArtistDetailsNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistDetailsNewsCell.xib; sourceTree = "<group>"; };
 		EE96B05725ED24E500D7A965 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -564,6 +568,7 @@
 				67FA27A6267A93C000482131 /* GroupesCell */,
 				67FA279F267A512800482131 /* InformationCell */,
 				679B1978265ED9330026568B /* EventCell */,
+				EE724D0226AF2DB10061977D /* NewsCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1247,6 +1252,15 @@
 			path = Language;
 			sourceTree = "<group>";
 		};
+		EE724D0226AF2DB10061977D /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				EE724D0326AF2DE90061977D /* ArtistDetailsNewsCell.swift */,
+				EE724D0426AF2DE90061977D /* ArtistDetailsNewsCell.xib */,
+			);
+			path = NewsCell;
+			sourceTree = "<group>";
+		};
 		EE96B05A25ED24E800D7A965 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1340,6 +1354,7 @@
 				65CF699D25681A7400CB9AF7 /* EventCell.xib in Resources */,
 				B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */,
 				6731F3FB2694EE220050E692 /* NewsDetailsTextCell.xib in Resources */,
+				EE724D0626AF2DE90061977D /* ArtistDetailsNewsCell.xib in Resources */,
 				6731F3E2268C8C750050E692 /* NewsCarouselItemCell.xib in Resources */,
 				679B1976265ED4110026568B /* ArtistDetailsEventCell.xib in Resources */,
 				67FA27A3267A517100482131 /* ArtistDetailsInformationCell.xib in Resources */,
@@ -1534,6 +1549,7 @@
 				679B199B266168350026568B /* EventsFilterTableViewHandler.swift in Sources */,
 				B82FE3AA255DF10E00B52099 /* MDatePickerField.swift in Sources */,
 				67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */,
+				EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */,
 				6731F3F42694AD560050E692 /* NewsDetailsOverviewCell.swift in Sources */,
 				652B32542572C6ED008FFA60 /* NewsSection.swift in Sources */,
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,

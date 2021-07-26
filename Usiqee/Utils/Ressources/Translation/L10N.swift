@@ -111,6 +111,9 @@ struct L10N {
         struct Calendar {
             static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
         }
+        struct News {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_NEWS_EMPTY_LIST", comment: "")
+        }
         struct Bio {
             struct Labels {
                 static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_LABELS_TITLE", comment: "")
