@@ -188,7 +188,7 @@ extension NewsDetailsVC: PreAuthVCDelegate {
     }
 }
 
-// MARK: - ManagerAuthSignInDelegate
+// MARK: - ManagerAuthDelegate
 extension NewsDetailsVC: ManagerAuthDelegate {
     
     func didUpdateLikedNews() {

@@ -56,16 +56,15 @@ class NewsCarouselCell: UITableViewCell {
     
     private func reload() {
         collectionView.reloadData()
-        if !news.isEmpty {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] _ in
-                guard let self = self,
-                      !self.collectionView.isDragging else { return }
-                let row = (self.pageControl.currentPage+1) % self.news.count
-                self.pageControl.currentPage = row
-                let index = IndexPath(row: row, section: 0)
-                self.collectionView.scrollToItem(at: index, at: .right, animated: true)
-            }
+        guard !news.isEmpty else { return }
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] _ in
+            guard let self = self,
+                  !self.collectionView.isDragging else { return }
+            let row = (self.pageControl.currentPage+1) % self.news.count
+            self.pageControl.currentPage = row
+            let index = IndexPath(row: row, section: 0)
+            self.collectionView.scrollToItem(at: index, at: .right, animated: true)
         }
     }
 }

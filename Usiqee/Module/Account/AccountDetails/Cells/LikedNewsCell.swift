@@ -31,10 +31,6 @@ class LikedNewsCell: UITableViewCell {
         dateLabel.font = Fonts.News.Cell.date
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-
     func configure(likedNews: RelatedNews) {
         let coverStorage = Storage.storage().reference(forURL: likedNews.cover)
         newsCover.sd_setImage(with: coverStorage)
