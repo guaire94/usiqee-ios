@@ -17,7 +17,7 @@ enum ArtistDetailsCellType {
     
     case bio(BioCellType)
     case event(event: RelatedEvent)
-    case news
+    case news(news: RelatedNews)
 }
 
 protocol ArtistDetailsTableViewHandlerDelegate: AnyObject {
@@ -57,13 +57,25 @@ class ArtistDetailsTableViewHandler {
             delegate?.reloadData()
         }
     }
-    
+
+    var relatedNews: [RelatedNews] = [] {
+        didSet {
+            guard tableViewType == .news else { return }
+            delegate?.reloadData()
+        }
+    }
+
     // MARK: - TableView
     func numberOfRows(in section: Int) -> Int {
         switch tableViewType {
         case .news:
-            delegate?.restore()
-            return 0
+            if relatedNews.isEmpty {
+                delegate?.setEmptyMessage(L10N.ArtistDetails.News.emptyListMessage)
+            } else {
+                delegate?.restore()
+            }
+            
+            return relatedNews.count
         case .bio:
             let cellTypes = bioCellTypes()
             if cellTypes.isEmpty {
@@ -86,7 +98,7 @@ class ArtistDetailsTableViewHandler {
     func item(for indexPath: IndexPath) -> ArtistDetailsCellType? {
         switch tableViewType {
         case .news:
-            return nil
+            return .news(news: relatedNews[indexPath.row])
         case .bio:
             guard let cellType = bioCellType(at: indexPath) else { return nil }
             return .bio(cellType)

@@ -34,12 +34,13 @@ class NewsDetailsVC: UIViewController {
     private func setupView() {
         syncNewsDetails()
         setupTableView()
+        ManagerAuth.shared.add(delegate: self)
     }
     
     private func syncNewsDetails() {
         loaderView.isHidden = false
         guard let news = news else { return }
-        footer.configure(news: news, delegate: self)
+        footer.configure(news: news.news, delegate: self)
         ServiceNews.syncAllInformation(news: news) { [weak self] sections, author in
             guard let self = self else { return }
             self.tableViewHandler.sections = sections
@@ -60,6 +61,16 @@ class NewsDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = nil
+    }
+    
+    private func handleLike() {
+        guard let news = self.news?.news else { return }
+        let isLiked = ManagerAuth.shared.isLiked(news: news)
+        if isLiked {
+            ServiceNews.unlikeNews(news: news)
+        } else {
+            ServiceNews.likeNews(news: news)
+        }
     }
 }
 
@@ -157,5 +168,30 @@ extension NewsDetailsVC: NewsDetailsFooterViewDelegate {
         
         let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(vc, animated: true)
+    }
+    
+    func didTapLike() {
+        guard ManagerAuth.shared.isConnected else {
+            displayAuthentication(with: self)
+            return
+        }
+        
+        handleLike()
+    }
+}
+
+// MARK: - PreAuthVCDelegate
+extension NewsDetailsVC: PreAuthVCDelegate {
+    
+    func didSignIn() {
+        footer.setUpLikeButton()
+    }
+}
+
+// MARK: - ManagerAuthDelegate
+extension NewsDetailsVC: ManagerAuthDelegate {
+    
+    func didUpdateLikedNews() {
+        footer.setUpLikeButton()
     }
 }

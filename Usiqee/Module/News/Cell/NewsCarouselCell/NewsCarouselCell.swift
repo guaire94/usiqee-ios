@@ -56,6 +56,7 @@ class NewsCarouselCell: UITableViewCell {
     
     private func reload() {
         collectionView.reloadData()
+        guard !news.isEmpty else { return }
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: Constants.animationDuration, repeats: true) { [weak self] _ in
             guard let self = self,

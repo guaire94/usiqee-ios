@@ -10,7 +10,7 @@ struct Follower: Codable {
     var username: String
     var avatar: String
     
-    var toRelated: [String : Any] {
+    var toData: [String : Any] {
         [
             "userId": userId,
             "username": username,

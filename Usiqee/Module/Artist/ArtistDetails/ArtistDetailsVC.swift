@@ -68,6 +68,7 @@ class ArtistDetailsVC: UIViewController {
         menuContentTableView.register(ArtistDetailsInformationCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsInformationCell.Constants.identifier)
         menuContentTableView.register(ArtistDetailsGroupesCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsGroupesCell.Constants.identifier)
         menuContentTableView.register(ArtistDetailsLabelsCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsLabelsCell.Constants.identifier)
+        menuContentTableView.register(ArtistDetailsNewsCell.Constants.nib, forCellReuseIdentifier: ArtistDetailsNewsCell.Constants.identifier)
         menuContentTableView.dataSource = self
         menuContentTableView.delegate = self
         menuContentTableView.tableFooterView = nil
@@ -82,6 +83,7 @@ class ArtistDetailsVC: UIViewController {
         ServiceArtist.listenToRelatedEvents(artist: artist, delegate: self)
         ServiceArtist.listenToRelatedLabels(artist: artist, delegate: self)
         ServiceArtist.listenToRelatedBand(artist: artist, delegate: self)
+        ServiceArtist.listenToRelatedNews(artist: artist, delegate: self)
     }
     
     private func setupDescriptions() {
@@ -311,6 +313,23 @@ extension ArtistDetailsVC: ServiceArtistBandsDelegate {
     func dataRemoved(band: RelatedBand) {
         guard let index = tableviewHandler.relatedBands.firstIndex(where: { $0.bandId == band.bandId }) else { return }
         tableviewHandler.relatedBands.remove(at: index)
+    }
+}
+
+// MARK: - ServiceArtistNewsDelegate
+extension ArtistDetailsVC: ServiceArtistNewsDelegate {
+    func dataAdded(news: RelatedNews) {
+        tableviewHandler.relatedNews.append(news)
+    }
+    
+    func dataModified(news: RelatedNews) {
+        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
+        tableviewHandler.relatedNews[index] = news
+    }
+    
+    func dataRemoved(news: RelatedNews) {
+        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
+        tableviewHandler.relatedNews.remove(at: index)
     }
 }
 

@@ -31,6 +31,12 @@ protocol ServiceArtistBandsDelegate: AnyObject {
     func dataRemoved(band: RelatedBand)
 }
 
+protocol ServiceArtistNewsDelegate: AnyObject {
+    func dataAdded(news: RelatedNews)
+    func dataModified(news: RelatedNews)
+    func dataRemoved(news: RelatedNews)
+}
+
 class ServiceArtist {
     
     // MARK: - Property
@@ -38,7 +44,8 @@ class ServiceArtist {
     private static var eventsListener: ListenerRegistration?
     private static var labelsListener: ListenerRegistration?
     private static var bandsListener: ListenerRegistration?
-    
+    private static var newsListener: ListenerRegistration?
+
     // MARK: - GET
     static func listenArtists(delegate: ServiceArtistDelegate) {
         listener?.remove()
@@ -85,7 +92,7 @@ class ServiceArtist {
         }
         
         dispatchGroup.enter()
-        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toRelated, completion: { error in
+        FFirestoreReference.artistFollowers(artistId: artistId).document(userId).setData(follower.toData, completion: { error in
             if let error = error {
                 hasError = true
                 completion(error)
@@ -220,7 +227,30 @@ class ServiceArtist {
             }
         }
     }
-    
+
+    static func listenToRelatedNews(artist: Artist, delegate: ServiceArtistNewsDelegate?) {
+        newsListener?.remove()
+        weak var delegate = delegate
+        guard let artistId = artist.id else { return }
+        
+        newsListener = FFirestoreReference.artistNews(artistId: artistId)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let news = try? diff.document.data(as: RelatedNews.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(news: news)
+                case .modified:
+                    delegate?.dataModified(news: news)
+                case .removed:
+                    delegate?.dataRemoved(news: news)
+                }
+            }
+        }
+    }
+
     static func detachRelatedListeners() {
         eventsListener?.remove()
         labelsListener?.remove()

@@ -111,6 +111,9 @@ struct L10N {
         struct Calendar {
             static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
         }
+        struct News {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_NEWS_EMPTY_LIST", comment: "")
+        }
         struct Bio {
             struct Labels {
                 static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_LABELS_TITLE", comment: "")
@@ -154,6 +157,7 @@ struct L10N {
         }
         static let unfollow: String = NSLocalizedString("USER_DETAILS_UNFOLLOW", comment: "")
         static let followedEmptyListMessage = NSLocalizedString("USER_DETAILS_FOLLOWED_EMPTY_LIST", comment: "")
+        static let likedNewsEmptyListMessage = NSLocalizedString("USER_DETAILS_LIKED_NEWS_EMPTY_LIST", comment: "")
     }
     
     struct AccountSettings {

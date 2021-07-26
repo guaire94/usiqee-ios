@@ -18,4 +18,9 @@ struct News: Identifiable, Codable {
     let nbComments: Int
     let externalLink: String?
     let date: Timestamp
+    
+    var toRelated: RelatedNews? {
+        guard let id = id else { return nil }
+        return RelatedNews(newsId: id, cover: cover, title: title, date: date)
+    }
 }
