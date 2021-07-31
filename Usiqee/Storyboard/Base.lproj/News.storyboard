@@ -178,6 +178,7 @@
                     <navigationItem key="navigationItem" id="FIn-cI-fWc"/>
                     <connections>
                         <outlet property="footer" destination="qJB-Wo-94i" id="cZQ-Sq-1vA"/>
+                        <outlet property="footerHeight" destination="RW8-Vu-Haw" id="GHT-ii-Opc"/>
                         <outlet property="loaderView" destination="viq-Ia-Lv2" id="4js-lI-UKN"/>
                         <outlet property="tableView" destination="YaL-1T-Rob" id="xJ1-03-TdJ"/>
                     </connections>

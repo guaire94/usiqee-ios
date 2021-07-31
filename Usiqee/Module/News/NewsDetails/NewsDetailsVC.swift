@@ -13,12 +13,14 @@ class NewsDetailsVC: UIViewController {
     // MARK: - Constants
     enum Constants {
         static let identifier: String = "NewsDetailsVC"
+        static fileprivate let footerHeight: CGFloat = 48
     }
     
     // MARK: - IBOutlet
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var loaderView: UIView!
     @IBOutlet weak private var footer: NewsDetailsFooterView!
+    @IBOutlet weak private var footerHeight: NSLayoutConstraint!
     
     // MARK: - Properties
     private var tableViewHandler: NewsDetailsTableViewHandler = NewsDetailsTableViewHandler()
@@ -32,11 +34,17 @@ class NewsDetailsVC: UIViewController {
     
     // MARK: - Private
     private func setupView() {
+        setUpFooterHeight()
         syncNewsDetails()
         setupTableView()
         ManagerAuth.shared.add(delegate: self)
     }
     
+    private func setUpFooterHeight() {
+        let safeArea =  UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+        footerHeight.constant = Constants.footerHeight + safeArea
+    }
+
     private func syncNewsDetails() {
         loaderView.isHidden = false
         guard let news = news else { return }
