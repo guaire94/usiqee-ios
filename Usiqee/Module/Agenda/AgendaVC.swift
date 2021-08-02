@@ -38,7 +38,8 @@ class AgendaVC: UIViewController {
             
             vc.delegate = self
         } else if segue.identifier == EventDetailsVC.Constants.identifer {
-            guard let vc = segue.destination as? EventDetailsVC,
+            guard let nv = segue.destination as? UINavigationController,
+                  let vc = nv.viewControllers.first as? EventDetailsVC,
                   let event = sender as? EventItem else {
                 return
             }

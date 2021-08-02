@@ -19,31 +19,43 @@ class EventDetailsVC: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak private var loaderView: UIView!
-    @IBOutlet weak private var artistImage: UIImageView!
-    @IBOutlet weak private var artistNameLabel: UILabel!
-    @IBOutlet weak private var typeLabel: UILabel!
-    @IBOutlet weak private var descriptionLabel: UILabel!
-    @IBOutlet weak private var dateLabel: UILabel!
-    @IBOutlet weak private var timeLabel: UILabel!
+    @IBOutlet weak private var tableview: UITableView!
     @IBOutlet weak private var addToCalendarButton: UIButton!
     @IBOutlet weak private var showDetailsButton: UIButton!
     
     // MARK: - Properties
     var event: EventItem?
     var eventId: String?
+    private var tableViewHandler: EventDetailsTableViewHandler = EventDetailsTableViewHandler()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
     }
     
     // MARK: - Private
     private func setupView() {
-        setupFonts()
-        setupDescription()
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        setupTableView()
+        setupFooterButtons()
         setupEvent()
+    }
+    
+    private func setupTableView() {
+        tableview.dataSource = self
+        tableview.delegate = self
+        tableview.register(EventDetailsOverviewCell.Constants.nib, forCellReuseIdentifier: EventDetailsOverviewCell.Constants.identifier)
+        tableview.register(EventDetailsDateAndLocationCell.Constants.nib, forCellReuseIdentifier: EventDetailsDateAndLocationCell.Constants.identifier)
+        tableview.register(EventDetailsCoverCell.Constants.nib, forCellReuseIdentifier: EventDetailsCoverCell.Constants.identifier)
+        tableview.register(EventDetailsMusicalEntitiesListCell.Constants.nib, forCellReuseIdentifier: EventDetailsMusicalEntitiesListCell.Constants.identifier)
+    }
+    
+    private func setupFooterButtons() {
+        addToCalendarButton.titleLabel?.font = Fonts.EventDetails.button
+        showDetailsButton.titleLabel?.font = Fonts.EventDetails.button
+        addToCalendarButton.setTitle(L10N.EventDetails.addToCalendar, for: .normal)
+        showDetailsButton.setTitle(L10N.EventDetails.showDetails, for: .normal)
     }
     
     private func setupEvent() {
@@ -56,34 +68,22 @@ class EventDetailsVC: UIViewController {
         loadEventInformation(eventId)
     }
     
-    private func setupFonts() {
-        artistNameLabel.font = Fonts.EventDetails.name
-        descriptionLabel.font = Fonts.EventDetails.description
-        typeLabel.font = Fonts.EventDetails.type
-        dateLabel.font = Fonts.EventDetails.date
-        timeLabel.font = Fonts.EventDetails.time
-        addToCalendarButton.titleLabel?.font = Fonts.EventDetails.button
-        showDetailsButton.titleLabel?.font = Fonts.EventDetails.button
-    }
-    
-    private func setupDescription() {
-        addToCalendarButton.setTitle(L10N.EventDetails.addToCalendar, for: .normal)
-        showDetailsButton.setTitle(L10N.EventDetails.showDetails, for: .normal)
-    }
-    
     private func displayEventInformation() {
         guard let item = event else { return }
         
-        loaderView.isHidden = true
-        descriptionLabel.text = item.event.title.uppercased()
-        typeLabel.text = item.event.eventType?.title.uppercased()
-        dateLabel.text = item.event.date.dateValue().full
-        timeLabel.text = item.event.date.dateValue().hour
+        tableViewHandler.event = item
+        showDetailsButton.setTitle(tableViewHandler.redirectionButtonText, for: .normal)
+        tableview.reloadData()
         showDetailsButton.isHidden = isShowDetailsButtonHidden(webLink: item.event.webLink)
-        if let musicalEntity = item.musicalEntity {
-            let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
-            artistImage.sd_setImage(with: storage)
-            artistNameLabel.text = musicalEntity.name.uppercased()
+        loaderView.isHidden = true
+    }
+    
+    private func loadEventInformation(_ eventId: String) {
+        ServiceEvents.load(eventId: eventId) { [weak self] event in
+            guard let self = self else { return }
+            
+            self.event = event
+            self.displayEventInformation()
         }
     }
     
@@ -95,14 +95,56 @@ class EventDetailsVC: UIViewController {
         
         return !UIApplication.shared.canOpenURL(url)
     }
+}
+
+// MARK: - UITableViewDataSource
+extension EventDetailsVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableViewHandler.numberOfRows
+    }
     
-    private func loadEventInformation(_ eventId: String) {
-        ServiceEvents.load(eventId: eventId) { [weak self] event in
-            guard let self = self else { return }
-            
-            self.event = event
-            self.displayEventInformation()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellType = tableViewHandler.item(for: indexPath) else {
+            return UITableViewCell()
         }
+        
+        switch cellType {
+        case let .overview(information: information):
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: EventDetailsOverviewCell.Constants.identifier) as? EventDetailsOverviewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(information: information)
+            return cell
+        case let .dateAndLocation(event: event):
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: EventDetailsDateAndLocationCell.Constants.identifier) as? EventDetailsDateAndLocationCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(event: event)
+            return cell
+        case let .cover(url: cover):
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: EventDetailsCoverCell.Constants.identifier) as? EventDetailsCoverCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(cover: cover)
+            return cell
+        case let .musicalEntitiesList(musicalEntities: musicalEntities):
+            guard let cell = tableview.dequeueReusableCell(withIdentifier: EventDetailsMusicalEntitiesListCell.Constants.identifier) as? EventDetailsMusicalEntitiesListCell else {
+                return UITableViewCell()
+            }
+            
+            cell.configure(musicalEntities: musicalEntities, delegate: self)
+            return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension EventDetailsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableViewHandler.heightForRow(at: indexPath)
     }
 }
 
@@ -156,5 +198,29 @@ extension EventDetailsVC {
 extension EventDetailsVC: EKEventEditViewDelegate {
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - EventDetailsMusicalEntitiesListCellDelegate
+extension EventDetailsVC: EventDetailsMusicalEntitiesListCellDelegate {
+    func didSelect(musicalEntity: RelatedMusicalEntity) {
+        if let artist = musicalEntity as? RelatedArtist {
+            ServiceArtist.getArtist(artistId: artist.artistId) { [weak self] artist in
+                guard let self = self,
+                      let artistVC = UIViewController.artistDetailsVC else { return }
+                artistVC.artist = artist
+                self.navigationController?.pushViewController(artistVC, animated: true)
+            }
+            return
+        }
+        
+        if let band = musicalEntity as? RelatedBand {
+            ServiceBand.getBand(bandId: band.bandId) { [weak self] band in
+                guard let self = self,
+                      let bandVC = UIViewController.bandDetailsVC else { return }
+                bandVC.band = band
+                self.navigationController?.pushViewController(bandVC, animated: true)
+            }
+        }
     }
 }

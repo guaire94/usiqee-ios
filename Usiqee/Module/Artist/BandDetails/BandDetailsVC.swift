@@ -144,6 +144,12 @@ class BandDetailsVC: UIViewController {
         
         setupFollowButton()
     }
+    
+    private func showArtistDetails(with artist: Artist) {
+        guard let vc = UIViewController.artistDetailsVC else { return }
+        vc.artist = artist
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - IBActions
@@ -312,9 +318,15 @@ extension BandDetailsVC: BandDetailsTableViewHandlerDelegate {
 // MARK: - BandDetailsMembersCellDelegate
 extension BandDetailsVC: BandDetailsMembersCellDelegate {
     func didSelect(artist: RelatedArtist) {
-        guard let artist = ManagerMusicalEntity.shared.getArtist(by: artist.artistId),
-              let vc = UIViewController.artistDetailsVC else { return }
-        vc.artist = artist
-        navigationController?.pushViewController(vc, animated: true)
+        if let artist = ManagerMusicalEntity.shared.getArtist(by: artist.artistId) {
+            showArtistDetails(with: artist)
+            return
+        }
+        
+        ServiceArtist.getArtist(artistId: artist.artistId){ [weak self] artist in
+            guard let self = self,
+                  let artist = artist else { return }
+            self.showArtistDetails(with: artist)
+        }
     }
 }

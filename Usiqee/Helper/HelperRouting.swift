@@ -40,7 +40,10 @@ class HelperRouting {
             rootViewController.presentedViewController?.dismiss(animated: false, completion: nil)
             
             eventDetailsVC.eventId = eventId
-            rootViewController.present(eventDetailsVC, animated: true, completion: nil)
+            let navigationController = UINavigationController(rootViewController: eventDetailsVC)
+            navigationController.navigationBar.isHidden = true
+            
+            rootViewController.present(navigationController, animated: true, completion: nil)
             break
         }
     }

@@ -179,3 +179,9 @@
 "ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";
 
 "NEWS_DETAILS_AUTHOR_WEBLINK" = "Read on %@";
+
+"EVENTS_DETAILS_TITLE" = "Events details";
+"EVENTS_DETAILS_ADD_TO_CALENDAR" = "add to calendar";
+"EVENTS_DETAILS_SHOW_DETAILS" = "Details";
+"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "events cannot be add to calendar";
+"EVENTS_DETAILS_BUY_TICKET" = "buy ticket";

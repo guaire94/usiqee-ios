@@ -256,4 +256,15 @@ class ServiceArtist {
         labelsListener?.remove()
         bandsListener?.remove()
     }
+    
+    static func getArtist(artistId: String, completion: @escaping (Artist?) -> Void) {
+        FFirestoreReference.artist.document(artistId).getDocument { document, error in
+            guard let document = document, document.exists,
+                  let artist = try? document.data(as: Artist.self) else {
+                completion(nil)
+                return
+            }
+            completion(artist)
+        }
+    }
 }
