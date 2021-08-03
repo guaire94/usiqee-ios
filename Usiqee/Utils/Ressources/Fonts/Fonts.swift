@@ -233,13 +233,19 @@ enum Fonts: String {
             Fonts.SofiaProBold.withSize(with: 24)
         }
         static var date: UIFont {
-            Fonts.HelveticaMedium.withSize(with: 22)
+            Fonts.HelveticaRegular.withSize(with: 18)
         }
         static var time: UIFont {
-            Fonts.HelveticaMedium.withSize(with: 22)
+            Fonts.HelveticaRegular.withSize(with: 18)
+        }
+        static var location: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 18)
         }
         static var button: UIFont {
-            Fonts.HelveticaMedium.withSize(with: 18)
+            Fonts.HelveticaRegular.withSize(with: 18)
+        }
+        static var musicalEntityName: UIFont {
+            Fonts.SofiaProRegular.withSize(with: 16)
         }
     }
     

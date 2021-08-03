@@ -10,10 +10,13 @@ import FirebaseFirestoreSwift
 
 struct Event: Identifiable, Codable {
     @DocumentID var id: String?
-    var title: String
-    var type: String
-    var date: Timestamp
-    var webLink: String?
+    let title: String
+    let type: String
+    let date: Timestamp
+    let webLink: String?
+    let locationDescription: String?
+    let planner: String?
+    let cover: String?
     
     var eventType: MEventType? {
         MEventType(rawValue: type)

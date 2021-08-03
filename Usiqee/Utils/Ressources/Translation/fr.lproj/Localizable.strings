@@ -158,6 +158,7 @@
 "EVENTS_DETAILS_ADD_TO_CALENDAR" = "Ajouter au calendrier";
 "EVENTS_DETAILS_SHOW_DETAILS" = "Détails";
 "EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "l'évènement ne peut pas être ajouter au calendrier";
+"EVENTS_DETAILS_BUY_TICKET" = "Acheter un ticket";
 
 "EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
 

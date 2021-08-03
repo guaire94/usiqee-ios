@@ -200,6 +200,7 @@ struct L10N {
         static let addToCalendar: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR", comment: "")
         static let showDetails: String = NSLocalizedString("EVENTS_DETAILS_SHOW_DETAILS", comment: "")
         static let addToCalendarError: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR", comment: "")
+        static let buyTicket: String = NSLocalizedString("EVENTS_DETAILS_BUY_TICKET", comment: "")
     }
     
     struct Events {

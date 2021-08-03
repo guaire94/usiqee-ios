@@ -226,4 +226,15 @@ class ServiceBand {
         labelsListener?.remove()
         membersListener?.remove()
     }
+    
+    static func getBand(bandId: String, completion: @escaping (Band?) -> Void) {
+        FFirestoreReference.band.document(bandId).getDocument { document, error in
+            guard let document = document, document.exists,
+                  let band = try? document.data(as: Band.self) else {
+                completion(nil)
+                return
+            }
+            completion(band)
+        }
+    }
 }
