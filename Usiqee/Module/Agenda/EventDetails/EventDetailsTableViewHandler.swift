@@ -17,6 +17,14 @@ class EventDetailsTableViewHandler {
         case musicalEntitiesList(musicalEntities: [RelatedMusicalEntity])
     }
     
+    // MARK: - Constants
+    private enum Constants {
+        enum Height {
+            static let cover: CGFloat = 100
+            static let musicalEntitiesList: CGFloat = 95
+        }
+    }
+    
     // MARK: - Properties
     private var rows: [CellType] = []
     var event: EventItem? {
@@ -73,16 +81,16 @@ class EventDetailsTableViewHandler {
     }
     
     func heightForRow(at indexPath: IndexPath) -> CGFloat {
-        guard let item = item(for: indexPath) else { return 0 }
+        guard let item = item(for: indexPath) else { return .zero }
         
         switch item {
         case .overview,
              .dateAndLocation:
             return UITableView.automaticDimension
         case .cover:
-            return 100
+            return Constants.Height.cover
         case .musicalEntitiesList:
-            return 95
+            return Constants.Height.musicalEntitiesList
         }
     }
     
