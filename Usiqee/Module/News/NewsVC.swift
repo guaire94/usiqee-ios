@@ -61,6 +61,8 @@ class NewsVC: UIViewController {
                            forCellReuseIdentifier: NewsCell.Constants.identifier)
         tableView.register(NewsCarouselCell.Constants.nib,
                            forCellReuseIdentifier: NewsCarouselCell.Constants.identifier)
+        tableView.register(NewsAdCell.Constants.nib,
+                           forCellReuseIdentifier: NewsAdCell.Constants.identifier)
     }
     
     private func addLoadingFooter() {
@@ -116,6 +118,11 @@ extension NewsVC: UITableViewDataSource {
             guard let cell = reusableCell as? NewsCell else { return UITableViewCell() }
             cell.configure(item: news)
             return cell
+        case .ad:
+            let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsAdCell.Constants.identifier, for: indexPath)
+            guard let cell = reusableCell as? NewsAdCell else { return UITableViewCell() }
+            cell.configure()
+            return cell
         }
     }
     
@@ -141,7 +148,10 @@ extension NewsVC: UITableViewDelegate {
 // MARK: - ManagerNewsDelegate
 extension NewsVC: ManagerNewsDelegate {
     func didUpdateNews() {
+        tableViewHandler.allNews = ManagerNews.shared.allNews
+        tableViewHandler.carouselNews = ManagerNews.shared.carouselNews
         tableView.reloadData()
+        tableView.contentInset = tableViewHandler.contentInset
     }
     
     func didStartLoading() {
@@ -167,7 +177,7 @@ extension NewsVC: NewsTableViewHandlerDelegate {
 // MARK: - NewsCarouselCellDelegate
 extension NewsVC: NewsCarouselCellDelegate {
     func didSelectNews(at index: Int) {
-        let news = ManagerNews.shared.allNews[index]
+        let news = ManagerNews.shared.carouselNews[index]
         showNewsDetails(news)
     }
 }

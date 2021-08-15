@@ -22,14 +22,20 @@ class ManagerNews {
     
     // MARK: - Properties
     weak var delegate: ManagerNewsDelegate?
-    private var isLoading: Bool = false
+    private var isLoadingNews: Bool = false
+    private var isLoadingCarousel: Bool = false
     
     var allNews: [NewsItem] = [] {
         didSet {
             delegate?.didUpdateNews()
-            if !isLoading {
-                delegate?.didFinishLoading()
-            }
+            finishLoadingIfNeeded()
+        }
+    }
+    
+    var carouselNews: [NewsItem] = [] {
+        didSet {
+            delegate?.didUpdateNews()
+            finishLoadingIfNeeded()
         }
     }
     
@@ -39,21 +45,32 @@ class ManagerNews {
     }
     
     func loadMore() {
-        guard !isLoading else {
+        guard !isLoadingNews else {
             delegate?.didFinishLoading()
             return
         }
         delegate?.didLoadMore()
-        isLoading = true
+        isLoadingNews = true
         ServiceNews.listenNews(delegate: self)
     }
     
     // MARK: - Private
     private func reloadData() {
-        isLoading = true
+        isLoadingNews = true
+        isLoadingCarousel = true
         delegate?.didStartLoading()
         allNews.removeAll()
+        carouselNews.removeAll()
         ServiceNews.listenNews(delegate: self)
+        ServiceNews.listenCarouselNews(delegate: self)
+    }
+    
+    private func finishLoadingIfNeeded() {
+        if !isLoadingNews, !isLoadingCarousel {
+            DispatchQueue.main.async {
+                self.delegate?.didFinishLoading()
+            }
+        }
     }
 }
 
@@ -82,11 +99,45 @@ extension ManagerNews: ServiceNewsDelegate {
     }
     
     func notifyEmptyList() {
-        isLoading = false
-        delegate?.didFinishLoading()
+        isLoadingNews = false
+        finishLoadingIfNeeded()
     }
     
     func didFinishLoading() {
-        isLoading = false
+        isLoadingNews = false
+    }
+}
+
+// MARK: - ServiceNewsCarouselDelegate
+extension ManagerNews: ServiceNewsCarouselDelegate {
+    func notifyEmptyCarouselList() {
+        isLoadingCarousel = false
+        finishLoadingIfNeeded()
+    }
+    
+    func didFinishLoadingCarousel() {
+        isLoadingCarousel = false
+    }
+    
+    func carouselDataAdded(news: News) {
+        ServiceNews.syncRelated(news: news) { [weak self] item in
+            guard let self = self else { return }
+            self.carouselNews.append(item)
+            self.carouselNews.sort(by: { $0.news.date.dateValue() > $1.news.date.dateValue() })
+        }
+    }
+    
+    func carouselDataModified(news: News) {
+        guard let index = carouselNews.firstIndex(where: { $0.news.id == news.id }) else { return }
+        ServiceNews.syncRelated(news: news) { [weak self] item in
+            guard let self = self else { return }
+            self.carouselNews[index] = item
+            self.carouselNews.sort(by: { $0.news.date.dateValue() > $1.news.date.dateValue() })
+        }
+    }
+    
+    func carouselDataRemoved(news: News) {
+        guard let index = carouselNews.firstIndex(where: { $0.news.id == news.id }) else { return }
+        carouselNews.remove(at: index)
     }
 }

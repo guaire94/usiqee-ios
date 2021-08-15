@@ -6,9 +6,11 @@
 //
 
 import UIKit
-
-import UIKit
 import Firebase
+
+protocol NewsDetailsOverviewCellDelegate: AnyObject {
+    func didTapAuthor()
+}
 
 class NewsDetailsOverviewCell: UITableViewCell {
     
@@ -34,7 +36,10 @@ class NewsDetailsOverviewCell: UITableViewCell {
     @IBOutlet weak private var dateStackView: UIStackView!
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var timeLabel: UILabel!
-        
+    
+    // MARK: - Properties
+    private weak var delegate: NewsDetailsOverviewCellDelegate?
+    
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +49,13 @@ class NewsDetailsOverviewCell: UITableViewCell {
         subtitleLabel.font = Fonts.NewsDetails.Overview.subtitle
         dateLabel.font = Fonts.NewsDetails.Overview.date
         timeLabel.font = Fonts.NewsDetails.Overview.hour
+        addAuthorTapGesture()
+    }
+    
+    private func addAuthorTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAuthor))
+        authorView.addGestureRecognizer(tap)
+        authorView.isUserInteractionEnabled = true
     }
     
     override func prepareForReuse() {
@@ -53,14 +65,15 @@ class NewsDetailsOverviewCell: UITableViewCell {
         authorView.isHidden = true
     }
     
-    func configure(item: NewsItem) {
+    func configure(item: NewsItem, delegate: NewsDetailsOverviewCellDelegate?) {
+        self.delegate = delegate
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
         newsCover.sd_setImage(with: coverStorage)
         
         titleLabel.text = item.news.title
 
         stackView.setCustomSpacing(Constants.Spacing.date, after: titleLabel)
-        dateLabel.text = item.news.date.dateValue().short
+        dateLabel.text = L10N.NewsDetails.dateTime(item.news.date.dateValue().short)
         timeLabel.text = item.news.date.dateValue().hour
 
         addSubtitleIfNeeded(item: item)
@@ -81,5 +94,10 @@ class NewsDetailsOverviewCell: UITableViewCell {
         } else {
             subtitleLabel.isHidden = true
         }
+    }
+    
+    @objc
+    private func didTapAuthor() {
+        delegate?.didTapAuthor()
     }
 }

@@ -178,6 +178,8 @@
 "ARTIST_DETAILS_BIO_MEMBERS_TITLE" = "Members";
 "ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";
 
+"NEWS_DATE_TIMEAGO" = "Published %@ ago";
+"NEWS_DETAILS_DATE_TIME" = "Published the %@";
 "NEWS_DETAILS_AUTHOR_WEBLINK" = "Read on %@";
 
 "EVENTS_DETAILS_TITLE" = "Events details";

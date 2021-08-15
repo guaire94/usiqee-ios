@@ -15,7 +15,7 @@ class NewsTableViewHandler {
     
     // MARK: - Enums
     private enum Constants {
-        static let carouselNumberOfItems: Int = 3
+        static let adOffset: Int = 4
     }
     
     enum SectionType {
@@ -26,14 +26,29 @@ class NewsTableViewHandler {
     enum CellType {
         case carousel(news: [NewsItem])
         case list(news: NewsItem)
+        case ad
     }
     
     // MARK: - Properties
     weak var delegate: NewsTableViewHandlerDelegate?
+    var allNews: [NewsItem] = [] {
+        didSet {
+            listSectionsItems.removeAll()
+            for (index, news) in allNews.enumerated() {
+                if index != .zero,
+                   index % Constants.adOffset == .zero {
+                    listSectionsItems.append(.ad)
+                }
+                listSectionsItems.append(.list(news: news))
+            }
+        }
+    }
+    var carouselNews: [NewsItem] = []
+    private var listSectionsItems: [CellType] = []
     
     // MARK: - Helper
     var numberOfSection: Int {
-        if ManagerNews.shared.allNews.count <= Constants.carouselNumberOfItems {
+        if carouselNews.isEmpty {
             return 1
         }
         
@@ -42,9 +57,10 @@ class NewsTableViewHandler {
     
     func sectiontype(at section: Int) -> SectionType? {
         switch section {
-        case 0:
+        case 0 where !carouselNews.isEmpty:
             return .carousel
-        case 1:
+        case 0 where carouselNews.isEmpty,
+             1:
             return .list
         default:
             return nil
@@ -57,12 +73,7 @@ class NewsTableViewHandler {
         case .carousel:
             return 1
         case .list:
-            let numberOfItems = ManagerNews.shared.allNews.count
-            if numberOfItems < Constants.carouselNumberOfItems {
-                return 0
-            }
-            
-            return numberOfItems - Constants.carouselNumberOfItems
+            return listSectionsItems.count
         }
     }
     
@@ -76,6 +87,8 @@ class NewsTableViewHandler {
             return NewsCarouselCell.Constants.height
         case .list:
             return NewsCell.Constants.height
+        case .ad:
+            return NewsAdCell.Constants.height
         }
     }
     
@@ -83,16 +96,25 @@ class NewsTableViewHandler {
         guard let sectiontype = sectiontype(at: indexPath.section) else { return nil }
         switch sectiontype {
         case .carousel:
-            let endRange: Int = ManagerNews.shared.allNews.count > Constants.carouselNumberOfItems ? Constants.carouselNumberOfItems : ManagerNews.shared.allNews.count
-            return .carousel(news: Array(ManagerNews.shared.allNews[0..<endRange]))
+            return .carousel(news: carouselNews)
         case .list:
-            return .list(news: ManagerNews.shared.allNews[indexPath.row+Constants.carouselNumberOfItems])
+            return listSectionsItems[indexPath.row]
         }
     }
     
     func willDisplayCell(at indexPath: IndexPath) {
         guard case .list = sectiontype(at: indexPath.section),
-              indexPath.row == ManagerNews.shared.allNews.count-Constants.carouselNumberOfItems-2 else { return }
+              indexPath.row == listSectionsItems.count-2 else { return }
         delegate?.shouldLoadMore()
+    }
+    
+    var contentInset: UIEdgeInsets {
+        get {
+            if numberOfSection == 1 {
+                return UIEdgeInsets(top: 40, left: .zero, bottom: .zero, right: .zero)
+            }
+            
+            return .zero
+        }
     }
 }

@@ -97,12 +97,17 @@ extension NewsDetailsVC: UITableViewDataSource {
         case let .overview(news):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsOverviewCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsOverviewCell else { return UITableViewCell() }
-            cell.configure(item: news)
+            cell.configure(item: news, delegate: self)
             return cell
-        case let .image(url):
+        case let .image(url, image):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsImageCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsImageCell else { return UITableViewCell() }
-            cell.configure(url: url)
+            
+            if let image = image {
+                cell.configure(url: url, ratio: image.size.height/image.size.width)
+            } else {
+                cell.configure(url: url, delegate: self)
+            }
             return cell
         case let .text(content):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsTextCell.Constants.identifier, for: indexPath)
@@ -201,5 +206,25 @@ extension NewsDetailsVC: ManagerAuthDelegate {
     
     func didUpdateLikedNews() {
         footer.setUpLikeButton()
+    }
+}
+
+// MARK: - NewsDetailsOverviewCellDelegate
+extension NewsDetailsVC: NewsDetailsOverviewCellDelegate {
+    func didTapAuthor() {
+        tableView.scrollToRow(
+            at: IndexPath(row: tableViewHandler.numberOfRows-1, section: 0),
+            at: .bottom,
+            animated: true
+        )
+    }
+}
+
+// MARK: - NewsDetailsImageCellDelegate
+extension NewsDetailsVC: NewsDetailsImageCellDelegate {
+    func didLoadImage(for cell: NewsDetailsImageCell, image: UIImage) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        tableViewHandler.setImage(for: indexPath, image: image)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
