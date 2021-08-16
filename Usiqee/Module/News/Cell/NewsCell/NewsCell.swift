@@ -49,7 +49,7 @@ class NewsCell: UITableViewCell {
 
         titleLabel.text = item.news.title
         titleLabel.text = item.news.title
-        dateLabel.text = item.news.date.dateValue().short
+        dateLabel.text = L10N.News.dateTimeAgo(item.news.date.dateValue().timeAgo)
 
         guard let author = item.author else { return }
         authorView.isHidden = false

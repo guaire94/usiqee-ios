@@ -16,6 +16,14 @@ protocol ServiceNewsDelegate {
     func didFinishLoading()
 }
 
+protocol ServiceNewsCarouselDelegate {
+    func notifyEmptyCarouselList()
+    func didFinishLoadingCarousel()
+    func carouselDataAdded(news: News)
+    func carouselDataModified(news: News)
+    func carouselDataRemoved(news: News)
+}
+
 class ServiceNews {
 
     // MARK: Constants
@@ -25,6 +33,7 @@ class ServiceNews {
     // MARK: - Property
     private static var listener: ListenerRegistration?
     private static var lastSnapshot: QueryDocumentSnapshot?
+    private static var carouselListener: ListenerRegistration?
     
     // MARK: - GET
     static func listenNews(delegate: ServiceNewsDelegate) {
@@ -32,6 +41,7 @@ class ServiceNews {
 
         var listener = FFirestoreReference.news
             .whereField("isDraft", isEqualTo: false)
+            .whereField("inCarousel", isEqualTo: false)
             .order(by: "date", descending: true)
         
         if let lastSnapshot = lastSnapshot {
@@ -50,10 +60,12 @@ class ServiceNews {
                     self.lastSnapshot = lastSnapshot
                 }
                 snapshot.documentChanges.forEach { diff in
-                    numberOfItems -= 1
-                    if numberOfItems == .zero {
-                        delegate.didFinishLoading()
+                    defer {
+                        if numberOfItems == .zero {
+                            delegate.didFinishLoading()
+                        }
                     }
+                    numberOfItems -= 1
                     guard let news = try? diff.document.data(as: News.self) else { return }
 
                     switch diff.type {
@@ -68,6 +80,37 @@ class ServiceNews {
             }
     }
 
+    static func listenCarouselNews(delegate: ServiceNewsCarouselDelegate) {
+        carouselListener?.remove()
+        carouselListener = FFirestoreReference.news
+            .whereField("inCarousel", isEqualTo: true)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            var numberOfItems = snapshot.count
+            if numberOfItems == .zero {
+                delegate.notifyEmptyCarouselList()
+            }
+            snapshot.documentChanges.forEach { diff in
+                defer {
+                    if numberOfItems == .zero {
+                        delegate.didFinishLoadingCarousel()
+                    }
+                }
+                numberOfItems -= 1
+                guard let news = try? diff.document.data(as: News.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate.carouselDataAdded(news: news)
+                case .modified:
+                    delegate.carouselDataModified(news: news)
+                case .removed:
+                    delegate.carouselDataRemoved(news: news)
+                }
+            }
+        }
+    }
+    
     static func syncAllInformation(news: NewsItem, completion: @escaping ([NewsSection], Author?) -> Void) {
         guard let newsId = news.news.id else { return }
         var newsSections: [NewsSection] = []

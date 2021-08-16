@@ -48,7 +48,7 @@ class NewsCarouselItemCell: UICollectionViewCell {
 
         titleLabel.text = item.news.title
         titleLabel.text = item.news.title
-        dateLabel.text = item.news.date.dateValue().short
+        dateLabel.text = L10N.News.dateTimeAgo(item.news.date.dateValue().timeAgo)
         timeLabel.text = item.news.date.dateValue().hour
 
         guard let author = item.author else { return }

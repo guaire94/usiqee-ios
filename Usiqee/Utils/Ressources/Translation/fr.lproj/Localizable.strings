@@ -197,4 +197,6 @@
 "ARTIST_DETAILS_BIO_MEMBERS_TITLE" = "Membres";
 "ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";
 
+"NEWS_DATE_TIMEAGO" = "Publié il y a %@";
+"NEWS_DETAILS_DATE_TIME" = "Publié le %@";
 "NEWS_DETAILS_AUTHOR_WEBLINK" = "Lire sur %@";

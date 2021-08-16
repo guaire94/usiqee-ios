@@ -235,7 +235,16 @@ struct L10N {
         static let december = NSLocalizedString("MONTHS_DECEMBER", comment: "")
     }
     
+    struct News {
+        static func dateTimeAgo(_ date: String) -> String {
+            String(format: NSLocalizedString("NEWS_DATE_TIMEAGO", comment: ""), date)
+        }
+    }
+    
     struct NewsDetails {
+        static func dateTime(_ date: String) -> String {
+            String(format: NSLocalizedString("NEWS_DETAILS_DATE_TIME", comment: ""), date)
+        }
         static func authorWebLink(_ text: String) -> String {
             String(format: NSLocalizedString("NEWS_DETAILS_AUTHOR_WEBLINK", comment: ""), text)
         }

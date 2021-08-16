@@ -20,7 +20,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ihy-Uq-uVI">
                         <rect key="frame" x="16" y="8" width="383" height="157"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Ihy-Uq-uVI" secondAttribute="height" multiplier="16:10" priority="999" id="Ma5-z0-0yY"/>
+                            <constraint firstAttribute="width" secondItem="Ihy-Uq-uVI" secondAttribute="height" multiplier="16:9" priority="999" id="lPg-E2-Lzz"/>
                         </constraints>
                     </imageView>
                 </subviews>

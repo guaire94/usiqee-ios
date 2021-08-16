@@ -17,24 +17,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="364" height="62"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-9Z-X90">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-gF-RMr">
                         <rect key="frame" x="16" y="8" width="332" height="46"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="G6C-9Z-X90" secondAttribute="bottom" constant="8" id="6i0-NO-jkt"/>
-                    <constraint firstAttribute="trailing" secondItem="G6C-9Z-X90" secondAttribute="trailing" constant="16" id="7Zy-ov-Mrn"/>
-                    <constraint firstItem="G6C-9Z-X90" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Fy1-3P-6hV"/>
-                    <constraint firstItem="G6C-9Z-X90" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mlA-gk-dpb"/>
+                    <constraint firstItem="G0U-gF-RMr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="57m-bX-1QK"/>
+                    <constraint firstItem="G0U-gF-RMr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="VfU-SE-8Qt"/>
+                    <constraint firstAttribute="trailing" secondItem="G0U-gF-RMr" secondAttribute="trailing" constant="16" id="vUz-Se-eoV"/>
+                    <constraint firstAttribute="bottom" secondItem="G0U-gF-RMr" secondAttribute="bottom" constant="8" id="y8k-wR-aHJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="contentLabel" destination="G6C-9Z-X90" id="nlk-t0-Hft"/>
+                <outlet property="contentTextView" destination="G0U-gF-RMr" id="Po5-nT-oJe"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="47.544642857142854"/>
         </tableViewCell>

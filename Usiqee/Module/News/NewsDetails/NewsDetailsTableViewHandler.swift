@@ -13,7 +13,7 @@ class NewsDetailsTableViewHandler {
     
     enum CellType {
         case overview(news: NewsItem)
-        case image(url: String)
+        case image(url: String, image: UIImage?)
         case text(content: String)
         case video(videoId: String)
         case ads
@@ -24,6 +24,7 @@ class NewsDetailsTableViewHandler {
     var news: NewsItem?
     var sections: [NewsSection] = []
     var author: Author?
+    var imagesCache: [String: UIImage] = [:]
     
     // MARK: - Helper
     var numberOfRows: Int {
@@ -72,11 +73,16 @@ class NewsDetailsTableViewHandler {
         case let .text(content: content):
             return .text(content: content)
         case let .image(url: url):
-            return .image(url: url)
+            return .image(url: url, image: imagesCache[url])
         case .ads:
             return .ads
         case let .video(url: videoId):
             return .video(videoId: videoId)
         }
+    }
+    
+    func setImage(for indexPath: IndexPath, image: UIImage) {
+        let url = sections[indexPath.row-1].content
+        imagesCache[url] = image
     }
 }

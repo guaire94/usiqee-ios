@@ -32,6 +32,7 @@ class AccountDetailsFollowingCell: UITableViewCell {
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         unfollowButton.setTitle(L10N.UserDetails.unfollow, for: .normal)
         unfollowButton.layer.cornerRadius = 15
         nameLabel.font = Fonts.AccountDetails.artistName
