@@ -60,7 +60,7 @@ class EventDetailsTableViewHandler {
             }
             
             // Musical entites list
-            if [.single, .festival, .special, .concert, .showcase].contains(eventType),
+            if [.single, .festival, .special, .concert, .showcase, .video].contains(eventType),
                (!event.artists.isEmpty || !event.bands.isEmpty) {
                 var musicalEntities: [RelatedMusicalEntity] = [event.artists, event.bands].flatMap({ (element: [RelatedMusicalEntity]) -> [RelatedMusicalEntity] in
                     element

@@ -41,10 +41,13 @@ class EventCell: UITableViewCell {
         descriptionLabel.text = item.event.title.uppercased()
         typeLabel.text = item.event.eventType?.title.uppercased()
         timeLabel.text = item.event.date.dateValue().hour
-        if let musicalEntity = item.musicalEntity {
-            let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
-            avatarImage.sd_setImage(with: storage)
-            artistLabel.text = musicalEntity.name.uppercased()
+        
+        if [.festival, .special].contains(item.event.eventType) {
+            set(avatar: item.event.cover)
+            set(title:item.event.planner)
+        } else if let musicalEntity = item.musicalEntity {
+            set(avatar: musicalEntity.avatar)
+            set(title: musicalEntity.name)
         }
     }
     
@@ -54,5 +57,16 @@ class EventCell: UITableViewCell {
         descriptionLabel.font = Fonts.Events.Cell.description
         typeLabel.font = Fonts.Events.Cell.type
         timeLabel.font = Fonts.Events.Cell.time
+    }
+    
+    private func set(title: String?) {
+        guard let title = title else { return }
+        artistLabel.text = title.uppercased()
+    }
+    
+    private func set(avatar: String?) {
+        guard let avatar = avatar else { return }
+        let storage = Storage.storage().reference(forURL: avatar)
+        avatarImage.sd_setImage(with: storage)
     }
 }
