@@ -18,6 +18,7 @@ class EventDetailsMusicalEntitiesListCell: UITableViewCell {
         static let identifier: String = "EventDetailsMusicalEntitiesListCell"
         static let nib: UINib = UINib(nibName: identifier, bundle: nil)
         fileprivate static let collectionViewSpacing: Int = 14
+        fileprivate static let collectionViewWidthRatio: CGFloat = 1.1
     }
     
     // MARK: - IBOutlet
@@ -63,7 +64,9 @@ extension EventDetailsMusicalEntitiesListCell: UICollectionViewDataSource {
 extension EventDetailsMusicalEntitiesListCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let numberOfItems = musicalEntities.count
-        let totalWidth: CGFloat = musicalEntities.reduce(.zero) { $0 + EventDetailsMusicalEntityCell.width(for: $1) }
+        let heightCell = collectionView.frame.height
+        let widthCell = heightCell / Constants.collectionViewWidthRatio
+        let totalWidth = widthCell * CGFloat(numberOfItems)
         let totalSpacingWidth = CGFloat(Constants.collectionViewSpacing * (numberOfItems - 1))
         var inset = (collectionView.frame.width - (totalWidth + totalSpacingWidth)) / 2
         inset = max(inset, .zero)
@@ -71,9 +74,9 @@ extension EventDetailsMusicalEntitiesListCell: UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(
-            width: EventDetailsMusicalEntityCell.width(for: musicalEntities[indexPath.row]),
-            height: collectionView.frame.height)
+        let heightCell = collectionView.frame.height
+        let widthCell = heightCell / Constants.collectionViewWidthRatio
+        return CGSize(width: widthCell, height: heightCell)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

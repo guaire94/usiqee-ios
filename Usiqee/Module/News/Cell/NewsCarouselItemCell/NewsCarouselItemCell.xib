@@ -29,7 +29,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="WLj-LC-0u2">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="18"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-gray" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-rr-LQX">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-gray" translatesAutoresizingMaskIntoConstraints="NO" id="lhq-rr-LQX" customClass="CircularImageView" customModule="Usiqee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="QYa-wO-Tuk"/>

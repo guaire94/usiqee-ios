@@ -17,7 +17,7 @@ enum Fonts: String {
     case HelveticaLight = "Helvetica-Light"
     case HelveticaMedium = "Helvetica-Medium"
     case HelveticaItalic = "Helvetica-Italic"
-    case SofiaProDisplayRegular = "SFProDisplay-Regular"
+    case SFProDisplayRegular = "SFProDisplay-Regular"
     
     private func withSize(with size: CGFloat) -> UIFont {
         guard let font = UIFont(name: rawValue, size: size) else {
@@ -107,10 +107,10 @@ enum Fonts: String {
         }
         enum Bio {
             static var title: UIFont {
-                Fonts.SofiaProDisplayRegular.withSize(with: 16)
+                Fonts.SFProDisplayRegular.withSize(with: 16)
             }
             static var description: UIFont {
-                Fonts.SofiaProDisplayRegular.withSize(with: 14)
+                Fonts.SFProDisplayRegular.withSize(with: 14)
             }
         }
     }
@@ -245,7 +245,7 @@ enum Fonts: String {
             Fonts.HelveticaRegular.withSize(with: 18)
         }
         static var musicalEntityName: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 16)
+            Fonts.SFProDisplayRegular.withSize(with: 16)
         }
     }
     

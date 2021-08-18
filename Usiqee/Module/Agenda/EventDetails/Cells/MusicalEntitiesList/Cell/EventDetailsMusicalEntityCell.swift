@@ -33,10 +33,4 @@ class EventDetailsMusicalEntityCell: UICollectionViewCell {
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
         artistImage.sd_setImage(with: storage)
     }
-    
-    // MARK: - Helpers
-    class func width(for musicalEntity: RelatedMusicalEntity) -> CGFloat {
-        let width = musicalEntity.name.size(withAttributes: [NSAttributedString.Key.font : Fonts.EventDetails.musicalEntityName]).width + Constants.collectionViewWidthInsetCell
-        return max(Constants.minimumWidthCell, width)
-    }
 }
