@@ -44,7 +44,7 @@ class EventCell: UITableViewCell {
         
         if [.festival, .special].contains(item.event.eventType) {
             set(avatar: item.event.cover)
-            set(title:item.event.planner)
+            set(title: item.event.planner)
         } else if let musicalEntity = item.musicalEntity {
             set(avatar: musicalEntity.avatar)
             set(title: musicalEntity.name)
