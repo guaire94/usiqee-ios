@@ -112,6 +112,7 @@ extension NewsDetailsVC: UITableViewDataSource {
         case let .text(content):
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsTextCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsTextCell else { return UITableViewCell() }
+            cell.delegate = self
             cell.configure(content: content)
             return cell
         case let .author(author, externalLink):
@@ -137,6 +138,14 @@ extension NewsDetailsVC: UITableViewDataSource {
 extension NewsDetailsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableViewHandler.heightForRow(at: indexPath)
+    }
+}
+
+// MARK: - NewsDetailsTextCellDelegate
+extension NewsDetailsVC: NewsDetailsTextCellDelegate {
+    func linkToggle(url: URL) {
+        guard UIApplication.shared.canOpenURL(url) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
