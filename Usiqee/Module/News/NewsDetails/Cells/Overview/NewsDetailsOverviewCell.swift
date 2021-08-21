@@ -83,6 +83,7 @@ class NewsDetailsOverviewCell: UITableViewCell {
         authorView.isHidden = false
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
         authorAvatar.sd_setImage(with: authorStorage)
+        authorAvatar.layer.cornerRadius = authorAvatar.frame.width/2
         authorLabel.text = author.name
     }
     

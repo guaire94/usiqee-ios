@@ -65,7 +65,8 @@ class NewsDetailsAuthorCell: UITableViewCell {
         authorLabel.text = author.name
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
         authorAvatar.sd_setImage(with: authorStorage)
-        
+        authorAvatar.layer.cornerRadius = authorAvatar.frame.width/2
+
         if let externalLink = externalLink,
            let url = URL(string: externalLink),
            UIApplication.shared.canOpenURL(url) {
