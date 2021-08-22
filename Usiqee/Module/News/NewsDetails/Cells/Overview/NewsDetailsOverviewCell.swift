@@ -29,7 +29,7 @@ class NewsDetailsOverviewCell: UITableViewCell {
     @IBOutlet weak private var newsCover: UIImageView!
     @IBOutlet weak private var stackView: UIStackView!
     @IBOutlet weak private var authorView: UIStackView!
-    @IBOutlet weak private var authorAvatar: UIImageView!
+    @IBOutlet weak private var authorAvatar: CircularImageView!
     @IBOutlet weak private var authorLabel: UILabel!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var subtitleLabel: UILabel!
@@ -83,7 +83,6 @@ class NewsDetailsOverviewCell: UITableViewCell {
         authorView.isHidden = false
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
         authorAvatar.sd_setImage(with: authorStorage)
-        authorAvatar.layer.cornerRadius = authorAvatar.frame.width/2
         authorLabel.text = author.name
     }
     

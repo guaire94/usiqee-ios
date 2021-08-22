@@ -32,7 +32,7 @@ class NewsDetailsAuthorCell: UITableViewCell {
     }
         
     // MARK: - IBOutlets
-    @IBOutlet weak private var authorAvatar: UIImageView!
+    @IBOutlet weak private var authorAvatar: CircularImageView!
     @IBOutlet weak private var authorLabel: UILabel!
     @IBOutlet weak private var externalLinkButton: FilledButton!
     @IBOutlet weak private var externalLinkView: UIView!
@@ -65,7 +65,6 @@ class NewsDetailsAuthorCell: UITableViewCell {
         authorLabel.text = author.name
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
         authorAvatar.sd_setImage(with: authorStorage)
-        authorAvatar.layer.cornerRadius = authorAvatar.frame.width/2
 
         if let externalLink = externalLink,
            let url = URL(string: externalLink),
