@@ -24,23 +24,23 @@ struct Author: Identifiable, Codable {
         var image: UIImage? {
             switch self {
             case .twitter:
-                return UIImage(named: "twitter")
+                return #imageLiteral(resourceName: "twitter")
             case .facebook:
-                return UIImage(named: "facebook")
+                return #imageLiteral(resourceName: "facebook")
             case .instagram:
-                return UIImage(named: "instagram")
+                return #imageLiteral(resourceName: "instagram")
             case .youtube:
-                return UIImage(named: "youtube")
+                return #imageLiteral(resourceName: "youtube")
             case .snapchat:
-                return UIImage(named: "snapchat")
+                return #imageLiteral(resourceName: "snapchat")
             case .twitch:
-                return UIImage(named: "twitch")
+                return #imageLiteral(resourceName: "twitch")
             case .tiktok:
-                return UIImage(named: "tiktok")
+                return #imageLiteral(resourceName: "tiktok")
             case .linkedin:
-                return UIImage(named: "linkedin")
+                return #imageLiteral(resourceName: "linkedin")
             case .web:
-                return UIImage(named: "web")
+                return #imageLiteral(resourceName: "web")
             }
         }
     }
