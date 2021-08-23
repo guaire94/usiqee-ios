@@ -111,10 +111,11 @@ class ServiceNews {
         }
     }
     
-    static func syncAllInformation(news: NewsItem, completion: @escaping ([NewsSection], Author?) -> Void) {
+    static func syncAllInformation(news: NewsItem, completion: @escaping ([NewsSection], Author?, [RelatedMusicalEntity]) -> Void) {
         guard let newsId = news.news.id else { return }
         var newsSections: [NewsSection] = []
         var newsAuthor: Author?
+        var musicalEntities: [RelatedMusicalEntity] = []
 
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
@@ -131,8 +132,21 @@ class ServiceNews {
             }
         }
         
+        dispatchGroup.enter()
+        getNewsArtists(newsId: newsId) { artists in
+            musicalEntities.append(contentsOf: artists)
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getNewsBands(newsId: newsId) { bands in
+            musicalEntities.append(contentsOf: bands)
+            dispatchGroup.leave()
+        }
+        
         dispatchGroup.notify(queue: .main) {
-            completion(newsSections, newsAuthor)
+            musicalEntities.sort(by: { $0.name < $1.name })
+            completion(newsSections, newsAuthor, musicalEntities)
         }
     }
 
@@ -230,6 +244,87 @@ class ServiceNews {
                 return
             }
             completion(author)
+        }
+    }
+    
+    static func getNewsArtists(newsId: String, completion: @escaping ([RelatedArtist]) -> Void) {
+        FFirestoreReference.newsArtists(newsId: newsId).getDocuments() { (querySnapshot, err) in
+            var artists: [RelatedArtist] = []
+            defer {
+                completion(artists)
+            }
+            
+            guard err == nil, let documents = querySnapshot?.documents else { return }
+            for document in documents {
+                if let artist = try? document.data(as: RelatedArtist.self) {
+                    artists.append(artist)
+                }
+            }
+        }
+    }
+    
+    static func getNewsBands(newsId: String, completion: @escaping ([RelatedBand]) -> Void) {
+        FFirestoreReference.newsBands(newsId: newsId).getDocuments() { (querySnapshot, err) in
+            var bands: [RelatedBand] = []
+            defer {
+                completion(bands)
+            }
+            
+            guard err == nil, let documents = querySnapshot?.documents else { return }
+            for document in documents {
+                if let band = try? document.data(as: RelatedBand.self) {
+                    bands.append(band)
+                }
+            }
+        }
+    }
+    
+    static func syncAllInformation(newsId: String, completion: @escaping (News?, [NewsSection], Author?, [RelatedMusicalEntity]) -> Void) {
+        var news: News?
+        var newsSections: [NewsSection] = []
+        var newsAuthor: Author?
+        var musicalEntities: [RelatedMusicalEntity] = []
+
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        getNews(newsId: newsId) { (loadedNews) in
+            news = loadedNews
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getNewsSections(newsId: newsId) { sections in
+            newsSections = sections.sorted(by: { $0.rank < $1.rank })
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getNewsAuthor(newsId: newsId) { author in
+            if let authorId = author?.authorId {
+                getAuthor(authorId: authorId) { author in
+                    newsAuthor = author
+                    dispatchGroup.leave()
+                }
+            } else {
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.enter()
+        getNewsArtists(newsId: newsId) { artists in
+            musicalEntities.append(contentsOf: artists)
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+        getNewsBands(newsId: newsId) { bands in
+            musicalEntities.append(contentsOf: bands)
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            musicalEntities.sort(by: { $0.name < $1.name })
+            completion(news, newsSections, newsAuthor, musicalEntities)
         }
     }
     

@@ -172,6 +172,12 @@ class ArtistDetailsVC: UIViewController {
         vc.band = band
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func syncRelatedNews(news: RelatedNews, completion: @escaping (RelatedNewsItem) -> Void) {
+        ServiceNews.getNewsAuthor(newsId: news.newsId) { author in
+            completion(RelatedNewsItem(news: news, author: author))
+        }
+    }
 }
 
 // MARK: - IBActions
@@ -204,8 +210,12 @@ extension ArtistDetailsVC: UITableViewDataSource {
         }
         
         switch item {
-        case .news:
-            return defaultCell
+        case let .news(news: news):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsNewsCell.Constants.identifier) as? ArtistDetailsNewsCell else {
+                return defaultCell
+            }
+            cell.configure(item: news)
+            return cell
         case let .bio(cellType) where cellType == .information:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailsInformationCell.Constants.identifier) as? ArtistDetailsInformationCell else {
                 return defaultCell
@@ -243,8 +253,17 @@ extension ArtistDetailsVC: UITableViewDelegate {
         guard let item = tableviewHandler.item(for: indexPath) else { return }
         
         switch item {
-        case .bio, .news:
+        case .bio:
             return
+        case let .news(news: news):
+            guard let newsDetailsVC = UIViewController.newsDetailsVC else { return }
+            
+            ServiceNews.syncLikedNews(likedNews: news.news) { newsItem in
+                DispatchQueue.main.async {
+                    newsDetailsVC.news = newsItem
+                    self.show(newsDetailsVC, sender: nil)
+                }
+            }
         case let .event(event: event):
             guard let eventDetailsVC = UIViewController.eventDetailsVC else {
                 return
@@ -325,16 +344,20 @@ extension ArtistDetailsVC: ServiceArtistBandsDelegate {
 // MARK: - ServiceArtistNewsDelegate
 extension ArtistDetailsVC: ServiceArtistNewsDelegate {
     func dataAdded(news: RelatedNews) {
-        tableviewHandler.relatedNews.append(news)
+        syncRelatedNews(news: news) { [weak self] newsItem in
+            self?.tableviewHandler.relatedNews.append(newsItem)
+        }
     }
     
     func dataModified(news: RelatedNews) {
-        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
-        tableviewHandler.relatedNews[index] = news
+        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.news.newsId == news.newsId }) else { return }
+        syncRelatedNews(news: news) { [weak self] newsItem in
+            self?.tableviewHandler.relatedNews[index] = newsItem
+        }
     }
     
     func dataRemoved(news: RelatedNews) {
-        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.newsId == news.newsId }) else { return }
+        guard let index = tableviewHandler.relatedNews.firstIndex(where: { $0.news.newsId == news.newsId }) else { return }
         tableviewHandler.relatedNews.remove(at: index)
     }
 }

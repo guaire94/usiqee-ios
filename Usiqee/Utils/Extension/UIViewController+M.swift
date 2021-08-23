@@ -60,4 +60,12 @@ extension UIViewController {
         
         return artistDetails
     }
+    
+    static var newsDetailsVC: NewsDetailsVC? {
+        guard let newsDetails = MStoryboard.News.storyboard.instantiateViewController(withIdentifier: NewsDetailsVC.Constants.identifier) as? NewsDetailsVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.News.rawValue)' Storyboard have failed")
+        }
+        
+        return newsDetails
+    }
 }

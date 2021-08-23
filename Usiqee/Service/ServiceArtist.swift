@@ -255,6 +255,7 @@ class ServiceArtist {
         eventsListener?.remove()
         labelsListener?.remove()
         bandsListener?.remove()
+        newsListener?.remove()
     }
     
     static func getArtist(artistId: String, completion: @escaping (Artist?) -> Void) {

@@ -248,5 +248,6 @@ struct L10N {
         static func authorWebLink(_ text: String) -> String {
             String(format: NSLocalizedString("NEWS_DETAILS_AUTHOR_WEBLINK", comment: ""), text)
         }
+        static let RelatedMusicalEntityTitle: String = NSLocalizedString("NEWS_DETAILS_MUSICAL_ENTITY_TITLE", comment: "")
     }
 }

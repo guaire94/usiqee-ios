@@ -9,6 +9,7 @@ import Foundation
 
 enum DeepLinkType {
     case eventDetails(eventId: String)
+    case newsDetails(newsId: String)
 }
 
 class ManagerDeepLink {
@@ -17,10 +18,12 @@ class ManagerDeepLink {
     private enum Constants {
         enum id {
             static let event = "eventId"
+            static let news = "newsId"
         }
         
         enum host {
             static let eventDetails = "eventDetails"
+            static let newsDetails = "newsDetails"
         }
         
         enum notification {
@@ -68,6 +71,10 @@ class ManagerDeepLink {
             guard let eventId = parameters[Constants.id.event] else { return }
             
             currentDeepLink = .eventDetails(eventId: eventId)
+        case Constants.host.newsDetails:
+            guard let newsId = parameters[Constants.id.news] else { return }
+            
+            currentDeepLink = .newsDetails(newsId: newsId)
         default:
             currentDeepLink = nil
         }
