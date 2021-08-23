@@ -20,7 +20,7 @@ class ArtistDetailsNewsCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet weak private var newsCover: UIImageView!
     @IBOutlet weak private var authorView: UIStackView!
-    @IBOutlet weak private var authorAvatar: UIImageView!
+    @IBOutlet weak private var authorAvatar: CircularImageView!
     @IBOutlet weak private var authorLabel: UILabel!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!

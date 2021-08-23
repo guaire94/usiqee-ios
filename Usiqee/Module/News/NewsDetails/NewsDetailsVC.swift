@@ -36,13 +36,13 @@ class NewsDetailsVC: UIViewController {
     // MARK: - Private
     private func setupView() {
         setUpFooterHeight()
+        setupTableView()
         setupNewsDetails()
         ManagerAuth.shared.add(delegate: self)
     }
     
     private func setupNewsDetails() {
         guard let newsId = newsId else {
-            setupTableView()
             syncNewsDetails()
             return
         }
@@ -60,11 +60,12 @@ class NewsDetailsVC: UIViewController {
         ServiceNews.syncAllInformation(newsId: newsId) { [weak self] news, sections, author, musicalEntities in
             guard let self = self,
                   let news = news else { return }
-            self.news = NewsItem(news: news, author: nil)
+            let newsItem = NewsItem(news: news, author: nil)
+            self.news = newsItem
             self.tableViewHandler.sections = sections
             self.tableViewHandler.author = author
             self.tableViewHandler.musicalEntities = musicalEntities
-            self.setupTableView()
+            self.tableViewHandler.news = newsItem
             self.tableView.reloadData()
             self.loaderView.isHidden = true
         }
