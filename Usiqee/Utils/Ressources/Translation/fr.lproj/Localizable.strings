@@ -200,3 +200,4 @@
 "NEWS_DATE_TIMEAGO" = "Publié il y a %@";
 "NEWS_DETAILS_DATE_TIME" = "Publié le %@";
 "NEWS_DETAILS_AUTHOR_WEBLINK" = "Lire sur %@";
+"NEWS_DETAILS_MUSICAL_ENTITY_TITLE" = "Related Artists";

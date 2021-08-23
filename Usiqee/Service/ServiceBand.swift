@@ -31,6 +31,12 @@ protocol ServiceBandMembersDelegate: AnyObject {
     func dataRemoved(artist: RelatedArtist)
 }
 
+protocol ServiceBandNewsDelegate: AnyObject {
+    func dataAdded(news: RelatedNews)
+    func dataModified(news: RelatedNews)
+    func dataRemoved(news: RelatedNews)
+}
+
 class ServiceBand {
     
     // MARK: - Property
@@ -38,6 +44,7 @@ class ServiceBand {
     private static var eventsListener: ListenerRegistration?
     private static var labelsListener: ListenerRegistration?
     private static var membersListener: ListenerRegistration?
+    private static var newsListener: ListenerRegistration?
     
     // MARK: - GET
     static func listenBands(delegate: ServiceBandDelegate) {
@@ -221,10 +228,34 @@ class ServiceBand {
         }
     }
     
+    static func listenToRelatedNews(band: Band, delegate: ServiceBandNewsDelegate?) {
+        newsListener?.remove()
+        weak var delegate = delegate
+        guard let bandId = band.id else { return }
+        
+        newsListener = FFirestoreReference.bandNews(bandId: bandId)
+            .addSnapshotListener { query, error in
+            guard let snapshot = query else { return }
+            snapshot.documentChanges.forEach { diff in
+                guard let news = try? diff.document.data(as: RelatedNews.self) else { return }
+                
+                switch diff.type {
+                case .added:
+                    delegate?.dataAdded(news: news)
+                case .modified:
+                    delegate?.dataModified(news: news)
+                case .removed:
+                    delegate?.dataRemoved(news: news)
+                }
+            }
+        }
+    }
+    
     static func detachRelatedListeners() {
         eventsListener?.remove()
         labelsListener?.remove()
         membersListener?.remove()
+        newsListener?.remove()
     }
     
     static func getBand(bandId: String, completion: @escaping (Band?) -> Void) {

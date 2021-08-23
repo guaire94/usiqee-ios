@@ -33,9 +33,7 @@ class HelperRouting {
         
         switch currentDeepLink {
         case let .eventDetails(eventId: eventId):
-            guard let eventDetailsVC = UIViewController.eventDetailsVC else {
-                return
-            }
+            guard let eventDetailsVC = UIViewController.eventDetailsVC else { return }
             
             rootViewController.presentedViewController?.dismiss(animated: false, completion: nil)
             
@@ -44,6 +42,18 @@ class HelperRouting {
             navigationController.navigationBar.isHidden = true
             
             rootViewController.present(navigationController, animated: true, completion: nil)
+            break
+        case let .newsDetails(newsId: newsId):
+            guard let newsDetailsVC = UIViewController.newsDetailsVC,
+                  let tabVC = rootViewController as? TabsVC else { return }
+            
+            rootViewController.presentedViewController?.dismiss(animated: false, completion: nil)
+            if tabVC.selectedIndex != 0 {
+                tabVC.selectedIndex = 0
+            }
+            
+            newsDetailsVC.newsId = newsId
+            tabVC.allVC.first?.navigationController?.pushViewController(newsDetailsVC, animated: true)
             break
         }
     }

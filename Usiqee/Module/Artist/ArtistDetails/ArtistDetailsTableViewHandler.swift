@@ -17,7 +17,7 @@ enum ArtistDetailsCellType {
     
     case bio(BioCellType)
     case event(event: RelatedEvent)
-    case news(news: RelatedNews)
+    case news(news: RelatedNewsItem)
 }
 
 protocol ArtistDetailsTableViewHandlerDelegate: AnyObject {
@@ -58,7 +58,7 @@ class ArtistDetailsTableViewHandler {
         }
     }
 
-    var relatedNews: [RelatedNews] = [] {
+    var relatedNews: [RelatedNewsItem] = [] {
         didSet {
             guard tableViewType == .news else { return }
             delegate?.reloadData()

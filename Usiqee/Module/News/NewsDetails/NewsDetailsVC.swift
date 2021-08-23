@@ -25,6 +25,7 @@ class NewsDetailsVC: UIViewController {
     // MARK: - Properties
     private var tableViewHandler: NewsDetailsTableViewHandler = NewsDetailsTableViewHandler()
     var news: NewsItem?
+    var newsId: String?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -35,9 +36,18 @@ class NewsDetailsVC: UIViewController {
     // MARK: - Private
     private func setupView() {
         setUpFooterHeight()
-        syncNewsDetails()
         setupTableView()
+        setupNewsDetails()
         ManagerAuth.shared.add(delegate: self)
+    }
+    
+    private func setupNewsDetails() {
+        guard let newsId = newsId else {
+            syncNewsDetails()
+            return
+        }
+        
+        syncNewsDetails(newsId: newsId)
     }
     
     private func setUpFooterHeight() {
@@ -45,14 +55,31 @@ class NewsDetailsVC: UIViewController {
         footerHeight.constant = Constants.footerHeight + safeArea
     }
 
+    private func syncNewsDetails(newsId: String) {
+        loaderView.isHidden = false
+        ServiceNews.syncAllInformation(newsId: newsId) { [weak self] news, sections, author, musicalEntities in
+            guard let self = self,
+                  let news = news else { return }
+            let newsItem = NewsItem(news: news, author: nil)
+            self.news = newsItem
+            self.tableViewHandler.sections = sections
+            self.tableViewHandler.author = author
+            self.tableViewHandler.musicalEntities = musicalEntities
+            self.tableViewHandler.news = newsItem
+            self.tableView.reloadData()
+            self.loaderView.isHidden = true
+        }
+    }
+    
     private func syncNewsDetails() {
         loaderView.isHidden = false
         guard let news = news else { return }
         footer.configure(news: news.news, delegate: self)
-        ServiceNews.syncAllInformation(news: news) { [weak self] sections, author in
+        ServiceNews.syncAllInformation(news: news) { [weak self] sections, author, musicalEntities in
             guard let self = self else { return }
             self.tableViewHandler.sections = sections
             self.tableViewHandler.author = author
+            self.tableViewHandler.musicalEntities = musicalEntities
             self.tableView.reloadData()
             self.loaderView.isHidden = true
         }
@@ -66,6 +93,7 @@ class NewsDetailsVC: UIViewController {
         tableView.register(NewsDetailsAuthorCell.Constants.nib, forCellReuseIdentifier: NewsDetailsAuthorCell.Constants.identifier)
         tableView.register(NewsDetailsVideoCell.Constants.nib, forCellReuseIdentifier: NewsDetailsVideoCell.Constants.identifier)
         tableView.register(NewsDetailsAdCell.Constants.nib, forCellReuseIdentifier: NewsDetailsAdCell.Constants.identifier)
+        tableView.register(NewsDetailsRelatedMusicalEntitiesCell.Constants.nib, forCellReuseIdentifier: NewsDetailsRelatedMusicalEntitiesCell.Constants.identifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = nil
@@ -84,8 +112,12 @@ class NewsDetailsVC: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension NewsDetailsVC: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        tableViewHandler.numberOfSections
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableViewHandler.numberOfRows
+        tableViewHandler.numberOfRows(for: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,6 +160,11 @@ extension NewsDetailsVC: UITableViewDataSource {
             let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsAdCell.Constants.identifier, for: indexPath)
             guard let cell = reusableCell as? NewsDetailsAdCell else { return UITableViewCell() }
             cell.configure()
+            return cell
+        case let .relatedArtists(musicalEntities):
+            let reusableCell = tableView.dequeueReusableCell(withIdentifier: NewsDetailsRelatedMusicalEntitiesCell.Constants.identifier, for: indexPath)
+            guard let cell = reusableCell as? NewsDetailsRelatedMusicalEntitiesCell else { return UITableViewCell() }
+            cell.configure(musicalEntity: musicalEntities, delegate: self)
             return cell
         }
     }
@@ -212,8 +249,9 @@ extension NewsDetailsVC: ManagerAuthDelegate {
 // MARK: - NewsDetailsOverviewCellDelegate
 extension NewsDetailsVC: NewsDetailsOverviewCellDelegate {
     func didTapAuthor() {
+        guard let section = tableViewHandler.authorSectionIndex else { return }
         tableView.scrollToRow(
-            at: IndexPath(row: tableViewHandler.numberOfRows-1, section: 0),
+            at: IndexPath(row: 0, section: section),
             at: .bottom,
             animated: true
         )
@@ -226,5 +264,29 @@ extension NewsDetailsVC: NewsDetailsImageCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         tableViewHandler.setImage(for: indexPath, image: image)
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
+// MARK: - NewsDetailsRelatedMusicalEntitiesCellDelegate
+extension NewsDetailsVC: NewsDetailsRelatedMusicalEntitiesCellDelegate {
+    func didSelect(musicalEntity: RelatedMusicalEntity) {
+        if let artist = musicalEntity as? RelatedArtist {
+            ServiceArtist.getArtist(artistId: artist.artistId) { [weak self] artist in
+                guard let self = self,
+                      let artistVC = UIViewController.artistDetailsVC else { return }
+                artistVC.artist = artist
+                self.navigationController?.pushViewController(artistVC, animated: true)
+            }
+            return
+        }
+        
+        if let band = musicalEntity as? RelatedBand {
+            ServiceBand.getBand(bandId: band.bandId) { [weak self] band in
+                guard let self = self,
+                      let bandVC = UIViewController.bandDetailsVC else { return }
+                bandVC.band = band
+                self.navigationController?.pushViewController(bandVC, animated: true)
+            }
+        }
     }
 }

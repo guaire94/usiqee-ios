@@ -360,5 +360,10 @@ enum Fonts: String {
                 Fonts.HelveticaRegular.withSize(with: 14)
             }
         }
+        enum RelatedMusicalEntity {
+            static var title: UIFont {
+                Fonts.SofiaProBold.withSize(with: 18)
+            }
+        }
     }
 }

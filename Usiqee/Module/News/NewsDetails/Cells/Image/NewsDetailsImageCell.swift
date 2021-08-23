@@ -23,7 +23,6 @@ class NewsDetailsImageCell: UITableViewCell {
     @IBOutlet weak private var contentImage: UIImageView!
     
     // MARK: - Properties
-    private var aspectRatioConstraint: NSLayoutConstraint?
     private weak var delegate: NewsDetailsImageCellDelegate?
     
     // MARK: - LifeCycle

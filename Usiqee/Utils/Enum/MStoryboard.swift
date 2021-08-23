@@ -11,7 +11,7 @@ enum MStoryboard: String {
     case AnimateLaunchScreen = "AnimateLaunchScreen"
     case Auth = "Auth"
     case Home = "Home"
-    case Map = "News"
+    case News = "News"
     case Agenda = "Agenda"
     case Artist = "Artist"
     case Account = "Account"
