@@ -53,10 +53,11 @@
 "ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
 "ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
 
-"PRE_AUTH_SIGNIN"="Déjà un compte ? Se connecter";
-"PRE_AUTH_SIGNIN_WITH_APPLE" = "Continuer avec Apple";
-"PRE_AUTH_SIGNUP" = "S’inscrire avec email";
-"PRE_AUTH_OR" = "ou";
+"PRE_AUTH_SIGNUP_WITH_MAIL"="S’inscrire avec email";
+"PRE_AUTH_SIGNIN_WITH_APPLE"="Continuer avec Apple";
+"PRE_AUTH_SIGNIN_WITH_GOOGLE"="Continuer avec Google";
+"PRE_AUTH_SEPARATOR"="ou";
+"PRE_AUTH_SIGNIN_WITH_MAIL"="Déjà un compte ? Se connecter";
 
 "SIGNIN_TITLE"="Se connecter";
 "SIGNIN_NOACCOUNT"="Pas encore sur Usiqee ?";

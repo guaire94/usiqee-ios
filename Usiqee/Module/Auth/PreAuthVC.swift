@@ -9,6 +9,7 @@ import UIKit
 import AuthenticationServices
 import CryptoKit
 import Firebase
+import GoogleSignIn
 
 protocol PreAuthVCDelegate: class {
     func didSignIn()
@@ -19,9 +20,10 @@ class PreAuthVC: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak private var signUpButton: FilledButton!
     @IBOutlet weak private var signInWithAppleButton: FilledButton!
-    @IBOutlet weak private var signInButton: UIButton!
+    @IBOutlet weak private var signInWithGoogleButton: FilledButton!
     @IBOutlet weak private var separatorLabel: UILabel!
-    
+    @IBOutlet weak private var signInButton: UIButton!
+
     // MARK: - Variables
     weak var delegate: PreAuthVCDelegate?
     fileprivate var currentNonce: String?
@@ -50,9 +52,10 @@ class PreAuthVC: UIViewController {
     
     // MARK: - Private
     private func setupView() {
-        setupSignInButton()
-        setupSignInWithAppleButton()
         setupSignUpButton()
+        setupSignInWithAppleButton()
+        setupSignInWithGoogleButton()
+        setupSignInButton()
         setupSeparator()
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
@@ -62,12 +65,10 @@ class PreAuthVC: UIViewController {
         separatorLabel.text = L10N.preAuth.separator
     }
     
-    private func setupSignInButton() {
-        signInButton.layer.cornerRadius = 5
-        signInButton.clipsToBounds = true
-        signInButton.setBackgroundColor(Colors.gray.withAlphaComponent(0.7))
-        signInButton.titleLabel?.font = Fonts.PreAuth.signIn
-        signInButton.setTitle(L10N.preAuth.signIn, for: .normal)
+    private func setupSignUpButton() {
+        signUpButton.layer.cornerRadius = 25
+        signUpButton.titleLabel?.font = Fonts.PreAuth.signUp
+        signUpButton.setTitle(L10N.preAuth.signUpWithMail, for: .normal)
     }
     
     private func setupSignInWithAppleButton() {
@@ -82,12 +83,28 @@ class PreAuthVC: UIViewController {
         signInWithAppleButton.setTitle(L10N.preAuth.signInWithApple, for: .normal)
     }
     
-    private func setupSignUpButton() {
-        signUpButton.layer.cornerRadius = 25
-        signUpButton.titleLabel?.font = Fonts.PreAuth.signUp
-        signUpButton.setTitle(L10N.preAuth.signUp, for: .normal)
+    private func setupSignInWithGoogleButton() {
+        signInWithGoogleButton.layer.cornerRadius = 25
+        signInWithGoogleButton.color = .white
+        signInWithGoogleButton.titleLabel?.font = Fonts.PreAuth.signUp
+        signInWithGoogleButton.setTitle(L10N.preAuth.signInWithGoogle, for: .normal)
     }
     
+    private func setupSignInButton() {
+        signInButton.layer.cornerRadius = 5
+        signInButton.clipsToBounds = true
+        signInButton.setBackgroundColor(Colors.gray.withAlphaComponent(0.7))
+        signInButton.titleLabel?.font = Fonts.PreAuth.signIn
+        signInButton.setTitle(L10N.preAuth.signIn, for: .normal)
+    }
+    
+    private func handleSignIn(mail: String, username: String) {
+        ServiceAuth.signUp(mail: mail, avatar: "", username: username)
+        (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
+        navigationController?.dismiss(animated: true, completion: nil)
+        delegate?.didSignIn()
+        ManagerAuth.shared.didChangeStatus()
+    }
 }
 
 // MARK: - IBActions
@@ -121,6 +138,32 @@ extension PreAuthVC {
         }.joined()
         
         return hashString
+    }
+    
+    @IBAction func signInWithGoogleToggle() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+          guard error == nil, let authentication = user?.authentication, let idToken = authentication.idToken else { return }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+            
+            signInWithGoogleButton.loadingIndicator(show: true, color: .black)
+            Auth.auth().signIn(with: credential) { authResult, error in
+                self.signInWithGoogleButton.loadingIndicator(show: false)
+                guard error == nil, let authResult = authResult else {
+                    self.showError(title: L10N.signIn.title, message: error?.localizedDescription ?? "")
+                    return
+                }
+                
+                let mail = authResult.user.email ?? ""
+                let username = authResult.user.displayName ?? ""
+                
+                self.handleSignIn(mail: mail, username: username)
+            }
+        }
     }
 }
 
@@ -164,8 +207,8 @@ extension PreAuthVC: ASAuthorizationControllerDelegate {
             
             // Sign in with Firebase.
             Auth.auth().signIn(with: credential) { (authResult, error) in
+                self.signInWithAppleButton.loadingIndicator(show: false)
                 guard error == nil, let authResult = authResult else {
-                    self.signInWithAppleButton.loadingIndicator(show: false)
                     self.showError(title: L10N.signIn.title, message: error?.localizedDescription ?? "")
                     return
                 }
@@ -173,11 +216,7 @@ extension PreAuthVC: ASAuthorizationControllerDelegate {
                 let mail = authResult.user.email ?? ""
                 let username = appleIDCredential.fullName?.username ?? ""
                                 
-                ServiceAuth.signUp(mail: mail, avatar: "", username: username)
-                (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
-                self.navigationController?.dismiss(animated: true, completion: nil)
-                self.delegate?.didSignIn()
-                ManagerAuth.shared.didChangeStatus()
+                self.handleSignIn(mail: mail, username: username)
             }
         }
     }

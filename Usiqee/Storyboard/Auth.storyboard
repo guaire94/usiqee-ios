@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2g2-ue-aP6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2g2-ue-aP6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -270,10 +270,10 @@
                                 <blurEffect style="systemUltraThinMaterialDark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-hX-ZV4">
-                                <rect key="frame" x="83" y="354.5" width="248" height="187.5"/>
+                                <rect key="frame" x="77" y="323" width="260" height="250.5"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2f-wD-ZNn">
-                                        <rect key="frame" x="66" y="171.5" width="116" height="16"/>
+                                        <rect key="frame" x="72" y="234.5" width="116" height="16"/>
                                         <color key="backgroundColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="zL3-Ld-h80"/>
@@ -289,7 +289,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iKY-BY-3yi">
-                                        <rect key="frame" x="48.5" y="135" width="151" height="20.5"/>
+                                        <rect key="frame" x="54.5" y="198" width="151" height="20.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfY-nk-19x">
                                                 <rect key="frame" x="0.0" y="9.5" width="50" height="1"/>
@@ -315,50 +315,62 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Og-tpQ" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="63" width="248" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="SMc-jA-f74"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Sign in with apple" image="Apple">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signInWithAppleToggle" destination="2g2-ue-aP6" eventType="touchUpInside" id="tLe-ZP-kaC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="PdN-ru-BAB"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Sign email" image="email">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="guy-Hk-6Tp" kind="show" identifier="SignUpVC" id="9As-AB-ffS"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="LLW-CH-NjN">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="176"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="PdN-ru-BAB"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="email" image="email">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="guy-Hk-6Tp" kind="show" identifier="SignUpVC" id="9As-AB-ffS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Og-tpQ" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="63" width="260" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="SMc-jA-f74"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="apple" image="Apple">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signInWithAppleToggle" destination="2g2-ue-aP6" eventType="touchUpInside" id="tLe-ZP-kaC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdC-FS-E9U" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="126" width="260" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="pFi-sI-Ed1"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="google" image="google">
+                                                    <color key="titleColor" red="0.4392156862745098" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signInWithGoogleToggle" destination="2g2-ue-aP6" eventType="touchUpInside" id="wDS-fh-P7w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E2f-wD-ZNn" secondAttribute="trailing" id="1ZM-Pz-wzw"/>
-                                    <constraint firstItem="iKY-BY-3yi" firstAttribute="top" secondItem="BU9-Og-tpQ" secondAttribute="bottom" constant="22" id="Aj4-TU-aCs"/>
-                                    <constraint firstAttribute="trailing" secondItem="BU9-Og-tpQ" secondAttribute="trailing" id="AqP-tF-xG5"/>
+                                    <constraint firstItem="LLW-CH-NjN" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="BLJ-2M-8ZM"/>
                                     <constraint firstItem="E2f-wD-ZNn" firstAttribute="top" secondItem="iKY-BY-3yi" secondAttribute="bottom" constant="16" id="CTa-VB-4OC"/>
-                                    <constraint firstItem="E2f-wD-ZNn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="Dsi-nS-lIX"/>
-                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="FT5-x5-VDH"/>
                                     <constraint firstItem="iKY-BY-3yi" firstAttribute="centerX" secondItem="aIh-hX-ZV4" secondAttribute="centerX" id="I2S-8L-QCb"/>
-                                    <constraint firstItem="iKY-BY-3yi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="KLZ-hx-SqK"/>
                                     <constraint firstItem="E2f-wD-ZNn" firstAttribute="centerX" secondItem="aIh-hX-ZV4" secondAttribute="centerX" id="MVD-J3-yXg"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKY-BY-3yi" secondAttribute="trailing" id="NBt-YW-ZF2"/>
-                                    <constraint firstItem="BU9-Og-tpQ" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="eCd-li-t4V"/>
-                                    <constraint firstAttribute="trailing" secondItem="gn8-S1-IRr" secondAttribute="trailing" id="n3q-zM-5wa"/>
-                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="top" secondItem="aIh-hX-ZV4" secondAttribute="top" id="qkB-V4-Bru"/>
+                                    <constraint firstAttribute="width" constant="260" id="eOV-xP-17i"/>
+                                    <constraint firstAttribute="trailing" secondItem="LLW-CH-NjN" secondAttribute="trailing" id="fRG-GE-8h5"/>
+                                    <constraint firstItem="LLW-CH-NjN" firstAttribute="top" secondItem="aIh-hX-ZV4" secondAttribute="top" id="nJz-Du-gQV"/>
                                     <constraint firstAttribute="bottom" secondItem="E2f-wD-ZNn" secondAttribute="bottom" id="qr1-Sw-U3t"/>
-                                    <constraint firstItem="BU9-Og-tpQ" firstAttribute="top" secondItem="gn8-S1-IRr" secondAttribute="bottom" constant="13" id="tus-cK-n98"/>
+                                    <constraint firstItem="iKY-BY-3yi" firstAttribute="top" secondItem="LLW-CH-NjN" secondAttribute="bottom" constant="22" id="xK5-XK-A9d"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Ex-iJE">
@@ -376,18 +388,13 @@
                         <viewLayoutGuide key="safeArea" id="beR-LY-ff9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="beR-LY-ff9" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="bottom" id="9LK-mg-CNU"/>
-                            <constraint firstItem="aIh-hX-ZV4" firstAttribute="width" relation="greaterThanOrEqual" secondItem="nC3-fU-BHF" secondAttribute="width" multiplier="0.6" id="D2s-DL-XM3"/>
-                            <constraint firstItem="aIh-hX-ZV4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="beR-LY-ff9" secondAttribute="top" id="DHm-38-DuG"/>
                             <constraint firstItem="fah-ji-jcb" firstAttribute="leading" secondItem="beR-LY-ff9" secondAttribute="leading" id="N6U-Vu-MDG"/>
                             <constraint firstItem="beR-LY-ff9" firstAttribute="trailing" secondItem="qkj-Ex-iJE" secondAttribute="trailing" constant="16" id="OId-Y1-1fR"/>
                             <constraint firstAttribute="bottom" secondItem="fah-ji-jcb" secondAttribute="bottom" id="Thg-Qc-Tf3"/>
                             <constraint firstItem="0Rx-Om-Bp7" firstAttribute="leading" secondItem="beR-LY-ff9" secondAttribute="leading" id="Wov-xt-tkb"/>
-                            <constraint firstItem="beR-LY-ff9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="trailing" id="eyn-sq-LH5"/>
                             <constraint firstItem="0Rx-Om-Bp7" firstAttribute="trailing" secondItem="beR-LY-ff9" secondAttribute="trailing" id="fWR-zr-WRD"/>
                             <constraint firstItem="fah-ji-jcb" firstAttribute="trailing" secondItem="beR-LY-ff9" secondAttribute="trailing" id="hGf-wc-75o"/>
                             <constraint firstItem="aIh-hX-ZV4" firstAttribute="centerY" secondItem="nC3-fU-BHF" secondAttribute="centerY" id="ia2-Qz-bpb"/>
-                            <constraint firstItem="aIh-hX-ZV4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="beR-LY-ff9" secondAttribute="leading" id="mLM-3x-i24"/>
                             <constraint firstItem="fah-ji-jcb" firstAttribute="top" secondItem="nC3-fU-BHF" secondAttribute="top" id="o99-m3-JMc"/>
                             <constraint firstItem="qkj-Ex-iJE" firstAttribute="top" secondItem="beR-LY-ff9" secondAttribute="top" constant="22" id="oMJ-qc-hV9"/>
                             <constraint firstAttribute="bottom" secondItem="0Rx-Om-Bp7" secondAttribute="bottom" id="qLz-kl-dJF"/>
@@ -400,6 +407,7 @@
                         <outlet property="separatorLabel" destination="vhq-vV-oZv" id="PsH-eN-RJR"/>
                         <outlet property="signInButton" destination="E2f-wD-ZNn" id="XFN-26-T6q"/>
                         <outlet property="signInWithAppleButton" destination="BU9-Og-tpQ" id="MEh-kX-lpg"/>
+                        <outlet property="signInWithGoogleButton" destination="cdC-FS-E9U" id="aP0-ru-so0"/>
                         <outlet property="signUpButton" destination="gn8-S1-IRr" id="Yaj-hk-rHy"/>
                     </connections>
                 </viewController>
@@ -498,6 +506,7 @@
         <image name="back" width="12" height="21"/>
         <image name="close" width="29" height="29"/>
         <image name="email" width="17" height="13"/>
+        <image name="google" width="17" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
