@@ -90,7 +90,13 @@ class NewsVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension NewsVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        tableViewHandler.numberOfSection
+        let numberOfSection = tableViewHandler.numberOfSection
+        if numberOfSection == .zero {
+            tableView.setEmptyMessage(L10N.News.emptyListMessage)
+        } else {
+            tableView.restore()
+        }
+        return numberOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

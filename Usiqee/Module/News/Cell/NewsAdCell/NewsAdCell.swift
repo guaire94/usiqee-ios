@@ -12,7 +12,7 @@ class NewsAdCell: UITableViewCell {
     
     //MARK: - Constant
     enum Constants {
-        static let height: CGFloat = 105
+        static let height: CGFloat = 136
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsAdCell"
     }

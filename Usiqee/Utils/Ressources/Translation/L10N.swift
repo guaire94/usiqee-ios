@@ -249,6 +249,7 @@ struct L10N {
         static func dateTimeAgo(_ date: String) -> String {
             String(format: NSLocalizedString("NEWS_DATE_TIMEAGO", comment: ""), date)
         }
+        static let emptyListMessage = NSLocalizedString("NEWS_EMPTY_LIST", comment: "")
     }
     
     struct NewsDetails {
