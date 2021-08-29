@@ -270,23 +270,10 @@
                                 <blurEffect style="systemUltraThinMaterialDark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIh-hX-ZV4">
-                                <rect key="frame" x="83" y="386" width="248" height="124.5"/>
+                                <rect key="frame" x="83" y="354.5" width="248" height="187.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="PdN-ru-BAB"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Sign up with email" image="email">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="guy-Hk-6Tp" kind="show" identifier="SignUpVC" id="9As-AB-ffS"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2f-wD-ZNn">
-                                        <rect key="frame" x="41" y="108.5" width="166" height="16"/>
+                                        <rect key="frame" x="66" y="171.5" width="116" height="16"/>
                                         <color key="backgroundColor" red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="zL3-Ld-h80"/>
@@ -294,7 +281,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="Already have an account?">
+                                        <state key="normal" title="have an account?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -302,7 +289,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iKY-BY-3yi">
-                                        <rect key="frame" x="48.5" y="72" width="151" height="20.5"/>
+                                        <rect key="frame" x="48.5" y="135" width="151" height="20.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfY-nk-19x">
                                                 <rect key="frame" x="0.0" y="9.5" width="50" height="1"/>
@@ -328,21 +315,50 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Og-tpQ" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="63" width="248" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SMc-jA-f74"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" title="Sign in with apple" image="Apple">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signInWithAppleToggle" destination="2g2-ue-aP6" eventType="touchUpInside" id="tLe-ZP-kaC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-S1-IRr" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PdN-ru-BAB"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" title="Sign email" image="email">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="guy-Hk-6Tp" kind="show" identifier="SignUpVC" id="9As-AB-ffS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E2f-wD-ZNn" secondAttribute="trailing" id="1ZM-Pz-wzw"/>
+                                    <constraint firstItem="iKY-BY-3yi" firstAttribute="top" secondItem="BU9-Og-tpQ" secondAttribute="bottom" constant="22" id="Aj4-TU-aCs"/>
+                                    <constraint firstAttribute="trailing" secondItem="BU9-Og-tpQ" secondAttribute="trailing" id="AqP-tF-xG5"/>
                                     <constraint firstItem="E2f-wD-ZNn" firstAttribute="top" secondItem="iKY-BY-3yi" secondAttribute="bottom" constant="16" id="CTa-VB-4OC"/>
-                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="Cg4-l5-e2o"/>
                                     <constraint firstItem="E2f-wD-ZNn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="Dsi-nS-lIX"/>
+                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="FT5-x5-VDH"/>
                                     <constraint firstItem="iKY-BY-3yi" firstAttribute="centerX" secondItem="aIh-hX-ZV4" secondAttribute="centerX" id="I2S-8L-QCb"/>
-                                    <constraint firstItem="iKY-BY-3yi" firstAttribute="top" secondItem="gn8-S1-IRr" secondAttribute="bottom" constant="22" id="K5h-VC-qCJ"/>
                                     <constraint firstItem="iKY-BY-3yi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="KLZ-hx-SqK"/>
                                     <constraint firstItem="E2f-wD-ZNn" firstAttribute="centerX" secondItem="aIh-hX-ZV4" secondAttribute="centerX" id="MVD-J3-yXg"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKY-BY-3yi" secondAttribute="trailing" id="NBt-YW-ZF2"/>
-                                    <constraint firstAttribute="trailing" secondItem="gn8-S1-IRr" secondAttribute="trailing" id="oQR-jl-5TP"/>
+                                    <constraint firstItem="BU9-Og-tpQ" firstAttribute="leading" secondItem="aIh-hX-ZV4" secondAttribute="leading" id="eCd-li-t4V"/>
+                                    <constraint firstAttribute="trailing" secondItem="gn8-S1-IRr" secondAttribute="trailing" id="n3q-zM-5wa"/>
+                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="top" secondItem="aIh-hX-ZV4" secondAttribute="top" id="qkB-V4-Bru"/>
                                     <constraint firstAttribute="bottom" secondItem="E2f-wD-ZNn" secondAttribute="bottom" id="qr1-Sw-U3t"/>
-                                    <constraint firstItem="gn8-S1-IRr" firstAttribute="top" secondItem="aIh-hX-ZV4" secondAttribute="top" id="vLO-cA-0T8"/>
+                                    <constraint firstItem="BU9-Og-tpQ" firstAttribute="top" secondItem="gn8-S1-IRr" secondAttribute="bottom" constant="13" id="tus-cK-n98"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Ex-iJE">
@@ -382,8 +398,9 @@
                     <navigationItem key="navigationItem" id="BiK-MJ-zgt"/>
                     <connections>
                         <outlet property="separatorLabel" destination="vhq-vV-oZv" id="PsH-eN-RJR"/>
+                        <outlet property="signInButton" destination="E2f-wD-ZNn" id="XFN-26-T6q"/>
+                        <outlet property="signInWithAppleButton" destination="BU9-Og-tpQ" id="MEh-kX-lpg"/>
                         <outlet property="signUpButton" destination="gn8-S1-IRr" id="Yaj-hk-rHy"/>
-                        <outlet property="singInButton" destination="E2f-wD-ZNn" id="R9B-Gc-hgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0C-vy-2o2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -476,6 +493,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Apple" width="18" height="21"/>
         <image name="AuthenticationBackground" width="375" height="768"/>
         <image name="back" width="12" height="21"/>
         <image name="close" width="29" height="29"/>

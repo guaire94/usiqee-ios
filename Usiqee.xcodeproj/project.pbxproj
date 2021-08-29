@@ -200,6 +200,8 @@
 		EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05725ED24E500D7A965 /* NewsVC.swift */; };
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
+		EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3026DBB8A800A706A0 /* String+M.swift */; };
+		EE983B3526DBBF8100A706A0 /* PersonNameComponents+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */; };
 		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
 		EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECB84F726AE154F00346851 /* LikedNewsCell.xib */; };
 		EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECB84F826AE154F00346851 /* LikedNewsCell.swift */; };
@@ -406,11 +408,14 @@
 		EE96B05725ED24E500D7A965 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		EE983B3026DBB8A800A706A0 /* String+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+M.swift"; sourceTree = "<group>"; };
+		EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonNameComponents+M.swift"; sourceTree = "<group>"; };
 		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
 		EECB84F726AE154F00346851 /* LikedNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedNewsCell.xib; sourceTree = "<group>"; };
 		EECB84F826AE154F00346851 /* LikedNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedNewsCell.swift; sourceTree = "<group>"; };
 		EEEAD11825ED66DA0062F901 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		EEEAD11C25ED67E50062F901 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		EEFCCF4A26D81CA300AC92EB /* UsiqeeDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UsiqeeDebug.entitlements; sourceTree = "<group>"; };
 		F912F9E23943BDE362DFF196 /* Pods-Usiqee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Usiqee.debug.xcconfig"; path = "Target Support Files/Pods-Usiqee/Pods-Usiqee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1125,6 +1130,8 @@
 				676EAF482633451300656B91 /* UICollectionView+M.swift */,
 				67A25402263A0299008167DB /* UITextField+M.swift */,
 				67BBFC10265012F600A14DCD /* UITableView+M.swift */,
+				EE983B3026DBB8A800A706A0 /* String+M.swift */,
+				EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1163,6 +1170,7 @@
 		B8CE19BF253DBAE5002AC5A5 /* Usiqee */ = {
 			isa = PBXGroup;
 			children = (
+				EEFCCF4A26D81CA300AC92EB /* UsiqeeDebug.entitlements */,
 				67A254CF264323D6008167DB /* Usiqee.entitlements */,
 				B8CE19C0253DBAE5002AC5A5 /* AppDelegate.swift */,
 				B8CE19CE253DBAE7002AC5A5 /* Info.plist */,
@@ -1276,9 +1284,9 @@
 		B8CE1AAF253F6FF2002AC5A5 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				67A25418263D4CDD008167DB /* PreAuthVC.swift */,
 				B8CE1AB0253F7001002AC5A5 /* SignInVC.swift */,
 				B84ECBB325402BAA007F8E9E /* SignUpVC.swift */,
-				67A25418263D4CDD008167DB /* PreAuthVC.swift */,
 				67A2544C263F226E008167DB /* ForgetPasswordVC.swift */,
 			);
 			path = Auth;
@@ -1656,6 +1664,7 @@
 				B87BDA0C253F8E0A00252B96 /* UIViewController+M.swift in Sources */,
 				6731F3D3268BBC0C0050E692 /* NewsItem.swift in Sources */,
 				670C4DF6261E337E005A72E2 /* ServiceBand.swift in Sources */,
+				EE983B3526DBBF8100A706A0 /* PersonNameComponents+M.swift in Sources */,
 				6731F3C12681E7550050E692 /* EventHeaderView.swift in Sources */,
 				6731F3DC268C82BF0050E692 /* NewsCarouselCell.swift in Sources */,
 				B87BDA06253F7D1000252B96 /* MTextField.swift in Sources */,
@@ -1694,6 +1703,7 @@
 				B82FE3AA255DF10E00B52099 /* MDatePickerField.swift in Sources */,
 				67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */,
 				EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */,
+				EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */,
 				6731F3F42694AD560050E692 /* NewsDetailsOverviewCell.swift in Sources */,
 				652B32542572C6ED008FFA60 /* NewsSection.swift in Sources */,
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,
@@ -1899,8 +1909,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Usiqee/Usiqee.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = Usiqee/UsiqeeDebug.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6XWVM93GDL;
 				INFOPLIST_FILE = Usiqee/Info.plist;
@@ -1912,7 +1922,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.usiqee.app.Usiqee";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

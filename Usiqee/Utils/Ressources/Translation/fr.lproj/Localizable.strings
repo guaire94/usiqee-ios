@@ -53,9 +53,10 @@
 "ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
 "ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
 
-"PRE_AUTH_SIGNIN" = "Already have an account ? Sign in";
-"PRE_AUTH_SIGNUP" = "Sign up with email";
-"PRE_AUTH_OR" = "or";
+"PRE_AUTH_SIGNIN"="Déjà un compte ? Se connecter";
+"PRE_AUTH_SIGNIN_WITH_APPLE" = "Continuer avec Apple";
+"PRE_AUTH_SIGNUP" = "S’inscrire avec email";
+"PRE_AUTH_OR" = "ou";
 
 "SIGNIN_TITLE"="Se connecter";
 "SIGNIN_NOACCOUNT"="Pas encore sur Usiqee ?";

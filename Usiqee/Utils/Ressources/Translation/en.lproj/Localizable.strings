@@ -43,6 +43,7 @@
 "ARTIST_DETAILS_NEWS_EMPTY_LIST" = "pas d'articles disponibles";
 
 "PRE_AUTH_SIGNIN" = "Already have an account ? Sign in";
+"PRE_AUTH_SIGNIN_WITH_APPLE" = "Sign in with Apple";
 "PRE_AUTH_SIGNUP" = "Sign up with email";
 "PRE_AUTH_OR" = "or";
 

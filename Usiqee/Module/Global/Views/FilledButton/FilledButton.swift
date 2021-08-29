@@ -16,6 +16,13 @@ class FilledButton: UIButton {
         }
     }
     
+    var color: UIColor = Colors.purple {
+        didSet {
+            updateBackgroundColor()
+            updateBorderColor()
+        }
+    }
+    
     // MARK: - LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,13 +38,17 @@ class FilledButton: UIButton {
     private func commonInit() {
         layer.cornerRadius = 20
         layer.borderWidth = 2
-        layer.borderColor = Colors.purple.cgColor
         clipsToBounds = true
         tintColor = .white
+        updateBorderColor()
         updateBackgroundColor()
     }
     
+    private func updateBorderColor() {
+        layer.borderColor = color.cgColor
+    }
+    
     private func updateBackgroundColor() {
-        backgroundColor = isFilled ? Colors.purple : .clear
+        backgroundColor = isFilled ? color : .clear
     }
 }

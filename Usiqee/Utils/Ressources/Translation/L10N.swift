@@ -38,6 +38,7 @@ struct L10N {
     
     struct preAuth {
         static let signIn: String = NSLocalizedString("PRE_AUTH_SIGNIN", comment: "")
+        static let signInWithApple: String = NSLocalizedString("PRE_AUTH_SIGNIN_WITH_APPLE", comment: "")
         static let signUp: String = NSLocalizedString("PRE_AUTH_SIGNUP", comment: "")
         static let separator: String = NSLocalizedString("PRE_AUTH_OR", comment: "")
     }
