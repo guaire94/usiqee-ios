@@ -202,6 +202,7 @@
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
 		EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3026DBB8A800A706A0 /* String+M.swift */; };
 		EE983B3526DBBF8100A706A0 /* PersonNameComponents+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */; };
+		EE99D3D226DD6C9D009AB5D5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE99D3D126DD6C9D009AB5D5 /* AuthenticationServices.framework */; };
 		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
 		EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECB84F726AE154F00346851 /* LikedNewsCell.xib */; };
 		EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECB84F826AE154F00346851 /* LikedNewsCell.swift */; };
@@ -410,6 +411,7 @@
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		EE983B3026DBB8A800A706A0 /* String+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+M.swift"; sourceTree = "<group>"; };
 		EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonNameComponents+M.swift"; sourceTree = "<group>"; };
+		EE99D3D126DD6C9D009AB5D5 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
 		EECB84F726AE154F00346851 /* LikedNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedNewsCell.xib; sourceTree = "<group>"; };
 		EECB84F826AE154F00346851 /* LikedNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedNewsCell.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE99D3D226DD6C9D009AB5D5 /* AuthenticationServices.framework in Frameworks */,
 				86BFBF815E4EF9524D68CCD8 /* Pods_Usiqee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +446,7 @@
 		65244116A9816B5E8697A527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE99D3D126DD6C9D009AB5D5 /* AuthenticationServices.framework */,
 				14FDC3EC599EF24FCF69567F /* Pods_Usiqee.framework */,
 			);
 			name = Frameworks;
@@ -1922,7 +1926,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.usiqee.app.Usiqee";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.usiqee.app.Usiqee 1630352935";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1947,7 +1951,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee 1630352834";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
