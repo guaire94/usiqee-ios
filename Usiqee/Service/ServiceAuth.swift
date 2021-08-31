@@ -34,4 +34,13 @@ class ServiceAuth {
             completion(user)
         }
     }
+    
+    static func updateProfile(username: String, avatar: String) {
+        guard let user = Auth.auth().currentUser else { return }
+        let data: [String : Any] = [
+            "avatar": avatar,
+            "username": username
+        ]
+        FFirestoreReference.user.document(user.uid).setData(data, merge: true)
+    }
 }

@@ -152,6 +152,9 @@ enum Fonts: String {
         static var logout: UIFont {
             Fonts.HelveticaRegular.withSize(with: 15)
         }
+        static var editProfile: UIFont {
+            Fonts.HelveticaRegular.withSize(with: 12)
+        }
     }
     
     enum PreAuth {

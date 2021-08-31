@@ -40,6 +40,10 @@ class AccountVC: UIViewController {
             }
             
             vc.news = news
+        } else if segue.identifier == AccountSettingsVC.Constants.identifier {
+            guard let vc = segue.destination as? AccountSettingsVC else { return }
+            
+            vc.delegate = self
         }
     }
     
@@ -95,5 +99,12 @@ extension AccountVC: ManagerAuthDelegate {
     
     func didUpdateLikedNews() {
         accountDetailsView.refresh()
+    }
+}
+
+// MARK: - AccountSettingsVCDelegate
+extension AccountVC: AccountSettingsVCDelegate {
+    func didUpdateInformation() {
+        accountDetailsView.reload()
     }
 }

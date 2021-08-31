@@ -19,6 +19,7 @@ class MImagePicker: UIView {
     @IBOutlet weak private var avatar: UIImageView!
     
     // MARK:- Properties
+    private(set) var didUpdateImage: Bool = false
     weak var parentViewController: UIViewController?
     private var chosenImage: UIImage? {
         didSet {
@@ -57,6 +58,10 @@ class MImagePicker: UIView {
         avatar.layer.borderWidth = 1
         avatar.layer.borderColor = Colors.gray.cgColor
     }
+    
+    func loadImage(from url: URL) {
+        avatar.kf.setImage(with: url)
+    }
 }
 
 // MARK: - IBActions
@@ -94,5 +99,6 @@ extension MImagePicker: UIImagePickerControllerDelegate & UINavigationController
         }
         
         chosenImage = image
+        didUpdateImage = true
     }
 }

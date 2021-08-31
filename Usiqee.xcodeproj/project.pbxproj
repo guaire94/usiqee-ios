@@ -54,6 +54,7 @@
 		676079CF26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676079CD26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.swift */; };
 		676079D026CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 676079CE26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib */; };
 		676079D326CEDA0000008169 /* RelatedNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676079D226CED9FF00008169 /* RelatedNewsItem.swift */; };
+		676079DE26DD6F9300008169 /* AccountUpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676079DD26DD6F9200008169 /* AccountUpdateProfileVC.swift */; };
 		67656A452654593900672911 /* SofiaProRegularItalicAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67656A442654593900672911 /* SofiaProRegularItalicAz.otf */; };
 		67656A4A2655AE0E00672911 /* ServiceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67656A492655AE0E00672911 /* ServiceUser.swift */; };
 		676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF152630AAEE00656B91 /* MusicalEntity.swift */; };
@@ -256,6 +257,7 @@
 		676079CD26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailsRelatedMusicalEntityCell.swift; sourceTree = "<group>"; };
 		676079CE26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailsRelatedMusicalEntityCell.xib; sourceTree = "<group>"; };
 		676079D226CED9FF00008169 /* RelatedNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedNewsItem.swift; sourceTree = "<group>"; };
+		676079DD26DD6F9200008169 /* AccountUpdateProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdateProfileVC.swift; sourceTree = "<group>"; };
 		67656A442654593900672911 /* SofiaProRegularItalicAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularItalicAz.otf; sourceTree = "<group>"; };
 		67656A492655AE0E00672911 /* ServiceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUser.swift; sourceTree = "<group>"; };
 		676EAF152630AAEE00656B91 /* MusicalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalEntity.swift; sourceTree = "<group>"; };
@@ -1407,6 +1409,7 @@
 				67A25451263F2D11008167DB /* NotLogged */,
 				EEEAD11C25ED67E50062F901 /* AccountVC.swift */,
 				67A254CB2641DFA5008167DB /* AccountSettingsVC.swift */,
+				676079DD26DD6F9200008169 /* AccountUpdateProfileVC.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1740,6 +1743,7 @@
 				65CF699C25681A7400CB9AF7 /* EventCell.swift in Sources */,
 				679B197B266032890026568B /* EventsFilterVC.swift in Sources */,
 				67F720DD262C315F00C9C84E /* ArtistDetailsVC.swift in Sources */,
+				676079DE26DD6F9300008169 /* AccountUpdateProfileVC.swift in Sources */,
 				67A2541E263D816C008167DB /* MImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

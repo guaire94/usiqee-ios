@@ -111,6 +111,11 @@ class ManagerAuth {
         followedBands.filter { $0.bandId ==  bandId }.first
     }
     
+    func updateUser(username: String, avatar: String) {
+        user?.username = username
+        user?.avatar = avatar
+    }
+    
     // MARK: - private
     private func didUpdateFollowedMusicalEntities() {
         self.delegates.forEach {
