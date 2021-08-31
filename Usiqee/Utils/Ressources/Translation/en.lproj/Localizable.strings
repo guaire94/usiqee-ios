@@ -42,9 +42,11 @@
 "ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
 "ARTIST_DETAILS_NEWS_EMPTY_LIST" = "pas d'articles disponibles";
 
-"PRE_AUTH_SIGNIN" = "Already have an account ? Sign in";
-"PRE_AUTH_SIGNUP" = "Sign up with email";
-"PRE_AUTH_OR" = "or";
+"PRE_AUTH_SIGNUP_WITH_MAIL"="Sign up with email";
+"PRE_AUTH_SIGNIN_WITH_APPLE"="Sign in with Apple";
+"PRE_AUTH_SIGNIN_WITH_GOOGLE"="Sign in with Google";
+"PRE_AUTH_SEPARATOR"="or";
+"PRE_AUTH_SIGNIN_WITH_MAIL"="Already have an account ? Sign in";
 
 "ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
 "ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
@@ -60,6 +62,7 @@
 "SIGNIN_NOACCOUNT"="";
 "SIGNIN_FORM_VALID"="";
 "SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
+"SIGNIN_ERROR_WITH_APPLE"="Apple sign in error";
 
 "SIGNUP_TITLE"="";
 "SIGNUP_FORM_VALID"="";

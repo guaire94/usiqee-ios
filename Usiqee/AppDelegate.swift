@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import Wormholy
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let scheme = url.scheme, scheme.localizedCaseInsensitiveCompare("usiqee") == .orderedSame {
             ManagerDeepLink.shared.setDeeplinkFromDeepLink(url: url)
             HelperRouting.shared.redirect()
+        } else {
+            return GIDSignIn.sharedInstance.handle(url)
         }
         return false
     }
