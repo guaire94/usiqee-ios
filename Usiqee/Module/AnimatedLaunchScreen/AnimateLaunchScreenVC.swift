@@ -52,7 +52,7 @@ class AnimateLaunchScreenVC: UIViewController {
     }
     
     private func loadUserIfNeeded() {
-        ManagerAuth.shared.synchronise { [weak self] in
+        ManagerAuth.shared.synchronise {
             ManagerAuth.shared.didChangeStatus()
             HelperRouting.shared.routeToHome()
         }
