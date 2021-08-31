@@ -7,7 +7,6 @@
 
 import UIKit
 import AuthenticationServices
-import CryptoKit
 import Firebase
 import GoogleSignIn
 
@@ -120,24 +119,13 @@ extension PreAuthVC {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        request.nonce = sha256(nonce)
+        request.nonce = nonce.sha256
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
         signInWithAppleButton.loadingIndicator(show: true)
-    }
-    
-    @available(iOS 13, *)
-    private func sha256(_ input: String) -> String {
-        let inputData = Data(input.utf8)
-        let hashedData = SHA256.hash(data: inputData)
-        let hashString = hashedData.compactMap {
-            return String(format: "%02x", $0)
-        }.joined()
-        
-        return hashString
     }
     
     @IBAction func signInWithGoogleToggle() {
@@ -189,23 +177,17 @@ extension PreAuthVC: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            guard let nonce = currentNonce else {
-                fatalError("Invalid state: A login callback was received, but no login request was sent.")
-            }
-            guard let appleIDToken = appleIDCredential.identityToken else {
-                print("Unable to fetch identity token")
+            guard let nonce = currentNonce,
+                  let appleIDToken = appleIDCredential.identityToken,
+                  let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                self.showError(title: L10N.signIn.title, message: L10N.signIn.error.withApple)
+
                 return
             }
-            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-                return
-            }
-            // Initialize a Firebase credential.
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
             
-            // Sign in with Firebase.
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 self.signInWithAppleButton.loadingIndicator(show: false)
                 guard error == nil, let authResult = authResult else {

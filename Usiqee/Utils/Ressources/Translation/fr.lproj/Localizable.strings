@@ -62,7 +62,8 @@
 "SIGNIN_TITLE"="Se connecter";
 "SIGNIN_NOACCOUNT"="Pas encore sur Usiqee ?";
 "SIGNIN_FORM_VALID"="Se connecter";
-"SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
+"SIGNIN_FORM_FORGET_PASSWORD" = "Mot de passe oublié ?";
+"SIGNIN_ERROR_WITH_APPLE"="Une erreur est survenue lors la connexion avec Apple";
 
 "SIGNUP_TITLE"="S'inscrire";
 "SIGNUP_FORM_VALID"="S'inscrire";

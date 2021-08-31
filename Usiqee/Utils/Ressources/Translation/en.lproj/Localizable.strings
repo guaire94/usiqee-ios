@@ -62,6 +62,7 @@
 "SIGNIN_NOACCOUNT"="";
 "SIGNIN_FORM_VALID"="";
 "SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
+"SIGNIN_ERROR_WITH_APPLE"="Apple sign in error";
 
 "SIGNUP_TITLE"="";
 "SIGNUP_FORM_VALID"="";

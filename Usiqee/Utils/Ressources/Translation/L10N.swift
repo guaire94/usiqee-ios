@@ -63,6 +63,9 @@ struct L10N {
             static let valid: String = NSLocalizedString("SIGNIN_FORM_VALID", comment: "")
             static let forgetPassword: String = NSLocalizedString("SIGNIN_FORM_FORGET_PASSWORD", comment: "")
         }
+        struct error {
+            static let withApple: String = NSLocalizedString("SIGNIN_ERROR_WITH_APPLE", comment: "")
+        }
     }
 
     struct signUp {
