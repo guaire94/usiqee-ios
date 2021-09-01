@@ -48,8 +48,6 @@ class AccountSettingsVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
         if segue.identifier == AccountUpdateProfileVC.Constants.identifier {
             guard let vc = segue.destination as? AccountUpdateProfileVC else { return }
             vc.delegate = self
