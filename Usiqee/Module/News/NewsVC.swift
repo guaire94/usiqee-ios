@@ -29,8 +29,6 @@ class NewsVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
         if segue.identifier == NewsDetailsVC.Constants.identifier {
             guard let vc = segue.destination as? NewsDetailsVC,
                   let news = sender as? NewsItem else {
@@ -90,7 +88,13 @@ class NewsVC: UIViewController {
 // MARK: - UITableViewDataSource
 extension NewsVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        tableViewHandler.numberOfSection
+        let numberOfSection = tableViewHandler.numberOfSection
+        if numberOfSection == .zero {
+            tableView.setEmptyMessage(L10N.News.emptyListMessage)
+        } else {
+            tableView.restore()
+        }
+        return numberOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -29,8 +29,6 @@ class AgendaVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
         if segue.identifier == EventsDatePickerVC.Constants.identifier {
             guard let vc = segue.destination as? EventsDatePickerVC else {
                 return

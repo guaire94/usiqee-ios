@@ -5,6 +5,7 @@
 //  Created by Quentin Gallois on 21/10/2020.
 //
 
+import UIKit
 
 enum Config {
     static let AppStoreLink = "itms-apps://itunes.apple.com/app/id1561023361"
@@ -16,4 +17,6 @@ enum Config {
         static let WormholyIsEnabled = false
         static let adUnitId: String = "ca-app-pub-4194874184462866/2219336903"
     #endif
+    
+    static let jpegCompressionQuality: CGFloat = 0.7
 }

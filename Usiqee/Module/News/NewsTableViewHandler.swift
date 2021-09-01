@@ -48,11 +48,17 @@ class NewsTableViewHandler {
     
     // MARK: - Helper
     var numberOfSection: Int {
-        if carouselNews.isEmpty {
-            return 1
+        var result: Int = .zero
+        
+        if !carouselNews.isEmpty {
+            result += 1
         }
         
-        return 2
+        if !listSectionsItems.isEmpty {
+            result += 1
+        }
+        
+        return result
     }
     
     func sectiontype(at section: Int) -> SectionType? {

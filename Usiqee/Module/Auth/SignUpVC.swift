@@ -132,7 +132,7 @@ extension SignUpVC {
     private func upload(image: UIImage, completion: @escaping (URL?) -> Void) {
         guard let userId = Auth.auth().currentUser?.uid,
             let scaledImage = image.scaledToSafeUploadSize,
-            let data = scaledImage.jpegData(compressionQuality: 0.4) else {
+            let data = scaledImage.jpegData(compressionQuality: Config.jpegCompressionQuality) else {
                 completion(nil)
                 return
         }

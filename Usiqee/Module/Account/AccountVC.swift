@@ -31,8 +31,6 @@ class AccountVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
         if segue.identifier == NewsDetailsVC.Constants.identifier {
             guard let vc = segue.destination as? NewsDetailsVC,
                   let news = sender as? NewsItem else {
@@ -40,6 +38,10 @@ class AccountVC: UIViewController {
             }
             
             vc.news = news
+        } else if segue.identifier == AccountSettingsVC.Constants.identifier {
+            guard let vc = segue.destination as? AccountSettingsVC else { return }
+            
+            vc.delegate = self
         }
     }
     
@@ -95,5 +97,12 @@ extension AccountVC: ManagerAuthDelegate {
     
     func didUpdateLikedNews() {
         accountDetailsView.refresh()
+    }
+}
+
+// MARK: - AccountSettingsVCDelegate
+extension AccountVC: AccountSettingsVCDelegate {
+    func didUpdateInformation() {
+        accountDetailsView.reload()
     }
 }

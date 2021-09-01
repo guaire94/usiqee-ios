@@ -55,6 +55,10 @@ class AccountDetailsView: UIView {
         }
     }
     
+    func reload() {
+        displayUserInformation()
+    }
+    
     // MARK: - Private
     private func commonInit() {
         loadView()
@@ -98,7 +102,7 @@ class AccountDetailsView: UIView {
     }
     
     private func displayMenuItems() {
-        segmentedMenu.configure(with: L10N.UserDetails.Menu.followed(musicalEntities.count), L10N.UserDetails.Menu.favoris(16))
+        segmentedMenu.configure(with: L10N.UserDetails.Menu.followed(musicalEntities.count), L10N.UserDetails.Menu.favoris(likedNews.count))
     }
     
     private func retreiveFollowedMusicalEntities() {

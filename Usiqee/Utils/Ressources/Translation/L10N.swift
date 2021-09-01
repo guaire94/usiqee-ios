@@ -76,6 +76,14 @@ struct L10N {
         }
     }
     
+    struct editProfile {
+        static let title: String = NSLocalizedString("EDIT_PROFILE_TITLE", comment: "")
+        struct form {
+            static let valid: String = NSLocalizedString("EDIT_PROFILE_FORM_VALID", comment: "")
+            static let notEmptyError: String = NSLocalizedString("EDIT_PROFILE_FORM_NOT_EMPTY_ERROR", comment: "")
+        }
+    }
+
     struct ForgetPassword {
         static let title: String = NSLocalizedString("FORGET_PASSWORD_TITLE", comment: "")
         struct form {
@@ -173,6 +181,8 @@ struct L10N {
         static let cgu: String = NSLocalizedString("ACCOUNT_SETTINGS_CGU", comment: "")
         static let notifications: String = NSLocalizedString("ACCOUNT_SETTINGS_NOTIFICATIONS", comment: "")
         static let manageNotifications: String = NSLocalizedString("ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS", comment: "")
+        static let profile: String = NSLocalizedString("ACCOUNT_SETTINGS_PROFILE", comment: "")
+        static let editProfile: String = NSLocalizedString("ACCOUNT_SETTINGS_EDIT_PROFILE", comment: "")
     }
     
     struct version {
@@ -244,6 +254,7 @@ struct L10N {
         static func dateTimeAgo(_ date: String) -> String {
             String(format: NSLocalizedString("NEWS_DATE_TIMEAGO", comment: ""), date)
         }
+        static let emptyListMessage = NSLocalizedString("NEWS_EMPTY_LIST", comment: "")
     }
     
     struct NewsDetails {
