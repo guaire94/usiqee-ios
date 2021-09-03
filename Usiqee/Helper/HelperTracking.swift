@@ -50,8 +50,9 @@ enum Tracking {
     case newsDetailsOpenArtist
     case newsDetailsOpenBand
 
-    // MARK: Artist
-    case artists
+    // MARK: Artist & Band
+    case artistsAndBands
+    
     case artistDetails
     case artistDetailsFollow
     case artistDetailsUnfollow
@@ -61,6 +62,16 @@ enum Tracking {
     case artistDetailsOpenBand
     case artistDetailsOpenNews
     case artistDetailsOpenEvent
+    
+    case bandDetails
+    case bandDetailsFollow
+    case bandDetailsUnfollow
+    case bandDetailsBio
+    case bandDetailsNews
+    case bandDetailsAgenda
+    case bandDetailsOpenArtist
+    case bandDetailsOpenNews
+    case bandDetailsOpenEvent
 
     // MARK: Agenda
     case agenda
@@ -140,8 +151,8 @@ enum Tracking {
             return ("TrackingConsentAuthorized", nil)
         case .trackingConsentRejected:
             return ("TrackingConsentRejected", nil)
-        case .artists:
-            return ("Artists", nil)
+        case .artistsAndBands:
+            return ("ArtistsAndBands", nil)
         case .artistDetails:
             return ("ArtistDetails", nil)
         case .artistDetailsFollow:
@@ -160,6 +171,24 @@ enum Tracking {
             return ("ArtistDetailsOpenNews", nil)
         case .artistDetailsOpenEvent:
             return ("ArtistDetailsOpenEvent", nil)
+        case .bandDetails:
+            return ("BandDetails", nil)
+        case .bandDetailsFollow:
+            return ("BandDetailsFollow", nil)
+        case .bandDetailsUnfollow:
+            return ("BandDetailsUnfollow", nil)
+        case .bandDetailsBio:
+            return ("BandDetailsBio", nil)
+        case .bandDetailsNews:
+            return ("BandDetailsNews", nil)
+        case .bandDetailsAgenda:
+            return ("BandDetailsAgenda", nil)
+        case .bandDetailsOpenArtist:
+            return ("BandDetailsOpenArtist", nil)
+        case .bandDetailsOpenNews:
+            return ("BandDetailsOpenNews", nil)
+        case .bandDetailsOpenEvent:
+            return ("BandDetailsOpenEvent", nil)
         case .agenda:
             return ("Agenda", nil)
         case .agendaPreviousMonth:
