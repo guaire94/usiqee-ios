@@ -141,7 +141,7 @@ enum Fonts: String {
     
     enum AccountSettings {
         static var title: UIFont {
-            Fonts.SofiaProRegular.withSize(with: 20)
+            Fonts.SofiaProBold.withSize(with: 20)
         }
         static var sectionTitle: UIFont {
             Fonts.HelveticaBold.withSize(with: 15)
