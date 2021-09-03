@@ -31,6 +31,7 @@ class SignInVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .signIn)
         setUpView()
     }
     
@@ -83,6 +84,7 @@ extension SignInVC {
                 return
             }
 
+            HelperTracking.track(item: .signInDone)
             ManagerAuth.shared.synchronise {
                 self.validButton.loadingIndicator(show: false)
                 (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()

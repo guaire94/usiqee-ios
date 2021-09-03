@@ -20,6 +20,7 @@ class EventsFilterVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .agendaFilter)
         setupView()
     }
     

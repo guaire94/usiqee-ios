@@ -10,7 +10,7 @@ import Firebase
 
 protocol NewsDetailsAuthorCellDelegate: AnyObject {
     func showExternalLink(url: String?)
-    func openExternalLink(url: String?)
+    func onSocialMediaTapped(url: String?)
 }
 
 class NewsDetailsAuthorCell: UITableViewCell {
@@ -129,6 +129,6 @@ private extension NewsDetailsAuthorCell {
         guard let item = Author.SocialMedia(rawValue: sender.tag),
               let url = author?.externalLink(for: item) else { return }
         
-        delegate?.openExternalLink(url: url)
+        delegate?.onSocialMediaTapped(url: url)
     }
 }

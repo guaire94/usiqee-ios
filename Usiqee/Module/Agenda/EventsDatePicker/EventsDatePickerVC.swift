@@ -30,6 +30,7 @@ class EventsDatePickerVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .agendaDatePicker)
         setupView()
     }
     

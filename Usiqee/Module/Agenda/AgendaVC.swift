@@ -25,6 +25,7 @@ class AgendaVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .agenda)
         setUpView()
     }
     
@@ -193,6 +194,7 @@ extension AgendaVC: ManagerEventDelegate {
 // MARK: - EventFooterViewDelegate
 extension AgendaVC: EventFooterViewDelegate {
     func didTapNextMonth() {
+        HelperTracking.track(item: .agendaNextMonth)
         ManagerEvents.shared.didSelectNextMonth()
         displaySelectedDate()
     }
@@ -201,6 +203,7 @@ extension AgendaVC: EventFooterViewDelegate {
 // MARK: - EventHeaderViewDelegate
 extension AgendaVC: EventHeaderViewDelegate {
     func didTapPreviousMonth() {
+        HelperTracking.track(item: .agendaPreviousMonth)
         ManagerEvents.shared.didSelectPreviousMonth()
         displaySelectedDate()
     }

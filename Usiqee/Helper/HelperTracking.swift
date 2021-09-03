@@ -34,17 +34,22 @@ enum Tracking {
     // MARK: - Alert
     case alertError(title: String, message: String)
     
+    // MARK: - Tracking consent
+    case trackingConsentAuthorized
+    case trackingConsentRejected
+    
     // MARK: - News
     case news
     case newsDetails
     case newsDetailsVideo
     case newsDetailsReadOnWebsite
-    case newsDetailsOpenAuthorLink
+    case newsDetailsOpenAuthorSocialMedia
+    case newsDetailsShare
+    case newsDetailsLike
+    case newsDetailsUnlike
+    case newsDetailsOpenArtist
+    case newsDetailsOpenBand
 
-    // MARK: - Tracking consent
-    case trackingConsentAuthorized
-    case trackingConsentRejected
-    
     // MARK: Artist
     case artists
     case artistDetails
@@ -54,7 +59,6 @@ enum Tracking {
     case artistDetailsNews
     case artistDetailsAgenda
     case artistDetailsOpenBand
-    case artistDetailsOpenArtist
     case artistDetailsOpenNews
     case artistDetailsOpenEvent
 
@@ -67,13 +71,13 @@ enum Tracking {
     case agendaEventDetails(type: MEventType)
     case agendaEventDetailsAddToCalendar
     case agendaEventDetailsMoreInfos
-    case agendaEventDetailsBuyTicket
-    
+    case agendaEventDetailsOpenArtist
+    case agendaEventDetailsOpenBand
+
     // MARK: PreAuth
-    case preAuthSignUp
+    case preAuth
     case preAuthSignInWithApple
     case preAuthSignInWithGmail
-    case preAuthSignIn
     
     // MARK: SignIn
     case signIn
@@ -83,12 +87,17 @@ enum Tracking {
     case signUp
     case signUpDone
     
+    // MARK: ForgetPassword
+    case forgetPassword
+    case forgetPasswordDone
+
     // MARK: Profile
     case profile
     case profileFollowedArtist
     case profileLikedNews
-    case profileOpenFollowedArtist
     case profileOpenLikedNews
+    case profileFollowedArtistUnfollowBand
+    case profileFollowedArtistUnfollowArtist
 
     // MARK: Settings
     case settings
@@ -96,8 +105,8 @@ enum Tracking {
     case settingsNotifications
     case settingsCGU
     case settingsPolicy
-    case settingsAbout
-
+    case settingsLogout
+    
     // MARK: - Property
     var values: (name: String, parameters: [String : Any]?) {
         switch self {
@@ -115,8 +124,18 @@ enum Tracking {
             return ("NewsDetailsVideo", nil)
         case .newsDetailsReadOnWebsite:
             return ("NewsDetailsReadOnWebsite", nil)
-        case .newsDetailsOpenAuthorLink:
-            return ("NewsDetailsOpenAuthorLink", nil)
+        case .newsDetailsOpenAuthorSocialMedia:
+            return ("NewsDetailsOpenAuthorSocialMedia", nil)
+        case .newsDetailsShare:
+            return ("NewsDetailsShare", nil)
+        case .newsDetailsLike:
+            return ("NewsDetailsLike", nil)
+        case .newsDetailsUnlike:
+            return ("NewsDetailsUnlike", nil)
+        case .newsDetailsOpenArtist:
+            return ("NewsDetailsOpenArtist", nil)
+        case .newsDetailsOpenBand:
+            return ("NewsDetailsOpenBand", nil)
         case .trackingConsentAuthorized:
             return ("TrackingConsentAuthorized", nil)
         case .trackingConsentRejected:
@@ -137,8 +156,6 @@ enum Tracking {
             return ("ArtistDetailsAgenda", nil)
         case .artistDetailsOpenBand:
             return ("ArtistDetailsOpenBand", nil)
-        case .artistDetailsOpenArtist:
-            return ("ArtistDetailsOpenArtist", nil)
         case .artistDetailsOpenNews:
             return ("ArtistDetailsOpenNews", nil)
         case .artistDetailsOpenEvent:
@@ -162,16 +179,16 @@ enum Tracking {
             return ("AgendaEventDetailsAddToCalendar", nil)
         case .agendaEventDetailsMoreInfos:
             return ("AgendaEventDetailsMoreInfos", nil)
-        case .agendaEventDetailsBuyTicket:
-            return ("AgendaEventDetailsBuyTicket", nil)
-        case .preAuthSignUp:
-            return ("PreAuthSignUp", nil)
+        case .agendaEventDetailsOpenArtist:
+            return ("AgendaEventDetailsOpenArtist", nil)
+        case .agendaEventDetailsOpenBand:
+            return ("AgendaEventDetailsOpenBand", nil)
+        case .preAuth:
+            return ("PreAuth", nil)
         case .preAuthSignInWithApple:
             return ("PreAuthSignInWithApple", nil)
         case .preAuthSignInWithGmail:
             return ("PreAuthSignInWithGmail", nil)
-        case .preAuthSignIn:
-            return ("PreAuthSignIn", nil)
         case .signIn:
             return ("SignIn", nil)
         case .signInDone:
@@ -180,16 +197,22 @@ enum Tracking {
             return ("SignUp", nil)
         case .signUpDone:
             return ("SignUpDone", nil)
+        case .forgetPassword:
+            return ("ForgetPassword", nil)
+        case .forgetPasswordDone:
+            return ("ForgetPasswordDone", nil)
         case .profile:
             return ("Profile", nil)
         case .profileFollowedArtist:
             return ("ProfileFollowedArtist", nil)
         case .profileLikedNews:
             return ("ProfileLikedNews", nil)
-        case .profileOpenFollowedArtist:
-            return ("ProfileOpenFollowedArtist", nil)
         case .profileOpenLikedNews:
             return ("ProfileOpenLikedNews", nil)
+        case .profileFollowedArtistUnfollowArtist:
+            return ("ProfileFollowedArtistUnfollowArtist", nil)
+        case .profileFollowedArtistUnfollowBand:
+            return ("ProfileFollowedArtistUnfollowBand", nil)
         case .settings:
             return ("Settings", nil)
         case .settingsEditProfile:
@@ -200,8 +223,8 @@ enum Tracking {
             return ("SettingsCGU", nil)
         case .settingsPolicy:
             return ("SettingsPolicy", nil)
-        case .settingsAbout:
-            return ("SettingsAbout", nil)
+        case .settingsLogout:
+            return ("SettingsLogout", nil)
         }
     }
 }

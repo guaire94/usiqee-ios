@@ -33,6 +33,7 @@ class SignUpVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .signUp)
         setUpView()
     }
     
@@ -102,6 +103,7 @@ extension SignUpVC {
                 return
             }
             
+            HelperTracking.track(item: .signUpDone)
             self.handleUserIsCreated(email: email, username: username)
         }
     }

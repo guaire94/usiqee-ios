@@ -24,6 +24,7 @@ class ForgetPasswordVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .forgetPassword)
         setUpView()
     }
     
@@ -60,6 +61,7 @@ extension ForgetPasswordVC {
             
             self.validButton.loadingIndicator(show: false)
             guard let error = error else {
+                HelperTracking.track(item: .forgetPasswordDone)
                 self.navigationController?.popViewController(animated: true)
                 return
             }

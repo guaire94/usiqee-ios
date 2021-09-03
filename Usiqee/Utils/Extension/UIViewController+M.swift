@@ -12,8 +12,7 @@ import FirebaseAnalytics
 extension UIViewController {
     
     func showError(title: String, message: String) {
-        let trackingItem = Tracking.alertError(title: title, message: message)
-        HelperTracking.track(item: trackingItem)
+        HelperTracking.track(item: .alertError(title: title, message: message))
         
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

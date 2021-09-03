@@ -30,6 +30,7 @@ class NewsDetailsVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .newsDetails)
         setupView()
     }
     
@@ -103,8 +104,10 @@ class NewsDetailsVC: UIViewController {
         guard let news = self.news?.news else { return }
         let isLiked = ManagerAuth.shared.isLiked(news: news)
         if isLiked {
+            HelperTracking.track(item: .newsDetailsLike)
             ServiceNews.unlikeNews(news: news)
         } else {
+            HelperTracking.track(item: .newsDetailsUnlike)
             ServiceNews.likeNews(news: news)
         }
     }
@@ -186,14 +189,6 @@ private extension NewsDetailsVC {
 
 // MARK: - NewsDetailsAuthorCellDelegate
 extension NewsDetailsVC: NewsDetailsAuthorCellDelegate {
-    func openExternalLink(url: String?) {
-        guard let urlString = url,
-              let url = URL(string: urlString),
-              UIApplication.shared.canOpenURL(url) else { return }
-        
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
-    
     func showExternalLink(url: String?) {
         guard let urlString = url,
               let url = URL(string: urlString),
@@ -202,11 +197,21 @@ extension NewsDetailsVC: NewsDetailsAuthorCellDelegate {
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         
+        HelperTracking.track(item: .newsDetailsReadOnWebsite)
         let vc = SFSafariViewController(url: url, configuration: config)
         if #available(iOS 13.0, *) {
             vc.modalPresentationStyle = .automatic
         }
         present(vc, animated: true)
+    }
+        
+    func onSocialMediaTapped(url: String?) {
+        guard let urlString = url,
+              let url = URL(string: urlString),
+              UIApplication.shared.canOpenURL(url) else { return }
+        
+        HelperTracking.track(item: .newsDetailsOpenAuthorSocialMedia)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
@@ -216,6 +221,7 @@ extension NewsDetailsVC: NewsDetailsFooterViewDelegate {
         guard let urlString = news?.news.externalLink,
               let url = URL(string: urlString) else { return }
         
+        HelperTracking.track(item: .newsDetailsShare)
         let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(vc, animated: true)
     }
@@ -275,6 +281,7 @@ extension NewsDetailsVC: NewsDetailsRelatedMusicalEntitiesCellDelegate {
                 guard let self = self,
                       let artistVC = UIViewController.artistDetailsVC else { return }
                 artistVC.artist = artist
+                HelperTracking.track(item: .newsDetailsOpenArtist)
                 self.navigationController?.pushViewController(artistVC, animated: true)
             }
             return
@@ -285,6 +292,7 @@ extension NewsDetailsVC: NewsDetailsRelatedMusicalEntitiesCellDelegate {
                 guard let self = self,
                       let bandVC = UIViewController.bandDetailsVC else { return }
                 bandVC.band = band
+                HelperTracking.track(item: .newsDetailsOpenBand)
                 self.navigationController?.pushViewController(bandVC, animated: true)
             }
         }

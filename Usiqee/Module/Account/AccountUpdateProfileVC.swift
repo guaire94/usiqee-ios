@@ -31,6 +31,7 @@ class AccountUpdateProfileVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .settingsEditProfile)
         setupView()
     }
     

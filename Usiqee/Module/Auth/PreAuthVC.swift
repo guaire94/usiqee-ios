@@ -30,6 +30,7 @@ class PreAuthVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .preAuth)
         setupView()
     }
     
@@ -149,6 +150,7 @@ extension PreAuthVC {
                 let mail = authResult.user.email ?? ""
                 let username = authResult.user.displayName ?? ""
                 
+                HelperTracking.track(item: .preAuthSignInWithGmail)
                 self.handleSignIn(mail: mail, username: username)
             }
         }
@@ -198,6 +200,7 @@ extension PreAuthVC: ASAuthorizationControllerDelegate {
                 let mail = authResult.user.email ?? ""
                 let username = appleIDCredential.fullName?.username ?? ""
                                 
+                HelperTracking.track(item: .preAuthSignInWithApple)
                 self.handleSignIn(mail: mail, username: username)
             }
         }
