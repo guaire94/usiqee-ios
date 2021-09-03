@@ -26,25 +26,13 @@ enum Tracking {
             static let message = "message"
         }
         
-        enum Notification {
-            static let title = "title"
-            static let message = "message"
-            static let isRemote = "isRemote"
-            static let deeplink = "deeplink"
-        }
-        
         enum AgendaEventDetails {
             static let type = "type"
         }
-
     }
     
     // MARK: - Alert
-    case alertSuccess(title: String, message: String)
     case alertError(title: String, message: String)
-    
-    // MARK: - Notification
-    case openNotification(title: String, message: String, isRemote: Bool, deeplink: String)
     
     // MARK: - News
     case news
@@ -113,26 +101,12 @@ enum Tracking {
     // MARK: - Property
     var values: (name: String, parameters: [String : Any]?) {
         switch self {
-        case let .alertSuccess(title, message):
-            let parameters: [String: Any] = [
-                Constants.Alert.title: title,
-                Constants.Alert.message: message
-            ]
-            return ("AlertSuccess", parameters)
         case let .alertError(title, message):
             let parameters: [String: Any] = [
                 Constants.Alert.title: title,
                 Constants.Alert.message: message
             ]
             return ("AlertError", parameters)
-        case let .openNotification(title, message, isRemote, deeplink):
-            let parameters: [String: Any] = [
-                Constants.Notification.title: title,
-                Constants.Notification.message: message,
-                Constants.Notification.isRemote: isRemote,
-                Constants.Notification.deeplink: deeplink
-            ]
-            return ("OpenNotification", parameters)
         case .news:
             return ("News", nil)
         case .newsDetails:

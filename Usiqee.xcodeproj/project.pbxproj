@@ -165,7 +165,6 @@
 		B87BDA06253F7D1000252B96 /* MTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BDA04253F7D1000252B96 /* MTextField.swift */; };
 		B87BDA07253F7D1000252B96 /* MTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87BDA05253F7D1000252B96 /* MTextField.xib */; };
 		B87BDA0C253F8E0A00252B96 /* UIViewController+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BDA0B253F8E0A00252B96 /* UIViewController+M.swift */; };
-		B87BDA10253F8E7300252B96 /* MEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BDA0F253F8E7300252B96 /* MEvent.swift */; };
 		B8B7DAEE255857AC00B33BDB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B7DAED255857AC00B33BDB /* Home.storyboard */; };
 		B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7DAF0255857CA00B33BDB /* TabsVC.swift */; };
 		B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CE19C0253DBAE5002AC5A5 /* AppDelegate.swift */; };
@@ -372,7 +371,6 @@
 		B87BDA04253F7D1000252B96 /* MTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTextField.swift; sourceTree = "<group>"; };
 		B87BDA05253F7D1000252B96 /* MTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTextField.xib; sourceTree = "<group>"; };
 		B87BDA0B253F8E0A00252B96 /* UIViewController+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+M.swift"; sourceTree = "<group>"; };
-		B87BDA0F253F8E7300252B96 /* MEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEvent.swift; sourceTree = "<group>"; };
 		B8B7DAED255857AC00B33BDB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		B8B7DAF0255857CA00B33BDB /* TabsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsVC.swift; sourceTree = "<group>"; };
 		B8CE19BD253DBAE5002AC5A5 /* Usiqee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Usiqee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1148,7 +1146,6 @@
 		B87BDA0E253F8E4900252B96 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				B87BDA0F253F8E7300252B96 /* MEvent.swift */,
 				B87B2657254236AA007D4A4D /* MStoryboard.swift */,
 				65CF698B2567FD0800CB9AF7 /* MNewsSectionType.swift */,
 				65CF69A225681BBA00CB9AF7 /* MEventType.swift */,
@@ -1733,7 +1730,6 @@
 				679B19A026616F7B0026568B /* EventsFilterEventTypeCell.swift in Sources */,
 				B84ECBDC25407436007F8E9E /* MPickerField.swift in Sources */,
 				EE0921E625F15DD4002C0174 /* Comment.swift in Sources */,
-				B87BDA10253F8E7300252B96 /* MEvent.swift in Sources */,
 				65CF698C2567FD0800CB9AF7 /* MNewsSectionType.swift in Sources */,
 				B8632C83255AF92200B196E5 /* AgendaVC.swift in Sources */,
 				67F0202426B2E67700A7F573 /* EventDetailsDateAndLocationCell.swift in Sources */,
