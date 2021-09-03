@@ -204,6 +204,7 @@
 		EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3026DBB8A800A706A0 /* String+M.swift */; };
 		EE983B3526DBBF8100A706A0 /* PersonNameComponents+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */; };
 		EE99D3D226DD6C9D009AB5D5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE99D3D126DD6C9D009AB5D5 /* AuthenticationServices.framework */; };
+		EEB3A12526E297B000C52D15 /* HelperTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3A12426E297B000C52D15 /* HelperTracking.swift */; };
 		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
 		EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECB84F726AE154F00346851 /* LikedNewsCell.xib */; };
 		EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECB84F826AE154F00346851 /* LikedNewsCell.swift */; };
@@ -414,6 +415,7 @@
 		EE983B3026DBB8A800A706A0 /* String+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+M.swift"; sourceTree = "<group>"; };
 		EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonNameComponents+M.swift"; sourceTree = "<group>"; };
 		EE99D3D126DD6C9D009AB5D5 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		EEB3A12426E297B000C52D15 /* HelperTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTracking.swift; sourceTree = "<group>"; };
 		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
 		EECB84F726AE154F00346851 /* LikedNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedNewsCell.xib; sourceTree = "<group>"; };
 		EECB84F826AE154F00346851 /* LikedNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedNewsCell.swift; sourceTree = "<group>"; };
@@ -925,6 +927,7 @@
 			isa = PBXGroup;
 			children = (
 				67FA27612670B2E700482131 /* HelperRouting.swift */,
+				EEB3A12426E297B000C52D15 /* HelperTracking.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1738,6 +1741,7 @@
 				670BAEAF26C5A7C300CE83CC /* NewsAdCell.swift in Sources */,
 				67BBFC11265012F600A14DCD /* UITableView+M.swift in Sources */,
 				6731F3D6268BC33B0050E692 /* ManagerNews.swift in Sources */,
+				EEB3A12526E297B000C52D15 /* HelperTracking.swift in Sources */,
 				676079C626CDA67C00008169 /* NewsDetailsRelatedMusicalEntitiesCell.swift in Sources */,
 				6731F3CF268BBA850050E692 /* ServiceNews.swift in Sources */,
 				EE0921FF25F1610C002C0174 /* RelatedEvent.swift in Sources */,
