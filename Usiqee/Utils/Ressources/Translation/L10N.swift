@@ -36,11 +36,35 @@ struct L10N {
         }
     }
     
+    struct preAuth {
+        static let signUpWithMail: String = NSLocalizedString("PRE_AUTH_SIGNUP_WITH_MAIL", comment: "")
+        static let signInWithApple: String = NSLocalizedString("PRE_AUTH_SIGNIN_WITH_APPLE", comment: "")
+        static let signInWithGoogle: String = NSLocalizedString("PRE_AUTH_SIGNIN_WITH_GOOGLE", comment: "")
+        static let separator: String = NSLocalizedString("PRE_AUTH_SEPARATOR", comment: "")
+        static let signIn: String = NSLocalizedString("PRE_AUTH_SIGNIN_WITH_MAIL", comment: "")
+    }
+    
+    struct AccountNotLogged {
+        static let title: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TITLE", comment: "")
+        static let subtitle: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_SUBTITLE", comment: "")
+        static let `continue`: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_CONTINUE", comment: "")
+        static let follow: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_FOLLOW", comment: "")
+        static let comments: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_COMMENTS", comment: "")
+        static let likes: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_LIKES", comment: "")
+        static let notifications: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_NOTIFICATIONS", comment: "")
+        static let trophies: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_TROPHIES", comment: "")
+        static let events: String = NSLocalizedString("ACCOUNT_NOT_LOGGED_EVENTS", comment: "")
+    }
+    
     struct signIn {
         static let title: String = NSLocalizedString("SIGNIN_TITLE", comment: "")
         static let noAccount: String = NSLocalizedString("SIGNIN_NOACCOUNT", comment: "")
         struct form {
             static let valid: String = NSLocalizedString("SIGNIN_FORM_VALID", comment: "")
+            static let forgetPassword: String = NSLocalizedString("SIGNIN_FORM_FORGET_PASSWORD", comment: "")
+        }
+        struct error {
+            static let withApple: String = NSLocalizedString("SIGNIN_ERROR_WITH_APPLE", comment: "")
         }
     }
 
@@ -48,118 +72,198 @@ struct L10N {
         static let title: String = NSLocalizedString("SIGNUP_TITLE", comment: "")
         struct form {
             static let valid: String = NSLocalizedString("SIGNUP_FORM_VALID", comment: "")
+            static let notEmptyError: String = NSLocalizedString("SIGNUP_FORM_NOT_EMPTY_ERROR", comment: "")
         }
     }
     
-    struct affiliateToClub {
-        static let title: String = NSLocalizedString("AFFILIATE_TO_CLUB_TITLE", comment: "")
-        static let subTitle: String = NSLocalizedString("AFFILIATE_TO_CLUB_SUBTITLE", comment: "")
+    struct editProfile {
+        static let title: String = NSLocalizedString("EDIT_PROFILE_TITLE", comment: "")
         struct form {
-            static let affiliationCode: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_AFFILIATION_CODE", comment: "")
-            static let sport: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_SPORT", comment: "")
-            static let category: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_CATEGORY", comment: "")
-            static let subCategory: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_SUBCATEGORY", comment: "")
-            static let valid: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_VALID", comment: "")
-            
-            struct error {
-               static let affiliationCode: String = NSLocalizedString("AFFILIATE_TO_CLUB_FORM_ERROR_AFFILIATION_CODE", comment: "")
-           }
+            static let valid: String = NSLocalizedString("EDIT_PROFILE_FORM_VALID", comment: "")
+            static let notEmptyError: String = NSLocalizedString("EDIT_PROFILE_FORM_NOT_EMPTY_ERROR", comment: "")
         }
-    }
-    
-    struct affiliateToClubSuccess {
-        static let title: String = NSLocalizedString("AFFILIATE_TO_CLUB_SUCCESS_TITLE", comment: "")
-        static let subTitle: String = NSLocalizedString("AFFILIATE_TO_CLUB_SUCCESS_SUBTITLE", comment: "")
-        static let activeNotifications: String = NSLocalizedString("AFFILIATE_TO_CLUB_SUCCESS_ACTIVE_NOTIFICATIONS", comment: "")
-    }
-    
-    struct account {
-        static let sportDescription: String = NSLocalizedString("ACCOUNT_SPORT_DESCRIPTION", comment: "")
-        static let myInformations: String = NSLocalizedString("ACCOUNT_MY_INFORMATIONS", comment: "")
-        static let myEvents: String = NSLocalizedString("ACCOUNT_MY_EVENTS", comment: "")
-    }
-    
-    struct map {
-        struct filter {
-            static let title: String = NSLocalizedString("MAP_FILTER_TITLE", comment: "")
-            static let startDate: String = NSLocalizedString("MAP_FILTER_START_DATE", comment: "")
-            static let endDate: String = NSLocalizedString("MAP_FILTER_END_DATE", comment: "")
-        }
-    }
-    
-    struct event {
-        struct type {
-            static let friendly: String = NSLocalizedString("EVENT_TYPE_FRIENDLY", comment: "")
-            static let tournament: String = NSLocalizedString("EVENT_TYPE_TOURNAMENT", comment: "")
-            static let plateau: String = NSLocalizedString("EVENT_TYPE_PLATEAU", comment: "")
-        }
-        struct informations {
-            static let nbTeams: String = NSLocalizedString("EVENT_INFORMATIONS_NB_TEAMS", comment: "")
-        }
-        
-        struct participant {
-            static let owner: String = NSLocalizedString("EVENT_PARTICIPANT_OWNER", comment: "")
-            static let participant: String = NSLocalizedString("EVENT_PARTICIPANT_PARTICIPANT", comment: "")
-            
-            struct action {
-                static let refused: String = NSLocalizedString("EVENT_PARTICIPANT_ACTION_REFUSED", comment: "")
-                static let validate: String = NSLocalizedString("EVENT_PARTICIPANT_ACTION_VALIDATE", comment: "")
-                static let cancel: String = NSLocalizedString("EVENT_PARTICIPANT_ACTION_CANCEL", comment: "")
-                static let participation: String = NSLocalizedString("EVENT_PARTICIPANT_ACTION_PARTICIPATION", comment: "")
-            }
-        }
-        static let participate: String = NSLocalizedString("EVENT_PARTICIPATE", comment: "")
-        
-        struct create {
-            static let title: String = NSLocalizedString("EVENT_CREATE_TITLE", comment: "")
-            struct form {
-                static let name: String = NSLocalizedString("EVENT_CREATE_FORM_NAME", comment: "")
-                static let desc: String = NSLocalizedString("EVENT_CREATE_FORM_DESC", comment: "")
-                static let type: String = NSLocalizedString("EVENT_CREATE_FORM_TYPE", comment: "")
-                static let nbTeams: String = NSLocalizedString("EVENT_CREATE_FORM_NBTEAMS", comment: "")
-                static let dateAndHour: String = NSLocalizedString("EVENT_CREATE_FORM_DATE_AND_HOUR", comment: "")
-                static let address: String = NSLocalizedString("EVENT_CREATE_FORM_ADDRESS", comment: "")
-                static let valid: String = NSLocalizedString("EVENT_CREATE_FORM_VALID", comment: "")
-                
-                struct error {
-                   static let unfill: String = NSLocalizedString("EVENT_CREATE_FORM_ERROR_UNFILL", comment: "")
-               }
-            }
-        }
-        
-        struct modify {
-            static let title: String = NSLocalizedString("EVENT_MODIFY_TITLE", comment: "")
-            struct form {
-                static let name: String = NSLocalizedString("EVENT_CREATE_FORM_NAME", comment: "")
-                static let desc: String = NSLocalizedString("EVENT_CREATE_FORM_DESC", comment: "")
-                static let type: String = NSLocalizedString("EVENT_CREATE_FORM_TYPE", comment: "")
-                static let nbTeams: String = NSLocalizedString("EVENT_CREATE_FORM_NBTEAMS", comment: "")
-                static let dateAndHour: String = NSLocalizedString("EVENT_CREATE_FORM_DATE_AND_HOUR", comment: "")
-                static let address: String = NSLocalizedString("EVENT_CREATE_FORM_ADDRESS", comment: "")
-                static let valid: String = NSLocalizedString("EVENT_MODIFY_FORM_VALID", comment: "")
-                static let cancel: String = NSLocalizedString("EVENT_MODIFY_FORM_CANCEL", comment: "")
-
-                struct error {
-                   static let unfill: String = NSLocalizedString("EVENT_CREATE_FORM_ERROR_UNFILL", comment: "")
-               }
-            }
-        }
-    }
-    
-    struct chat {
-        static let title: String = NSLocalizedString("CHAT_TITLE", comment: "")
-        static let placeholder: String = NSLocalizedString("CHAT_PLACEHOLDER", comment: "")
-        static let picture: String = NSLocalizedString("CHAT_PICTURE", comment: "")
-    }
-    
-    struct addressSearch {
-        static let placeholder: String = NSLocalizedString("ADDRESSSEARCH_SEARCHPLACEHOLDER", comment: "")
     }
 
+    struct ForgetPassword {
+        static let title: String = NSLocalizedString("FORGET_PASSWORD_TITLE", comment: "")
+        struct form {
+            static let valid: String = NSLocalizedString("FORGET_PASSWORD_FORM_VALID", comment: "")
+        }
+    }
+
+    struct Artist {
+        static let searchPlaceholder: String = NSLocalizedString("ARTIST_SEARCH_PLACEHOLDER", comment: "")
+        struct allArtist {
+            static let title: String = NSLocalizedString("ARTIST_ALL_TITLE", comment: "")
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_ALL_EMPTY_LIST", comment: "")
+        }
+        struct FollowedArtist {
+            static let title: String = NSLocalizedString("ARTIST_FOLLOWED_TITLE", comment: "")
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_FOLLOWED_EMPTY_LIST", comment: "")
+        }
+    }
+    
+    struct ArtistDetails {
+        static let title: String = NSLocalizedString("ARTIST_DETAILS_TITLE", comment: "")
+        static let activity: String = NSLocalizedString("ARTIST_DETAILS_ACTIVITY", comment: "")
+        static let followed: String = NSLocalizedString("ARTIST_DETAILS_FOLLOWED", comment: "")
+        static let follow: String = NSLocalizedString("ARTIST_DETAILS_FOLLOW", comment: "")
+        static let unfollow: String = NSLocalizedString("ARTIST_DETAILS_UNFOLLOW", comment: "")
+        
+        struct Menu {
+            static let news: String = NSLocalizedString("ARTIST_DETAILS_MENU_NEWS", comment: "")
+            static let calendar: String = NSLocalizedString("ARTIST_DETAILS_MENU_CALENDAR", comment: "")
+            static let bio: String = NSLocalizedString("ARTIST_DETAILS_MENU_BIO", comment: "")
+        }
+        
+        struct Discography {
+            static let title: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_TITLE", comment: "")
+            static let subtitle: String = NSLocalizedString("ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE", comment: "")
+        }
+        
+        struct Calendar {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_CALENDAR_EMPTY_LIST", comment: "")
+        }
+        struct News {
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_NEWS_EMPTY_LIST", comment: "")
+        }
+        struct Bio {
+            struct Labels {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_LABELS_TITLE", comment: "")
+            }
+            struct Groupes {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_GROUPES_TITLE", comment: "")
+            }
+            struct Members {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_MEMBERS_TITLE", comment: "")
+            }
+            struct Information {
+                static let title: String = NSLocalizedString("ARTIST_DETAILS_BIO_INFORMATION_TITLE", comment: "")
+                static func pseudos(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_PSEUDOS", comment: ""), text)
+                }
+                static func birthName(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_BIRTHNAME", comment: ""), text)
+                }
+                static func birthDate(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_BIRTHDATE", comment: ""), text)
+                }
+                static func activity(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_ACTIVITY", comment: ""), text)
+                }
+                static func provenance(_ text: String) -> String {
+                    String(format: NSLocalizedString("ARTIST_DETAILS_BIO_PROVENANCE", comment: ""), text)
+                }
+            }
+            static let emptyListMessage: String = NSLocalizedString("ARTIST_DETAILS_BIO_EMPTY_LIST", comment: "")
+        }
+    }
+
+    struct UserDetails {
+        struct Menu {
+            static func followed(_ numberOfFollower: Int) -> String {
+                String(format: NSLocalizedString("USER_DETAILS_MENU_FOLLOWED", comment: ""), numberOfFollower)
+            }
+            static func favoris(_ numberOfFavoris: Int) -> String {
+                String(format: NSLocalizedString("USER_DETAILS_MENU_FAVORIS", comment: ""), numberOfFavoris)
+            }
+        }
+        static let unfollow: String = NSLocalizedString("USER_DETAILS_UNFOLLOW", comment: "")
+        static let followedEmptyListMessage = NSLocalizedString("USER_DETAILS_FOLLOWED_EMPTY_LIST", comment: "")
+        static let likedNewsEmptyListMessage = NSLocalizedString("USER_DETAILS_LIKED_NEWS_EMPTY_LIST", comment: "")
+    }
+    
+    struct AccountSettings {
+        static let title: String = NSLocalizedString("ACCOUNT_SETTINGS_TITLE", comment: "")
+        static let logout: String = NSLocalizedString("ACCOUNT_SETTINGS_LOGOUT", comment: "")
+        static let legalNotice: String = NSLocalizedString("ACCOUNT_SETTINGS_LEGAL_NOTICE", comment: "")
+        static let privacy: String = NSLocalizedString("ACCOUNT_SETTINGS_PRIVACY", comment: "")
+        static let cgu: String = NSLocalizedString("ACCOUNT_SETTINGS_CGU", comment: "")
+        static let notifications: String = NSLocalizedString("ACCOUNT_SETTINGS_NOTIFICATIONS", comment: "")
+        static let manageNotifications: String = NSLocalizedString("ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS", comment: "")
+        static let profile: String = NSLocalizedString("ACCOUNT_SETTINGS_PROFILE", comment: "")
+        static let editProfile: String = NSLocalizedString("ACCOUNT_SETTINGS_EDIT_PROFILE", comment: "")
+    }
+    
     struct version {
         static let new: String = NSLocalizedString("VERSION_NEW", comment: "")
         static let available: String = NSLocalizedString("VERSION_AVAILABLE", comment: "")
         static let redirectAppStore: String = NSLocalizedString("VERSION_REDIRECT_APPSTORE", comment: "")
         static let updateLater: String = NSLocalizedString("VERSION_UPDATE_LATER", comment: "")
+    }
+    
+    struct ImagePicker {
+       static let LoadFromGallery: String = NSLocalizedString("IMAGE_PICKER_GALLERY", comment: "")
+        static let takeAPhoto: String = NSLocalizedString("IMAGE_PICKER_TAKE_A_PHOTO", comment: "")
+   }
+    
+    struct EventsFilter {
+        static let title: String = NSLocalizedString("EVENTS_FILTER_TITLE", comment: "")
+        static let resetButton: String = NSLocalizedString("EVENTS_FILTER_RESET", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_FILTER_VALIDATE", comment: "")
+        static let followersFilter: String = NSLocalizedString("EVENTS_FILTER_FOLLOWERS_CATEGORY", comment: "")
+        static let typeFilter: String = NSLocalizedString("EVENTS_FILTER_TYPE_CATEGORY", comment: "")
+    }
+    
+    struct EventsDateFilter {
+        static let title: String = NSLocalizedString("EVENTS_DATE_FILTER_TITLE", comment: "")
+        static let validateButton: String = NSLocalizedString("EVENTS_DATE_FILTER_VALIDATE", comment: "")
+    }
+    
+    struct EventDetails {
+        static let title: String = NSLocalizedString("EVENTS_DETAILS_TITLE", comment: "")
+        static let addToCalendar: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR", comment: "")
+        static let showDetails: String = NSLocalizedString("EVENTS_DETAILS_SHOW_DETAILS", comment: "")
+        static let addToCalendarError: String = NSLocalizedString("EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR", comment: "")
+        static let buyTicket: String = NSLocalizedString("EVENTS_DETAILS_BUY_TICKET", comment: "")
+    }
+    
+    struct Events {
+        struct types {
+            static let ep: String = NSLocalizedString("EVENTS_TYPE_EP", comment: "")
+            static let album: String = NSLocalizedString("EVENTS_TYPE_ALBUM", comment: "")
+            static let single: String = NSLocalizedString("EVENTS_TYPE_SINGLE", comment: "")
+            static let mixtape: String = NSLocalizedString("EVENTS_TYPE_MIXTAPE", comment: "")
+            static let freestyle: String = NSLocalizedString("EVENTS_TYPE_FREESTYLE", comment: "")
+            static let video: String = NSLocalizedString("EVENTS_TYPE_VIDEO", comment: "")
+            static let concert: String = NSLocalizedString("EVENTS_TYPE_CONCERT", comment: "")
+            static let showcase: String = NSLocalizedString("EVENTS_TYPE_SHOWCASE", comment: "")
+            static let festival: String = NSLocalizedString("EVENTS_TYPE_FESTIVAL", comment: "")
+            static let special: String = NSLocalizedString("EVENTS_TYPE_SPECIAL", comment: "")
+        }
+        
+        static let emptyListMessage: String = NSLocalizedString("EVENTS_EMPTY_LIST", comment: "")
+    }
+    
+    struct Months {
+        static let january = NSLocalizedString("MONTHS_JANUARY", comment: "")
+        static let february = NSLocalizedString("MONTHS_FEBRUARY", comment: "")
+        static let march = NSLocalizedString("MONTHS_MARCH", comment: "")
+        static let april = NSLocalizedString("MONTHS_APRIL", comment: "")
+        static let may = NSLocalizedString("MONTHS_MAY", comment: "")
+        static let june = NSLocalizedString("MONTHS_JUNE", comment: "")
+        static let july = NSLocalizedString("MONTHS_JULY", comment: "")
+        static let august = NSLocalizedString("MONTHS_AUGUST", comment: "")
+        static let september = NSLocalizedString("MONTHS_SEPTEMBER", comment: "")
+        static let october = NSLocalizedString("MONTHS_OCTOBER", comment: "")
+        static let november = NSLocalizedString("MONTHS_NOBEMBER", comment: "")
+        static let december = NSLocalizedString("MONTHS_DECEMBER", comment: "")
+    }
+    
+    struct News {
+        static func dateTimeAgo(_ date: String) -> String {
+            String(format: NSLocalizedString("NEWS_DATE_TIMEAGO", comment: ""), date)
+        }
+        static let emptyListMessage = NSLocalizedString("NEWS_EMPTY_LIST", comment: "")
+    }
+    
+    struct NewsDetails {
+        static func dateTime(_ date: String) -> String {
+            String(format: NSLocalizedString("NEWS_DETAILS_DATE_TIME", comment: ""), date)
+        }
+        static func authorWebLink(_ text: String) -> String {
+            String(format: NSLocalizedString("NEWS_DETAILS_AUTHOR_WEBLINK", comment: ""), text)
+        }
+        static let RelatedMusicalEntityTitle: String = NSLocalizedString("NEWS_DETAILS_MUSICAL_ENTITY_TITLE", comment: "")
     }
 }

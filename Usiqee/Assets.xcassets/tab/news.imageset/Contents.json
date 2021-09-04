@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "news.pdf",
-      "idiom" : "universal"
+      "filename" : "News.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "News@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "News@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

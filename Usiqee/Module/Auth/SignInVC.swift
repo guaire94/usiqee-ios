@@ -10,7 +10,6 @@ import Firebase
 
 protocol SignInVCDelegate: class {
     func didSignIn()
-    func didSignUp()
 }
 
 class SignInVC: UIViewController {
@@ -21,12 +20,10 @@ class SignInVC: UIViewController {
     }
 
     // MARK: - IBOutlet
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var email: MTextField!
-    @IBOutlet weak var password: MTextField!
-    @IBOutlet weak var validButton: UIButton!
-    @IBOutlet weak var noAccountLabel: UILabel!
-    @IBOutlet weak var signUpLabel: UILabel!
+    @IBOutlet weak private var email: MTextField!
+    @IBOutlet weak private var password: MTextField!
+    @IBOutlet weak private var validButton: FilledButton!
+    @IBOutlet weak private var forgetPasswordButton: UIButton!
 
     // MARK: - Variables
     weak var delegate: SignInVCDelegate?
@@ -34,41 +31,38 @@ class SignInVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .signIn)
         setUpView()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SignUpVC.Constants.identifier {
-            guard let vc = segue.destination as? SignUpVC else { return }
-            vc.delegate = self
-        }
     }
     
     // MARK: - Privates
     private func setUpView() {
-        if #available(iOS 13.0, *) {
-            navigationController?.isModalInPresentation = true
-        }
         email.delegate = self
         password.delegate = self
         setUpTranslation()
         setUpTextField()
+        setupSignInButton()
     }
     
     private func setUpTranslation() {
-        titleLabel.text = L10N.signIn.title
         email.placeHolder = L10N.user.form.mail
         password.placeHolder = L10N.user.form.password
-        validButton.setTitle(L10N.signIn.form.valid.uppercased(), for: .normal)
-        noAccountLabel.text = L10N.signIn.noAccount
-        signUpLabel.text = L10N.signUp.title.uppercased()        
+        validButton.setTitle(L10N.signIn.form.valid, for: .normal)
+        forgetPasswordButton.setTitle(L10N.signIn.form.forgetPassword, for: .normal)
+        forgetPasswordButton.titleLabel?.font =  Fonts.SignIn.forgetPassword
     }
     
     private func setUpTextField() {
         email.textContentType = .emailAddress
+        email.keyboardType = .emailAddress
         email.returnKeyType = .next
-        password.textContentType = .name
+        password.textContentType = .password
+        password.isSecureTextEntry = true
         password.returnKeyType = .done
+    }
+    
+    private func setupSignInButton() {
+        validButton.titleLabel?.font = Fonts.SignIn.valid
     }
 }
 
@@ -90,25 +84,15 @@ extension SignInVC {
                 return
             }
 
+            HelperTracking.track(item: .signInDone)
             ManagerAuth.shared.synchronise {
                 self.validButton.loadingIndicator(show: false)
+                (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 self.delegate?.didSignIn()
+                ManagerAuth.shared.didChangeStatus()
             }
         }
-    }
-
-    @IBAction func becomeCoachToggle() {
-        performSegue(withIdentifier: SignUpVC.Constants.identifier, sender: self)
-    }
-}
-
-// MARK: - SignUpVCDelegate
-extension SignInVC: SignUpVCDelegate {
-
-    func didSignUp() {
-        navigationController?.dismiss(animated: true, completion: nil)
-        delegate?.didSignUp()
     }
 }
 

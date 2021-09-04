@@ -5,13 +5,18 @@
 //  Created by Quentin Gallois on 21/10/2020.
 //
 
+import UIKit
 
 enum Config {
-    static var AppStoreLink = "itms-apps://itunes.apple.com/app/id1105748988"
+    static let AppStoreLink = "itms-apps://itunes.apple.com/app/id1561023361"
     
     #if DEBUG
-        static var WormholyIsEnabled = true
+        static let WormholyIsEnabled = true
+        static let adUnitId: String = "ca-app-pub-3940256099942544/3986624511"
     #else
-        static var WormholyIsEnabled = false
+        static let WormholyIsEnabled = false
+        static let adUnitId: String = "ca-app-pub-4194874184462866/2219336903"
     #endif
+    
+    static let jpegCompressionQuality: CGFloat = 0.7
 }

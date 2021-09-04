@@ -7,14 +7,15 @@
 //
 
 struct NewsSection: Codable {
-    var type: String
-    var content: String
+    let type: String
+    let content: String
+    let rank: Int
     var sectionType: MNewsSectionType? {
         switch type {
         case "text":
             return .text(content: content)
         case "ads":
-            return .ads(link: content)
+            return .ads
         case "image":
             return .image(url: content)
         case "video":

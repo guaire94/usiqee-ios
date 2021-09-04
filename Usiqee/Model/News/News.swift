@@ -11,33 +11,17 @@ import FirebaseFirestoreSwift
 
 struct News: Identifiable, Codable {
     @DocumentID var id: String?
-    var cover: String
-    var title: String
-    var subtitle: String
-    var nbLikes: Int
-    var nbComments: Int
-    var externalLink: String?
-    var createdDate: Timestamp
+    let cover: String
+    let title: String
+    let subtitle: String
+    let nbLikes: Int
+    let nbComments: Int
+    let externalLink: String?
+    let date: Timestamp
+    let inCarousel: Bool
     
-//    init?(document: QueryDocumentSnapshot) {
-//        let data = document.data()
-//
-//        guard let id = data["id"] as? String,
-//            let cover = data["cover"] as? String,
-//            let title = data["title"] as? String,
-//            let subtitle = data["subtitle"] as? String,
-//            let createdDate = data["createdDate"] as? Timestamp,
-//            let updatedDate = data["updatedDate"] as? Timestamp,
-//            let lastMessage = data["lastMessage"] as? String else {
-//            return nil
-//        }
-//
-//        self.coachId = coachId
-//        self.fullname = fullname
-//        self.clubLogo = clubLogo
-//        self.createdDate = createdDate
-//        self.updatedDate = updatedDate
-//        self.lastMessage = lastMessage
-//        self.unread = data["unread"] as? Bool
-//    }
+    var toRelated: RelatedNews? {
+        guard let id = id else { return nil }
+        return RelatedNews(newsId: id, cover: cover, title: title, date: date)
+    }
 }

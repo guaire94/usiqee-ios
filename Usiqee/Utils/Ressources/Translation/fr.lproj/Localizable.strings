@@ -14,6 +14,27 @@
 
 "GLOBAL_DATE_TIMEAGO" = "Il y a %@";
 
+"ARTIST_SEARCH_PLACEHOLDER" = "Search";
+"ARTIST_ALL_TITLE" = "Artists";
+"ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
+"ARTIST_FOLLOWED_TITLE" = "Followed Artist";
+"ARTIST_FOLLOWED_EMPTY_LIST" = "Aucune correspondance trouvée";
+
+"ARTIST_DETAILS_TITLE" = "Détails d'artist";
+"ARTIST_DETAILS_FOLLOWED" = "followers";
+"ARTIST_DETAILS_FOLLOW" = "Suivre";
+"ARTIST_DETAILS_UNFOLLOW" = "Abonné";
+
+"ARTIST_DETAILS_MENU_NEWS" = "News";
+"ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";
+"ARTIST_DETAILS_MENU_BIO" = "Bio";
+
+"ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
+"ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
+
+"ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
+"ARTIST_DETAILS_NEWS_EMPTY_LIST" = "pas d'articles disponibles";
+
 "USER_FORM_MAIL"="Email";
 "USER_FORM_PASSWORD"="Mot de passe";
 "USER_FORM_FIRSTNAME"="Prénom";
@@ -22,68 +43,117 @@
 "USER_FORM_ERROR_MAIL"="Probléme avec l'email";
 "USER_FORM_ERROR_PASSWORD"="Probléme avec le mot de passe";
 
+"ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
+"ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
+"ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
+"ACCOUNT_NOT_LOGGED_FOLLOW" = "Follow artistes";
+"ACCOUNT_NOT_LOGGED_COMMENTS" = "Section com’";
+"ACCOUNT_NOT_LOGGED_LIKES" = "Like d’articles";
+"ACCOUNT_NOT_LOGGED_NOTIFICATIONS" = "Notifis perso";
+"ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
+"ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
+
+"PRE_AUTH_SIGNUP_WITH_MAIL"="S’inscrire avec email";
+"PRE_AUTH_SIGNIN_WITH_APPLE"="Continuer avec Apple";
+"PRE_AUTH_SIGNIN_WITH_GOOGLE"="Continuer avec Google";
+"PRE_AUTH_SEPARATOR"="ou";
+"PRE_AUTH_SIGNIN_WITH_MAIL"="Déjà un compte ? Se connecter";
+
 "SIGNIN_TITLE"="Se connecter";
 "SIGNIN_NOACCOUNT"="Pas encore sur Usiqee ?";
 "SIGNIN_FORM_VALID"="Se connecter";
+"SIGNIN_FORM_FORGET_PASSWORD" = "Mot de passe oublié ?";
+"SIGNIN_ERROR_WITH_APPLE"="Une erreur est survenue lors la connexion avec Apple";
 
 "SIGNUP_TITLE"="S'inscrire";
 "SIGNUP_FORM_VALID"="S'inscrire";
+"SIGNUP_FORM_NOT_EMPTY_ERROR" = "Tous les champs sont obligatoires";
 
-"AFFILIATE_TO_CLUB_TITLE"="Vous n'êtes pas encore affilié à un club";
-"AFFILIATE_TO_CLUB_SUBTITLE"="Entrez le code d'affiliation de votre club";
-"AFFILIATE_TO_CLUB_FORM_AFFILIATION_CODE"="Code d'affiliation";
-"AFFILIATE_TO_CLUB_FORM_SPORT"="Sport";
-"AFFILIATE_TO_CLUB_FORM_CATEGORY"="Catégorie";
-"AFFILIATE_TO_CLUB_FORM_SUBCATEGORY"="Sous-catégorie";
-"AFFILIATE_TO_CLUB_FORM_ERROR_AFFILIATION_CODE"="Le code d'affiliation ne correspond à aucun club";
+"EDIT_PROFILE_TITLE" = "Mettre à jour";
+"EDIT_PROFILE_FORM_VALID" = "Mettre à jour";
+"EDIT_PROFILE_FORM_NOT_EMPTY_ERROR" = "Le nom ne peut pas être vide";
 
-"AFFILIATE_TO_CLUB_SUCCESS_TITLE"="Demande d'affiliation réussi";
-"AFFILIATE_TO_CLUB_SUCCESS_SUBTITLE"="Le club a reçu votre demande d'affiliation et te répondra rapidement";
-"AFFILIATE_TO_CLUB_SUCCESS_ACTIVE_NOTIFICATIONS"="Activer les notifcations";
+"FORGET_PASSWORD_TITLE" = "Réinitialisation du mot de passe";
+"FORGET_PASSWORD_FORM_VALID" = "Réinitialiser";
 
-"ACCOUNT_SPORT_DESCRIPTION"="Entraineur de %@";
-"ACCOUNT_MY_INFORMATIONS"="Mes informations";
-"ACCOUNT_MY_EVENTS"="Mes évènements";
+"ACCOUNT_SETTINGS_TITLE" = "Settings";
+"ACCOUNT_SETTINGS_LOGOUT" = "Logout";
+"ACCOUNT_SETTINGS_LEGAL_NOTICE" = "LEGAL NOTICE";
+"ACCOUNT_SETTINGS_PRIVACY" = "Privacy";
+"ACCOUNT_SETTINGS_CGU" = "Terms and Conditions";
+"ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS" = "Manage your notifications on settings";
+"ACCOUNT_SETTINGS_NOTIFICATIONS" = "Notifications";
+"ACCOUNT_SETTINGS_PROFILE" = "Profile";
+"ACCOUNT_SETTINGS_EDIT_PROFILE" = "Modifier";
 
-"MAP_FILTER_TITLE"="Filtres";
-"MAP_FILTER_START_DATE"="Du";
-"MAP_FILTER_END_DATE"="Au";
+"USER_DETAILS_MENU_FOLLOWED" = "%d followed";
+"USER_DETAILS_MENU_FAVORIS" = "%d favoris";
+"USER_DETAILS_UNFOLLOW" = "Abonné";
+"USER_DETAILS_FOLLOWED_EMPTY_LIST" = "Vous ne suivez aucun artist";
+"USER_DETAILS_LIKED_NEWS_EMPTY_LIST"= "Vous n'avez pas aimé d'articles";
 
-"EVENT_TYPE_FRIENDLY"="Amical";
-"EVENT_TYPE_TOURNAMENT"="Tournoi";
-"EVENT_TYPE_PLATEAU"="Plateau";
-
-"EVENT_INFORMATIONS_NB_TEAMS"="%d Equipes";
-
-"EVENT_PARTICIPANT_OWNER"="Organisateur - %@";
-"EVENT_PARTICIPANT_PARTICIPANT"="Participant - %@";
-"EVENT_PARTICIPANT_ACTION_REFUSED"="Refuser";
-"EVENT_PARTICIPANT_ACTION_VALIDATE"="Accepter";
-"EVENT_PARTICIPANT_ACTION_CANCEL"="Ne plus participer à cet évènement";
-"EVENT_PARTICIPANT_ACTION_PARTICIPATION"="%@ veux participer à l'évènement";
-
-"EVENT_PARTICIPATE"="Participer";
-
-"EVENT_CREATE_TITLE"="Nouvel évènement";
-"EVENT_CREATE_FORM_NAME"="Titre";
-"EVENT_CREATE_FORM_DESC"="Description";
-"EVENT_CREATE_FORM_TYPE"="Type";
-"EVENT_CREATE_FORM_NBTEAMS"="Nombre d'équipes";
-"EVENT_CREATE_FORM_DATE_AND_HOUR"="Date et Heure";
-"EVENT_CREATE_FORM_ADDRESS"="Adresse";
-"EVENT_CREATE_FORM_VALID"="Organiser";
-
-"EVENT_MODIFY_TITLE"="Modification";
-"EVENT_MODIFY_FORM_VALID"="Modifier";
-"EVENT_MODIFY_FORM_CANCEL"="Annuler l'évènement";
-
-"CHAT_TITLE"="Discussions";
-"CHAT_PLACEHOLDER"="Participer à des évènements via l'agenda ou la carte si vous souhaitez discuter avec d'autres coachs";
-"CHAT_PICTURE"="Photo";
-
-"ADDRESSSEARCH_SEARCHPLACEHOLDER"="Recherche...";
+"IMAGE_PICKER_GALLERY" = "Load from gallery";
+"IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";
 
 "VERSION_NEW" = "Nouvelle version";
 "VERSION_AVAILABLE" = "Une nouvelle version de l'application est disponible";
 "VERSION_REDIRECT_APPSTORE" = "Aller sur l'Appstore";
 "VERSION_UPDATE_LATER" = "Mettre à jour plus tard";
+
+"EVENTS_FILTER_TITLE" = "Filtres";
+"EVENTS_FILTER_RESET" = "reset";
+"EVENTS_FILTER_VALIDATE" = "Continuer";
+"EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Uniquement les artistes suivis";
+"EVENTS_FILTER_TYPE_CATEGORY" = "Type d'évèvement :";
+
+"EVENTS_DATE_FILTER_TITLE" = "Filtres";
+"EVENTS_DATE_FILTER_VALIDATE" = "Valider";
+
+"EVENTS_DETAILS_TITLE" = "Détails de l'évènement";
+"EVENTS_DETAILS_ADD_TO_CALENDAR" = "Ajouter au calendrier";
+"EVENTS_DETAILS_SHOW_DETAILS" = "Détails";
+"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "l'évènement ne peut pas être ajouter au calendrier";
+"EVENTS_DETAILS_BUY_TICKET" = "Acheter un ticket";
+
+"EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
+
+"EVENTS_TYPE_EP" = "ep";
+"EVENTS_TYPE_ALBUM" = "Album";
+"EVENTS_TYPE_SINGLE" = "Single";
+"EVENTS_TYPE_MIXTAPE" = "Mixtape";
+"EVENTS_TYPE_FREESTYLE" = "Freestyle";
+"EVENTS_TYPE_VIDEO" = "Video";
+"EVENTS_TYPE_CONCERT" = "Concert";
+"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_FESTIVAL" = "Festival";
+"EVENTS_TYPE_SPECIAL" = "Spécial";
+
+"MONTHS_JANUARY" = "Janvier";
+"MONTHS_FEBRUARY" = "Février";
+"MONTHS_MARCH" = "Mars";
+"MONTHS_APRIL" = "Avril";
+"MONTHS_MAY" = "Mai";
+"MONTHS_JUNE" = "Juin";
+"MONTHS_JULY" = "Juillet";
+"MONTHS_AUGUST" = "Août";
+"MONTHS_SEPTEMBER" = "Septembre";
+"MONTHS_OCTOBER" = "Octobre";
+"MONTHS_NOBEMBER" = "Novembre";
+"MONTHS_DECEMBER" = "Décembre";
+
+"ARTIST_DETAILS_BIO_EMPTY_LIST" = "pas d'informations disponibles";
+"ARTIST_DETAILS_BIO_INFORMATION_TITLE" = "Informations";
+"ARTIST_DETAILS_BIO_PSEUDOS" = "Pseudos: %@";
+"ARTIST_DETAILS_BIO_BIRTHNAME" = "Nom de naissance: %@";
+"ARTIST_DETAILS_BIO_BIRTHDATE" = "Date de naissance: %@";
+"ARTIST_DETAILS_BIO_ACTIVITY" = "Période d’activité: %@";
+"ARTIST_DETAILS_BIO_PROVENANCE" = "Provenance: %@";
+"ARTIST_DETAILS_BIO_GROUPES_TITLE" = "Groupes";
+"ARTIST_DETAILS_BIO_MEMBERS_TITLE" = "Membres";
+"ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";
+
+"NEWS_DATE_TIMEAGO" = "Publié il y a %@";
+"NEWS_EMPTY_LIST" = "pas d'articles disponibles";
+"NEWS_DETAILS_DATE_TIME" = "Publié le %@";
+"NEWS_DETAILS_AUTHOR_WEBLINK" = "Lire sur %@";
+"NEWS_DETAILS_MUSICAL_ENTITY_TITLE" = "Related Artists";

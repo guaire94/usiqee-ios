@@ -15,13 +15,21 @@ class DateSectionCell: UITableViewHeaderFooterView {
     enum Constants {
         static let identifier = "DateSectionCell"
         static let height: CGFloat = 48.0
+        fileprivate static let dateFormat: String = "EEEE d"
     }
         
     // MARK: IBOutlet
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
 
     // MARK: LifeCycle
-    func setUp(date: String) {
-        dateLabel.text = date
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        dateLabel.font = Fonts.Events.Cell.header
+        backgroundView = UIView()
+        backgroundView?.backgroundColor = .clear
+    }
+    
+    func setup(date: Date) {
+        dateLabel.text = date.stringWith(format: Constants.dateFormat)
     }
 }

@@ -8,12 +8,21 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Band: Identifiable, Codable {
-    @DocumentID var id: String?
-    var avatar: String
-    var name: String
-    var labelName: String?
-    var majorName: String?
-    var startActivityDate: Timestamp
+class Band: MusicalEntity {
+    
+    var toRelated: [String : Any] {
+        [
+            "bandId": id,
+            "name": name,
+            "avatar": avatar
+        ]
+    }
+    
+    var hasInformation: Bool {
+        if pseudos == nil, startActivityYear == nil, provenance == nil {
+            return false
+        }
+        return true
+    }
 }
 

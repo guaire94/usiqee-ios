@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SofiaProBoldAz.otf">
+            <string>SofiaPro-Bold</string>
+        </array>
+        <array key="SofiaProRegularAz.otf">
+            <string>SofiaPro</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistDiscographyDetailsView" customModule="Usiqee" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="nHr-Wi-Wqu" id="ikz-q1-Hxp"/>
+                <outlet property="subtitleLabel" destination="vMo-Xz-j0b" id="bMv-GZ-dBM"/>
+                <outlet property="titleLabel" destination="DSS-v9-K38" id="b8V-eI-hFH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="nHr-Wi-Wqu">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-A1-yQt">
+                    <rect key="frame" x="90.5" y="398" width="233.5" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discography" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSS-v9-K38">
+                            <rect key="frame" x="0.0" y="0.0" width="233.5" height="40"/>
+                            <fontDescription key="fontDescription" name="SofiaPro-Bold" family="Sofia Pro" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Available soon !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMo-Xz-j0b">
+                            <rect key="frame" x="0.0" y="70" width="233.5" height="30"/>
+                            <fontDescription key="fontDescription" name="SofiaPro" family="Sofia Pro" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="vMo-Xz-j0b" secondAttribute="trailing" id="1xf-JV-HC2"/>
+                        <constraint firstAttribute="trailing" secondItem="DSS-v9-K38" secondAttribute="trailing" id="DdZ-Y5-6Ud"/>
+                        <constraint firstItem="DSS-v9-K38" firstAttribute="top" secondItem="AhY-A1-yQt" secondAttribute="top" id="IZM-sP-KOG"/>
+                        <constraint firstItem="DSS-v9-K38" firstAttribute="leading" secondItem="AhY-A1-yQt" secondAttribute="leading" id="M4a-Ld-0T3"/>
+                        <constraint firstItem="vMo-Xz-j0b" firstAttribute="top" secondItem="DSS-v9-K38" secondAttribute="bottom" constant="30" id="ODL-Ps-Nbz"/>
+                        <constraint firstItem="vMo-Xz-j0b" firstAttribute="leading" secondItem="AhY-A1-yQt" secondAttribute="leading" id="h9V-bv-xXh"/>
+                        <constraint firstAttribute="bottom" secondItem="vMo-Xz-j0b" secondAttribute="bottom" id="kXx-Sq-FDX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="dCG-XN-IMY"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AhY-A1-yQt" secondAttribute="bottom" id="2Um-fY-tE8"/>
+                <constraint firstItem="AhY-A1-yQt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nHr-Wi-Wqu" secondAttribute="leading" id="DWE-Vm-lCY"/>
+                <constraint firstItem="AhY-A1-yQt" firstAttribute="centerY" secondItem="nHr-Wi-Wqu" secondAttribute="centerY" id="FyX-i0-o2R"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AhY-A1-yQt" secondAttribute="trailing" id="jtp-c9-f28"/>
+                <constraint firstItem="AhY-A1-yQt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nHr-Wi-Wqu" secondAttribute="top" id="jzg-42-cp3"/>
+                <constraint firstItem="AhY-A1-yQt" firstAttribute="centerX" secondItem="nHr-Wi-Wqu" secondAttribute="centerX" id="qir-AE-9jB"/>
+            </constraints>
+            <point key="canvasLocation" x="836" y="-19"/>
+        </view>
+    </objects>
+</document>

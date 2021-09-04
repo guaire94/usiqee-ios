@@ -15,9 +15,9 @@ protocol MPickerFieldDelegate: class {
 class MPickerField: UIView {
     
     // MARK: - IBOutlet
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak private var contentView: UIView!
+    @IBOutlet weak private var label: UILabel!
+    @IBOutlet weak private var textField: UITextField!
     
     // MARK: - Variables
     weak var delegate: MPickerFieldDelegate?

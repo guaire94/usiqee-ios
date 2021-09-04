@@ -12,7 +12,6 @@ class ServiceAuth {
     static func signUp(mail: String, avatar: String, username: String) {
         guard let user = Auth.auth().currentUser else { return }
         let data: [String : Any] = [
-            "id": user.uid,
             "avatar": avatar,
             "mail": mail,
             "username": username,
@@ -34,5 +33,14 @@ class ServiceAuth {
             }
             completion(user)
         }
+    }
+    
+    static func updateProfile(username: String, avatar: String) {
+        guard let user = Auth.auth().currentUser else { return }
+        let data: [String : Any] = [
+            "avatar": avatar,
+            "username": username
+        ]
+        FFirestoreReference.user.document(user.uid).setData(data, merge: true)
     }
 }

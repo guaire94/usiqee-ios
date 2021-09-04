@@ -22,5 +22,10 @@ target 'Usiqee' do
 
   pod 'Wormholy'
   pod 'Kingfisher', '~> 5.0'
+
+  pod 'Applanga'
+  pod 'youtube-ios-player-helper'
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleSignIn'
 end
 

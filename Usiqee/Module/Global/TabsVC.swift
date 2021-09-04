@@ -14,8 +14,4 @@ class TabsVC: UITabBarController {
     var allVC: [UIViewController] {
         viewControllers?.compactMap { ($0 as? UINavigationController)?.visibleViewController } ?? []
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
