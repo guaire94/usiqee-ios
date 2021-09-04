@@ -44,5 +44,6 @@ class NewsDetailsVideoCell: UITableViewCell {
 extension NewsDetailsVideoCell: YTPlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         loader.isHidden = true
+        HelperTracking.track(item: .newsDetailsVideo)
     }
 }

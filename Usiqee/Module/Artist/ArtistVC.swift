@@ -28,6 +28,7 @@ class ArtistVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .artistsAndBands)
         setupView()
     }
     

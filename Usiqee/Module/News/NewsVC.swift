@@ -25,6 +25,7 @@ class NewsVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .news)
         setupView()
     }
     

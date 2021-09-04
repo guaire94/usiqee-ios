@@ -31,6 +31,8 @@ class EventDetailsVC: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let eventType = event?.event.eventType else { return }
+        HelperTracking.track(item: .agendaEventDetails(type: eventType))
         setupView()
     }
     
@@ -157,6 +159,7 @@ extension EventDetailsVC {
     @IBAction func onAddToCalendarTapped(_ sender: Any) {
         guard let eventItem = event else { return }
         
+        HelperTracking.track(item: .agendaEventDetailsAddToCalendar)
         let eventStore = EKEventStore()
         eventStore.requestAccess( to: EKEntityType.event, completion:{ granted, error in
             DispatchQueue.main.async {
@@ -183,6 +186,8 @@ extension EventDetailsVC {
               let url = URL(string: urlString),
               UIApplication.shared.canOpenURL(url) else { return }
         
+        HelperTracking.track(item: .agendaEventDetailsMoreInfos)
+
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         
@@ -209,6 +214,7 @@ extension EventDetailsVC: EventDetailsMusicalEntitiesListCellDelegate {
                 guard let self = self,
                       let artistVC = UIViewController.artistDetailsVC else { return }
                 artistVC.artist = artist
+                HelperTracking.track(item: .agendaEventDetailsOpenArtist)
                 self.navigationController?.pushViewController(artistVC, animated: true)
             }
             return
@@ -219,6 +225,7 @@ extension EventDetailsVC: EventDetailsMusicalEntitiesListCellDelegate {
                 guard let self = self,
                       let bandVC = UIViewController.bandDetailsVC else { return }
                 bandVC.band = band
+                HelperTracking.track(item: .agendaEventDetailsOpenBand)
                 self.navigationController?.pushViewController(bandVC, animated: true)
             }
         }

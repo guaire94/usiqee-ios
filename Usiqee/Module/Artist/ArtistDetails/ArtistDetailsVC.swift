@@ -40,6 +40,7 @@ class ArtistDetailsVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .artistDetails)
         setupView()
     }
     
@@ -141,6 +142,7 @@ class ArtistDetailsVC: UIViewController {
     }
     
     private func follow(artist: Artist) {
+        HelperTracking.track(item: .artistDetailsFollow)
         ServiceArtist.follow(artist: artist, completion: { [weak self] error in
             self?.didFinishFollowing(error)
         })
@@ -151,6 +153,7 @@ class ArtistDetailsVC: UIViewController {
               let relatedArtist = ManagerAuth.shared.relatedArtist(by: artistId) else {
             return
         }
+        HelperTracking.track(item: .artistDetailsUnfollow)
         ServiceArtist.unfollow(artist: relatedArtist) { [weak self] error in
             self?.didFinishFollowing(error)
         }
@@ -170,6 +173,7 @@ class ArtistDetailsVC: UIViewController {
     private func showBandDetails(with band: Band) {
         guard let vc = UIViewController.bandDetailsVC else { return }
         vc.band = band
+        HelperTracking.track(item: .artistDetailsOpenBand)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -261,6 +265,7 @@ extension ArtistDetailsVC: UITableViewDelegate {
             ServiceNews.syncLikedNews(likedNews: news.news) { newsItem in
                 DispatchQueue.main.async {
                     newsDetailsVC.news = newsItem
+                    HelperTracking.track(item: .artistDetailsOpenNews)
                     self.show(newsDetailsVC, sender: nil)
                 }
             }
@@ -270,6 +275,7 @@ extension ArtistDetailsVC: UITableViewDelegate {
             }
             
             eventDetailsVC.eventId = event.eventId
+            HelperTracking.track(item: .artistDetailsOpenEvent)
             present(eventDetailsVC, animated: true, completion: nil)
         }
     }
@@ -279,6 +285,16 @@ extension ArtistDetailsVC: UITableViewDelegate {
 extension ArtistDetailsVC: MSegmentedMenuDelegate {
     func didSelectItem(at index: Int) {
         guard let type = ContentType(rawValue: index) else { return }
+        
+        switch type {
+        case .bio:
+            HelperTracking.track(item: .artistDetailsBio)
+        case .news:
+            HelperTracking.track(item: .artistDetailsNews)
+        case .calendar:
+            HelperTracking.track(item: .artistDetailsAgenda)
+        }
+
         tableviewHandler.tableViewType = type
     }
 }

@@ -24,6 +24,7 @@ class AccountVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .profile)
         setUpView()
         handleSubviewsVisibility()
         ManagerAuth.shared.add(delegate: self)
@@ -77,6 +78,7 @@ extension AccountVC: AccountDetailsViewDelegate {
     }
     
     func didTapLikedNews(likedNews: RelatedNews) {
+        HelperTracking.track(item: .profileOpenLikedNews)
         ServiceNews.syncLikedNews(likedNews: likedNews) { (newsItem) in
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: NewsDetailsVC.Constants.identifier, sender: newsItem)

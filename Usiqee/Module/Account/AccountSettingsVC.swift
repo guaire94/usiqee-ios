@@ -44,6 +44,7 @@ class AccountSettingsVC: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .settings)
         setupView()
     }
     
@@ -123,20 +124,24 @@ extension AccountSettingsVC {
     }
     
     @IBAction func onLogoutTapped(_ sender: Any) {
+        HelperTracking.track(item: .settingsLogout)
         ManagerAuth.shared.clear()
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onPrivacyTapped(_ sender: Any) {
+        HelperTracking.track(item: .settingsPolicy)
         showWebview(with: Constants.Links.privacy)
     }
     
     @IBAction func onCguTapped(_ sender: Any) {
+        HelperTracking.track(item: .settingsCGU)
         showWebview(with: Constants.Links.cgu)
     }
     
     @IBAction func onManageNotificationsTapped(_ sender: Any) {
         guard let url = URL(string:UIApplication.openSettingsURLString) else { return }
+        HelperTracking.track(item: .settingsNotifications)
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

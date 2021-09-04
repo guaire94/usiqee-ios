@@ -123,6 +123,7 @@ class AccountDetailsView: UIView {
         guard let relatedArtist = ManagerAuth.shared.relatedArtist(by: artist.artistId) else {
             return
         }
+        HelperTracking.track(item: .profileFollowedArtistUnfollowArtist)
         ServiceArtist.unfollow(artist: relatedArtist) { [weak self] error in
             self?.menuContentTableView.reloadData()
         }
@@ -132,6 +133,7 @@ class AccountDetailsView: UIView {
         guard let relatedBand = ManagerAuth.shared.relatedBand(by: band.bandId) else {
             return
         }
+        HelperTracking.track(item: .profileFollowedArtistUnfollowBand)
         ServiceBand.unfollow(band: relatedBand) { [weak self] error in
             self?.menuContentTableView.reloadData()
         }
@@ -141,6 +143,12 @@ class AccountDetailsView: UIView {
 // MARK: - MSegmentedMenuDelegate
 extension AccountDetailsView: MSegmentedMenuDelegate {
     func didSelectItem(at index: Int) {
+        if index == .zero {
+            HelperTracking.track(item: .profileFollowedArtist)
+        } else if index == 1 {
+            HelperTracking.track(item: .profileLikedNews)
+        }
+        
         menuContentTableView.reloadData()
     }
 }

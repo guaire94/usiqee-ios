@@ -236,5 +236,7 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>L&apos;application collecte vos donnees anonymisées afin de mieux comprendre les parcours utilisateurs et permettre la mise en place de mise à jour plus efficacement</string>
 </dict>
 </plist>

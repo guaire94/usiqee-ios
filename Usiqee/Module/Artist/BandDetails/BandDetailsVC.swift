@@ -40,6 +40,7 @@ class BandDetailsVC: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        HelperTracking.track(item: .bandDetails)
         setupView()
     }
     
@@ -122,6 +123,7 @@ class BandDetailsVC: UIViewController {
     }
     
     private func follow(band: Band) {
+        HelperTracking.track(item: .bandDetailsFollow)
         ServiceBand.follow(band: band) { [weak self] error in
             self?.didFinishFollowing(error)
         }
@@ -132,7 +134,9 @@ class BandDetailsVC: UIViewController {
               let relatedBand = ManagerAuth.shared.relatedBand(by: bandId) else {
             return
         }
-        ServiceBand.unfollow(band: relatedBand) { [weak self] error in self?.didFinishFollowing(error)
+        HelperTracking.track(item: .bandDetailsUnfollow)
+        ServiceBand.unfollow(band: relatedBand) { [weak self] error in
+            self?.didFinishFollowing(error)
         }
     }
     
@@ -150,6 +154,7 @@ class BandDetailsVC: UIViewController {
     private func showArtistDetails(with artist: Artist) {
         guard let vc = UIViewController.artistDetailsVC else { return }
         vc.artist = artist
+        HelperTracking.track(item: .bandDetailsOpenArtist)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -237,7 +242,7 @@ extension BandDetailsVC: UITableViewDelegate {
             return
         case let .news(news: news):
             guard let newsDetailsVC = UIViewController.newsDetailsVC else { return }
-            
+            HelperTracking.track(item: .bandDetailsOpenNews)
             ServiceNews.syncLikedNews(likedNews: news.news) { newsItem in
                 DispatchQueue.main.async {
                     newsDetailsVC.news = newsItem
@@ -247,6 +252,7 @@ extension BandDetailsVC: UITableViewDelegate {
         case let .event(event: event):
             guard let eventDetailsVC = UIViewController.eventDetailsVC else { return }
             
+            HelperTracking.track(item: .bandDetailsOpenEvent)
             eventDetailsVC.eventId = event.eventId
             present(eventDetailsVC, animated: true, completion: nil)
         }
@@ -257,6 +263,15 @@ extension BandDetailsVC: UITableViewDelegate {
 extension BandDetailsVC: MSegmentedMenuDelegate {
     func didSelectItem(at index: Int) {
         guard let type = ContentType(rawValue: index) else { return }
+        
+        switch type {
+        case .bio:
+            HelperTracking.track(item: .bandDetailsBio)
+        case .news:
+            HelperTracking.track(item: .bandDetailsNews)
+        case .calendar:
+            HelperTracking.track(item: .bandDetailsAgenda)
+        }
         tableviewHandler.tableViewType = type
     }
 }
