@@ -11,7 +11,7 @@ class HelperTracking {
     
     static func track(item: Tracking) {
         #if !DEBUG
-        let values = item
+        let values = item.values
         Analytics.logEvent(values.name, parameters: values.parameters)
         #endif
     }
