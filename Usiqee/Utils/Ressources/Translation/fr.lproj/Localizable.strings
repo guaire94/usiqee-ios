@@ -157,3 +157,8 @@
 "NEWS_DETAILS_DATE_TIME" = "Publié le %@";
 "NEWS_DETAILS_AUTHOR_WEBLINK" = "Lire sur %@";
 "NEWS_DETAILS_MUSICAL_ENTITY_TITLE" = "Related Artists";
+
+"TABBAR_NEWS" = "News";
+"TABBAR_CALENDAR" = "Calendrier";
+"TABBAR_ARTISTS" = "Artistes";
+"TABBAR_PROFILE" = "Profil";
