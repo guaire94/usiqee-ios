@@ -79,7 +79,7 @@ class AgendaVC: UIViewController {
     }
     
     private func displaySelectedDate() {
-        let date = ManagerEvents.shared.selectedDate.stringWith(format: Constants.dateFormat)
+        let date = ManagerEvents.shared.selectedDate.stringWith(format: Constants.dateFormat).uppercaseFirstLetter
         datePickerButton.setTitle(date, for: .normal)
     }
     

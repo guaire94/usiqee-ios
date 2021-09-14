@@ -18,12 +18,12 @@ class NewsDetailsTextCell: UITableViewCell {
     }
     
     // MARK: - IBOutlet
-    @IBOutlet weak private var contentTextView: UITextView!
-    @IBOutlet weak private var contentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var contentLabel: UILabel!
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupContentLabel()
     }
     
     func configure(content: String) {
@@ -52,21 +52,14 @@ class NewsDetailsTextCell: UITableViewCell {
         )
         for (i, range) in ranges.enumerated() {
             let attributes: [NSAttributedString.Key: Any] = [
-                .link: urls[i],
                 .font: Fonts.NewsDetails.Text.url,
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .tappableLink: urls[i]
             ]
             attributedText.addAttributes(attributes, range: range)
         }
         
-        contentTextView.attributedText = attributedText
-        
-        contentTextView.linkTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .underlineStyle: 0,
-        ]
-        
-        contentHeightConstraint.constant = contentTextView.contentSize.height
-        layoutIfNeeded()
+        contentLabel.attributedText = attributedText
     }
     
     private func format(text: String, with links: [FormattedItem]) ->  (String, [NSRange]) {
@@ -118,6 +111,42 @@ class NewsDetailsTextCell: UITableViewCell {
         } catch {
             return []
         }
+    }
+    
+    private func setupContentLabel() {
+        contentLabel.isUserInteractionEnabled = true
+        let labelTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapLabel(_:)))
+        labelTapGesture.numberOfTapsRequired = 1
+        contentLabel.addGestureRecognizer(labelTapGesture)
+    }
+    
+    @objc
+    private func didTapLabel(_ sender: UITapGestureRecognizer) {
+        guard let attributedText = contentLabel.attributedText else { return }
+        
+        let textStorage = NSTextStorage(attributedString: attributedText)
+        let textContainer = NSTextContainer(size: contentLabel.bounds.size)
+        let layoutManager = NSLayoutManager()
+        layoutManager.addTextContainer(textContainer)
+        textStorage.addLayoutManager(layoutManager)
+        textContainer.lineFragmentPadding = 0.0
+        textContainer.lineBreakMode = contentLabel.lineBreakMode
+        textContainer.maximumNumberOfLines = contentLabel.numberOfLines
+        
+        let location: CGPoint = sender.location(in: contentLabel)
+        let characterIndex = layoutManager.characterIndex(
+            for: location,
+            in: textContainer,
+            fractionOfDistanceBetweenInsertionPoints: nil
+        )
+        
+        guard characterIndex < textStorage.length,
+              let url = attributedText.attribute(.tappableLink, at: characterIndex, effectiveRange: nil) as? URL,
+              UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 

@@ -30,6 +30,6 @@ class DateSectionCell: UITableViewHeaderFooterView {
     }
     
     func setup(date: Date) {
-        dateLabel.text = date.stringWith(format: Constants.dateFormat)
+        dateLabel.text = date.stringWith(format: Constants.dateFormat).uppercaseFirstLetter
     }
 }

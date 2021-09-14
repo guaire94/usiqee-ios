@@ -60,7 +60,7 @@ class EventHeaderView: UIView {
         guard let date = ManagerEvents.shared.selectedDate.previousMonth else {
             return
         }
-        previousMonthLabel.text = date.stringWith(format: Constants.dateFormat)
+        previousMonthLabel.text = date.stringWith(format: Constants.dateFormat).uppercaseFirstLetter
     }
 }
 

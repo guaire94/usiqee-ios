@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LE-JF-7eZ">
-                        <rect key="frame" x="23.5" y="0.0" width="111" height="109.5"/>
+                        <rect key="frame" x="31.5" y="0.0" width="95" height="94"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="2LE-JF-7eZ" secondAttribute="height" multiplier="1:1" constant="1" id="Hoo-7y-BNk"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcr-cF-xio">
-                        <rect key="frame" x="5" y="114.5" width="148" height="58.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xcr-cF-xio">
+                        <rect key="frame" x="5" y="99" width="148" height="74"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.53725490196078429" green="0.54117647058823526" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
             <viewLayoutGuide key="safeArea" id="Q91-tY-r8S"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="2LE-JF-7eZ" firstAttribute="width" secondItem="RZ3-VZ-gZr" secondAttribute="width" multiplier="0.7" id="1EW-fS-V2d"/>
+                <constraint firstItem="2LE-JF-7eZ" firstAttribute="width" secondItem="RZ3-VZ-gZr" secondAttribute="width" multiplier="0.6" id="1EW-fS-V2d"/>
                 <constraint firstItem="2LE-JF-7eZ" firstAttribute="centerX" secondItem="RZ3-VZ-gZr" secondAttribute="centerX" id="54a-Y1-nyC"/>
                 <constraint firstItem="2LE-JF-7eZ" firstAttribute="top" secondItem="RZ3-VZ-gZr" secondAttribute="top" id="8IB-UV-a11"/>
                 <constraint firstItem="Xcr-cF-xio" firstAttribute="leading" secondItem="RZ3-VZ-gZr" secondAttribute="leading" constant="5" id="Bk4-kL-viX"/>

@@ -65,7 +65,7 @@ class EventFooterView: UIView {
         guard let date = ManagerEvents.shared.selectedDate.nextMonth else {
             return
         }
-        nextMonthLabel.text = date.stringWith(format: Constants.dateFormat)
+        nextMonthLabel.text = date.stringWith(format: Constants.dateFormat).uppercaseFirstLetter
     }
 }
 

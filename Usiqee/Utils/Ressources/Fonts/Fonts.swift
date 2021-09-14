@@ -344,7 +344,7 @@ enum Fonts: String {
                 Fonts.HelveticaItalic.withSize(with: 14)
             }
             static var url: UIFont {
-                Fonts.HelveticaBold.withSize(with: 14)
+                Fonts.HelveticaRegular.withSize(with: 14)
             }
         }
         enum Author {
