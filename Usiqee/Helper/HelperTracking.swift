@@ -114,7 +114,7 @@ enum Tracking {
     case settings
     case settingsEditProfile
     case settingsNotifications
-    case settingsCGU
+    case settingsTermsAndConditions
     case settingsPolicy
     case settingsLogout
     
@@ -248,8 +248,8 @@ enum Tracking {
             return ("SettingsEditProfile", nil)
         case .settingsNotifications:
             return ("SettingsNotifications", nil)
-        case .settingsCGU:
-            return ("SettingsCGU", nil)
+        case .settingsTermsAndConditions:
+            return ("SettingsTermsAndConditions", nil)
         case .settingsPolicy:
             return ("SettingsPolicy", nil)
         case .settingsLogout:

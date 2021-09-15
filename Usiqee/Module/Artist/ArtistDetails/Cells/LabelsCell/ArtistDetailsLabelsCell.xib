@@ -24,16 +24,16 @@
                                 <rect key="frame" x="16" y="16" width="256" height="147"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgh-Oy-Bzg">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-Dg-s48">
-                                        <rect key="frame" x="0.0" y="57" width="256" height="90"/>
+                                        <rect key="frame" x="0.0" y="53" width="256" height="94"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="90" id="wNv-ks-xIy"/>
+                                            <constraint firstAttribute="height" constant="94" id="wNv-ks-xIy"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XBQ-Lf-hwR">
                                             <size key="itemSize" width="128" height="128"/>

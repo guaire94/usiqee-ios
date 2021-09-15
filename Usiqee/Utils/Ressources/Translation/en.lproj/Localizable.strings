@@ -155,3 +155,9 @@
 "EVENTS_DATE_FILTER_TITLE" = "Filtres";
 "EVENTS_DATE_FILTER_VALIDATE" = "Valider";
 "EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
+
+"TABBAR_NEWS" = "News";
+"TABBAR_CALENDAR" = "Calendar";
+"TABBAR_ARTISTS" = "Artists";
+"TABBAR_PROFILE" = "Profile";
+

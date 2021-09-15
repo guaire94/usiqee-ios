@@ -12,11 +12,11 @@ enum Fonts: String {
     case SofiaProRegular = "SofiaPro"
     case SofiaProBold = "SofiaPro-Bold"
     case SofiaProItalic = "SofiaPro-Italic"
-    case HelveticaRegular = "Helvetica"
-    case HelveticaBold = "Helvetica-Bold"
-    case HelveticaLight = "Helvetica-Light"
-    case HelveticaMedium = "Helvetica-Medium"
-    case HelveticaItalic = "Helvetica-Italic"
+    case HelveticaRegular = "HelveticaNeue"
+    case HelveticaBold = "HelveticaNeue-Bold"
+    case HelveticaLight = "HelveticaNeue-Light"
+    case HelveticaMedium = "HelveticaNeue-Medium"
+    case HelveticaItalic = "HelveticaNeue-Italic"
     case SFProDisplayRegular = "SFProDisplay-Regular"
     
     private func withSize(with size: CGFloat) -> UIFont {
@@ -337,8 +337,14 @@ enum Fonts: String {
             static var content: UIFont {
                 Fonts.HelveticaRegular.withSize(with: 14)
             }
-            static var url: UIFont {
+            static var contentBold: UIFont {
                 Fonts.HelveticaBold.withSize(with: 14)
+            }
+            static var contentItalic: UIFont {
+                Fonts.HelveticaItalic.withSize(with: 14)
+            }
+            static var url: UIFont {
+                Fonts.HelveticaRegular.withSize(with: 14)
             }
         }
         enum Author {

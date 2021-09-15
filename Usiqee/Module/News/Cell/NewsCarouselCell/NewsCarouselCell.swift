@@ -15,7 +15,7 @@ class NewsCarouselCell: UITableViewCell {
 
     //MARK: - Constant
     enum Constants {
-        static let height: CGFloat = 371
+        static let height: CGFloat = UIScreen.main.bounds.width
         static let nib: UINib = UINib(nibName: Constants.identifier, bundle: nil)
         static let identifier: String = "NewsCarouselCell"
         fileprivate static let animationDuration: TimeInterval = 6.0

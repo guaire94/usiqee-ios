@@ -21,6 +21,13 @@ struct L10N {
            static let timeAgo: String = NSLocalizedString("GLOBAL_DATE_TIMEAGO", comment: "")
        }
     }
+    
+    struct Tabbar {
+        static let news: String = NSLocalizedString("TABBAR_NEWS", comment: "")
+        static let calendar: String = NSLocalizedString("TABBAR_CALENDAR", comment: "")
+        static let artists: String = NSLocalizedString("TABBAR_ARTISTS", comment: "")
+        static let profile: String = NSLocalizedString("TABBAR_PROFILE", comment: "")
+    }
 
     struct user {
         struct form {

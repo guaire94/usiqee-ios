@@ -51,4 +51,12 @@ extension String {
         
         return hashString
     }
+    
+    var uppercaseFirstLetter: String {
+        prefix(1).capitalized + dropFirst()
+    }
+}
+
+extension NSAttributedString.Key {
+    static let tappableLink = NSAttributedString.Key("TappableLink")
 }

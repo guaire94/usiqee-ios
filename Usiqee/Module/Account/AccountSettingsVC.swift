@@ -20,8 +20,8 @@ class AccountSettingsVC: UIViewController {
         fileprivate static let placeHolderImage: UIImage = #imageLiteral(resourceName: "userPlaceholder")
         fileprivate static let editProfileButtonCornerRadius: CGFloat = 10
         fileprivate enum Links {
-            static let privacy: String = "https://www.google.fr"
-            static let cgu: String = "https://www.apple.fr"
+            static let privacy: String = "https://usiqee-44c2e.web.app/privacy-policy.html"
+            static let termsAndConditions: String = "https://usiqee-44c2e.web.app/terms-and-conditions.html"
         }
     }
     
@@ -29,7 +29,7 @@ class AccountSettingsVC: UIViewController {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var legalNoticeLabel: UILabel!
     @IBOutlet weak private var privacyButton: UIButton!
-    @IBOutlet weak private var cguButton: UIButton!
+    @IBOutlet weak private var termsAndConditionsButton: UIButton!
     @IBOutlet weak private var logoutButton: FilledButton!
     @IBOutlet weak private var notificationsLabel: UILabel!
     @IBOutlet weak private var manageNotificationsButton: UIButton!
@@ -81,7 +81,7 @@ class AccountSettingsVC: UIViewController {
         legalNoticeLabel.text = L10N.AccountSettings.legalNotice.uppercased()
         profileLabel.text = L10N.AccountSettings.profile.uppercased()
         privacyButton.setTitle(L10N.AccountSettings.privacy, for: .normal)
-        cguButton.setTitle(L10N.AccountSettings.cgu, for: .normal)
+        termsAndConditionsButton.setTitle(L10N.AccountSettings.cgu, for: .normal)
         notificationsLabel.text = L10N.AccountSettings.notifications.uppercased()
         manageNotificationsButton.setTitle(L10N.AccountSettings.manageNotifications, for: .normal)
         logoutButton.setTitle(L10N.AccountSettings.logout, for: .normal)
@@ -95,7 +95,7 @@ class AccountSettingsVC: UIViewController {
         usernameLabel.font = Fonts.AccountSettings.sectionItem
         legalNoticeLabel.font = Fonts.AccountSettings.sectionTitle
         privacyButton.titleLabel?.font = Fonts.AccountSettings.sectionItem
-        cguButton.titleLabel?.font = Fonts.AccountSettings.sectionItem
+        termsAndConditionsButton.titleLabel?.font = Fonts.AccountSettings.sectionItem
         manageNotificationsButton.titleLabel?.font = Fonts.AccountSettings.sectionItem
         notificationsLabel.font = Fonts.AccountSettings.sectionTitle
         logoutButton.titleLabel?.font = Fonts.AccountSettings.logout
@@ -134,9 +134,9 @@ extension AccountSettingsVC {
         showWebview(with: Constants.Links.privacy)
     }
     
-    @IBAction func onCguTapped(_ sender: Any) {
-        HelperTracking.track(item: .settingsCGU)
-        showWebview(with: Constants.Links.cgu)
+    @IBAction func onTermsAndConditionsTapped(_ sender: Any) {
+        HelperTracking.track(item: .settingsTermsAndConditions)
+        showWebview(with: Constants.Links.termsAndConditions)
     }
     
     @IBAction func onManageNotificationsTapped(_ sender: Any) {

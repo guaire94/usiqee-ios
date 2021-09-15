@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HTY-hT-lQz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HTY-hT-lQz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -278,14 +278,14 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plh-Vl-KXS">
                                                                 <rect key="frame" x="0.0" y="292" width="362" height="139.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIn-oB-ooE">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIn-oB-ooE" userLabel="Terms And Conditions Button">
                                                                         <rect key="frame" x="0.0" y="0.0" width="362" height="139.5"/>
                                                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         <state key="normal" title="Button">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
-                                                                            <action selector="onCguTapped:" destination="kvx-bE-tSl" eventType="touchUpInside" id="gq4-Pd-WWu"/>
+                                                                            <action selector="onTermsAndConditionsTapped:" destination="kvx-bE-tSl" eventType="touchUpInside" id="IAX-1k-ecT"/>
                                                                         </connections>
                                                                     </button>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-gray" translatesAutoresizingMaskIntoConstraints="NO" id="GSA-O8-LcL">
@@ -362,7 +362,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="6xF-Wg-ef3"/>
                     <connections>
-                        <outlet property="cguButton" destination="sIn-oB-ooE" id="5zI-JZ-pUe"/>
                         <outlet property="editProfileButton" destination="sy2-h1-WaO" id="v7T-vE-fh7"/>
                         <outlet property="emailLabel" destination="Bw0-VK-BhS" id="jf3-pT-Xsj"/>
                         <outlet property="legalNoticeLabel" destination="x3M-Dt-ViB" id="lXz-jC-SLZ"/>
@@ -371,6 +370,7 @@
                         <outlet property="notificationsLabel" destination="H7G-Fl-eCp" id="ZH6-a0-7r8"/>
                         <outlet property="privacyButton" destination="81f-mU-oPM" id="uDw-dJ-vBi"/>
                         <outlet property="profileLabel" destination="ZdY-e6-rct" id="bMJ-iJ-J4f"/>
+                        <outlet property="termsAndConditionsButton" destination="sIn-oB-ooE" id="Q4I-z1-2UR"/>
                         <outlet property="titleLabel" destination="M4m-Pb-od9" id="rbX-3d-x6g"/>
                         <outlet property="userAvatar" destination="r5l-TY-dQt" id="gdG-QC-pKG"/>
                         <outlet property="usernameLabel" destination="qaA-D4-f3S" id="uzH-qd-QSm"/>
