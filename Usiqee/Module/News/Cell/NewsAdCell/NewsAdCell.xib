@@ -23,23 +23,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgJ-3Z-XSW" customClass="GADUnifiedNativeAdView">
                                 <rect key="frame" x="0.0" y="0.0" width="564" height="120"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wmV-m3-QDO">
-                                        <rect key="frame" x="148" y="0.0" width="416" height="120"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="wmV-m3-QDO">
+                                        <rect key="frame" x="148" y="0.0" width="406" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="Headline" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg3-YE-NIZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="416" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="406" height="34.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertiser" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAy-re-7d8">
-                                                <rect key="frame" x="0.0" y="69.5" width="416" height="17"/>
+                                                <rect key="frame" x="0.0" y="34.5" width="406" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Body that is really really long and can take up to two lines or sometimes even more." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdq-m5-qCa">
-                                                <rect key="frame" x="0.0" y="86.5" width="416" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="63.5" width="406" height="56.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Hu4-FM-87N" secondAttribute="bottom" id="Ub8-8g-bsC"/>
                                     <constraint firstAttribute="bottom" secondItem="wmV-m3-QDO" secondAttribute="bottom" id="aB9-6f-Cgk"/>
                                     <constraint firstItem="Hu4-FM-87N" firstAttribute="top" secondItem="zgJ-3Z-XSW" secondAttribute="top" id="aVR-xf-RYU"/>
-                                    <constraint firstAttribute="trailing" secondItem="wmV-m3-QDO" secondAttribute="trailing" id="nLf-VB-xmH"/>
+                                    <constraint firstAttribute="trailing" secondItem="wmV-m3-QDO" secondAttribute="trailing" constant="10" id="nLf-VB-xmH"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="advertiserView" destination="rAy-re-7d8" id="kmI-V4-OAI"/>
