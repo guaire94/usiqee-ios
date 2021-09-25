@@ -34,10 +34,6 @@ class AccountSettingsVC: UIViewController {
         fileprivate enum SendEmailAlert {
             static let apple: String = "Apple mail"
             static let gmail: String = "Gmail"
-            static let cancel: String = "Cancel"
-        }
-        fileprivate enum noEmailAlert {
-            static let title: String = "FEEDBACK"
         }
     }
     
@@ -173,7 +169,7 @@ class AccountSettingsVC: UIViewController {
                 self.sendViaGmail()
             }))
             
-            alert.addAction(UIAlertAction(title: Constants.SendEmailAlert.cancel, style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: L10N.global.action.cancel, style: .cancel, handler: nil))
             
             present(alert, animated: true)
         case (true, false):
@@ -181,7 +177,7 @@ class AccountSettingsVC: UIViewController {
         case (false, true):
             sendViaGmail()
         default:
-            showError(title: Constants.noEmailAlert.title, message: L10N.AccountSettings.noContactEmail(Constants.EmailInformation.email))
+            showError(title: L10N.AccountSettings.NoContactEmail.title, message: L10N.AccountSettings.NoContactEmail.message(Constants.EmailInformation.email))
         }
     }
     

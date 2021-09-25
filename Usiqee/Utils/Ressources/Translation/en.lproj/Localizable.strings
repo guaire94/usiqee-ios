@@ -83,6 +83,7 @@
 "ACCOUNT_SETTINGS_SUPPORT" = "Support";
 "ACCOUNT_SETTINGS_FEEDBACK" = "Feedback on app";
 "ACCOUNT_SETTINGS_CONTACT" = "Contact us";
+"ACCOUNT_SETTINGS_NO_EMAIL_TITLE" = "FEEDBACK";
 "ACCOUNT_SETTINGS_NO_EMAIL" = "Merci de nous envoyer un email sur %@ avec vos feedback et on essayera de les corriger ou les intégrer sur l'app";
 
 "USER_DETAILS_MENU_FOLLOWED" = "%d followed";
