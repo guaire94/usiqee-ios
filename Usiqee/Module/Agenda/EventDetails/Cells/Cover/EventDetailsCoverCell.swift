@@ -21,6 +21,7 @@ class EventDetailsCoverCell: UITableViewCell {
     
     // MARK: - LifeCycle
     func configure(cover: String) {
+        selectionStyle = .none
         let storage = Storage.storage().reference(forURL: cover)
         coverImage.sd_setImage(with: storage)
     }

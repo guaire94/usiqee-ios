@@ -31,6 +31,7 @@ class EventDetailsMusicalEntitiesListCell: UITableViewCell {
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         
         collectionView.register(EventDetailsMusicalEntityCell.Constants.nib, forCellWithReuseIdentifier: EventDetailsMusicalEntityCell.Constants.identifier)
         collectionView.dataSource = self

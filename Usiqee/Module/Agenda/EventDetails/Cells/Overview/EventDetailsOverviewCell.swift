@@ -40,6 +40,7 @@ class EventDetailsOverviewCell: UITableViewCell {
 
     // MARK: - Private
     private func setupView() {
+        selectionStyle = .none
         eventNameLabel.font = Fonts.EventDetails.name
         descriptionLabel.font = Fonts.EventDetails.description
         typeLabel.font = Fonts.EventDetails.type
