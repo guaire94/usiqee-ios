@@ -190,6 +190,15 @@ struct L10N {
         static let manageNotifications: String = NSLocalizedString("ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS", comment: "")
         static let profile: String = NSLocalizedString("ACCOUNT_SETTINGS_PROFILE", comment: "")
         static let editProfile: String = NSLocalizedString("ACCOUNT_SETTINGS_EDIT_PROFILE", comment: "")
+        static let support: String = NSLocalizedString("ACCOUNT_SETTINGS_SUPPORT", comment: "")
+        static let feedback: String = NSLocalizedString("ACCOUNT_SETTINGS_FEEDBACK", comment: "")
+        static let contact: String = NSLocalizedString("ACCOUNT_SETTINGS_CONTACT", comment: "")
+        enum NoContactEmail {
+            static let title: String = NSLocalizedString("ACCOUNT_SETTINGS_NO_EMAIL_TITLE", comment: "")
+            static func message(_ email: String) -> String {
+                String(format: NSLocalizedString("ACCOUNT_SETTINGS_NO_EMAIL", comment: ""), email)
+            }
+        }
     }
     
     struct version {

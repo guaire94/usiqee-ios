@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StoreKit
 
 class HelperRouting {
     
@@ -55,6 +56,13 @@ class HelperRouting {
             newsDetailsVC.newsId = newsId
             tabVC.allVC.first?.navigationController?.pushViewController(newsDetailsVC, animated: true)
             break
+        case .storeFeedback:
+            if #available(iOS 14.0, *),
+               let currentScene = UIApplication.shared.currentScene {
+                SKStoreReviewController.requestReview(in: currentScene)
+            } else {
+                SKStoreReviewController.requestReview()
+            }
         }
     }
 }

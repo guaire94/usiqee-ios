@@ -55,6 +55,8 @@
 		676079D026CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 676079CE26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib */; };
 		676079D326CEDA0000008169 /* RelatedNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676079D226CED9FF00008169 /* RelatedNewsItem.swift */; };
 		676079DE26DD6F9300008169 /* AccountUpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676079DD26DD6F9200008169 /* AccountUpdateProfileVC.swift */; };
+		6763A39E26F3EBD100915F83 /* UIApplication+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6763A39D26F3EBD100915F83 /* UIApplication+M.swift */; };
+		6763A3AA26FE5A9500915F83 /* UIDevice+M.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6763A3A926FE5A9500915F83 /* UIDevice+M.swift */; };
 		67656A452654593900672911 /* SofiaProRegularItalicAz.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67656A442654593900672911 /* SofiaProRegularItalicAz.otf */; };
 		67656A4A2655AE0E00672911 /* ServiceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67656A492655AE0E00672911 /* ServiceUser.swift */; };
 		676EAF162630AAEE00656B91 /* MusicalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676EAF152630AAEE00656B91 /* MusicalEntity.swift */; };
@@ -261,6 +263,8 @@
 		676079CE26CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailsRelatedMusicalEntityCell.xib; sourceTree = "<group>"; };
 		676079D226CED9FF00008169 /* RelatedNewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedNewsItem.swift; sourceTree = "<group>"; };
 		676079DD26DD6F9200008169 /* AccountUpdateProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountUpdateProfileVC.swift; sourceTree = "<group>"; };
+		6763A39D26F3EBD100915F83 /* UIApplication+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+M.swift"; sourceTree = "<group>"; };
+		6763A3A926FE5A9500915F83 /* UIDevice+M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+M.swift"; sourceTree = "<group>"; };
 		67656A442654593900672911 /* SofiaProRegularItalicAz.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProRegularItalicAz.otf; sourceTree = "<group>"; };
 		67656A492655AE0E00672911 /* ServiceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUser.swift; sourceTree = "<group>"; };
 		676EAF152630AAEE00656B91 /* MusicalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalEntity.swift; sourceTree = "<group>"; };
@@ -1139,6 +1143,8 @@
 				67BBFC10265012F600A14DCD /* UITableView+M.swift */,
 				EE983B3026DBB8A800A706A0 /* String+M.swift */,
 				EE983B3426DBBF8100A706A0 /* PersonNameComponents+M.swift */,
+				6763A39D26F3EBD100915F83 /* UIApplication+M.swift */,
+				6763A3A926FE5A9500915F83 /* UIDevice+M.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1654,6 +1660,7 @@
 				EE09221225F163FE002C0174 /* Release.swift in Sources */,
 				67F0202826B2EA1E00A7F573 /* EventDetailsTableViewHandler.swift in Sources */,
 				B87B26512542338D007D4A4D /* ServiceVersion.swift in Sources */,
+				6763A39E26F3EBD100915F83 /* UIApplication+M.swift in Sources */,
 				EE09220825F16308002C0174 /* MReleaseType.swift in Sources */,
 				679B197F2660338D0026568B /* ManagerEvents.swift in Sources */,
 				676EAF492633451300656B91 /* UICollectionView+M.swift in Sources */,
@@ -1712,6 +1719,7 @@
 				EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */,
 				EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */,
 				6731F3F42694AD560050E692 /* NewsDetailsOverviewCell.swift in Sources */,
+				6763A3AA26FE5A9500915F83 /* UIDevice+M.swift in Sources */,
 				652B32542572C6ED008FFA60 /* NewsSection.swift in Sources */,
 				B8CE19C1253DBAE5002AC5A5 /* AppDelegate.swift in Sources */,
 				EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */,
@@ -1927,7 +1935,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee 1630352834";
@@ -1952,7 +1960,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.usiqee.app.Usiqee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.usiqee.app.Usiqee 1630352834";
