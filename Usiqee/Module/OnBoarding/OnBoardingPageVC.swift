@@ -69,10 +69,9 @@ extension OnBoardingPageVC: UIPageViewControllerDataSource {
         return items[previousIndex]
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {        guard let index = items.firstIndex(of: viewController) else { return nil }
-        
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = items.firstIndex(of: viewController) else { return nil }
         let nextIndex = index + 1
-        
         guard nextIndex < items.count else { return nil }
         
         return items[nextIndex]
