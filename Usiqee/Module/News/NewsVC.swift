@@ -27,6 +27,9 @@ class NewsVC: UIViewController {
         super.viewDidLoad()
         HelperTracking.track(item: .news)
         setupView()
+        if !HelperOnBoarding.shared.haveSeenNewsOnBoarding {
+            displayOnBoarding(item: .News)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

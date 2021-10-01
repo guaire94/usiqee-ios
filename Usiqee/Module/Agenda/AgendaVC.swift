@@ -26,6 +26,9 @@ class AgendaVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         HelperTracking.track(item: .agenda)
+        if !HelperOnBoarding.shared.haveSeenAgendaOnBoarding {
+            displayOnBoarding(item: .Agenda)
+        }
         setUpView()
     }
     

@@ -29,6 +29,9 @@ class ArtistVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         HelperTracking.track(item: .artistsAndBands)
+        if !HelperOnBoarding.shared.haveSeenArtistOnBoarding {
+            displayOnBoarding(item: .Artist)
+        }
         setupView()
     }
     

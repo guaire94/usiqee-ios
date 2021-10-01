@@ -161,3 +161,18 @@
 "TABBAR_ARTISTS" = "Artists";
 "TABBAR_PROFILE" = "Profile";
 
+"ONBOARDING_NEWS_PAGE_ONE_TITLE"="Fil d’actualité";
+"ONBOARDING_NEWS_PAGE_ONE_DESCRIPTION"="Les News vous permettent de suivre notre actualité et celle de médias spécialisés";
+"ONBOARDING_NEWS_PAGE_TWO_TITLE"="Vos Favoris";
+"ONBOARDING_NEWS_PAGE_TWO_DESCRIPTION"="Connectez-vous à votre compte, partagez et sauvegardez vos News préférées";
+"ONBOARDING_AGENDA_PAGE_ONE_TITLE"="Calendrier d’événements";
+"ONBOARDING_AGENDA_PAGE_ONE_DESCRIPTION"="Sorties, concerts, festivals... ne manquez plus aucun événement avec notre calendrier.";
+"ONBOARDING_AGENDA_PAGE_TWO_TITLE"="Appliquez vos filtres";
+"ONBOARDING_AGENDA_PAGE_TWO_DESCRIPTION"="Personnalisez votre calendrier selon vos préférences.";
+"ONBOARDING_ARTIST_PAGE_ONE_TITLE"="View Artistes";
+"ONBOARDING_ARTIST_PAGE_ONE_DESCRIPTION"="Découvrez les fiches artistes et plongez vous dans leur univers";
+"ONBOARDING_ARTIST_PAGE_TWO_TITLE"="Suivez vos Artistes";
+"ONBOARDING_ARTIST_PAGE_TWO_DESCRIPTION"="Connectez-vous et suivez vos artistes pour personnaliser votre expérience";
+"ONBOARDING_ARTIST_PAGE_THREE_TITLE"="Informations";
+"ONBOARDING_ARTIST_PAGE_THREE_DESCRIPTION"="Apprenez à connaître d’avantage vos artistes à l’aide d’une mini bio et de focus ponctuels";
+"ONBOARDING_NEXT"="Passez";

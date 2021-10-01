@@ -273,4 +273,43 @@ struct L10N {
         }
         static let RelatedMusicalEntityTitle: String = NSLocalizedString("NEWS_DETAILS_MUSICAL_ENTITY_TITLE", comment: "")
     }
+    
+    struct OnBoarding {
+        struct News {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_NEWS_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_NEWS_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_NEWS_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_NEWS_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+        }
+        struct Agenda {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_AGENDA_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_AGENDA_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_AGENDA_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_AGENDA_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+        }
+        struct Aritst {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+            struct PageThree {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_THREE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_THREE_DESCRIPTION", comment: "")
+            }
+
+        }
+        static let next = NSLocalizedString("ONBOARDING_NEXT", comment: "")
+    }
 }

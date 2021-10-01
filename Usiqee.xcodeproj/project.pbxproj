@@ -197,6 +197,7 @@
 		EE18832F265BFB1A004B0D29 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */; };
 		EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE724D0326AF2DE90061977D /* ArtistDetailsNewsCell.swift */; };
 		EE724D0626AF2DE90061977D /* ArtistDetailsNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE724D0426AF2DE90061977D /* ArtistDetailsNewsCell.xib */; };
+		EE8488CA270731CE001071E2 /* HelperOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8488C9270731CE001071E2 /* HelperOnBoarding.swift */; };
 		EE96B05825ED24E500D7A965 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05725ED24E500D7A965 /* NewsVC.swift */; };
 		EE96B05D25ED528C00D7A965 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE96B05B25ED528C00D7A965 /* NewsCell.swift */; };
 		EE96B05E25ED528C00D7A965 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE96B05C25ED528C00D7A965 /* NewsCell.xib */; };
@@ -207,6 +208,14 @@
 		EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF244260DE63E00233ACB /* ServiceArtist.swift */; };
 		EECB84F926AE154F00346851 /* LikedNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EECB84F726AE154F00346851 /* LikedNewsCell.xib */; };
 		EECB84FA26AE154F00346851 /* LikedNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECB84F826AE154F00346851 /* LikedNewsCell.swift */; };
+		EED37799270348ED00895D88 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EED37798270348ED00895D88 /* OnBoarding.storyboard */; };
+		EED3779C27034AE300895D88 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED3779B27034AE300895D88 /* OnBoardingVC.swift */; };
+		EED377A32703551C00895D88 /* OnBoardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED377A12703551C00895D88 /* OnBoardingView.xib */; };
+		EED377A42703551C00895D88 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377A22703551C00895D88 /* OnBoardingView.swift */; };
+		EED377A7270356B700895D88 /* OnBoardingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377A6270356B700895D88 /* OnBoardingPageVC.swift */; };
+		EED377AA2703742600895D88 /* SofiaProSemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EED377A92703742300895D88 /* SofiaProSemiBold.otf */; };
+		EED377D7270374F200895D88 /* SFProDisplaySemibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EED377D6270374F100895D88 /* SFProDisplaySemibold.otf */; };
+		EED377DA27038E6B00895D88 /* MOnBoardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED377D927038E6B00895D88 /* MOnBoardingItem.swift */; };
 		EEEAD11925ED66DA0062F901 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAD11825ED66DA0062F901 /* Account.storyboard */; };
 		EEEAD11D25ED67E50062F901 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAD11C25ED67E50062F901 /* AccountVC.swift */; };
 /* End PBXBuildFile section */
@@ -407,6 +416,7 @@
 		EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
 		EE724D0326AF2DE90061977D /* ArtistDetailsNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailsNewsCell.swift; sourceTree = "<group>"; };
 		EE724D0426AF2DE90061977D /* ArtistDetailsNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistDetailsNewsCell.xib; sourceTree = "<group>"; };
+		EE8488C9270731CE001071E2 /* HelperOnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperOnBoarding.swift; sourceTree = "<group>"; };
 		EE96B05725ED24E500D7A965 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		EE96B05B25ED528C00D7A965 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		EE96B05C25ED528C00D7A965 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -417,6 +427,14 @@
 		EECAF244260DE63E00233ACB /* ServiceArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtist.swift; sourceTree = "<group>"; };
 		EECB84F726AE154F00346851 /* LikedNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikedNewsCell.xib; sourceTree = "<group>"; };
 		EECB84F826AE154F00346851 /* LikedNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikedNewsCell.swift; sourceTree = "<group>"; };
+		EED37798270348ED00895D88 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		EED3779B27034AE300895D88 /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		EED377A12703551C00895D88 /* OnBoardingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnBoardingView.xib; sourceTree = "<group>"; };
+		EED377A22703551C00895D88 /* OnBoardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		EED377A6270356B700895D88 /* OnBoardingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageVC.swift; sourceTree = "<group>"; };
+		EED377A92703742300895D88 /* SofiaProSemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SofiaProSemiBold.otf; sourceTree = "<group>"; };
+		EED377D6270374F100895D88 /* SFProDisplaySemibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFProDisplaySemibold.otf; sourceTree = "<group>"; };
+		EED377D927038E6B00895D88 /* MOnBoardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOnBoardingItem.swift; sourceTree = "<group>"; };
 		EEEAD11825ED66DA0062F901 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		EEEAD11C25ED67E50062F901 /* AccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		EEFCCF4A26D81CA300AC92EB /* UsiqeeDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UsiqeeDebug.entitlements; sourceTree = "<group>"; };
@@ -926,6 +944,7 @@
 			children = (
 				67FA27612670B2E700482131 /* HelperRouting.swift */,
 				EEB3A12426E297B000C52D15 /* HelperTracking.swift */,
+				EE8488C9270731CE001071E2 /* HelperOnBoarding.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1151,6 +1170,7 @@
 				65CF69A225681BBA00CB9AF7 /* MEventType.swift */,
 				EE09220725F16308002C0174 /* MReleaseType.swift */,
 				EE09221825F16518002C0174 /* MItemType.swift */,
+				EED377D927038E6B00895D88 /* MOnBoardingItem.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1215,6 +1235,7 @@
 				B8632C8A255AFCED00B196E5 /* Agenda.storyboard */,
 				EE0921D825F15A47002C0174 /* Artist.storyboard */,
 				EEEAD11825ED66DA0062F901 /* Account.storyboard */,
+				EED37798270348ED00895D88 /* OnBoarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1229,6 +1250,7 @@
 				EE0921DC25F15A5C002C0174 /* Artist */,
 				B8CE1AAF253F6FF2002AC5A5 /* Auth */,
 				B8CE1AA1253F3417002AC5A5 /* News */,
+				EED3779E27034AE900895D88 /* OnBoarding */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -1320,8 +1342,10 @@
 		B8FDE3B1253F799900BD29B2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EED377D6270374F100895D88 /* SFProDisplaySemibold.otf */,
 				6731F3C82683CC650050E692 /* SFProDisplayRegular.ttf */,
 				67656A442654593900672911 /* SofiaProRegularItalicAz.otf */,
+				EED377A92703742300895D88 /* SofiaProSemiBold.otf */,
 				676EAF202630D54800656B91 /* SofiaProBoldAz.otf */,
 				6751E072262F7B9200AC6509 /* SofiaProRegularAz.otf */,
 				676EAF182630C86700656B91 /* Fonts.swift */,
@@ -1412,6 +1436,25 @@
 				6731F3E4268C8C7D0050E692 /* NewsCarouselItemCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		EED3779E27034AE900895D88 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				EED377A02703548900895D88 /* OnBoardingItem */,
+				EED3779B27034AE300895D88 /* OnBoardingVC.swift */,
+				EED377A6270356B700895D88 /* OnBoardingPageVC.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		EED377A02703548900895D88 /* OnBoardingItem */ = {
+			isa = PBXGroup;
+			children = (
+				EED377A22703551C00895D88 /* OnBoardingView.swift */,
+				EED377A12703551C00895D88 /* OnBoardingView.xib */,
+			);
+			path = OnBoardingItem;
 			sourceTree = "<group>";
 		};
 		EEEAD11B25ED67C30062F901 /* Account */ = {
@@ -1514,6 +1557,7 @@
 				679B1991266044F60026568B /* EventsFilterHeaderCell.xib in Resources */,
 				67F0202526B2E67700A7F573 /* EventDetailsDateAndLocationCell.xib in Resources */,
 				65155347256EC0EE0060177E /* DateSectionCell.xib in Resources */,
+				EED37799270348ED00895D88 /* OnBoarding.storyboard in Resources */,
 				EE0921D925F15A47002C0174 /* Artist.storyboard in Resources */,
 				6731F3F52694AD560050E692 /* NewsDetailsOverviewCell.xib in Resources */,
 				67A254C626412EBA008167DB /* AccountDetailsView.xib in Resources */,
@@ -1523,11 +1567,13 @@
 				6731F3DD268C82BF0050E692 /* NewsCarouselCell.xib in Resources */,
 				67F0202E26B3F1DB00A7F573 /* EventDetailsCoverCell.xib in Resources */,
 				67FA27EA267BF84D00482131 /* BandDetailsMembersCell.xib in Resources */,
+				EED377D7270374F200895D88 /* SFProDisplaySemibold.otf in Resources */,
 				B8632C8B255AFCED00B196E5 /* Agenda.storyboard in Resources */,
 				67271525264C6A930022DA2D /* FollowedMusicalEntityView.xib in Resources */,
 				679B1998266167070026568B /* EventsFilterSwitchCell.xib in Resources */,
 				676079C726CDA67C00008169 /* NewsDetailsRelatedMusicalEntitiesCell.xib in Resources */,
 				B8CE1AAD253F6FC9002AC5A5 /* Auth.storyboard in Resources */,
+				EED377A32703551C00895D88 /* OnBoardingView.xib in Resources */,
 				B8FDE3AC253F780F00BD29B2 /* Localizable.strings in Resources */,
 				670C4DFB261E4175005A72E2 /* ArtistCollectionViewCell.xib in Resources */,
 				67FA27D4267B6E0100482131 /* ArtistDetailsLabelsCell.xib in Resources */,
@@ -1546,6 +1592,7 @@
 				B8CE19C8253DBAE5002AC5A5 /* News.storyboard in Resources */,
 				6731F459269618F80050E692 /* NewsDetailsVideoCell.xib in Resources */,
 				B8FDE3A7253F761100BD29B2 /* GoogleService-Info.plist in Resources */,
+				EED377AA2703742600895D88 /* SofiaProSemiBold.otf in Resources */,
 				676079D026CDAC8800008169 /* NewsDetailsRelatedMusicalEntityCell.xib in Resources */,
 				6731F4022694F8AA0050E692 /* NewsDetailsImageCell.xib in Resources */,
 			);
@@ -1627,6 +1674,7 @@
 				67FA27952677D1D500482131 /* ArtistDetailsTableViewHandler.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
 				67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */,
+				EED377DA27038E6B00895D88 /* MOnBoardingItem.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
 				67FA2751266D4C8E00482131 /* EventDetailsVC.swift in Sources */,
 				679B1997266167070026568B /* EventsFilterSwitchCell.swift in Sources */,
@@ -1639,6 +1687,7 @@
 				B84ECBB425402BAA007F8E9E /* SignUpVC.swift in Sources */,
 				6731F4012694F8AA0050E692 /* NewsDetailsImageCell.swift in Sources */,
 				B87B2658254236AA007D4A4D /* MStoryboard.swift in Sources */,
+				EE8488CA270731CE001071E2 /* HelperOnBoarding.swift in Sources */,
 				67FA279D267A3B8000482131 /* RelatedLabel.swift in Sources */,
 				EECAF245260DE63E00233ACB /* ServiceArtist.swift in Sources */,
 				B836B6212548E45B00AAF48A /* UIButton+M.swift in Sources */,
@@ -1649,6 +1698,7 @@
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
 				67FA27E3267BEF8600482131 /* BandDetailsTableViewHandler.swift in Sources */,
+				EED3779C27034AE300895D88 /* OnBoardingVC.swift in Sources */,
 				EE0921F325F15EBD002C0174 /* RelatedAuthor.swift in Sources */,
 				67A2540E263C559C008167DB /* Colors.swift in Sources */,
 				EE09221225F163FE002C0174 /* Release.swift in Sources */,
@@ -1732,6 +1782,7 @@
 				EE0921E625F15DD4002C0174 /* Comment.swift in Sources */,
 				65CF698C2567FD0800CB9AF7 /* MNewsSectionType.swift in Sources */,
 				B8632C83255AF92200B196E5 /* AgendaVC.swift in Sources */,
+				EED377A42703551C00895D88 /* OnBoardingView.swift in Sources */,
 				67F0202426B2E67700A7F573 /* EventDetailsDateAndLocationCell.swift in Sources */,
 				67FA276626728D2200482131 /* EventItem.swift in Sources */,
 				670BAEAF26C5A7C300CE83CC /* NewsAdCell.swift in Sources */,
@@ -1752,6 +1803,7 @@
 				EE09220225F1616F002C0174 /* RelatedLanguage.swift in Sources */,
 				B8FDE37D253F730F00BD29B2 /* L10N.swift in Sources */,
 				67A813E726973B4C00344937 /* NewsDetailsFooterView.swift in Sources */,
+				EED377A7270356B700895D88 /* OnBoardingPageVC.swift in Sources */,
 				67A254BC26408E1A008167DB /* MSegmentedMenuItem.swift in Sources */,
 				67271522264C6A660022DA2D /* FollowedMusicalEntityView.swift in Sources */,
 				65CF699C25681A7400CB9AF7 /* EventCell.swift in Sources */,

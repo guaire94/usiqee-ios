@@ -11,6 +11,7 @@ enum Fonts: String {
     
     case SofiaProRegular = "SofiaPro"
     case SofiaProBold = "SofiaPro-Bold"
+    case SofiaProSemiBold = "SofiaPro-SemiBold"
     case SofiaProItalic = "SofiaPro-Italic"
     case HelveticaRegular = "HelveticaNeue"
     case HelveticaBold = "HelveticaNeue-Bold"
@@ -18,7 +19,8 @@ enum Fonts: String {
     case HelveticaMedium = "HelveticaNeue-Medium"
     case HelveticaItalic = "HelveticaNeue-Italic"
     case SFProDisplayRegular = "SFProDisplay-Regular"
-    
+    case SFProDisplaySemiBold = "SFProDisplay-SemiBold"
+
     private func withSize(with size: CGFloat) -> UIFont {
         guard let font = UIFont(name: rawValue, size: size) else {
             return UIFont.systemFont(ofSize: size)
@@ -373,6 +375,15 @@ enum Fonts: String {
             static var title: UIFont {
                 Fonts.SofiaProBold.withSize(with: 18)
             }
+        }
+    }
+    
+    enum OnBoarding {
+        static var title: UIFont {
+            Fonts.SofiaProSemiBold.withSize(with: 36)
+        }
+        static var description: UIFont {
+            Fonts.SFProDisplaySemiBold.withSize(with: 18)
         }
     }
 }
