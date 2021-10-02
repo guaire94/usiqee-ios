@@ -15,6 +15,7 @@ enum MStoryboard: String {
     case Agenda = "Agenda"
     case Artist = "Artist"
     case Account = "Account"
+    case OnBoarding = "OnBoarding"
 
     var storyboard: UIStoryboard {
         UIStoryboard(name: rawValue, bundle: nil)

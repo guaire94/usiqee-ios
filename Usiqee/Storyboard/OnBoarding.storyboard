@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O8K-73-fDt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--On BoardingVC-->
+        <scene sceneID="6a7-8v-sTt">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="O8K-73-fDt" customClass="OnBoardingVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cbq-YV-9QS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3DU-Bh-zo3">
+                                <rect key="frame" x="0.0" y="596" width="414" height="300"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGl-ci-wYZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                        <connections>
+                                            <segue destination="WcB-EA-Bgy" kind="embed" identifier="OnBoardingPageVC" id="Qy9-Nu-1I7"/>
+                                        </connections>
+                                    </containerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78X-UO-9Yh" customClass="FilledButton" customModule="Usiqee" customModuleProvider="target">
+                                        <rect key="frame" x="328" y="250" width="66" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fbH-Oc-9TA"/>
+                                            <constraint firstAttribute="width" constant="66" id="tX4-xT-XZF"/>
+                                        </constraints>
+                                        <state key="normal" title="Passer">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startToggle:" destination="O8K-73-fDt" eventType="touchUpInside" id="IXF-Vi-FoV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="9vV-b5-px6"/>
+                                    <constraint firstAttribute="bottom" secondItem="78X-UO-9Yh" secondAttribute="bottom" constant="20" id="IiE-tS-O1p"/>
+                                    <constraint firstItem="78X-UO-9Yh" firstAttribute="top" secondItem="UGl-ci-wYZ" secondAttribute="bottom" constant="20" id="cfD-oL-39U"/>
+                                    <constraint firstAttribute="trailing" secondItem="78X-UO-9Yh" secondAttribute="trailing" constant="20" id="gLX-Mj-ilo"/>
+                                    <constraint firstItem="UGl-ci-wYZ" firstAttribute="top" secondItem="3DU-Bh-zo3" secondAttribute="top" id="gse-jk-OWp"/>
+                                    <constraint firstAttribute="trailing" secondItem="UGl-ci-wYZ" secondAttribute="trailing" id="ukv-KA-J7L"/>
+                                    <constraint firstItem="UGl-ci-wYZ" firstAttribute="leading" secondItem="3DU-Bh-zo3" secondAttribute="leading" id="xPR-fc-xkX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KGB-bq-QJf"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.60422234092470739" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KGB-bq-QJf" firstAttribute="trailing" secondItem="3DU-Bh-zo3" secondAttribute="trailing" id="Ix9-zx-Xof"/>
+                            <constraint firstItem="3DU-Bh-zo3" firstAttribute="leading" secondItem="KGB-bq-QJf" secondAttribute="leading" id="dNQ-3y-7xu"/>
+                            <constraint firstAttribute="bottom" secondItem="3DU-Bh-zo3" secondAttribute="bottom" id="fwJ-kx-dUs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="78X-UO-9Yh" id="u8K-an-bJ1"/>
+                        <outlet property="pageVCContainer" destination="UGl-ci-wYZ" id="fjg-SC-mXI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8U-cK-KK7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15.942028985507248" y="156.69642857142856"/>
+        </scene>
+        <!--On Boarding PageVC-->
+        <scene sceneID="AlK-Uo-cnj">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="WcB-EA-Bgy" customClass="OnBoardingPageVC" customModule="Usiqee" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yhe-7a-FK1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="700"/>
+        </scene>
+    </scenes>
+</document>

@@ -28,6 +28,18 @@ extension UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = homeNavigationController
     }
     
+    func displayOnBoarding(item: MOnBoardingItem) {
+        guard let onBoardingVC = MStoryboard.OnBoarding.storyboard.instantiateInitialViewController() as? OnBoardingVC else {
+            fatalError("Load initial view controller from '\(MStoryboard.OnBoarding.rawValue)' Storyboard have failed")
+        }
+        onBoardingVC.item = item
+        let navigationController = UINavigationController(rootViewController: onBoardingVC)
+        navigationController.isNavigationBarHidden = true
+        navigationController.modalTransitionStyle = .coverVertical
+        navigationController.modalPresentationStyle = .overFullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     func displayAuthentication(with delegate: PreAuthVCDelegate? = nil) {
         guard let authenticationNavigationController = MStoryboard.Auth.storyboard.instantiateInitialViewController() as? PreAuthVC else {
             fatalError("Load initial view controller from '\(MStoryboard.Home.rawValue)' Storyboard have failed")
