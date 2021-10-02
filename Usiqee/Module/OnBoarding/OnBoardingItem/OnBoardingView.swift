@@ -32,7 +32,7 @@ class OnBoardingView: UIView {
     }
     
     convenience init(title: String, description: String) {
-        self.init()
+        self.init(frame: .zero)
         titlelabel.text = title
         descriptionlabel.text = description
     }

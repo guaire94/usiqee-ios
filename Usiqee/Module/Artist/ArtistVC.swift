@@ -30,7 +30,7 @@ class ArtistVC: UIViewController {
         super.viewDidLoad()
         HelperTracking.track(item: .artistsAndBands)
         if !HelperOnBoarding.shared.haveSeenArtistOnBoarding {
-            displayOnBoarding(item: .Artist)
+            displayOnBoarding(item: .artist)
         }
         setupView()
     }

@@ -28,7 +28,7 @@ class NewsVC: UIViewController {
         HelperTracking.track(item: .news)
         setupView()
         if !HelperOnBoarding.shared.haveSeenNewsOnBoarding {
-            displayOnBoarding(item: .News)
+            displayOnBoarding(item: .news)
         }
     }
     
