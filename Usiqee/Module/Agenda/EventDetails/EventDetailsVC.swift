@@ -148,6 +148,21 @@ extension EventDetailsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableViewHandler.heightForRow(at: indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let musicalEntity = event?.musicalEntity,
+              let cellType = tableViewHandler.item(for: indexPath) else {
+            return
+        }
+        
+        switch cellType {
+        case .overview:
+            didSelect(musicalEntity: musicalEntity)
+            break
+        default:
+            break
+        }
+    }
 }
 
 // MARK: - IBActions

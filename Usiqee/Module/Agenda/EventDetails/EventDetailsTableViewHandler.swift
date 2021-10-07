@@ -97,7 +97,7 @@ class EventDetailsTableViewHandler {
     func item(for indexPath: IndexPath) -> CellType? {
         rows[indexPath.row]
     }
-    
+        
     var redirectionButtonText: String? {
         guard let event = event,
               let eventType = event.event.eventType else {

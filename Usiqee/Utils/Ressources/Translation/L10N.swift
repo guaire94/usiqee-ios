@@ -190,6 +190,15 @@ struct L10N {
         static let manageNotifications: String = NSLocalizedString("ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS", comment: "")
         static let profile: String = NSLocalizedString("ACCOUNT_SETTINGS_PROFILE", comment: "")
         static let editProfile: String = NSLocalizedString("ACCOUNT_SETTINGS_EDIT_PROFILE", comment: "")
+        static let support: String = NSLocalizedString("ACCOUNT_SETTINGS_SUPPORT", comment: "")
+        static let feedback: String = NSLocalizedString("ACCOUNT_SETTINGS_FEEDBACK", comment: "")
+        static let contact: String = NSLocalizedString("ACCOUNT_SETTINGS_CONTACT", comment: "")
+        enum NoContactEmail {
+            static let title: String = NSLocalizedString("ACCOUNT_SETTINGS_NO_EMAIL_TITLE", comment: "")
+            static func message(_ email: String) -> String {
+                String(format: NSLocalizedString("ACCOUNT_SETTINGS_NO_EMAIL", comment: ""), email)
+            }
+        }
     }
     
     struct version {
@@ -272,5 +281,44 @@ struct L10N {
             String(format: NSLocalizedString("NEWS_DETAILS_AUTHOR_WEBLINK", comment: ""), text)
         }
         static let RelatedMusicalEntityTitle: String = NSLocalizedString("NEWS_DETAILS_MUSICAL_ENTITY_TITLE", comment: "")
+    }
+    
+    struct OnBoarding {
+        struct News {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_NEWS_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_NEWS_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_NEWS_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_NEWS_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+        }
+        struct Agenda {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_AGENDA_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_AGENDA_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_AGENDA_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_AGENDA_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+        }
+        struct Aritst {
+            struct PageOne {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_ONE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_ONE_DESCRIPTION", comment: "")
+            }
+            struct PageTwo {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_TWO_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_TWO_DESCRIPTION", comment: "")
+            }
+            struct PageThree {
+                static let title = NSLocalizedString("ONBOARDING_ARTIST_PAGE_THREE_TITLE", comment: "")
+                static let description = NSLocalizedString("ONBOARDING_ARTIST_PAGE_THREE_DESCRIPTION", comment: "")
+            }
+
+        }
+        static let next = NSLocalizedString("ONBOARDING_NEXT", comment: "")
     }
 }

@@ -41,6 +41,10 @@
 	<string>ca-app-pub-4194874184462866~1813052926</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlegmail</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
@@ -51,6 +55,8 @@
 	<string>We need contact permission to allow you to specify a contact when adding an event</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need location permission to allow you to specify a location when adding an event</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>L&apos;application collecte vos donnees anonymisées afin de mieux comprendre les parcours utilisateurs et permettre la mise en place de mise à jour plus efficacement</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -204,9 +210,11 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SFProDisplaySemibold.otf</string>
 		<string>SofiaProRegularAz.otf</string>
 		<string>SofiaProBoldAz.otf</string>
 		<string>SofiaProRegularItalicAz.otf</string>
+		<string>SofiaProSemiBold.otf</string>
 		<string>SFProDisplayRegular.ttf</string>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
@@ -236,7 +244,5 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>L&apos;application collecte vos donnees anonymisées afin de mieux comprendre les parcours utilisateurs et permettre la mise en place de mise à jour plus efficacement</string>
 </dict>
 </plist>

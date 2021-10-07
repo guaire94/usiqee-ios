@@ -41,6 +41,7 @@ class EventDetailsDateAndLocationCell: UITableViewCell {
 
     // MARK: - Private
     private func setupView() {
+        selectionStyle = .none
         dateLabel.font = Fonts.EventDetails.date
         timeLabel.font = Fonts.EventDetails.time
         locationLabel.font = Fonts.EventDetails.location
