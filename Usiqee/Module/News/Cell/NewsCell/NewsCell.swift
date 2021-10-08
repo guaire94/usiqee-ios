@@ -51,7 +51,6 @@ class NewsCell: UITableViewCell {
             self?.newsCover.stopShimmerAnimation()
         }
 
-
         titleLabel.text = item.news.title
         titleLabel.text = item.news.title
         dateLabel.text = L10N.News.dateTimeAgo(item.news.date.dateValue().timeAgo)
