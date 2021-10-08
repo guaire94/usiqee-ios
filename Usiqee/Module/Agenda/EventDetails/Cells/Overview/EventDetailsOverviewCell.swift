@@ -35,7 +35,11 @@ class EventDetailsOverviewCell: UITableViewCell {
         
         guard let avatar = information.avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        eventImage.sd_setImage(with: storage)
+        eventImage.withShimmer = true
+        eventImage.startShimmerAnimation()
+        eventImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.eventImage.stopShimmerAnimation()
+        }
     }
 
     // MARK: - Private

@@ -24,6 +24,7 @@ class NewsCarouselItemCell: UICollectionViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var timeLabel: UILabel!
+    @IBOutlet weak private var loader: UIActivityIndicatorView!
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -37,6 +38,9 @@ class NewsCarouselItemCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        newsCover.sd_cancelCurrentImageLoad()
+        newsCover.image = nil
+        
         authorAvatar.sd_cancelCurrentImageLoad()
         authorAvatar.image = nil
         authorView.isHidden = true
@@ -44,7 +48,11 @@ class NewsCarouselItemCell: UICollectionViewCell {
 
     func configure(item: NewsItem) {
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.sd_setImage(with: coverStorage)
+
+        loader.startAnimating()
+        newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.loader.stopAnimating()
+        }
 
         titleLabel.text = item.news.title
         titleLabel.text = item.news.title

@@ -44,6 +44,11 @@ class ArtistDetailsVC: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupContent()
+    }
+
     deinit {
         ServiceArtist.detachRelatedListeners()
     }
@@ -53,7 +58,6 @@ class ArtistDetailsVC: UIViewController {
         setupTableViewHelper()
         setupMenu()
         setupDescriptions()
-        setupContent()
         setupTableView()
         setupListeners()
     }
@@ -96,8 +100,14 @@ class ArtistDetailsVC: UIViewController {
     private func setupContent() {
         nameLabel.text = artist.name.uppercased()
         let storage = Storage.storage().reference(forURL: artist.avatar)
-        fullImage.sd_setImage(with: storage)
         mainImage.sd_setImage(with: storage)
+        
+        fullImage.withShimmer = true
+        fullImage.startShimmerAnimation()
+        fullImage.sd_setImage(with: storage, placeholderImage: nil) { (_, _, _, _) in
+            self.fullImage.stopShimmerAnimation()
+        }
+
         setupFollowButton()
     }
     

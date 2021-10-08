@@ -50,6 +50,10 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     private func set(image: String) {
         let storage = Storage.storage().reference(forURL: image)
-        artistImage.sd_setImage(with: storage)
+        artistImage.withShimmer = true
+        artistImage.startShimmerAnimation()
+        artistImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.artistImage.stopShimmerAnimation()
+        }
     }
 }
