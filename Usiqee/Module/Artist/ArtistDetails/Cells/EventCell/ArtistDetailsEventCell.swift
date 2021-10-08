@@ -29,7 +29,7 @@ class ArtistDetailsEventCell: UITableViewCell {
     func configure(event: RelatedEvent) {
         eventDescription.text = event.title
         eventType.text = event.eventType?.title
-        eventDate.text = event.date.long
+        eventDate.text = event.date.short
     }
     
     // MARK: - Private
