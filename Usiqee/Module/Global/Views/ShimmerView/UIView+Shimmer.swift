@@ -78,10 +78,6 @@ extension UIView {
         
         view.addSubview(shimmerViewBackground)
         shimmerViewBackground.addSubview(shimmerView)
-        if let superView = view.superview {
-            shimmerViewBackground.bringSubviewToFront(superView)
-            superView.bringSubviewToFront(view)
-        }
     }
 
     @objc func stopShimmerAnimation(animated: Bool = true) {

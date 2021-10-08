@@ -34,7 +34,7 @@ public class ShimmerOptions {
     var gradientColor = UIColor.gray
     var borderWidth: CGFloat = 0.0
     var borderColor = UIColor.gray
-    var backgroundColor = UIColor.white
+    var backgroundColor = UIColor.clear
     
     private init() { }
 }
