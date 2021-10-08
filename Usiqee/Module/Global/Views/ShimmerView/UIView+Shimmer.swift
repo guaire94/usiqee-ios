@@ -80,7 +80,7 @@ extension UIView {
         shimmerViewBackground.addSubview(shimmerView)
     }
 
-    @objc func stopShimmerAnimation(animated: Bool = true) {
+    @objc func stopShimmerAnimation(animated: Bool = false) {
         removeShimmerView(self, animated: animated)
     }
 
