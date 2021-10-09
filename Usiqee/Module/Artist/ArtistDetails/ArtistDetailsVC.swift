@@ -280,9 +280,7 @@ extension ArtistDetailsVC: UITableViewDelegate {
                 }
             }
         case let .event(event: event):
-            guard let eventDetailsVC = UIViewController.eventDetailsVC else {
-                return
-            }
+            guard let eventDetailsVC = UIViewController.eventDetailsVC else { return }
             
             eventDetailsVC.eventId = event.eventId
             HelperTracking.track(item: .artistDetailsOpenEvent)
