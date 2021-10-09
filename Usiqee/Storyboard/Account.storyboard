@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HTY-hT-lQz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HTY-hT-lQz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,6 +43,8 @@
                         <outlet property="notLoggedView" destination="efw-ij-mrr" id="0Ag-nV-jFO"/>
                         <segue destination="kvx-bE-tSl" kind="show" identifier="AccountSettingsVC" id="nG1-19-xin"/>
                         <segue destination="F4R-44-AQR" kind="show" identifier="NewsDetailsVC" id="Pdj-Zv-Rgd"/>
+                        <segue destination="IZS-V2-I2N" kind="show" identifier="ArtistDetailsVC" id="ni8-iT-80R"/>
+                        <segue destination="gEu-eI-5yf" kind="show" identifier="BandDetailsVC" id="q3e-Ea-B0x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7C-VG-F1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -481,7 +483,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irr-ZJ-A4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="498"/>
+            <point key="canvasLocation" x="688" y="496"/>
+        </scene>
+        <!--ArtistDetailsVC-->
+        <scene sceneID="dUX-zR-gn6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Artist" referencedIdentifier="ArtistDetailsVC" id="IZS-V2-I2N" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7yz-TX-y5r"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i3X-3M-q43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="267" y="496"/>
         </scene>
         <!--Account Update ProfileVC-->
         <scene sceneID="CYZ-8d-JbF">
@@ -555,6 +567,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEE-PM-SQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2174" y="96"/>
+        </scene>
+        <!--BandDetailsVC-->
+        <scene sceneID="biI-2Y-bWL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Artist" referencedIdentifier="BandDetailsVC" id="gEu-eI-5yf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bfS-GN-c5D"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2q-9H-w2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="496"/>
         </scene>
     </scenes>
     <resources>

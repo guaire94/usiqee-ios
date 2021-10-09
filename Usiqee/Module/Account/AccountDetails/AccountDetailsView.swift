@@ -10,6 +10,7 @@ import Kingfisher
 
 protocol AccountDetailsViewDelegate: class {
     func didTapSettings()
+    func didTapFollowdMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity)
     func didTapLikedNews(likedNews: RelatedNews)
 }
 
@@ -216,7 +217,9 @@ extension AccountDetailsView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if segmentedMenu.selectedItem == 1 {
+        if segmentedMenu.selectedItem == .zero {
+            delegate?.didTapFollowdMusicalEntity(relatedMusicalEntity: musicalEntities[indexPath.row])
+        } else if segmentedMenu.selectedItem == 1 {
             delegate?.didTapLikedNews(likedNews: likedNews[indexPath.row])
        }
     }
