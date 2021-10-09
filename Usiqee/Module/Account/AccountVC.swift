@@ -81,7 +81,7 @@ extension AccountVC: AccountDetailsViewDelegate {
         performSegue(withIdentifier: AccountSettingsVC.Constants.identifier, sender: nil)
     }
     
-    func didTapFollowdMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity) {
+    func didTapFollowedMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity) {
         if let artist = relatedMusicalEntity as? RelatedArtist {
             ServiceArtist.getArtist(artistId: artist.artistId) { artist in
                 DispatchQueue.main.async {

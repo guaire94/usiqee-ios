@@ -10,7 +10,7 @@ import Kingfisher
 
 protocol AccountDetailsViewDelegate: class {
     func didTapSettings()
-    func didTapFollowdMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity)
+    func didTapFollowedMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity)
     func didTapLikedNews(likedNews: RelatedNews)
 }
 
