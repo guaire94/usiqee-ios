@@ -35,7 +35,9 @@ class NewsTableViewHandler {
         didSet {
             listSectionsItems.removeAll()
             for (index, news) in allNews.enumerated() {
-                if index != .zero,
+                if let configAds = ManagerConfig.shared.ads,
+                   configAds.home,
+                   index != .zero,
                    index % Constants.adOffset == .zero {
                     listSectionsItems.append(.ad)
                 }
@@ -66,7 +68,7 @@ class NewsTableViewHandler {
         case 0 where !carouselNews.isEmpty:
             return .carousel
         case 0 where carouselNews.isEmpty,
-             1:
+            1:
             return .list
         default:
             return nil

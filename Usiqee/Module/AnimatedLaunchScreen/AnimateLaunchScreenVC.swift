@@ -19,7 +19,9 @@ class AnimateLaunchScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayVersion()
-        checkIfUserNeedToUpdateApplication()
+        ManagerConfig.shared.synchronise {
+            self.checkIfUserNeedToUpdateApplication()
+        }
     }
     
     // MARK: - Privates
