@@ -28,7 +28,10 @@ enum FirebaseCollection {
     
     // MARK: - VERSION
     static var version: String = "Version"
-    
+
+    // MARK: - Config
+    static var config: String = "Config"
+
     // MARK: - NEWS
     static var news: String = "News"
     static var newsSections: String = "Sections"
@@ -108,6 +111,11 @@ enum FFirestoreReference {
         env.collection(FirebaseCollection.version).document("iOS")
     }
     
+    // MARK: - CONFIG
+    static var configAds: DocumentReference {
+        env.collection(FirebaseCollection.config).document("Ads")
+    }
+
     // MARK: - NEWS
     static var news: CollectionReference {
         env.collection(FirebaseCollection.news)

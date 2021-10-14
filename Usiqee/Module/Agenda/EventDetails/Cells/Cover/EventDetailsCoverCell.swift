@@ -23,6 +23,10 @@ class EventDetailsCoverCell: UITableViewCell {
     func configure(cover: String) {
         selectionStyle = .none
         let storage = Storage.storage().reference(forURL: cover)
-        coverImage.sd_setImage(with: storage)
+        coverImage.withShimmer = true
+        coverImage.startShimmerAnimation()
+        coverImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.coverImage.stopShimmerAnimation()
+        }
     }
 }

@@ -45,7 +45,11 @@ class NewsCell: UITableViewCell {
 
     func configure(item: NewsItem) {
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.sd_setImage(with: coverStorage)
+        newsCover.withShimmer = true
+        newsCover.startShimmerAnimation()
+        newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.newsCover.stopShimmerAnimation()
+        }
 
         titleLabel.text = item.news.title
         titleLabel.text = item.news.title
@@ -54,7 +58,12 @@ class NewsCell: UITableViewCell {
         guard let author = item.author else { return }
         authorView.isHidden = false
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
-        authorAvatar.sd_setImage(with: authorStorage)
+        authorAvatar.withShimmer = true
+        authorAvatar.startShimmerAnimation()
+        authorAvatar.sd_setImage(with: authorStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.authorAvatar.stopShimmerAnimation()
+        }
+
         authorLabel.text = author.name
     }
 }

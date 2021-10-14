@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -91,6 +91,10 @@
                             <constraint firstAttribute="bottom" secondItem="Iak-66-aHB" secondAttribute="bottom" constant="40" id="xUI-pT-nUi"/>
                         </constraints>
                     </view>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-5y-adv">
+                        <rect key="frame" x="148" y="176.5" width="20" height="20"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -99,7 +103,9 @@
                 <constraint firstAttribute="bottom" secondItem="gDP-3b-NwN" secondAttribute="bottom" id="96m-oa-7uS"/>
                 <constraint firstAttribute="trailing" secondItem="xTD-Jk-JTI" secondAttribute="trailing" id="Gbo-Vg-0V9"/>
                 <constraint firstItem="gDP-3b-NwN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="H8r-u4-ccM"/>
+                <constraint firstItem="qUG-5y-adv" firstAttribute="centerX" secondItem="gDP-3b-NwN" secondAttribute="centerX" id="LC9-MU-ymk"/>
                 <constraint firstItem="xTD-Jk-JTI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S2e-hb-WYd"/>
+                <constraint firstItem="qUG-5y-adv" firstAttribute="centerY" secondItem="gDP-3b-NwN" secondAttribute="centerY" id="Wbf-fr-c1i"/>
                 <constraint firstAttribute="bottom" secondItem="xTD-Jk-JTI" secondAttribute="bottom" id="eRk-J1-AxO"/>
                 <constraint firstItem="gDP-3b-NwN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wJs-vu-4vn"/>
             </constraints>
@@ -109,6 +115,7 @@
                 <outlet property="authorLabel" destination="tCT-Xk-cre" id="cJB-dl-Iio"/>
                 <outlet property="authorView" destination="WLj-LC-0u2" id="Rae-4d-0Ie"/>
                 <outlet property="dateLabel" destination="BHo-u8-A4E" id="yjZ-sL-DCV"/>
+                <outlet property="loader" destination="qUG-5y-adv" id="AR9-9F-eKV"/>
                 <outlet property="newsCover" destination="gDP-3b-NwN" id="H04-pL-2eo"/>
                 <outlet property="timeLabel" destination="1Uo-Qa-HG5" id="ahJ-TP-fCY"/>
                 <outlet property="titleLabel" destination="u6B-dZ-k7h" id="5Ht-rg-nUM"/>

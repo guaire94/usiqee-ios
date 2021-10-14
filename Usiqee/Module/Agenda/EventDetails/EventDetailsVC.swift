@@ -31,8 +31,6 @@ class EventDetailsVC: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let eventType = event?.event.eventType else { return }
-        HelperTracking.track(item: .agendaEventDetails(type: eventType))
         setupView()
     }
     
@@ -71,8 +69,12 @@ class EventDetailsVC: UIViewController {
     }
     
     private func displayEventInformation() {
-        guard let item = event else { return }
-        
+        guard let item = event,
+              let eventType = item.event.eventType else {
+                  return
+        }
+        HelperTracking.track(item: .agendaEventDetails(type: eventType))
+
         tableViewHandler.event = item
         showDetailsButton.setTitle(tableViewHandler.redirectionButtonText, for: .normal)
         tableview.reloadData()

@@ -19,7 +19,9 @@ class AnimateLaunchScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayVersion()
-        checkIfUserNeedToUpdateApplication()
+        ManagerConfig.shared.synchronise {
+            self.checkIfUserNeedToUpdateApplication()
+        }
     }
     
     // MARK: - Privates
@@ -56,17 +58,22 @@ class AnimateLaunchScreenVC: UIViewController {
         ManagerAuth.shared.synchronise {
             ManagerAuth.shared.didChangeStatus()
             HelperRouting.shared.routeToHome()
-            if #available(iOS 14, *) {
-                ATTrackingManager.requestTrackingAuthorization  { status in
-                    let trackingItem: Tracking
-                    switch status {
-                    case .authorized:
-                        trackingItem = .trackingConsentAuthorized
-                    default:
-                        trackingItem = .trackingConsentRejected
-                    }
-                    HelperTracking.track(item: trackingItem)
+            self.requestTrackingAuthorization()
+            (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
+        }
+    }
+    
+    private func requestTrackingAuthorization() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization  { status in
+                let trackingItem: Tracking
+                switch status {
+                case .authorized:
+                    trackingItem = .trackingConsentAuthorized
+                default:
+                    trackingItem = .trackingConsentRejected
                 }
+                HelperTracking.track(item: trackingItem)
             }
         }
     }

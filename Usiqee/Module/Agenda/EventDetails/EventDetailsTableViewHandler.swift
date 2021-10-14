@@ -54,7 +54,7 @@ class EventDetailsTableViewHandler {
             )))
             
             // Cover
-            if [.single, .mixtape, .album, .video].contains(eventType),
+            if [.single, .mixtape, .album, .video, .ep].contains(eventType),
                let cover = event.event.cover {
                 rows.append(.cover(url: cover))
             }

@@ -39,10 +39,12 @@ class NewsDetailsImageCell: UITableViewCell {
             setImageRatio(ratio)
         }
         let storage = Storage.storage().reference(forURL: url)
-        contentImage.sd_setImage(with: storage)
+        contentImage.withShimmer = true
+        contentImage.startShimmerAnimation()
         contentImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] image, _, _, _ in
             guard let self = self,
                   let image = image else { return }
+            self.contentImage.stopShimmerAnimation()
             DispatchQueue.main.async {
                 self.delegate?.didLoadImage(for: self, image: image)
             }
