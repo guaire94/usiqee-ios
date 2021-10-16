@@ -1,6 +1,15 @@
 version: 2.1
+parameters:
+  run_workflow_release:
+    default: false
+    type: boolean
+
+  run_workflow_staging:
+    default: false
+    type: boolean
+
 jobs:
-  deploy_appstore:
+  deploy_release:
     macos:
       xcode: 12.0.0
     environment:
@@ -38,13 +47,21 @@ jobs:
 workflows:
   deploy_release:
     jobs:
-      - deploy_appstore:
+      - deploy_release:
           filters:
             branches:
               only: master
+  deploy_release_manually:
+    when: << pipeline.parameters.run_workflow_release >>
+    jobs:
+      - deploy_release
   deploy_staging:
     jobs:
       - deploy_staging:
           filters:
             branches:
               only: develop
+  deploy_staging_manually:
+    when: << pipeline.parameters.run_workflow_staging >>
+    jobs:
+      - deploy_staging
