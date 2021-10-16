@@ -24,6 +24,7 @@ class ArtistDetailsNewsCell: UITableViewCell {
     @IBOutlet weak private var authorLabel: UILabel!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
 
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -46,12 +47,11 @@ class ArtistDetailsNewsCell: UITableViewCell {
 
     func configure(item: RelatedNewsItem) {
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.withShimmer = true
-        newsCover.startShimmerAnimation()
+        loading.startAnimating()
         newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.newsCover.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
-        
+
         titleLabel.text = item.news.title
         dateLabel.text = L10N.News.dateTimeAgo(item.news.date.dateValue().timeAgo)
 

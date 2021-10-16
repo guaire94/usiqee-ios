@@ -18,15 +18,15 @@ class EventDetailsCoverCell: UITableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet weak private var coverImage: UIImageView!
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
     
     // MARK: - LifeCycle
     func configure(cover: String) {
         selectionStyle = .none
         let storage = Storage.storage().reference(forURL: cover)
-        coverImage.withShimmer = true
-        coverImage.startShimmerAnimation()
+        loading.startAnimating()
         coverImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.coverImage.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
     }
 }

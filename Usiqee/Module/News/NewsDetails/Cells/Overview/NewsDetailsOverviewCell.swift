@@ -36,7 +36,8 @@ class NewsDetailsOverviewCell: UITableViewCell {
     @IBOutlet weak private var dateStackView: UIStackView!
     @IBOutlet weak private var dateLabel: UILabel!
     @IBOutlet weak private var timeLabel: UILabel!
-    
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     // MARK: - Properties
     private weak var delegate: NewsDetailsOverviewCellDelegate?
     
@@ -68,10 +69,9 @@ class NewsDetailsOverviewCell: UITableViewCell {
     func configure(item: NewsItem, delegate: NewsDetailsOverviewCellDelegate?) {
         self.delegate = delegate
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.withShimmer = true
-        newsCover.startShimmerAnimation()
+        loading.startAnimating()
         newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.newsCover.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
         
         titleLabel.text = item.news.title

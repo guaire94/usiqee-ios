@@ -21,7 +21,8 @@ class NewsDetailsImageCell: UITableViewCell {
     
     // MARK: - IBOutlet
     @IBOutlet weak private var contentImage: UIImageView!
-    
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     // MARK: - Properties
     private weak var delegate: NewsDetailsImageCellDelegate?
     
@@ -39,12 +40,11 @@ class NewsDetailsImageCell: UITableViewCell {
             setImageRatio(ratio)
         }
         let storage = Storage.storage().reference(forURL: url)
-        contentImage.withShimmer = true
-        contentImage.startShimmerAnimation()
+        loading.startAnimating()
         contentImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] image, _, _, _ in
             guard let self = self,
                   let image = image else { return }
-            self.contentImage.stopShimmerAnimation()
+            self.loading.stopAnimating()
             DispatchQueue.main.async {
                 self.delegate?.didLoadImage(for: self, image: image)
             }

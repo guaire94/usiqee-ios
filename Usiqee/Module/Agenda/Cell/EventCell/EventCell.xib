@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,6 +33,10 @@
                                     <constraint firstAttribute="width" secondItem="nxF-Kw-yq1" secondAttribute="height" multiplier="1:1" id="VbS-nm-h4w"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Spc-va-Lkg">
+                                <rect key="frame" x="47.5" y="47.5" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-0o-Z8c">
                                 <rect key="frame" x="130" y="15" width="194" height="82"/>
                                 <subviews>
@@ -76,9 +80,11 @@
                             <constraint firstAttribute="trailing" secondItem="hgK-AO-kaQ" secondAttribute="trailing" constant="20" id="XnJ-4W-wwl"/>
                             <constraint firstItem="nxF-Kw-yq1" firstAttribute="leading" secondItem="k1h-rL-OUv" secondAttribute="leading" constant="5" id="alH-i1-V1L"/>
                             <constraint firstItem="hgK-AO-kaQ" firstAttribute="centerY" secondItem="k1h-rL-OUv" secondAttribute="centerY" id="cHp-xz-Wo8"/>
+                            <constraint firstItem="Spc-va-Lkg" firstAttribute="centerX" secondItem="nxF-Kw-yq1" secondAttribute="centerX" id="e53-ew-0oF"/>
                             <constraint firstAttribute="bottom" secondItem="nxF-Kw-yq1" secondAttribute="bottom" constant="5" id="rVE-gc-cML"/>
                             <constraint firstItem="nxF-Kw-yq1" firstAttribute="top" secondItem="k1h-rL-OUv" secondAttribute="top" constant="5" id="uJY-MH-oU8"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5aO-0o-Z8c" secondAttribute="bottom" constant="5" id="uZ9-iE-sFT"/>
+                            <constraint firstItem="Spc-va-Lkg" firstAttribute="centerY" secondItem="nxF-Kw-yq1" secondAttribute="centerY" id="vMs-7z-qH1"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -96,6 +102,7 @@
                 <outlet property="artistLabel" destination="H8d-EM-pTm" id="eUq-ND-FgA"/>
                 <outlet property="avatarImage" destination="nxF-Kw-yq1" id="tWG-Vi-lNQ"/>
                 <outlet property="descriptionLabel" destination="k6K-Kg-s9I" id="iyj-NN-fhO"/>
+                <outlet property="loading" destination="Spc-va-Lkg" id="eOS-lm-8tJ"/>
                 <outlet property="timeLabel" destination="jBR-2l-zcc" id="pWC-RA-8mt"/>
                 <outlet property="typeLabel" destination="qAb-rm-osK" id="Xt4-k5-6BT"/>
             </connections>

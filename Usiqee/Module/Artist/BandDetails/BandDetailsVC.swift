@@ -32,6 +32,7 @@ class BandDetailsVC: UIViewController {
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var followingButton: FilledButton!
     @IBOutlet weak private var menuContentTableView: UITableView!
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
 
     // MARK: - Properties
     var band: Band!
@@ -96,7 +97,10 @@ class BandDetailsVC: UIViewController {
     private func setupContent() {
         nameLabel.text = band.name.uppercased()
         let storage = Storage.storage().reference(forURL: band.avatar)
-        fullImage.sd_setImage(with: storage)
+        loading.startAnimating()
+        fullImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.loading.stopAnimating()
+        }
         mainImage.sd_setImage(with: storage)
         setupFollowButton()
     }

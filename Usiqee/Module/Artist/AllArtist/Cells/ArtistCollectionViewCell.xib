@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,10 @@
                             <constraint firstAttribute="width" secondItem="thU-oZ-LZ5" secondAttribute="height" multiplier="1:1" constant="1" id="Dpb-Ay-tIJ"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Pfo-7D-wss">
+                        <rect key="frame" x="37.5" y="37" width="20" height="20"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJc-8c-NPU">
                         <rect key="frame" x="5" y="104" width="85" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -33,6 +37,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="Pfo-7D-wss" firstAttribute="centerX" secondItem="thU-oZ-LZ5" secondAttribute="centerX" id="G53-92-k8L"/>
                 <constraint firstAttribute="trailing" secondItem="CJc-8c-NPU" secondAttribute="trailing" constant="5" id="IPl-eJ-cFw"/>
                 <constraint firstAttribute="trailing" secondItem="thU-oZ-LZ5" secondAttribute="trailing" id="Q6u-0b-fCE"/>
                 <constraint firstItem="CJc-8c-NPU" firstAttribute="top" secondItem="thU-oZ-LZ5" secondAttribute="bottom" constant="10" id="Sxo-aD-3VI"/>
@@ -40,11 +45,13 @@
                 <constraint firstAttribute="bottom" secondItem="CJc-8c-NPU" secondAttribute="bottom" id="ndq-w5-VPp"/>
                 <constraint firstItem="thU-oZ-LZ5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sfo-xG-3wE"/>
                 <constraint firstItem="CJc-8c-NPU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="tof-bm-f54"/>
+                <constraint firstItem="Pfo-7D-wss" firstAttribute="centerY" secondItem="thU-oZ-LZ5" secondAttribute="centerY" id="yR6-yt-9dk"/>
             </constraints>
             <size key="customSize" width="151" height="149"/>
             <connections>
                 <outlet property="artistImage" destination="thU-oZ-LZ5" id="LlW-gx-Rem"/>
                 <outlet property="artistNameLabel" destination="CJc-8c-NPU" id="6oh-UP-vEm"/>
+                <outlet property="loading" destination="Pfo-7D-wss" id="k59-da-7V1"/>
             </connections>
             <point key="canvasLocation" x="-110.86956521739131" y="76.674107142857139"/>
         </collectionViewCell>

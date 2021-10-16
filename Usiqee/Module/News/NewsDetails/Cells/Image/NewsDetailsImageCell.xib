@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,18 +23,25 @@
                             <constraint firstAttribute="width" secondItem="Ihy-Uq-uVI" secondAttribute="height" multiplier="16:9" priority="999" id="lPg-E2-Lzz"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="loZ-Lb-FHJ">
+                        <rect key="frame" x="197.5" y="76.5" width="20" height="20"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="loZ-Lb-FHJ" firstAttribute="centerX" secondItem="Ihy-Uq-uVI" secondAttribute="centerX" id="7xk-pc-75M"/>
                     <constraint firstItem="Ihy-Uq-uVI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="DSO-ws-STl"/>
                     <constraint firstAttribute="trailing" secondItem="Ihy-Uq-uVI" secondAttribute="trailing" constant="16" id="Fam-4q-EWF"/>
                     <constraint firstAttribute="bottom" secondItem="Ihy-Uq-uVI" secondAttribute="bottom" constant="8" id="J2H-Gb-3yQ"/>
                     <constraint firstItem="Ihy-Uq-uVI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="U6v-3x-yAR"/>
+                    <constraint firstItem="loZ-Lb-FHJ" firstAttribute="centerY" secondItem="Ihy-Uq-uVI" secondAttribute="centerY" id="V1q-fS-AYe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="contentImage" destination="Ihy-Uq-uVI" id="auv-Z8-ElQ"/>
+                <outlet property="loading" destination="loZ-Lb-FHJ" id="igS-Ky-os8"/>
             </connections>
             <point key="canvasLocation" x="206.52173913043481" y="84.709821428571431"/>
         </tableViewCell>

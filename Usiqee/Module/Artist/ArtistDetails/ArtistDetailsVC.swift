@@ -32,7 +32,8 @@ class ArtistDetailsVC: UIViewController {
     @IBOutlet weak private var mainImage: CircularImageView!
     @IBOutlet weak private var followingButton: FilledButton!
     @IBOutlet weak private var menuContentTableView: UITableView!
-    
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     // MARK: - Properties
     var artist: Artist!
     private var tableviewHandler = ArtistDetailsTableViewHandler()
@@ -102,10 +103,9 @@ class ArtistDetailsVC: UIViewController {
         let storage = Storage.storage().reference(forURL: artist.avatar)
         mainImage.sd_setImage(with: storage)
         
-        fullImage.withShimmer = true
-        fullImage.startShimmerAnimation()
-        fullImage.sd_setImage(with: storage, placeholderImage: nil) { (_, _, _, _) in
-            self.fullImage.stopShimmerAnimation()
+        loading.startAnimating()
+        fullImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
+            self?.loading.stopAnimating()
         }
 
         setupFollowButton()

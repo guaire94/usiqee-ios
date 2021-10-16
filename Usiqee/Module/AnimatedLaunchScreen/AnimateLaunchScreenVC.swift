@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import AppTrackingTransparency
 
 class AnimateLaunchScreenVC: UIViewController {
     
@@ -58,23 +57,6 @@ class AnimateLaunchScreenVC: UIViewController {
         ManagerAuth.shared.synchronise {
             ManagerAuth.shared.didChangeStatus()
             HelperRouting.shared.routeToHome()
-            self.requestTrackingAuthorization()
-            (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
-        }
-    }
-    
-    private func requestTrackingAuthorization() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization  { status in
-                let trackingItem: Tracking
-                switch status {
-                case .authorized:
-                    trackingItem = .trackingConsentAuthorized
-                default:
-                    trackingItem = .trackingConsentRejected
-                }
-                HelperTracking.track(item: trackingItem)
-            }
         }
     }
 }

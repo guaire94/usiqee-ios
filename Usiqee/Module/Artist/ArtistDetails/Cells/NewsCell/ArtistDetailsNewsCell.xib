@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,6 +26,10 @@
                                     <constraint firstAttribute="width" secondItem="nxF-Kw-yq1" secondAttribute="height" multiplier="153:106" id="VbS-nm-h4w"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-je-6ga">
+                                <rect key="frame" x="67" y="43.5" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-0o-Z8c">
                                 <rect key="frame" x="174.5" y="15" width="177.5" height="76"/>
                                 <subviews>
@@ -67,9 +71,11 @@
                             <constraint firstItem="5aO-0o-Z8c" firstAttribute="top" secondItem="k1h-rL-OUv" secondAttribute="top" constant="15" id="0ox-p7-f82"/>
                             <constraint firstAttribute="height" constant="107" id="6Fk-me-5rK"/>
                             <constraint firstAttribute="trailing" secondItem="5aO-0o-Z8c" secondAttribute="trailing" constant="8" id="Cn3-n7-yVE"/>
+                            <constraint firstItem="Moe-je-6ga" firstAttribute="centerY" secondItem="nxF-Kw-yq1" secondAttribute="centerY" id="E4N-4X-hLN"/>
                             <constraint firstItem="5aO-0o-Z8c" firstAttribute="leading" secondItem="nxF-Kw-yq1" secondAttribute="trailing" constant="20" id="RKk-Hg-1Rc"/>
                             <constraint firstItem="nxF-Kw-yq1" firstAttribute="leading" secondItem="k1h-rL-OUv" secondAttribute="leading" id="alH-i1-V1L"/>
                             <constraint firstAttribute="bottom" secondItem="nxF-Kw-yq1" secondAttribute="bottom" id="rVE-gc-cML"/>
+                            <constraint firstItem="Moe-je-6ga" firstAttribute="centerX" secondItem="nxF-Kw-yq1" secondAttribute="centerX" id="rW2-Av-rpc"/>
                             <constraint firstItem="nxF-Kw-yq1" firstAttribute="top" secondItem="k1h-rL-OUv" secondAttribute="top" id="uJY-MH-oU8"/>
                             <constraint firstAttribute="bottom" secondItem="5aO-0o-Z8c" secondAttribute="bottom" constant="16" id="uZ9-iE-sFT"/>
                         </constraints>
@@ -90,6 +96,7 @@
                 <outlet property="authorLabel" destination="Bej-qe-EUu" id="K4F-hR-0R8"/>
                 <outlet property="authorView" destination="fGR-bP-Kwd" id="L22-hB-Zoi"/>
                 <outlet property="dateLabel" destination="qAb-rm-osK" id="enN-eQ-nVj"/>
+                <outlet property="loading" destination="Moe-je-6ga" id="xLm-FT-wFo"/>
                 <outlet property="newsCover" destination="nxF-Kw-yq1" id="UIw-vh-SL5"/>
                 <outlet property="titleLabel" destination="H8d-EM-pTm" id="xHF-iy-Lf8"/>
             </connections>

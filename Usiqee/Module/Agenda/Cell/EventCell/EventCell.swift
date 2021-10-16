@@ -23,7 +23,8 @@ class EventCell: UITableViewCell {
     @IBOutlet weak private var descriptionLabel: UILabel!
     @IBOutlet weak private var timeLabel: UILabel!
     @IBOutlet weak private var avatarImage: UIImageView!
-    
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,10 +68,9 @@ class EventCell: UITableViewCell {
     private func set(avatar: String?) {
         guard let avatar = avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        avatarImage.withShimmer = true
-        avatarImage.startShimmerAnimation()
+        loading.startAnimating()
         avatarImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.avatarImage.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
     }
 }

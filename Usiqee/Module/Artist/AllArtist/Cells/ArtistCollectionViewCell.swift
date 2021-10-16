@@ -19,7 +19,8 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlet
     @IBOutlet weak private var artistNameLabel: UILabel!
     @IBOutlet weak private var artistImage: CircularImageView!
-    
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     // MARK: - Public
     func configure(artist: MusicalEntity) {
         set(name: artist.name, font: Fonts.AllArtist.Cell.title)
@@ -50,10 +51,9 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     private func set(image: String) {
         let storage = Storage.storage().reference(forURL: image)
-        artistImage.withShimmer = true
-        artistImage.startShimmerAnimation()
+        loading.startAnimating()
         artistImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.artistImage.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pHn-78-An9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pHn-78-An9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="20" y="60" width="374" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uw6-pH-GRq">
-                                        <rect key="frame" x="10" y="11.5" width="26" height="24.5"/>
+                                        <rect key="frame" x="10" y="12" width="26" height="24"/>
                                         <color key="tintColor" red="0.46274509803921571" green="0.45098039215686275" blue="0.50980392156862742" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="Mzh-zL-Qyp"/>
@@ -185,6 +185,10 @@
                                                                     <constraint firstAttribute="width" secondItem="LJ8-if-Bkr" secondAttribute="height" multiplier="1:1" id="CPq-DP-8pl"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="D99-FA-A2e">
+                                                                <rect key="frame" x="197" y="94.5" width="20" height="20"/>
+                                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -195,6 +199,8 @@
                                                             <constraint firstItem="LJ8-if-Bkr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sl4-KT-loX" secondAttribute="leading" id="Kqt-yD-7pN"/>
                                                             <constraint firstItem="LJ8-if-Bkr" firstAttribute="centerY" secondItem="sl4-KT-loX" secondAttribute="centerY" id="eNc-Jb-2Iq"/>
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LJ8-if-Bkr" secondAttribute="bottom" id="gXf-sG-pt6"/>
+                                                            <constraint firstItem="D99-FA-A2e" firstAttribute="centerY" secondItem="LJ8-if-Bkr" secondAttribute="centerY" id="m1r-1W-cA3"/>
+                                                            <constraint firstItem="D99-FA-A2e" firstAttribute="centerX" secondItem="LJ8-if-Bkr" secondAttribute="centerX" id="puD-lq-GZy"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -262,6 +268,7 @@
                         <outlet property="follewersLabel" destination="eKT-8G-bha" id="Jkv-ZL-2es"/>
                         <outlet property="followingButton" destination="EzD-Jh-301" id="Dd6-DJ-RWo"/>
                         <outlet property="fullImage" destination="ASB-Fg-aHn" id="bVy-3T-mxl"/>
+                        <outlet property="loading" destination="D99-FA-A2e" id="JGE-s4-yQu"/>
                         <outlet property="mainImage" destination="LJ8-if-Bkr" id="wcV-dc-83X"/>
                         <outlet property="menuContentTableView" destination="8DK-lk-Pa6" id="Zcp-on-VHi"/>
                         <outlet property="nameLabel" destination="SXD-vQ-dxR" id="A3O-JJ-g72"/>
@@ -341,12 +348,18 @@
                                                                     <constraint firstAttribute="width" secondItem="JWM-cq-UjX" secondAttribute="height" multiplier="1:1" id="vDR-m0-Dvh"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="U3Y-4A-8bI">
+                                                                <rect key="frame" x="197" y="94.5" width="20" height="20"/>
+                                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="U3Y-4A-8bI" firstAttribute="centerX" secondItem="JWM-cq-UjX" secondAttribute="centerX" id="G2B-g6-5L8"/>
                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JWM-cq-UjX" secondAttribute="trailing" id="Kle-23-3Nc"/>
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JWM-cq-UjX" secondAttribute="bottom" id="TNU-PP-nl5"/>
                                                             <constraint firstItem="JWM-cq-UjX" firstAttribute="height" secondItem="ATU-bl-kHw" secondAttribute="height" multiplier="0.9" id="UVa-YY-U4d"/>
+                                                            <constraint firstItem="U3Y-4A-8bI" firstAttribute="centerY" secondItem="JWM-cq-UjX" secondAttribute="centerY" id="VKc-dE-1jL"/>
                                                             <constraint firstItem="JWM-cq-UjX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ATU-bl-kHw" secondAttribute="top" id="e4N-rH-epb"/>
                                                             <constraint firstItem="JWM-cq-UjX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ATU-bl-kHw" secondAttribute="leading" id="i4W-Yx-NWT"/>
                                                             <constraint firstItem="JWM-cq-UjX" firstAttribute="centerX" secondItem="ATU-bl-kHw" secondAttribute="centerX" id="vPW-tt-vX3"/>
@@ -418,6 +431,7 @@
                         <outlet property="follewersLabel" destination="lDV-A2-fA2" id="M64-P2-Mv0"/>
                         <outlet property="followingButton" destination="3eu-JT-zw6" id="74x-VM-VGx"/>
                         <outlet property="fullImage" destination="B9a-uI-eRC" id="QfW-yx-ltC"/>
+                        <outlet property="loading" destination="U3Y-4A-8bI" id="EPa-ZO-hwI"/>
                         <outlet property="mainImage" destination="JWM-cq-UjX" id="ish-PW-9AE"/>
                         <outlet property="menuContentTableView" destination="Lsu-oG-NEO" id="S9B-Qg-esZ"/>
                         <outlet property="nameLabel" destination="onv-ok-iSa" id="Kvu-6b-Q4s"/>

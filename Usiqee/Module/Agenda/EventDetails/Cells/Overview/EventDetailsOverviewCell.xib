@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,10 @@
                             <constraint firstAttribute="width" constant="142" id="q2d-N4-8Rq"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cHg-jo-nbb">
+                        <rect key="frame" x="150" y="82" width="20" height="20"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ncw-BC-379">
                         <rect key="frame" x="16" y="183" width="288" height="136"/>
                         <subviews>
@@ -53,8 +57,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="cHg-jo-nbb" firstAttribute="centerY" secondItem="O7o-Du-8vL" secondAttribute="centerY" id="5CC-Ta-Bcn"/>
                     <constraint firstItem="O7o-Du-8vL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="5sB-9Z-3Rk"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ncw-BC-379" secondAttribute="bottom" constant="20" id="99v-Z1-ttH"/>
+                    <constraint firstItem="cHg-jo-nbb" firstAttribute="centerX" secondItem="O7o-Du-8vL" secondAttribute="centerX" id="CFs-iA-W3x"/>
                     <constraint firstItem="Ncw-BC-379" firstAttribute="top" secondItem="O7o-Du-8vL" secondAttribute="bottom" constant="20" id="DUE-Et-kFD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ncw-BC-379" secondAttribute="trailing" id="a8a-G8-cr4"/>
                     <constraint firstItem="Ncw-BC-379" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kFC-8g-m7U"/>
@@ -68,6 +74,7 @@
                 <outlet property="descriptionLabel" destination="Kuz-6T-k6x" id="vrH-xO-tG2"/>
                 <outlet property="eventImage" destination="O7o-Du-8vL" id="1hS-fM-ORf"/>
                 <outlet property="eventNameLabel" destination="RLO-bD-0aO" id="qhe-U2-vBo"/>
+                <outlet property="loading" destination="cHg-jo-nbb" id="eVV-c0-MiQ"/>
                 <outlet property="typeLabel" destination="cR8-5M-MBa" id="GKX-da-ECp"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="143.30357142857142"/>

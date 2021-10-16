@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,10 @@
                             <constraint firstAttribute="width" secondItem="xwA-tG-bRc" secondAttribute="height" multiplier="15:11" priority="999" id="Q7R-N6-NUv"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YEX-TD-lTL">
+                        <rect key="frame" x="196.5" y="141.5" width="20" height="20"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw5-VM-d32">
                         <rect key="frame" x="0.0" y="303" width="413" height="131"/>
                         <subviews>
@@ -103,8 +107,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Xw5-VM-d32" secondAttribute="bottom" id="5K7-B8-vG7"/>
+                    <constraint firstItem="YEX-TD-lTL" firstAttribute="centerX" secondItem="xwA-tG-bRc" secondAttribute="centerX" id="ADU-Dg-08a"/>
                     <constraint firstAttribute="trailing" secondItem="Xw5-VM-d32" secondAttribute="trailing" id="Pgx-Bk-hv4"/>
                     <constraint firstAttribute="trailing" secondItem="xwA-tG-bRc" secondAttribute="trailing" id="ccU-E5-r5c"/>
+                    <constraint firstItem="YEX-TD-lTL" firstAttribute="centerY" secondItem="xwA-tG-bRc" secondAttribute="centerY" id="oDL-im-3be"/>
                     <constraint firstItem="xwA-tG-bRc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tcj-D0-HR9"/>
                     <constraint firstItem="Xw5-VM-d32" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ufx-7a-DTg"/>
                     <constraint firstItem="xwA-tG-bRc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vE8-Ll-aSl"/>
@@ -119,6 +125,7 @@
                 <outlet property="authorView" destination="8QA-7y-1CS" id="gX5-UG-nfi"/>
                 <outlet property="dateLabel" destination="7bi-lT-kVj" id="JIg-ch-tua"/>
                 <outlet property="dateStackView" destination="shS-H5-qHA" id="JGl-Wf-T5R"/>
+                <outlet property="loading" destination="YEX-TD-lTL" id="5Ib-BN-Xnh"/>
                 <outlet property="newsCover" destination="xwA-tG-bRc" id="HBf-8w-749"/>
                 <outlet property="stackView" destination="QEf-r1-FAC" id="5i4-Fc-w5L"/>
                 <outlet property="subtitleLabel" destination="BXh-z0-adV" id="fMi-PK-5hy"/>

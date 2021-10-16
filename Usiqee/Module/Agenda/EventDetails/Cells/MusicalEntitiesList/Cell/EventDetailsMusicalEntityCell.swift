@@ -21,6 +21,8 @@ class EventDetailsMusicalEntityCell: UICollectionViewCell {
     // MARK: - IBOutlet
     @IBOutlet weak private var artistNameLabel: UILabel!
     @IBOutlet weak private var artistImage: CircularImageView!
+    @IBOutlet weak private var loading: UIActivityIndicatorView!
+
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -31,10 +33,9 @@ class EventDetailsMusicalEntityCell: UICollectionViewCell {
     func configure(musicalEntity: RelatedMusicalEntity) {
         artistNameLabel.text = musicalEntity.name
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
-        artistImage.withShimmer = true
-        artistImage.startShimmerAnimation()
+        loading.startAnimating()
         artistImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.artistImage.stopShimmerAnimation()
+            self?.loading.stopAnimating()
         }
     }
 }
