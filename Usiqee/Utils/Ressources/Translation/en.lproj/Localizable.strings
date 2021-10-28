@@ -1,183 +1,157 @@
-/* 
-  Localizable.strings
-  Usiqee
-
-  Created by Quentin Gallois on 20/10/2020.
-  
-*/
-
-"GLOBAL_ACTIONS_CONFIRM"="";
-"GLOBAL_ACTIONS_OK"="";
-"GLOBAL_ACTIONS_CANCEL"="";
-"GLOBAL_ACTIONS_MAYBE_LATER"="";
-"GLOBAL_ACTIONS_DELETE"="";
-
-"GLOBAL_DATE_TIMEAGO" = "%@ ago";
-
-"USER_FORM_MAIL"="";
-"USER_FORM_PASSWORD"="";
-"USER_FORM_FIRSTNAME"="";
-"USER_FORM_LASTNAME"="";
-"USER_FORM_ERROR_MAIL"="";
-"USER_FORM_ERROR_PASSWORD"="";
-
-"ARTIST_SEARCH_PLACEHOLDER" = "Search";
-"ARTIST_ALL_TITLE" = "Artists";
-"ARTIST_ALL_EMPTY_LIST" = "Aucune correspondance trouvée";
-"ARTIST_FOLLOWED_TITLE" = "Followed Artist";
-"ARTIST_FOLLOWED_EMPTY_LIST" = "Aucune correspondance trouvée";
-
-"ARTIST_DETAILS_TITLE" = "Détails d'artist";
-"ARTIST_DETAILS_FOLLOWED" = "followers";
-"ARTIST_DETAILS_FOLLOW" = "Suivre";
-"ARTIST_DETAILS_UNFOLLOW" = "Abonné";
-
-"ARTIST_DETAILS_MENU_NEWS" = "News";
-"ARTIST_DETAILS_MENU_CALENDAR" = "Calendar";
-"ARTIST_DETAILS_MENU_BIO" = "Bio";
-
-"ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
-"ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
-
-"ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "pas d'évènements disponibles";
-"ARTIST_DETAILS_NEWS_EMPTY_LIST" = "pas d'articles disponibles";
-
-"PRE_AUTH_SIGNUP_WITH_MAIL"="Sign up with email";
-"PRE_AUTH_SIGNIN_WITH_APPLE"="Sign in with Apple";
-"PRE_AUTH_SIGNIN_WITH_GOOGLE"="Sign in with Google";
-"PRE_AUTH_SEPARATOR"="or";
-"PRE_AUTH_SIGNIN_WITH_MAIL"="Already have an account ? Sign in";
-
-"ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
-"ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
-"ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
-"ACCOUNT_NOT_LOGGED_FOLLOW" = "Follow artistes";
 "ACCOUNT_NOT_LOGGED_COMMENTS" = "Section com’";
+"ACCOUNT_NOT_LOGGED_CONTINUE" = "Continue";
+"ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
+"ACCOUNT_NOT_LOGGED_FOLLOW" = "Follow artistes";
 "ACCOUNT_NOT_LOGGED_LIKES" = "Like d’articles";
 "ACCOUNT_NOT_LOGGED_NOTIFICATIONS" = "Notifis perso";
+"ACCOUNT_NOT_LOGGED_SUBTITLE" = "Connecte toi et accèdes aux fonctionnalités";
+"ACCOUNT_NOT_LOGGED_TITLE" = "Rejoins la communauté !";
 "ACCOUNT_NOT_LOGGED_TROPHIES" = "Concours";
-"ACCOUNT_NOT_LOGGED_EVENTS" = "Gestion d’events";
-
-"SIGNIN_TITLE"="";
-"SIGNIN_NOACCOUNT"="";
-"SIGNIN_FORM_VALID"="";
-"SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
-"SIGNIN_ERROR_WITH_APPLE"="Apple sign in error";
-
-"SIGNUP_TITLE"="";
-"SIGNUP_FORM_VALID"="";
-"SIGNUP_FORM_NOT_EMPTY_ERROR" = "Tous les champs sont obligatoires";
-
-"FORGET_PASSWORD_TITLE" = "Réinitialisation du mot de passe";
-"FORGET_PASSWORD_FORM_VALID" = "Réinitialiser";
-
-"ACCOUNT_SETTINGS_TITLE" = "Settings";
-"ACCOUNT_SETTINGS_LOGOUT" = "Logout";
-"ACCOUNT_SETTINGS_LEGAL_NOTICE" = "LEGAL NOTICE";
-"ACCOUNT_SETTINGS_PRIVACY" = "Privacy";
 "ACCOUNT_SETTINGS_CGU" = "Terms and Conditions";
+"ACCOUNT_SETTINGS_LEGAL_NOTICE" = "LEGAL NOTICE";
+"ACCOUNT_SETTINGS_LOGOUT" = "Logout";
 "ACCOUNT_SETTINGS_MANAGE_NOTIFICATIONS" = "Manage your notifications on settings";
 "ACCOUNT_SETTINGS_NOTIFICATIONS" = "Notifications";
-"ACCOUNT_SETTINGS_PROFILE" = "Profil";
-"ACCOUNT_SETTINGS_EDIT_PROFILE" = "Edit";
-"ACCOUNT_SETTINGS_SUPPORT" = "Support";
-"ACCOUNT_SETTINGS_FEEDBACK" = "Feedback on app";
-"ACCOUNT_SETTINGS_CONTACT" = "Contact us";
-"ACCOUNT_SETTINGS_NO_EMAIL_TITLE" = "FEEDBACK";
-"ACCOUNT_SETTINGS_NO_EMAIL" = "Merci de nous envoyer un email sur %@ avec vos feedback et on essayera de les corriger ou les intégrer sur l'app";
-
-"USER_DETAILS_MENU_FOLLOWED" = "%d followed";
-"USER_DETAILS_MENU_FAVORIS" = "%d favoris";
-"USER_DETAILS_UNFOLLOW" = "Abonné";
-"USER_DETAILS_FOLLOWED_EMPTY_LIST" = "Vous ne suivez aucun artist";
-"USER_DETAILS_LIKED_NEWS_EMPTY_LIST"= "Vous n'avez pas aimé d'articles";
-
-"VERSION_NEW"="";
-"VERSION_AVAILABLE"="";
-"VERSION_REDIRECT_APPSTORE"="";
-"VERSION_UPDATE_LATER"="";
-
+"ACCOUNT_SETTINGS_PRIVACY" = "Privacy";
+"ACCOUNT_SETTINGS_TITLE" = "Settings";
+"ARTIST_ALL_EMPTY_LIST" = "No match found";
+"ARTIST_ALL_TITLE" = "Artists";
+"ARTIST_DETAILS_DISCOGRAPHY_SUBTITLE" = "Available \nsoon !";
+"ARTIST_DETAILS_DISCOGRAPHY_TITLE" = "Discography";
+"ARTIST_DETAILS_FOLLOW" = "Follow";
+"ARTIST_DETAILS_FOLLOWED" = "Followers";
+"ARTIST_DETAILS_MENU_BIO" = "Bio";
+"ARTIST_DETAILS_MENU_CALENDAR" = "Agenda";
+"ARTIST_DETAILS_MENU_NEWS" = "News";
+"ARTIST_DETAILS_TITLE" = "Artist details";
+"ARTIST_DETAILS_UNFOLLOW" = "Followers";
+"ARTIST_FOLLOWED_EMPTY_LIST" = "No match found";
+"ARTIST_FOLLOWED_TITLE" = "Followed Artist";
+"ARTIST_SEARCH_PLACEHOLDER" = "Search";
+"FORGET_PASSWORD_FORM_VALID" = "Reset";
+"FORGET_PASSWORD_TITLE" = "Réinitialisation du mot de passe";
+"GLOBAL_ACTIONS_CANCEL" = "Cancel";
+"GLOBAL_ACTIONS_CONFIRM" = "Confirm";
+"GLOBAL_ACTIONS_DELETE" = "Delete";
+"GLOBAL_ACTIONS_MAYBE_LATER" = "Maybe later";
+"GLOBAL_ACTIONS_OK" = "Ok";
+"GLOBAL_DATE_TIMEAGO" = "%@ ago";
 "IMAGE_PICKER_GALLERY" = "Load from gallery";
-"IMAGE_PICKER_TAKE_A_PHOTO" = "Take a photo";
-
-"EVENTS_TYPE_EP" = "ep";
+"IMAGE_PICKER_TAKE_A_PHOTO" = "Take a picture";
+"MAP_FILTER_END_DATE" = "To";
+"MAP_FILTER_START_DATE" = "From";
+"MAP_FILTER_TITLE" = "Filters";
+"PRE_AUTH_OR" = "or";
+"PRE_AUTH_SIGNIN" = "Already have an account ? Sign in";
+"PRE_AUTH_SIGNUP" = "Sign up with email";
+"SIGNIN_FORM_FORGET_PASSWORD" = "Forget Password ?";
+"SIGNIN_FORM_VALID" = "Sign In";
+"SIGNIN_NOACCOUNT" = "Not yet register on Usiqee ? ";
+"SIGNIN_TITLE" = "Sign In";
+"SIGNUP_FORM_NOT_EMPTY_ERROR" = "Every field are mandatory";
+"SIGNUP_FORM_VALID" = "Sign Up";
+"SIGNUP_TITLE" = "Sign Up";
+"USER_DETAILS_FOLLOWED_EMPTY_LIST" = "You didn't follow artist yet";
+"USER_DETAILS_MENU_FAVORIS" = "%d favoris";
+"USER_DETAILS_MENU_FOLLOWED" = "%d followed";
+"USER_DETAILS_UNFOLLOW" = "Followers";
+"USER_FORM_ERROR_MAIL" = "Mail incorrect";
+"USER_FORM_ERROR_PASSWORD" = "Password incorrect";
+"USER_FORM_FIRSTNAME" = "Firstname";
+"USER_FORM_LASTNAME" = "Lastname";
+"USER_FORM_MAIL" = "Mail";
+"USER_FORM_PASSWORD" = "Password";
+"VERSION_AVAILABLE" = "New version available on AppStore";
+"VERSION_NEW" = "New version";
+"VERSION_REDIRECT_APPSTORE" = "Go on AppStore";
+"VERSION_UPDATE_LATER" = "Update later";
+"EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Only followed artist";
+"EVENTS_FILTER_RESET" = "Reset";
+"EVENTS_FILTER_TITLE" = "Filters";
+"EVENTS_FILTER_TYPE_CATEGORY" = "Event type";
+"EVENTS_FILTER_VALIDATE" = "Apply";
+"EVENTS_DATE_FILTER_TITLE" = "Filters";
+"EVENTS_DATE_FILTER_VALIDATE" = "Confirm";
+"EVENTS_DETAILS_ADD_TO_CALENDAR" = "Add to agenda";
+"EVENTS_DETAILS_SHOW_DETAILS" = "Details";
+"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "Event cannot be add to agenda";
+"EVENTS_DETAILS_TITLE" = "Events details";
+"EVENTS_NEXT_MONTH" = "Next month";
+"EVENTS_EMPTY_LIST" = "No available events";
+"ARTIST_DETAILS_CALENDAR_EMPTY_LIST" = "No available events";
 "EVENTS_TYPE_ALBUM" = "Album";
-"EVENTS_TYPE_SINGLE" = "Single";
-"EVENTS_TYPE_MIXTAPE" = "Mixtape";
-"EVENTS_TYPE_FREESTYLE" = "Freestyle";
-"EVENTS_TYPE_VIDEO" = "Video";
 "EVENTS_TYPE_CONCERT" = "Concert";
-"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_EP" = "EP";
 "EVENTS_TYPE_FESTIVAL" = "Festival";
-"EVENTS_TYPE_SPECIAL" = "Special";
-
-"MONTHS_JANUARY" = "January";
-"MONTHS_FEBRUARY" = "February";
-"MONTHS_MARCH" = "March";
+"EVENTS_TYPE_FREESTYLE" = "Freestyle";
+"EVENTS_TYPE_MIXTAPE" = "Mixtape";
+"EVENTS_TYPE_OTHER" = "Others";
+"EVENTS_TYPE_SHOWCASE" = "Showcase";
+"EVENTS_TYPE_SINGLE" = "Single";
+"EVENTS_TYPE_VIDEO" = "Video";
 "MONTHS_APRIL" = "April";
-"MONTHS_MAY" = "May";
-"MONTHS_JUNE" = "June";
-"MONTHS_JULY" = "July";
 "MONTHS_AUGUST" = "August";
-"MONTHS_SEPTEMBER" = "September";
-"MONTHS_OCTOBER" = "October";
-"MONTHS_NOBEMBER" = "November";
 "MONTHS_DECEMBER" = "December";
-
-"ARTIST_DETAILS_BIO_EMPTY_LIST" = "no information available";
-"ARTIST_DETAILS_BIO_INFORMATION_TITLE" = "Information";
-"ARTIST_DETAILS_BIO_PSEUDOS" = "Pseudos: %@";
-"ARTIST_DETAILS_BIO_BIRTHNAME" = "Birth name: %@";
+"MONTHS_FEBRUARY" = "February";
+"MONTHS_JANUARY" = "January";
+"MONTHS_JULY" = "July";
+"MONTHS_JUNE" = "June";
+"MONTHS_MARCH" = "March";
+"MONTHS_MAY" = "May";
+"MONTHS_NOBEMBER" = "November";
+"MONTHS_OCTOBER" = "October";
+"MONTHS_SEPTEMBER" = "September";
+"ARTIST_DETAILS_BIO_ACTIVITY" = "Activity period: %@";
 "ARTIST_DETAILS_BIO_BIRTHDATE" = "Birth date: %@";
-"ARTIST_DETAILS_BIO_ACTIVITY" = "activity period: %@";
+"ARTIST_DETAILS_BIO_BIRTHNAME" = "Birth name: %@";
+"ARTIST_DETAILS_BIO_EMPTY_LIST" = "No information available";
+"ARTIST_DETAILS_BIO_INFORMATION_TITLE" = "Information";
 "ARTIST_DETAILS_BIO_PROVENANCE" = "Provenance: %@";
-"ARTIST_DETAILS_BIO_GROUPES_TITLE" = "Groupes";
+"ARTIST_DETAILS_BIO_PSEUDOS" = "Alias: %@";
+"ARTIST_DETAILS_BIO_GROUPES_TITLE" = "Groups";
 "ARTIST_DETAILS_BIO_MEMBERS_TITLE" = "Members";
 "ARTIST_DETAILS_BIO_LABELS_TITLE" = "Labels";
-
+"EVENTS_TYPE_SPECIAL" = "Special";
+"NEWS_DETAILS_AUTHOR_WEBLINK" = "Read on %@";
+"USER_DETAILS_LIKED_NEWS_EMPTY_LIST" = "You didn't like artist yet";
+"ARTIST_DETAILS_NEWS_EMPTY_LIST" = "No available news";
+"EVENTS_DETAILS_BUY_TICKET" = "Buy ticket";
 "NEWS_DATE_TIMEAGO" = "Published %@ ago";
 "NEWS_DETAILS_DATE_TIME" = "Published the %@";
-"NEWS_DETAILS_AUTHOR_WEBLINK" = "Read on %@";
-
-"EVENTS_DETAILS_TITLE" = "Events details";
-"NEWS_EMPTY_LIST" = "no available news";
-"EVENTS_DETAILS_ADD_TO_CALENDAR" = "add to calendar";
-"EVENTS_DETAILS_SHOW_DETAILS" = "Details";
-"EVENTS_DETAILS_ADD_TO_CALENDAR_ERROR" = "events cannot be add to calendar";
-"EVENTS_DETAILS_BUY_TICKET" = "buy ticket";
 "NEWS_DETAILS_MUSICAL_ENTITY_TITLE" = "Related Artists";
-
-"EDIT_PROFILE_TITLE" = "Update";
-"EDIT_PROFILE_FORM_VALID" = "Update";
+"NEWS_EMPTY_LIST" = "No available news";
+"PRE_AUTH_SIGNIN_WITH_APPLE" = "Sign in with Apple";
+"PRE_AUTH_SIGNIN_WITH_GOOGLE" = "Sign in with Google";
+"PRE_AUTH_SEPARATOR" = "or";
+"PRE_AUTH_SIGNUP_WITH_MAIL" = "Sign up with email";
+"PRE_AUTH_SIGNIN_WITH_MAIL" = "Already have an account ? Sign in";
+"ACCOUNT_SETTINGS_EDIT_PROFILE" = "Edit";
+"ACCOUNT_SETTINGS_PROFILE" = "Profile";
 "EDIT_PROFILE_FORM_NOT_EMPTY_ERROR" = "Username is mandatory";
-
-"EVENTS_FILTER_TITLE" = "Filtres";
-"EVENTS_FILTER_RESET" = "reset";
-"EVENTS_FILTER_VALIDATE" = "Continuer";
-"EVENTS_FILTER_FOLLOWERS_CATEGORY" = "Uniquement les artistes suivis";
-"EVENTS_FILTER_TYPE_CATEGORY" = "Type d'évèvement :";
-
-"EVENTS_DATE_FILTER_TITLE" = "Filtres";
-"EVENTS_DATE_FILTER_VALIDATE" = "Valider";
-"EVENTS_EMPTY_LIST" = "pas d'évènements disponibles";
-
-"TABBAR_NEWS" = "News";
-"TABBAR_CALENDAR" = "Calendar";
+"EDIT_PROFILE_FORM_VALID" = "Update";
+"EDIT_PROFILE_TITLE" = "Edit profile";
+"SIGNIN_ERROR_WITH_APPLE" = "Apple sign in error";
 "TABBAR_ARTISTS" = "Artists";
+"TABBAR_CALENDAR" = "Agenda";
+"TABBAR_NEWS" = "News";
 "TABBAR_PROFILE" = "Profile";
-
-"ONBOARDING_NEWS_PAGE_ONE_TITLE"="Fil d’actualité";
-"ONBOARDING_NEWS_PAGE_ONE_DESCRIPTION"="Les News vous permettent de suivre notre actualité et celle de médias spécialisés";
-"ONBOARDING_NEWS_PAGE_TWO_TITLE"="Vos Favoris";
-"ONBOARDING_NEWS_PAGE_TWO_DESCRIPTION"="Connectez-vous à votre compte, partagez et sauvegardez vos News préférées";
-"ONBOARDING_AGENDA_PAGE_ONE_TITLE"="Calendrier d’événements";
-"ONBOARDING_AGENDA_PAGE_ONE_DESCRIPTION"="Sorties, concerts, festivals... ne manquez plus aucun événement avec notre calendrier.";
-"ONBOARDING_AGENDA_PAGE_TWO_TITLE"="Appliquez vos filtres";
-"ONBOARDING_AGENDA_PAGE_TWO_DESCRIPTION"="Personnalisez votre calendrier selon vos préférences.";
-"ONBOARDING_ARTIST_PAGE_ONE_TITLE"="View Artistes";
-"ONBOARDING_ARTIST_PAGE_ONE_DESCRIPTION"="Découvrez les fiches artistes et plongez vous dans leur univers";
-"ONBOARDING_ARTIST_PAGE_TWO_TITLE"="Suivez vos Artistes";
-"ONBOARDING_ARTIST_PAGE_TWO_DESCRIPTION"="Connectez-vous et suivez vos artistes pour personnaliser votre expérience";
-"ONBOARDING_ARTIST_PAGE_THREE_TITLE"="Informations";
-"ONBOARDING_ARTIST_PAGE_THREE_DESCRIPTION"="Apprenez à connaître d’avantage vos artistes à l’aide d’une mini bio et de focus ponctuels";
-"ONBOARDING_NEXT"="Passez";
+"ACCOUNT_SETTINGS_FEEDBACK" = "Feedback on app";
+"ACCOUNT_SETTINGS_SUPPORT" = "Support";
+"ACCOUNT_SETTINGS_CONTACT" = "Contact us";
+"ACCOUNT_SETTINGS_NO_EMAIL" = "Please  share your feedback on %@, We will do our best to integrate this in next release";
+"ACCOUNT_SETTINGS_NO_EMAIL_TITLE" = "FEEDBACK";
+"ONBOARDING_AGENDA_PAGE_ONE_DESCRIPTION" = "Release, concerts, festivals... Don't miss anything with our agenda.";
+"ONBOARDING_AGENDA_PAGE_ONE_TITLE" = "Agenda";
+"ONBOARDING_AGENDA_PAGE_TWO_DESCRIPTION" = "Personalize your calendar with your preferences";
+"ONBOARDING_AGENDA_PAGE_TWO_TITLE" = "Apply filters";
+"ONBOARDING_ARTIST_PAGE_ONE_DESCRIPTION" = "Discover artists and go deep inside there's universes";
+"ONBOARDING_ARTIST_PAGE_ONE_TITLE" = "View Artists";
+"ONBOARDING_ARTIST_PAGE_THREE_DESCRIPTION" = "Learn more about your artists with small bio and some focus";
+"ONBOARDING_ARTIST_PAGE_THREE_TITLE" = "Information";
+"ONBOARDING_ARTIST_PAGE_TWO_DESCRIPTION" = "Sign In and follow artists to personalize your experience";
+"ONBOARDING_ARTIST_PAGE_TWO_TITLE" = "Follow your favorites artists";
+"ONBOARDING_NEWS_PAGE_ONE_DESCRIPTION" = "Timeline will keep you informed of our news and those of our specialized media";
+"ONBOARDING_NEWS_PAGE_ONE_TITLE" = "Timeline";
+"ONBOARDING_NEWS_PAGE_TWO_DESCRIPTION" = "Sign In, share and save your favorites news";
+"ONBOARDING_NEWS_PAGE_TWO_TITLE" = "Favorites";
+"ONBOARDING_NEXT" = "Skip";
