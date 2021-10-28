@@ -80,7 +80,7 @@ class NewsDetailsTextCell: UITableViewCell {
             case let .link(url: url):
                 let rangeLength = formattedItem.range.length + url.absoluteString.count + 4
                 let nsrange = NSRange(location: formattedItem.range.location-1-offset, length: rangeLength)
-                guard let range = Range(nsrange, in: text) else {
+                guard let range = Range(nsrange, in: result) else {
                     continue
                 }
                 result.replaceSubrange(range, with: formattedItem.text)
@@ -92,7 +92,7 @@ class NewsDetailsTextCell: UITableViewCell {
                  .italic:
                 let rangeLength = formattedItem.range.length + 4
                 let nsrange = NSRange(location: formattedItem.range.location-2-offset, length: rangeLength)
-                guard let range = Range(nsrange, in: text) else {
+                guard let range = Range(nsrange, in: result) else {
                     continue
                 }
                 result.replaceSubrange(range, with: formattedItem.text)
