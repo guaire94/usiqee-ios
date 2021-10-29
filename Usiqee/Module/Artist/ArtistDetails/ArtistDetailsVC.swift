@@ -100,14 +100,8 @@ class ArtistDetailsVC: UIViewController {
     private func setupContent() {
         nameLabel.text = artist.name.uppercased()
         let storage = Storage.storage().reference(forURL: artist.avatar)
-        mainImage.sd_setImage(with: storage)
-        
-        fullImage.withShimmer = true
-        fullImage.startShimmerAnimation()
-        fullImage.sd_setImage(with: storage, placeholderImage: nil) { (_, _, _, _) in
-            self.fullImage.stopShimmerAnimation()
-        }
-
+        mainImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
+        fullImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
         setupFollowButton()
     }
     

@@ -46,19 +46,14 @@ class ArtistDetailsNewsCell: UITableViewCell {
 
     func configure(item: RelatedNewsItem) {
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.withShimmer = true
-        newsCover.startShimmerAnimation()
-        newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.newsCover.stopShimmerAnimation()
-        }
-        
+        newsCover.sd_setImage(with: coverStorage, placeholderImage: UIImage.placeHolderRect)
         titleLabel.text = item.news.title
         dateLabel.text = L10N.News.dateTimeAgo(item.news.date.dateValue().timeAgo)
 
         guard let author = item.author else { return }
         authorView.isHidden = false
         let authorStorage = Storage.storage().reference(forURL: author.avatar)
-        authorAvatar.sd_setImage(with: authorStorage)
+        authorAvatar.sd_setImage(with: authorStorage, placeholderImage: UIImage.placeHolderRound)
         authorLabel.text = author.name
     }
 }

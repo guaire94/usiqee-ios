@@ -29,4 +29,12 @@ extension UIImage {
         
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+    
+    static var placeHolderRound: UIImage? {
+        UIImage(named: "placeholderRound")
+    }
+    
+    static var placeHolderRect: UIImage? {
+        UIImage(named: "placeholderRect")
+    }
 }

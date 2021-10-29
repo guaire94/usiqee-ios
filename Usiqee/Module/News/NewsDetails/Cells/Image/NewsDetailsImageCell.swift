@@ -26,6 +26,10 @@ class NewsDetailsImageCell: UITableViewCell {
     private weak var delegate: NewsDetailsImageCellDelegate?
     
     // MARK: - LifeCycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -39,12 +43,9 @@ class NewsDetailsImageCell: UITableViewCell {
             setImageRatio(ratio)
         }
         let storage = Storage.storage().reference(forURL: url)
-        contentImage.withShimmer = true
-        contentImage.startShimmerAnimation()
-        contentImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] image, _, _, _ in
+        contentImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect) { [weak self] image, _, _, _ in
             guard let self = self,
                   let image = image else { return }
-            self.contentImage.stopShimmerAnimation()
             DispatchQueue.main.async {
                 self.delegate?.didLoadImage(for: self, image: image)
             }

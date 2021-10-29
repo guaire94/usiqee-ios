@@ -28,6 +28,12 @@ class EventDetailsOverviewCell: UITableViewCell {
         setupView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        eventImage.sd_cancelCurrentImageLoad()
+        eventImage.image = nil
+    }
+    
     func configure(information: EventDetailsOverview) {
         descriptionLabel.text = information.description.uppercased()
         typeLabel.text = information.type.title.uppercased()
@@ -35,11 +41,7 @@ class EventDetailsOverviewCell: UITableViewCell {
         
         guard let avatar = information.avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        eventImage.withShimmer = true
-        eventImage.startShimmerAnimation()
-        eventImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.eventImage.stopShimmerAnimation()
-        }
+        eventImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
     }
 
     // MARK: - Private
