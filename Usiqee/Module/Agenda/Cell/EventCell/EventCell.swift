@@ -67,10 +67,6 @@ class EventCell: UITableViewCell {
     private func set(avatar: String?) {
         guard let avatar = avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        avatarImage.withShimmer = true
-        avatarImage.startShimmerAnimation()
-        avatarImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.avatarImage.stopShimmerAnimation()
-        }
+        avatarImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
     }
 }

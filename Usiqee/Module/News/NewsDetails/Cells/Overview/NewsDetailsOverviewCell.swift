@@ -43,6 +43,7 @@ class NewsDetailsOverviewCell: UITableViewCell {
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         authorView.isHidden = true
         authorLabel.font = Fonts.NewsDetails.Overview.author
         titleLabel.font = Fonts.NewsDetails.Overview.title
@@ -67,12 +68,9 @@ class NewsDetailsOverviewCell: UITableViewCell {
     
     func configure(item: NewsItem, delegate: NewsDetailsOverviewCellDelegate?) {
         self.delegate = delegate
+        
         let coverStorage = Storage.storage().reference(forURL: item.news.cover)
-        newsCover.withShimmer = true
-        newsCover.startShimmerAnimation()
-        newsCover.sd_setImage(with: coverStorage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.newsCover.stopShimmerAnimation()
-        }
+        newsCover.sd_setImage(with: coverStorage, placeholderImage: UIImage.placeHolderRect)
         
         titleLabel.text = item.news.title
 

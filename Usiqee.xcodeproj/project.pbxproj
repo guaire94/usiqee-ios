@@ -197,11 +197,6 @@
 		EE09221925F16518002C0174 /* MItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221825F16518002C0174 /* MItemType.swift */; };
 		EE09221D25F16583002C0174 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE09221C25F16583002C0174 /* Language.swift */; };
 		EE18832F265BFB1A004B0D29 /* applanga_settings.applanga in Resources */ = {isa = PBXBuildFile; fileRef = EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */; };
-		EE56983B2710B33800F215C8 /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5698362710B33800F215C8 /* UIView+Shimmer.swift */; };
-		EE56983C2710B33800F215C8 /* ShimmerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5698372710B33800F215C8 /* ShimmerAnimation.swift */; };
-		EE56983D2710B33800F215C8 /* ShimmerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5698382710B33800F215C8 /* ShimmerOptions.swift */; };
-		EE56983E2710B33800F215C8 /* UICollectionView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5698392710B33800F215C8 /* UICollectionView+Shimmer.swift */; };
-		EE56983F2710B33800F215C8 /* UITableView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE56983A2710B33800F215C8 /* UITableView+Shimmer.swift */; };
 		EE56984127116FDD00F215C8 /* ServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE56984027116FDD00F215C8 /* ServiceConfig.swift */; };
 		EE5698442711702E00F215C8 /* AdsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5698432711702E00F215C8 /* AdsConfig.swift */; };
 		EE569846271170D700F215C8 /* ManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE569845271170D700F215C8 /* ManagerConfig.swift */; };
@@ -426,11 +421,6 @@
 		EE09221825F16518002C0174 /* MItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MItemType.swift; sourceTree = "<group>"; };
 		EE09221C25F16583002C0174 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		EE18832E265BFB1A004B0D29 /* applanga_settings.applanga */ = {isa = PBXFileReference; lastKnownFileType = file; path = applanga_settings.applanga; sourceTree = "<group>"; };
-		EE5698362710B33800F215C8 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmer.swift"; sourceTree = "<group>"; };
-		EE5698372710B33800F215C8 /* ShimmerAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmerAnimation.swift; sourceTree = "<group>"; };
-		EE5698382710B33800F215C8 /* ShimmerOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmerOptions.swift; sourceTree = "<group>"; };
-		EE5698392710B33800F215C8 /* UICollectionView+Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Shimmer.swift"; sourceTree = "<group>"; };
-		EE56983A2710B33800F215C8 /* UITableView+Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Shimmer.swift"; sourceTree = "<group>"; };
 		EE56984027116FDD00F215C8 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = "<group>"; };
 		EE5698432711702E00F215C8 /* AdsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsConfig.swift; sourceTree = "<group>"; };
 		EE569845271170D700F215C8 /* ManagerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerConfig.swift; sourceTree = "<group>"; };
@@ -668,7 +658,6 @@
 		676EAF4B2633494200656B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE5698352710B32700F215C8 /* ShimmerView */,
 				67C48BB92646DFA400F27B35 /* FilledButton */,
 				67A2541C263D8149008167DB /* ImagePicker */,
 				6751E06A262CBC0B00AC6509 /* MSegmentedMenu */,
@@ -1444,18 +1433,6 @@
 			path = Language;
 			sourceTree = "<group>";
 		};
-		EE5698352710B32700F215C8 /* ShimmerView */ = {
-			isa = PBXGroup;
-			children = (
-				EE5698372710B33800F215C8 /* ShimmerAnimation.swift */,
-				EE5698382710B33800F215C8 /* ShimmerOptions.swift */,
-				EE5698392710B33800F215C8 /* UICollectionView+Shimmer.swift */,
-				EE56983A2710B33800F215C8 /* UITableView+Shimmer.swift */,
-				EE5698362710B33800F215C8 /* UIView+Shimmer.swift */,
-			);
-			path = ShimmerView;
-			sourceTree = "<group>";
-		};
 		EE5698422711702500F215C8 /* RemoteConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,7 +1696,6 @@
 				B8B7DAF1255857CA00B33BDB /* TabsVC.swift in Sources */,
 				67FA27952677D1D500482131 /* ArtistDetailsTableViewHandler.swift in Sources */,
 				EE0921E325F15DA5002C0174 /* Like.swift in Sources */,
-				EE56983C2710B33800F215C8 /* ShimmerAnimation.swift in Sources */,
 				67F720AB262C1A3A00C9C84E /* AllMusicalEntityView.swift in Sources */,
 				EED377DA27038E6B00895D88 /* MOnBoardingItem.swift in Sources */,
 				EE09220525F1617A002C0174 /* RelatedRelease.swift in Sources */,
@@ -1744,7 +1720,6 @@
 				6731F3FA2694EE220050E692 /* NewsDetailsTextCell.swift in Sources */,
 				67FA275C2670129000482131 /* ManagerDeepLink.swift in Sources */,
 				B836B6252548E73400AAF48A /* Event.swift in Sources */,
-				EE56983D2710B33800F215C8 /* ShimmerOptions.swift in Sources */,
 				B87B263D25422A0D007D4A4D /* Artist.swift in Sources */,
 				67FA27E3267BEF8600482131 /* BandDetailsTableViewHandler.swift in Sources */,
 				EED3779C27034AE300895D88 /* OnBoardingVC.swift in Sources */,
@@ -1785,7 +1760,6 @@
 				B84ECBF52541AFD8007F8E9E /* Band.swift in Sources */,
 				679B19A92666C6220026568B /* MonthYearDatePickerView.swift in Sources */,
 				B84ECBC025403840007F8E9E /* Config.swift in Sources */,
-				EE56983B2710B33800F215C8 /* UIView+Shimmer.swift in Sources */,
 				EE0921EA25F15DF8002C0174 /* RelatedArtist.swift in Sources */,
 				B87B264C254232C6007D4A4D /* AnimateLaunchScreenVC.swift in Sources */,
 				6731F458269618F80050E692 /* NewsDetailsVideoCell.swift in Sources */,
@@ -1811,7 +1785,6 @@
 				679B199B266168350026568B /* EventsFilterTableViewHandler.swift in Sources */,
 				B82FE3AA255DF10E00B52099 /* MDatePickerField.swift in Sources */,
 				67FA2758266EBB9C00482131 /* EventFooterView.swift in Sources */,
-				EE56983E2710B33800F215C8 /* UICollectionView+Shimmer.swift in Sources */,
 				EE724D0526AF2DE90061977D /* ArtistDetailsNewsCell.swift in Sources */,
 				EE983B3126DBB8A800A706A0 /* String+M.swift in Sources */,
 				6731F3F42694AD560050E692 /* NewsDetailsOverviewCell.swift in Sources */,
@@ -1842,7 +1815,6 @@
 				670BAEAF26C5A7C300CE83CC /* NewsAdCell.swift in Sources */,
 				EE56984127116FDD00F215C8 /* ServiceConfig.swift in Sources */,
 				67BBFC11265012F600A14DCD /* UITableView+M.swift in Sources */,
-				EE56983F2710B33800F215C8 /* UITableView+Shimmer.swift in Sources */,
 				6731F3D6268BC33B0050E692 /* ManagerNews.swift in Sources */,
 				EEB3A12526E297B000C52D15 /* HelperTracking.swift in Sources */,
 				676079C626CDA67C00008169 /* NewsDetailsRelatedMusicalEntitiesCell.swift in Sources */,

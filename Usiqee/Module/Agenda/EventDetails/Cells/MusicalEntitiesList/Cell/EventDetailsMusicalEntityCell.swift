@@ -28,13 +28,15 @@ class EventDetailsMusicalEntityCell: UICollectionViewCell {
         artistNameLabel.font = Fonts.EventDetails.musicalEntityName
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        artistImage.sd_cancelCurrentImageLoad()
+        artistImage.image = nil
+    }
+    
     func configure(musicalEntity: RelatedMusicalEntity) {
         artistNameLabel.text = musicalEntity.name
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
-        artistImage.withShimmer = true
-        artistImage.startShimmerAnimation()
-        artistImage.sd_setImage(with: storage, placeholderImage: nil) { [weak self] _, _, _, _ in
-            self?.artistImage.stopShimmerAnimation()
-        }
+        artistImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
     }
 }
