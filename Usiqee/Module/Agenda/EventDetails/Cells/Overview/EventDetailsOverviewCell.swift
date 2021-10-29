@@ -28,6 +28,12 @@ class EventDetailsOverviewCell: UITableViewCell {
         setupView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        eventImage.sd_cancelCurrentImageLoad()
+        eventImage.image = nil
+    }
+    
     func configure(information: EventDetailsOverview) {
         descriptionLabel.text = information.description.uppercased()
         typeLabel.text = information.type.title.uppercased()
@@ -35,7 +41,7 @@ class EventDetailsOverviewCell: UITableViewCell {
         
         guard let avatar = information.avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        eventImage.sd_setImage(with: storage)
+        eventImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
     }
 
     // MARK: - Private

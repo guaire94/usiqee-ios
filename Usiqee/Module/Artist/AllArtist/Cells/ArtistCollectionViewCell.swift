@@ -20,6 +20,13 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var artistNameLabel: UILabel!
     @IBOutlet weak private var artistImage: CircularImageView!
     
+    // MARK: - Lifecycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        artistImage.sd_cancelCurrentImageLoad()
+        artistImage.image = nil
+    }
+    
     // MARK: - Public
     func configure(artist: MusicalEntity) {
         set(name: artist.name, font: Fonts.AllArtist.Cell.title)
@@ -50,6 +57,6 @@ class ArtistCollectionViewCell: UICollectionViewCell {
     
     private func set(image: String) {
         let storage = Storage.storage().reference(forURL: image)
-        artistImage.sd_setImage(with: storage)
+        artistImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
     }
 }

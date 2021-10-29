@@ -96,8 +96,8 @@ class BandDetailsVC: UIViewController {
     private func setupContent() {
         nameLabel.text = band.name.uppercased()
         let storage = Storage.storage().reference(forURL: band.avatar)
-        fullImage.sd_setImage(with: storage)
-        mainImage.sd_setImage(with: storage)
+        mainImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
+        fullImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
         setupFollowButton()
     }
     

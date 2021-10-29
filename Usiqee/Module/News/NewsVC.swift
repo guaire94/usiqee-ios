@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import AppTrackingTransparency
 
 class NewsVC: UIViewController {
     
@@ -14,7 +15,7 @@ class NewsVC: UIViewController {
     enum Constants {
         static let identifier = "NewsVC"
     }
-
+    
     // MARK: - IBOutlet
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var loaderView: UIView!
@@ -27,8 +28,15 @@ class NewsVC: UIViewController {
         super.viewDidLoad()
         HelperTracking.track(item: .news)
         setupView()
-        if !HelperOnBoarding.shared.haveSeenNewsOnBoarding {
-            displayOnBoarding(item: .news)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        requestTrackingAuthorization()
+        (UIApplication.shared.delegate as? AppDelegate)?.registerForPushNotifications()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if !HelperOnBoarding.shared.haveSeenNewsOnBoarding {
+                self.displayOnBoarding(item: .news)
+            }
         }
     }
     
@@ -36,8 +44,8 @@ class NewsVC: UIViewController {
         if segue.identifier == NewsDetailsVC.Constants.identifier {
             guard let vc = segue.destination as? NewsDetailsVC,
                   let news = sender as? NewsItem else {
-                return
-            }
+                      return
+                  }
             
             vc.news = news
         }
@@ -65,6 +73,21 @@ class NewsVC: UIViewController {
                            forCellReuseIdentifier: NewsCarouselCell.Constants.identifier)
         tableView.register(NewsAdCell.Constants.nib,
                            forCellReuseIdentifier: NewsAdCell.Constants.identifier)
+    }
+    
+    private func requestTrackingAuthorization() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization  { status in
+                let trackingItem: Tracking
+                switch status {
+                case .authorized:
+                    trackingItem = .trackingConsentAuthorized
+                default:
+                    trackingItem = .trackingConsentRejected
+                }
+                HelperTracking.track(item: trackingItem)
+            }
+        }
     }
     
     private func addLoadingFooter() {

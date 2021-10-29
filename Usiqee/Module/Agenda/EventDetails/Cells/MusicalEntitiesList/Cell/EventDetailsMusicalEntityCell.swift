@@ -28,9 +28,15 @@ class EventDetailsMusicalEntityCell: UICollectionViewCell {
         artistNameLabel.font = Fonts.EventDetails.musicalEntityName
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        artistImage.sd_cancelCurrentImageLoad()
+        artistImage.image = nil
+    }
+    
     func configure(musicalEntity: RelatedMusicalEntity) {
         artistNameLabel.text = musicalEntity.name
         let storage = Storage.storage().reference(forURL: musicalEntity.avatar)
-        artistImage.sd_setImage(with: storage)
+        artistImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
     }
 }

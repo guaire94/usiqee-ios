@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "placeholderArtist.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -44,6 +44,11 @@ class ArtistDetailsVC: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupContent()
+    }
+
     deinit {
         ServiceArtist.detachRelatedListeners()
     }
@@ -53,7 +58,6 @@ class ArtistDetailsVC: UIViewController {
         setupTableViewHelper()
         setupMenu()
         setupDescriptions()
-        setupContent()
         setupTableView()
         setupListeners()
     }
@@ -96,8 +100,8 @@ class ArtistDetailsVC: UIViewController {
     private func setupContent() {
         nameLabel.text = artist.name.uppercased()
         let storage = Storage.storage().reference(forURL: artist.avatar)
-        fullImage.sd_setImage(with: storage)
-        mainImage.sd_setImage(with: storage)
+        mainImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
+        fullImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
         setupFollowButton()
     }
     
@@ -270,9 +274,7 @@ extension ArtistDetailsVC: UITableViewDelegate {
                 }
             }
         case let .event(event: event):
-            guard let eventDetailsVC = UIViewController.eventDetailsVC else {
-                return
-            }
+            guard let eventDetailsVC = UIViewController.eventDetailsVC else { return }
             
             eventDetailsVC.eventId = event.eventId
             HelperTracking.track(item: .artistDetailsOpenEvent)

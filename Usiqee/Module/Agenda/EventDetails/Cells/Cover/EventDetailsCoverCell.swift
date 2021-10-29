@@ -20,9 +20,19 @@ class EventDetailsCoverCell: UITableViewCell {
     @IBOutlet weak private var coverImage: UIImageView!
     
     // MARK: - LifeCycle
-    func configure(cover: String) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         selectionStyle = .none
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        coverImage.sd_cancelCurrentImageLoad()
+        coverImage.image = nil
+    }
+    
+    func configure(cover: String) {
         let storage = Storage.storage().reference(forURL: cover)
-        coverImage.sd_setImage(with: storage)
+        coverImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRect)
     }
 }

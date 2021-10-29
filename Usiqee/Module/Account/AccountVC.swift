@@ -32,16 +32,20 @@ class AccountVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == NewsDetailsVC.Constants.identifier {
+        if segue.identifier == ArtistDetailsVC.Constants.identifer {
+            guard let vc = segue.destination as? ArtistDetailsVC,
+                  let artist = sender as? Artist else { return }
+            vc.artist = artist
+        } else if segue.identifier == BandDetailsVC.Constants.identifer {
+            guard let vc = segue.destination as? BandDetailsVC,
+                  let band = sender as? Band else { return }
+            vc.band = band
+        } else if segue.identifier == NewsDetailsVC.Constants.identifier {
             guard let vc = segue.destination as? NewsDetailsVC,
-                  let news = sender as? NewsItem else {
-                return
-            }
-            
+                  let news = sender as? NewsItem else { return }
             vc.news = news
         } else if segue.identifier == AccountSettingsVC.Constants.identifier {
             guard let vc = segue.destination as? AccountSettingsVC else { return }
-            
             vc.delegate = self
         }
     }
@@ -75,6 +79,22 @@ extension AccountVC: NotLoggedViewDelegate {
 extension AccountVC: AccountDetailsViewDelegate {
     func didTapSettings() {
         performSegue(withIdentifier: AccountSettingsVC.Constants.identifier, sender: nil)
+    }
+    
+    func didTapFollowedMusicalEntity(relatedMusicalEntity: RelatedMusicalEntity) {
+        if let artist = relatedMusicalEntity as? RelatedArtist {
+            ServiceArtist.getArtist(artistId: artist.artistId) { artist in
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: ArtistDetailsVC.Constants.identifer, sender: artist)
+                }
+            }
+        } else if let band = relatedMusicalEntity as? RelatedBand {
+            ServiceBand.getBand(bandId: band.bandId) { band in
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: BandDetailsVC.Constants.identifer, sender: band)
+                }
+            }
+        }
     }
     
     func didTapLikedNews(likedNews: RelatedNews) {

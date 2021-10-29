@@ -67,6 +67,6 @@ class EventCell: UITableViewCell {
     private func set(avatar: String?) {
         guard let avatar = avatar else { return }
         let storage = Storage.storage().reference(forURL: avatar)
-        avatarImage.sd_setImage(with: storage)
+        avatarImage.sd_setImage(with: storage, placeholderImage: UIImage.placeHolderRound)
     }
 }
